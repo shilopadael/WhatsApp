@@ -1,16 +1,34 @@
 body {
-    background-image: linear-gradient(#c8defe, transparent), url("assests/images/bgpattern.png");
+  height: 100vh;
+  background-image: linear-gradient(#7295ca, transparent), url("assests/images/bgpattern.png");
 }
+
+
+/* .lowerScreen {
+  display: relative;
+  justify-content: center;
+  align-items: center;
+  height: 82vh;
+  background-image: linear-gradient(#c8defe, transparent), url("assests/images/bgpattern.png");
+  z-index: 2;
+} */
+
+.topScreen {
+  display: relative;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 18vh;
+  background-color: rgb(28, 33, 37);
+  z-index: 2;
+}
+
 
 img:hover {
     animation: shake 0.5s;
     animation-iteration-count: 1;
 }
 
-.input-effect input:focus{
-    animation: shake 0.5s;
-    animation-iteration-count: 1;
-}
 
 @keyframes inputsShake {
     0% {
@@ -32,10 +50,10 @@ img:hover {
       margin-left: 0rem;
     }
     25% {
-      margin-left: 0.4rem;
+      margin-left: 0.2rem;
     }
     75% {
-      margin-left: -0.4rem;
+      margin-left: -0.2rem;
     }
     100% {
       margin-left: 0rem;
@@ -54,12 +72,43 @@ img:hover {
 }
 
 #logo{
-    width: 20px;
-    height: 20px;
+    width: 25px;
+    height: 25px;
+    background-color: rgb(255, 255, 255);
 }
 
 @media all and (max-width: 996px) and (min-width: 768px) {
     #btnLogin {
         padding-left: 2rem;
     }
+}
+
+
+#profilePic{
+  margin-bottom: 1rem;
+}
+
+#profileImg{
+    width: 230px;
+    height: 230px;
+    border-radius: 50%;
+    border: 1px solid #c8defe;
+}
+
+.circular--square { 
+  border-top-left-radius: 50% 50%; 
+  border-top-right-radius: 50% 50%; 
+  border-bottom-right-radius: 50% 50%; 
+  border-bottom-left-radius: 50% 50%; }
+
+  
+  .center {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 50%;
+  }
+
+#topLogo {
+  color: white;
 }
