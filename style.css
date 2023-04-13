@@ -3,6 +3,9 @@ body {
   background-image: linear-gradient(#7295ca, transparent), url("assests/images/bgpattern.png");
 }
 
+/* u {
+  text-decoration: underline;
+} */
 
 /* .lowerScreen {
   display: relative;
