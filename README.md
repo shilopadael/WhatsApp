@@ -12,29 +12,25 @@ Note: The current version of the project only has a visual representation of the
 </ul>
     
 <h2>Technologies Used</h2>
-	<ul>
-		<li>HTML: the markup language used to structure the web pages</li>
-		<li>CSS: the styling language used to design the web pages</li>
-		<li>Bootstrap: a popular CSS framework used to make responsive and mobile-first websites</li>
-	</ul>
+<ul>
+	<li>HTML: the markup language used to structure the web pages</li>
+	<li>CSS: the styling language used to design the web pages</li>
+	<li>Bootstrap: a popular CSS framework used to make responsive and mobile-first websites</li>
+</ul>
 <h1>Installation</h1>
 <ol>
 	<li>Clone the repository to your local machine:</li>
 </ol>
-<code>git clone https://github.com/shilopadael/Advance-Programing-Project-2</code>
+	<code>git clone https://github.com/shilopadael/Advance-Programing-Project-2</code>
 <ol start="2">
 	<li>Navigate to the project directory:</li>
 </ol>
-<code>cd ChatApp</code>
+	<code>Advance-Programing-Project-2</code>
 <ol start="3">
 	<li>Open the index.html file in your web browser:</li>
 </ol>
-<code>open index.html</code>
+	<code>open index.html</code>
 
 
 <h1>Credits</h1>
 <p>The project was built by Shilo Padael and Omer Bar, with the help of online resources and tutorials.</p>
-
-<h1>License</h1>
-<p>This project is licensed under the MIT License.</p>
-
