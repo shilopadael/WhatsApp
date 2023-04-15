@@ -19,9 +19,11 @@ Note: The current version of the project only has a visual representation of the
 </ul>
 <h1>Installation</h1>
 <ol>
-	<li>Clone the repository to your local machine:</li>
+	<li>Clone the repository to your local machine:
+	<br><code>git clone https://github.com/shilopadael/Advance-Programing-Project-2</code>
+	</li>
 </ol>
-	<code>git clone https://github.com/shilopadael/Advance-Programing-Project-2</code>
+	
 <ol start="2">
 	<li>Navigate to the project directory:</li>
 </ol>
