@@ -30,8 +30,8 @@
 </ol>
 	
 <ol start="3">
-	<li>Open the index.html file in your web browser:<br>
-		<code>open index.html</code>
+	<li>Open the *.html file in your web browser(each for different page):<br>
+		<code>open [chat_page]"or"[login_page]"or"[register].html</code>
 	</li>
 </ol>
 	
