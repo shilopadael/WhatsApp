@@ -3,8 +3,8 @@
 
 Note: The current version of the project only has a visual representation of the pages and doesn't yet have full functionality.
 </p>
-
-<h3>Features</h3>
+<h1>Milestone 1:Design and Setup</h1>
+<h2>Features</h2>
 <ul>
   <li>Login page: allows users to enter their login credentials and authenticate their identity</li>
   <li>Registration page: allows new users to create an account and provide their personal information</li>
@@ -12,11 +12,11 @@ Note: The current version of the project only has a visual representation of the
 </ul>
     
 <h2>Technologies Used</h2>
-<ul>
-  <il>HTML: the markup language used to structure the web pages</il>
-  <il>CSS: the styling language used to design the web pages</il>
-  <il>Bootstrap: a popular CSS framework used to make responsive and mobile-first websites</il>
-</ul>
+	<ul>
+		<li>HTML: the markup language used to structure the web pages</li>
+		<li>CSS: the styling language used to design the web pages</li>
+		<li>Bootstrap: a popular CSS framework used to make responsive and mobile-first websites</li>
+	</ul>
 <h1>Installation</h1>
 <ol>
 	<li>Clone the repository to your local machine:</li>
