@@ -25,14 +25,16 @@ Note: The current version of the project only has a visual representation of the
 </ol>
 	
 <ol start="2">
-	<li>Navigate to the project directory:</li>
+	<li>Navigate to the project directory:<br>
+		<code>Advance-Programing-Project-2</code>
+	</li>
 </ol>
-	<code>Advance-Programing-Project-2</code>
+	
 <ol start="3">
-	<li>Open the index.html file in your web browser:</li>
+	<li>Open the index.html file in your web browser:<br>
+		<code>open index.html</code>
+	</li>
 </ol>
-	<code>open index.html</code>
-
-
+	
 <h1>Credits</h1>
 <p>The project was built by Shilo Padael and Omer Bar, with the help of online resources and tutorials.</p>
