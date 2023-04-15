@@ -25,7 +25,7 @@
 	
 <ol start="2">
 	<li>Navigate to the project directory:<br>
-		<code>Advance-Programing-Project-2</code>
+		<code>cd Advance-Programing-Project-2</code>
 	</li>
 </ol>
 	
