@@ -6,9 +6,9 @@ Note: The current version of the project only has a visual representation of the
 
 <h3>Features</h3>
 <ul>
-  <il>Login page: allows users to enter their login credentials and authenticate their identity</il>
-  <il>Registration page: allows new users to create an account and provide their personal information</il>
-  <il>Main chat interface: allows users to send and receive messages in real-time, view conversations, and access settings</il>
+  <li>Login page: allows users to enter their login credentials and authenticate their identity</li>
+  <li>Registration page: allows new users to create an account and provide their personal information</li>
+  <li>Main chat interface: allows users to send and receive messages in real-time, view conversations, and access settings</li>
 </ul>
     
 <h2>Technologies Used</h2>
@@ -17,22 +17,24 @@ Note: The current version of the project only has a visual representation of the
   <il>CSS: the styling language used to design the web pages</il>
   <il>Bootstrap: a popular CSS framework used to make responsive and mobile-first websites</il>
 </ul>
-<h2>Installation</h2>
+<h1>Installation</h1>
+<ol>
+	<li>Clone the repository to your local machine:</li>
+</ol>
+<code>git clone https://github.com/shilopadael/Advance-Programing-Project-2</code>
+<ol start="2">
+	<li>Navigate to the project directory:</li>
+</ol>
+<code>cd ChatApp</code>
+<ol start="3">
+	<li>Open the index.html file in your web browser:</li>
+</ol>
+<code>open index.html</code>
 
-    Clone the repository to your local machine:
 
-    bash
+<h1>Credits</h1>
+<p>The project was built by Shilo Padael and Omer Bar, with the help of online resources and tutorials.</p>
 
-'git clone https://github.com/<username>/ChatApp.git'
+<h1>License</h1>
+<p>This project is licensed under the MIT License.</p>
 
-Navigate to the project directory:
-
-bash
-
-'cd ChatApp'
-
-Open the index.html file in your web browser:
-
-arduino
-
-'open index.html'
