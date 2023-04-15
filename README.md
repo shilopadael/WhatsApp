@@ -1,7 +1,6 @@
 # Advancad Programming 2 - WhatsApp Project
 <p>ChatApp is a web application built to resemble a messaging platform like WhatsApp. The project is currently in its first milestone, which includes building the login page, registration page, and the main chat interface.
 
-Note: The current version of the project only has a visual representation of the pages and doesn't yet have full functionality.
 </p>
 <h1>Milestone 1:Design and Setup</h1>
 <h2>Features</h2>
