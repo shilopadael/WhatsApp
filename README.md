@@ -7,7 +7,7 @@
 <ul>
   <li>Login page: allows users to enter their login credentials and authenticate their identity</li>
   <li>Registration page: allows new users to create an account and provide their personal information</li>
-  <li>Main chat interface: allows users to send and receive messages in real-time, view conversations, and access settings</li>
+  <li>Main chat interface: The app enables users to view their conversations, create new chats, and participate in existing ones.</li>
 </ul>
     
 <h2>Technologies Used</h2>
