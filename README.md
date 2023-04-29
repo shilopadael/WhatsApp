@@ -34,7 +34,7 @@
 	
 <ol start="3">
 	<li>Open the *.html file in your web browser(each for different page):<br>
-		<code>open [chat_page]"or"[login_page]"or"[register].html</code>
+		<code>open [chat]"or"[login]"or"[register].html</code>
 	</li>
 </ol>
 	
