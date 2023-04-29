@@ -1,3 +1,6 @@
+<h1>the submission of ex1 inside branch name <b>ex1</b>!</h1>
+
+
 # Advancad Programming 2 - WhatsApp Project
 <p>ChatApp is a web application built to resemble a messaging platform like WhatsApp. The project is currently in its first milestone, which includes building the login page, registration page, and the main chat interface.
 
