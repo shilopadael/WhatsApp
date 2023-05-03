@@ -1,4 +1,4 @@
-<h1>the submission of ex1 inside branch name <b>ex1</b>!</h1>
+<h1>this is the main branch for ex1Part2, transforming the html to react-app, until 14.5!</h1>
 
 
 # Advancad Programming 2 - WhatsApp Project
