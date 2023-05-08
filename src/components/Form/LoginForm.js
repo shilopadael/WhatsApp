@@ -1,11 +1,11 @@
 
-import Input from "./Input";
+import FormInput from "./FormInput";
 
 function LoginForm() {
     return (
         <form className="m-4" id="loginForm">
-            <Input type="email" id="loginEmail" placeholder="enter your email" className="form-control" label="Email" />
-            <Input type="password" id="loginPassword" placeholder="enter your password" className="form-control" label="Password" />
+            <FormInput type="email" id="loginEmail" placeholder="enter your email" className="form-control" label="Email" />
+            <FormInput type="password" id="loginPassword" placeholder="enter your password" className="form-control" label="Password" />
             <div className="form-group form-check">
                 <div className="row">
                     <div className="col-md-6">

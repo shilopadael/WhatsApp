@@ -3,7 +3,8 @@ import HeaderText from "../HeaderText/HeaderText";
 import RegisterForm from "../Form/RegisterForm";
 import "../style.css";
 
-function RegisterPage() {
+function RegisterPage(props) {
+    const { userLst , ...other} = props;
     return (
         <div className="topScreen">
             <section className="mt-0 flex-column min-vh-100 justify-content-center align-item-center">
@@ -15,7 +16,7 @@ function RegisterPage() {
                             {/* registration form header */}
                             <HeaderText content="Register To Chat System" />
                             {/* registration form */}
-                            <RegisterForm />
+                            <RegisterForm userLst={userLst}/>
                         </div>
                     </div>
                 </div>

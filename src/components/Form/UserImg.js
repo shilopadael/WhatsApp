@@ -1,13 +1,10 @@
-import defaultImg from "../../assets/registerImg/profile.png"
-import Input from "./Input";
-import { useState } from "react";
+import Input from "./FormInput";
 
-function UserImg() {
-
-    const [img, setImg] = useState(defaultImg);
+function UserImg(props) {
+    const { img ,setImg } = props;
 
     function changeImg() {
-        console.log("changeImg");
+
         const input = document.getElementById('profilePic');
         const file = input.files[0];
         const reader = new FileReader();

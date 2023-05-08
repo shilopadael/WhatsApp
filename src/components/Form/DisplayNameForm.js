@@ -1,6 +1,6 @@
-import Input from "./Input";
+import Input from "./FormInput";
 
-function DisplayNameForm() {
+function DisplayNameForm(info) {
     return (
         <div className="form-group input-effect">
             <Input
@@ -11,9 +11,6 @@ function DisplayNameForm() {
                 required=""
                 label="Display name"
             />
-            <div className="invalid-feedback">
-                You must have a nickname.
-            </div>
         </div>
     );
 }
