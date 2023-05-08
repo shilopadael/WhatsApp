@@ -21,7 +21,7 @@ function LoginPage() {
                                 <div>
                                     <p className="text-center">
                                         Don't have an account?{" "}
-                                        <a href="/register.html" className="text-decoration-none">
+                                        <a href="/register" className="text-decoration-none">
                                             Sign up
                                         </a>
                                     </p>
