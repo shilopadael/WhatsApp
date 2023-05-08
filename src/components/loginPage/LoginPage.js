@@ -3,8 +3,13 @@ import ChatSystemLogo from "../ChatSystemLogo/ChatSystemLogo";
 import HeaderText from "../HeaderText/HeaderText";
 import LoginForm from "../Form/LoginForm";
 import LoginImg from "./loginImg/LoginImg";
+import { Link } from "react-router-dom";
 
-function LoginPage() {
+
+function LoginPage(props) {
+
+    const { userLst } = props;
+
     return (
         <div className="topScreen">
             <div className="container-lg">
@@ -15,15 +20,15 @@ function LoginPage() {
                         <div className="row">
                             <div className="col-md-6">
                                 {/* the login form header */}
-                                <HeaderText content="Welcome To Chat System"/>
+                                <HeaderText content="Welcome To Chat System" />
                                 {/* login form */}
-                                <LoginForm/>
+                                <LoginForm userLst={userLst}/>
                                 <div>
                                     <p className="text-center">
                                         Don't have an account?{" "}
-                                        <a href="/register" className="text-decoration-none">
+                                        <Link to="/register" className="text-decoration-none">
                                             Sign up
-                                        </a>
+                                        </Link>
                                     </p>
                                 </div>
                             </div>

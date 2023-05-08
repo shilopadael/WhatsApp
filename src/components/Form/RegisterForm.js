@@ -3,10 +3,14 @@ import validate from "./FormValidation";
 import FormInput from "./FormInput";
 import UserImg from "./UserImg";
 import { useState } from "react";
+import { Link } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
 
 
 function RegisterForm(props) {
+
+    const navigate = useNavigate();
 
     const { userLst, ...other } = props;
 
@@ -15,7 +19,7 @@ function RegisterForm(props) {
     const [confirmPassword, setConfirm] = useState("");
     const [displayName, setDisplayName] = useState("");
     const [img, setImg] = useState(defaultImg);
-    
+
     const handleEmailChange = (e) => {
         setEmail(e.target.value);
     }
@@ -34,7 +38,7 @@ function RegisterForm(props) {
 
         // validation
         const val = validate(email, password, confirmPassword, displayName);
-        if(!val) {
+        if (!val) {
             return;
         } else {
             // checking if the email already exist
@@ -46,15 +50,20 @@ function RegisterForm(props) {
             }
             // if got here adding the new username:
 
-            let data = {"email" : email, "password" : password, 
-                        "displayName" : displayName, img: img };
+            let data = {
+                "email": email, "password": password,
+                "displayName": displayName, img: img
+            };
             userLst.push(data);
-            console.log(data);
+            alert("You have successfully registered. retuning to the login page.");
+            // redirecting to the login page
+            navigate("/");
+            return;
         }
     }
-    
+
     return (
-        <form  action="#" className="form-horizontal needs-validation" onSubmit={handleSubmit}>
+        <form action="#" className="form-horizontal needs-validation" onSubmit={handleSubmit}>
             {/* forther improvment: adding validation to the field, including password valid (both the same, 8-20 char long) */}
             <div className="row">
                 <div className="col-md">
@@ -109,16 +118,16 @@ function RegisterForm(props) {
                     </div>
                 </div>
                 <div className="col-md">
-                    <UserImg setImg={setImg} img={img}/>
+                    <UserImg setImg={setImg} img={img} />
                 </div>
             </div>
             <div className="col-md-6">
                 <div>
                     <p className="text-center">
                         Already have an account?{" "}
-                        <a href="/login.html" className="text-decoration-none">
+                        <Link to="/" className="text-decoration-none">
                             Sign in
-                        </a>
+                        </Link>
                     </p>
                 </div>
                 <button
