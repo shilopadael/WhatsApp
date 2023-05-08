@@ -29,8 +29,8 @@ function LoginForm(props) {
 
     return (
         <form ref={formRef} className="m-4" id="loginForm" onSubmit={handleLoginSubmit}>
-            <FormInput type="email" id="loginEmail" placeholder="enter your email" className="form-control" label="Email" />
-            <FormInput type="password" id="loginPassword" placeholder="enter your password" className="form-control" label="Password" />
+            <FormInput type="email" id="loginEmail" placeholder="enter your email" className="form-control" label="Email" required={true}/>
+            <FormInput type="password" id="loginPassword" placeholder="enter your password" className="form-control" label="Password" required={true}/>
             <div className="form-group form-check">
                 <div className="row">
                     <div className="col-md-6">
