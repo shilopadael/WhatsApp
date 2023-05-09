@@ -4,7 +4,7 @@ import { useRef } from "react";
 
 function LoginForm(props) {
 
-    const { userLst } = props;
+    const { users } = props;
 
     const formRef = useRef(null);
 
@@ -15,8 +15,8 @@ function LoginForm(props) {
         let password = formRef.current[1].value;
 
         //checking if the email and password are correct in the userlst
-        for (let i = 0; i < userLst.length; i++) {
-            if (userLst[i].email === email && userLst[i].password === password) {
+        for (let i = 0; i < users.length; i++) {
+            if (users[i].email === email && users[i].password === password) {
                 alert("You have successfully logged in.");
                 // login success, redirecting to the chat page with the user information
                 

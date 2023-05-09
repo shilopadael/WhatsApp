@@ -4,8 +4,8 @@ import RegisterForm from "../Form/RegisterForm";
 import "../style.css";
 
 function RegisterPage(props) {
-    const { userLst , ...other} = props;
-    return (
+    const {users, setUsers} = props;
+    return(
         <div className="topScreen">
             <section className="mt-0 flex-column min-vh-100 justify-content-center align-item-center">
                 <div className="container-md">
@@ -16,7 +16,7 @@ function RegisterPage(props) {
                             {/* registration form header */}
                             <HeaderText content="Register To Chat System" />
                             {/* registration form */}
-                            <RegisterForm userLst={userLst}/>
+                            <RegisterForm users={users} setUsers={setUsers}/>
                         </div>
                     </div>
                 </div>

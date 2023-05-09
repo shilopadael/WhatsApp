@@ -12,7 +12,7 @@ function RegisterForm(props) {
 
     const navigate = useNavigate();
 
-    const { userLst, ...other } = props;
+    const { users, setUsers } = props;
 
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
@@ -42,8 +42,8 @@ function RegisterForm(props) {
             return;
         } else {
             // checking if the email already exist
-            for (let i = 0; i < userLst.length; i++) {
-                if (userLst[i].email === email) {
+            for (let i = 0; i < users.length; i++) {
+                if (users[i].email === email) {
                     alert("This email already exist.");
                     return;
                 }
@@ -52,9 +52,13 @@ function RegisterForm(props) {
 
             let data = {
                 "email": email, "password": password,
-                "displayName": displayName, img: img
+                "displayName": displayName,
+                "img": img
             };
-            userLst.push(data);
+            console.log("users: " + users);
+            let lst = users;
+            lst.push(data);
+            setUsers(lst);
             alert("You have successfully registered. retuning to the login page.");
             // redirecting to the login page
             navigate("/");
@@ -74,7 +78,7 @@ function RegisterForm(props) {
                         placeholder="enter your username"
                         label="Email"
                         onChange={handleEmailChange}
-                        errorMessage="Please enter a valid email address."
+                        errormessage="Please enter a valid email address."
                         pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$"
                         required={true}
                     />
@@ -87,7 +91,7 @@ function RegisterForm(props) {
                             aria-describedby="passwordNotice"
                             label="Password"
                             onChange={handlePasswordChange}
-                            errorMessage="Password must be between 8 and 20 characters long."
+                            errormessage="Password must be between 8 and 20 characters long."
                             pattern="^.{8,20}$"
                             required={true}
                         />
@@ -99,7 +103,7 @@ function RegisterForm(props) {
                             aria-describedby="passwordNotice"
                             label="enter your password again"
                             onChange={handleConfirmPasswordChange}
-                            errorMessage="Make sure your passwords match."
+                            errormessage="Make sure your passwords match."
                             pattern={password}
                             required={true}
                         />
@@ -113,7 +117,7 @@ function RegisterForm(props) {
                             required={true}
                             label="Display name"
                             onChange={handleDisplayNameChange}
-                            errorMessage="You must have a nickname."
+                            errormessage="You must have a nickname."
                         />
                     </div>
                 </div>

@@ -8,7 +8,7 @@ import { Link } from "react-router-dom";
 
 function LoginPage(props) {
 
-    const { userLst } = props;
+    const { users, setUsers } = props;
 
     return (
         <div className="topScreen">
@@ -22,7 +22,7 @@ function LoginPage(props) {
                                 {/* the login form header */}
                                 <HeaderText content="Welcome To Chat System" />
                                 {/* login form */}
-                                <LoginForm userLst={userLst}/>
+                                <LoginForm users={users}/>
                                 <div>
                                     <p className="text-center">
                                         Don't have an account?{" "}
