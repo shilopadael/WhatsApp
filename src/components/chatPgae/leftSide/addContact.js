@@ -1,7 +1,7 @@
 import { useState } from "react";
 import Users from "./Users";
 import Data from '../../data';
-import image from '../../../assests/images/Sara.jpg'
+import image from '../../../assests/images/Ski.jpeg'
 import { useContacts } from '../ContactsContext';
 
 function AddContact() {

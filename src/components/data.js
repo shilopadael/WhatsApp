@@ -6,6 +6,8 @@ import React, { useState } from 'react';
 
 
 function Data() {
+  const [users, setUsers] = useState([]);
+
   const [currentUser, setCurrentUser] = useState({
     name: 'Shilo Padael',
     image: imageShilo,
@@ -15,6 +17,7 @@ function Data() {
   const [contacts, setContacts] = useState([
     {
       id: 2,
+    
     },
     {
       id: 3,
@@ -30,7 +33,7 @@ function Data() {
       chats: [{id: 1, 
                lastSeen: 'today',
                name: 'Shilo Padael',
-               unRead: 1,
+               unRead: 3,
                image: imageShilo,
                messages:
             [
@@ -125,6 +128,8 @@ function Data() {
     contacts,
     chats,
     currentChatId,
+    users,
+    setUsers,
     setChats,
     setContacts,
     setCurrentChatId,

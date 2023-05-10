@@ -8,7 +8,7 @@ import { useContacts } from '../ContactsContext';
 
 
 function LeftSide() {
-    const { chats,contacts,currentUser } = useContacts();
+    const { chats,currentUser } = useContacts();
     const user = chats.find(chat => chat.id === currentUser.id);
     const chat = user.chats;
     // console.log(user);

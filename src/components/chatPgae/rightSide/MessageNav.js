@@ -1,6 +1,27 @@
+import { useContacts } from '../ContactsContext';
+import { useState } from 'react';
+import { useEffect } from "react";
+import BoxMessage from './BoxMessage';
 
 
-function MessageNav() {
+function MessageNav(props) {
+    const { userChat, setChat, setMessage} = props;
+    // const { setChats,chats, currentChatId , currentUser} = useContacts();
+    const [newItem, setNewItem] = useState("");
+    // useEffect(() => {
+    //     setChats(chats);
+    //   }, [setChats, chats]);
+
+    function handleSubmit(e) {
+        e.preventDefault();
+
+        userChat.messages.push({ sender: "me", message: newItem });
+        setMessage({e});
+        setNewItem("");
+    
+
+    }
+
     return ( 
             <>
                         <nav class="navbar navbar-expand-lg navbar-light dark-blue1 bottom-chat">
@@ -18,9 +39,22 @@ function MessageNav() {
                                 </div>
                                 
                                 <div class="col-10 text-left">
-                                    <form class="d-flex">
-                                        <input class="form-control me-2" type="search" placeholder="Type your message" aria-label="Search"></input>
-                                        <button id="record-button" class="btn" type="submit">
+                                    <form 
+                                    onSubmit={handleSubmit} 
+                                    class="d-flex">
+                                        <input
+                                         onChange={(e) => setNewItem(e.target.value)} 
+                                         class="form-control me-2" 
+                                         type="search" 
+                                         placeholder="Type your message" 
+                                         value={newItem} 
+                                         aria-label="Search"></input>
+                                        <button id="record-button" 
+                                        class="btn" 
+                                        type="submit"
+                                    
+                                        disabled={!newItem}>
+                                            
                                             <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="currentColor" class="bi bi-record" viewBox="0 0 16 16">
                                                 <path d="M8 12a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm0 1A5 5 0 1 0 8 3a5 5 0 0 0 0 10z"/>
                                             </svg>

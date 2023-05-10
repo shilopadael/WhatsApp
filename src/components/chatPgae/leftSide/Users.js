@@ -10,6 +10,7 @@ import { useContacts } from '../ContactsContext';
 
 function Users(chat) {
     const { setCurrentChatId } = useContacts();
+    // console.log(chat);
 
     function goToChat(){
         setCurrentChatId(chat.id);
@@ -21,7 +22,7 @@ function Users(chat) {
                 <div class="col-10 m-0">
                     <img src={chat.image} class="rounded-circle pic"
                         alt="Image"></img>
-                        <span class="p-2">{chat.name}</span>
+                    <span class="p-2">{chat.name}</span>
                 </div>
                 <div class="col-2 text-end">
                     <div class="col-12 last-seen opacity">{chat.lastSeen}</div>

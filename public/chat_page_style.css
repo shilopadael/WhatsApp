@@ -208,7 +208,7 @@ pointer-events: none;
 cursor: pointer;
 }
 .BoxMessage{
-max-height: 90%; 
+max-height: 84%; 
 overflow-y: auto;
 }
 
