@@ -1,10 +1,13 @@
 
 import FormInput from "./FormInput";
 import { useRef } from "react";
+import { useNavigate } from "react-router-dom";
+
 
 function LoginForm(props) {
 
     const { users } = props;
+    const navigate = useNavigate();
 
     const formRef = useRef(null);
 
@@ -19,6 +22,8 @@ function LoginForm(props) {
             if (users[i].email === email && users[i].password === password) {
                 alert("You have successfully logged in.");
                 // login success, redirecting to the chat page with the user information
+                // navigate("/chat", { state: { user: users[i] } });
+                navigate(`/chat/${users.id}`);
                 
                 return;
             }

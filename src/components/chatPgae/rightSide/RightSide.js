@@ -11,6 +11,7 @@ function RightSide() {
     const user = chats.find(chat => chat.id === currentUser.id);
     // console.log(user);
     const userChat = user.chats.find(chat => chat.id === currentChatId);
+    console.log(userChat);
 
     const [message, setMessage] =useState("") ;
     

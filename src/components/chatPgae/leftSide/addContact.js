@@ -4,17 +4,27 @@ import Data from '../../data';
 import image from '../../../assests/images/Ski.jpeg'
 import { useContacts } from '../ContactsContext';
 
-function AddContact() {
+function AddContact(promps) {
+  const { id, user, setUsers } = promps;
+  console.log(user);
+
+
+
   const [newItem, setNewItem] = useState("");
-  const { currentUser ,contacts, chats, setChats, setContacts } = useContacts();
+  // const { currentUser ,contacts, chats, setChats, setContacts } = useContacts();
 
   function addContact(newContact) {
-    var newId = contacts.length + 1;
+    var newId = user.chats.length + 1;
     const newChat = {id: newId, name: newContact, image: image, lastSeen: "now", unRead: 0, messages: []};
-    const user = chats.find(chat => chat.id === currentUser.id);
+    // const user = chats.find(chat => chat.id === currentUser.id);
+    console.log(user);
+
     user.chats.push(newChat);
-    setContacts([...contacts, { name: newContact,image: image,id: newId, lastSeen: "today", unRead: 0 }]);
-    console.log(contacts);
+    setUsers("1", user);
+    console.log(user);
+
+    // setContacts([...contacts, { name: newContact,image: image,id: newId, lastSeen: "today", unRead: 0 }]);
+    // console.log(contacts);
 ;
   };
 

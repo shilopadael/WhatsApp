@@ -1,4 +1,4 @@
-span {
+/* span {
     color: red;
     font-size: 12px;
     font-weight: 400;
@@ -11,4 +11,9 @@ input:invalid[focused="true"] {
 
 input:invalid[focused="true"] ~ span {
     display: block;
+} */
+
+/* TODO:change span to errror message. */
+.errorMessage{
+    /* fill */
 }

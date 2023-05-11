@@ -21,7 +21,7 @@ function FormInput(props) {
             focused={focused.toString()}
             onFocus={() => {props.id === "confirmPassword" && setFocused(true)}}
             />
-            <span>{errormessage}</span>
+            <span className="errorMessage">{errormessage}</span>
         </div>
     );
 }

@@ -55,9 +55,18 @@ function RegisterForm(props) {
                 "displayName": displayName,
                 "img": img
             };
+            let datanew = {
+                id: users.length + 1,
+                email: email,
+                password: password,
+                displayName: displayName,
+                img: img,
+                chats: []
+
+            }
             console.log("users: " + users);
             let lst = users;
-            lst.push(data);
+            lst.push(datanew);
             setUsers(lst);
             alert("You have successfully registered. retuning to the login page.");
             // redirecting to the login page

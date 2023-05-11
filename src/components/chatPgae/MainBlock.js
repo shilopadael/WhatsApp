@@ -8,15 +8,16 @@ import { useState } from 'react';
 
 
 
-function MainBlock() {
-
+function MainBlock(props) {
+  const {users, id, setUsers} = props;
   const [chat, setChat] = useState("1");
+  
   return (
     <>
       <div class="container border shadow container-lg container-md container-sm mainBlock">
         <div class="row no-gutters h-100">
-          <LeftSide chat={chat} setChat={setChat} />
-          <RightSide chat={chat} setChat={setChat}/>
+          <LeftSide chat={chat} setChat={setChat} users={users} id={id} setUsers={setUsers}/>
+          <RightSide chat={chat} setChat={setChat} users={users} id={id}/>
         </div>
       </div>
     </>

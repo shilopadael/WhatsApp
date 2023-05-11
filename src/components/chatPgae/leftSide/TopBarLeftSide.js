@@ -3,19 +3,24 @@
 import Data from '../../data';
 import AddContact from './addContact';
 
-function TopBarLeftSide() {
-    const { currentUser } = Data();
+function TopBarLeftSide(props) {
+    // const { currentUser } = Data();
+    
+    const { id, user, setUsers, users } = props;
+    console.log("hola");
+    console.log(user);
+    console.log("hola");
     return (<>
                          <nav class="navbar navbar-expand-lg navbar-expand-md navbar-expand-sm navbar-light line-up p-1">
                             <div class="container-fluid dark-blue1 rounded-pill">
                                 <div class="col-10">
                                     <a class="navbar-brand" href="#">
-                                        <img src={currentUser.image} class="rounded-circle" alt="Logo"></img>
+                                        <img src={user.image} class="rounded-circle" alt="Logo"></img>
                                     </a>
 
                                 </div>
                                 <div class="col-2">
-                                    <AddContact />
+                                    <AddContact {...props} />
 
                                 </div>
                             </div>

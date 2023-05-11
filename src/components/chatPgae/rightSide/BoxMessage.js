@@ -5,12 +5,12 @@ import { useContacts } from '../ContactsContext';
 
 
 function BoxMessage(props) {
-    const { chat, setChat } = props;
+    const { user , userChat} = props;
     const { chats, currentChatId , currentUser} = useContacts();
     // // Assuming the user ID is stored in a variable called 'userId'
-    const user = chats.find(chat => chat.id === currentUser.id);
-    // console.log(user);
-    const userChat = user.chats.find(chat => chat.id === currentChatId);
+    // const user = chats.find(chat => chat.id === currentUser.id);
+    // // console.log(user);
+    // const userChat = user.chats.find(chat => chat.id === currentChatId);
     // console.log(userChat);
 
     return (
