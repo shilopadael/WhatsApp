@@ -4,11 +4,12 @@ import HeaderText from "../HeaderText/HeaderText";
 import LoginForm from "../Form/LoginForm";
 import LoginImg from "./loginImg/LoginImg";
 import { Link } from "react-router-dom";
+import { useState } from "react";
 
 
 function LoginPage(props) {
 
-    const { users, setUsers } = props;
+    const { userInfo , setAuthenticated } = props;
 
     return (
         <div className="topScreen">
@@ -22,7 +23,7 @@ function LoginPage(props) {
                                 {/* the login form header */}
                                 <HeaderText content="Welcome To Chat System" />
                                 {/* login form */}
-                                <LoginForm users={users}/>
+                                <LoginForm users={userInfo} setAuthenticated={setAuthenticated}/>
                                 <div>
                                     <p className="text-center">
                                         Don't have an account?{" "}

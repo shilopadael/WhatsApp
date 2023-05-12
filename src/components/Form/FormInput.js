@@ -10,9 +10,9 @@ function FormInput(props) {
         setFocused(true);
     }
 
-    const { label, errormessage, ...rest } = props;
+    const { label, errormessage } = props;
     return (
-        <div className="form-group input-effect">
+        <div className="form-group input-effect register">
                 <label htmlFor={props.id} className="font-semibold capitalize">
                     {label}
                 </label>

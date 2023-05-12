@@ -1,31 +1,17 @@
 import { useState } from "react";
-import Users from "./Users";
-import Data from '../../data';
-import image from '../../../assests/images/Ski.jpeg'
-import { useContacts } from '../ContactsContext';
+import defaultProfile from '../../../assets/registerImg/profile.png';
 
-function AddContact(promps) {
-  const { id, user, setUsers } = promps;
-  console.log(user);
-
-
+function AddContact(props) {
+  const { contacts, setContacts } = props;
 
   const [newItem, setNewItem] = useState("");
-  // const { currentUser ,contacts, chats, setChats, setContacts } = useContacts();
 
-  function addContact(newContact) {
-    var newId = user.chats.length + 1;
-    const newChat = {id: newId, name: newContact, image: image, lastSeen: "now", unRead: 0, messages: []};
-    // const user = chats.find(chat => chat.id === currentUser.id);
-    console.log(user);
 
-    user.chats.push(newChat);
-    setUsers("1", user);
-    console.log(user);
+  function addContact(name) {
+    var newId = contacts.length + 1;
+    const newContact = { id: newId, name: name, image: defaultProfile, lastSeen: "now", unRead: 0, lastMessage: "", messages: [] };
+    setContacts([...contacts, newContact]);
 
-    // setContacts([...contacts, { name: newContact,image: image,id: newId, lastSeen: "today", unRead: 0 }]);
-    // console.log(contacts);
-;
   };
 
   function handleSubmit(e) {
@@ -82,7 +68,7 @@ function AddContact(promps) {
                     type="text"
                     class="form-control"
                     id="newItemInput"
-                    placeholder="Enter item name"
+                    placeholder="Enter contact name"
                     value={newItem}
                     onChange={(e) => setNewItem(e.target.value)}
                   />
@@ -92,7 +78,7 @@ function AddContact(promps) {
                   class="btn btn-primary text-light"
                   disabled={!newItem}
                 >
-                  Add
+                  Add Contact
                 </button>
               </form>
             </div>

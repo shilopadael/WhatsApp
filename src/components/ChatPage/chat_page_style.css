@@ -1,7 +1,7 @@
 body {
     height: 100vh;
     position: relative; /* add this line to set the body as the container's nearest positioned ancestor */
-    background-image: linear-gradient(#7295ca, transparent), url("assests/images/bgpattern.png");
+    background-image: linear-gradient(#7295ca, transparent), url("../../assests/images/bgpattern.png");
   }
   
 .lowerScreen {
@@ -9,7 +9,7 @@ body {
     justify-content: center;
     align-items: center;
     height: 82vh;
-    background-image: linear-gradient(#c8defe, transparent), url("assests/images/bgpattern.png");
+    background-image: linear-gradient(#c8defe, transparent), url("../../assests/images/bgpattern.png");
     z-index: 2;
   }
 
@@ -81,7 +81,7 @@ body {
 .left-slide {
 
     background-color: #7294CA !;
-    background-image: url(assests/images/Ski.jpeg);
+    background-image: url("../../assests/images/Ski.jpeg");
     background-size: cover;
     background-repeat: no-repeat;
     float: left; /* add this line to float the left slide to the left */
@@ -108,7 +108,7 @@ body {
   }
 
 .btn:hover{
-  background-image: url(assests/images/Ski.jpeg);
+  background-image: url("../../assests/images/Ski.jpeg");
   border: #041941;
 }
 .btn{
@@ -129,7 +129,7 @@ body {
 
   border-left: 1px solid;
   background-color: #7294CA;
-  background-image: url(assests/images/68747470733a2f2f7765622e77686174736170702e636f6d2f696d672f62672d636861742d74696c652d6461726b5f61346265353132653731393562366237333364393131306234303866303735642e706e67.png);
+  background-image: url("../../assests/images/chat-background.png");
   background-size: cover;
   background-repeat: no-repeat;
   float: left; /* add this line to float the right slide to the left */
@@ -189,4 +189,91 @@ body {
   cursor: pointer;
 }
 
+
+.profile-nav-left {
+  background: #eee;
+  padding: 10px 15px;
+  display: flex;
+  border-radius: 10px;
+}
+
+.profile-image {
+  width: 40px;
+  height: 40px;
+  border-radius: 25px;
+}
+
+
+.profile-nav-left {
+  background: rgb(147, 77, 77);
+  padding: 10px 15px;
+  display: flex;
+  border-radius: 10px;
+}
+
+
+.profile-nav-chat-info {
+  display: block;
+}
+
+.profile-nav-chat-info h6 {
+  margin: 0px;
+  margin-left: 10px;
+}
+
+.profile-nav-chat-info p {
+  margin: 0px;
+  margin-left: 10px;
+  color: rgb(191, 191, 191);
+}
+
+.profile-nav-left button {
+  margin-top: 2px;
+
+}
+
+.profile-text {
+  text-align: center;
+  margin-top: 15px;
+  margin-left: 5px;
+}
+
+.profile-text-chat {
+  margin-top: 5px;
+  margin-left: 10px;
+  color:rgb(227, 227, 227);
+
+}
+
+.profile-text-about {
+  display: block;
+  color:rgb(227, 227, 227);
+}
+
+.right-chat {
+  padding-left: 0px;
+  padding-right: 0px;
+  /* border-style: solid; */
+  border-radius: 15px;
+  /* border-width: 5px; */
+  /* border-top: #505256 !important;
+  border-bottom: #505256 !important; */
+  
+}
+
+.rightNav {
+  height: 55px;
+  
+}
+
+.profilePic {
+  padding: 0px;
+  margin: 0px;
+}
+
+.profileName {
+  color:rgb(227, 227, 227);
+  margin-left : 0px;
+  padding-left: 0px;
+}
 

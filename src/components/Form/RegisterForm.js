@@ -12,7 +12,7 @@ function RegisterForm(props) {
 
     const navigate = useNavigate();
 
-    const { users, setUsers } = props;
+    const { users } = props;
 
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
@@ -51,25 +51,16 @@ function RegisterForm(props) {
             // if got here adding the new username:
 
             let data = {
-                "email": email, "password": password,
+                "email": email, 
+                "password": password,
                 "displayName": displayName,
                 "img": img
             };
-            let datanew = {
-                id: users.length + 1,
-                email: email,
-                password: password,
-                displayName: displayName,
-                img: img,
-                chats: []
 
-            }
-            console.log("users: " + users);
-            let lst = users;
-            lst.push(datanew);
-            setUsers(lst);
+            users.push(data);
             alert("You have successfully registered. retuning to the login page.");
             // redirecting to the login page
+            // localStorage.setItem(data.email, JSON.stringify(data));
             navigate("/");
             return;
         }
