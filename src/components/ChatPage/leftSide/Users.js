@@ -2,8 +2,8 @@
 import { useState } from 'react';
 
 function Users(props) {
-    // const { setCurrentChatId } = useContacts();
-    // console.log(chat);
+
+    
     const { id, 
         name, 
         image, 
@@ -40,6 +40,8 @@ function Users(props) {
         let updatedLst = contacts.filter((contact) => contact.id !== id);
         setContacts(updatedLst);
         setContactToShow(updatedLst)
+        setShowContextMenu(false);
+        setContextMenuPosition({ x: 0, y: 0 })
     }
 
     return (
