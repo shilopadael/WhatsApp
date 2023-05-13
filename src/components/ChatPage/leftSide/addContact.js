@@ -24,7 +24,7 @@ function AddContact(props) {
       name: name,
       image: defaultProfile,
       lastMessageTime: "",
-      lastMessageDate: new Date(),
+      lastMessageDate: "",
       unRead: 0,
       lastMessage: "",
       messages: [],

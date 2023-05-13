@@ -15,7 +15,6 @@ function BoxMessage(props) {
                     return <Receiver key={index} message={mail.message} time={mail.time}/>;
                 }
             })}
-
         </div>
     );
 }

@@ -9,9 +9,8 @@ import { useState } from 'react';
 
 function LeftSide(props) {
 
-    const { user } = props; // userinformation
-    const { contacts, setContacts, setCurrentChatId, setContactFullPage } = props; // contacts
-    const [contactToShow, setContactToShow] = useState(contacts);
+    const { user , contacts, setContacts, setCurrentChatId, setContactFullPage } = props; // contacts
+    const [ contactToShow, setContactToShow ] = useState(contacts);
 
 
     function showContacts() {
@@ -19,7 +18,6 @@ function LeftSide(props) {
             contactToShow.sort((c1, c2) => {
                 return c2.lastMessageDate - c1.lastMessageDate;
             });
-            console.log(contactToShow);
             return contactToShow.map((contact, index) => {
                 return <Users key={index}
                     {...contact}

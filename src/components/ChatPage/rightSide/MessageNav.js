@@ -20,12 +20,6 @@ function MessageNav(props) {
         user.lastMessageTime = timestamp;
         user.lastMessageDate = current;
         // print all contacts
-        contacts.map((contact, index) => {
-            console.log("contact name: " + contact.name)
-            console.log("last message: " + contact.lastMessage)
-            console.log("contact lastMessageTime: " + contact.lastMessageTime)
-
-        })
         setContacts([...contacts]);
         setNewItem("");
     }

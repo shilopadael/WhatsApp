@@ -1,16 +1,16 @@
 import MainBlock from "./ChatPage/MainBlock";
 import { useEffect, useState } from "react";
 import LogOut from "./ChatPage/LogOutButton";
-import ChatSystemLogo from "./ChatSystemLogo/ChatSystemLogo";
 
 function Chat(props) {
+
   const { authenticated, setAuthenticated } = props;
   const [user, setUser] = useState(null);
 
   useEffect(() => {
     if (authenticated) {
       // Retrieve user data from local storage
-      const userData = JSON.parse(localStorage.getItem("user"));
+      const userData = JSON.parse(localStorage.getItem("user")); // connect database here
       setUser(userData);
     }
   }, [authenticated]);

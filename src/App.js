@@ -6,8 +6,10 @@ import Chat from './components/Chat';
 import { useState } from 'react';
 
 function App(props) {
+
   const { usersInformation } = props;
   const [authenticated, setAuthenticated] = useState(localStorage.getItem("authenticated") === "true");
+  
   return (
     <BrowserRouter>
       <Routes>
