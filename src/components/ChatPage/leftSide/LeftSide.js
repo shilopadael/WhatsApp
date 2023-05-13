@@ -9,31 +9,29 @@ import Users from './Users';
 function LeftSide(props) {
 
     const { user } = props; // userinformation
-    const { contacts, setContacts , setCurrentChatId } = props; // contacts
+    const { contacts, setContacts, setCurrentChatId, setContactFullPage } = props; // contacts
 
     function showContacts() {
         if (contacts.length > 0) {
             return contacts.map((contact, index) => {
-                console.log(contact);
-                return <Users {...contact} setCurrentChatId={setCurrentChatId} />
+                return <Users {...contact} setCurrentChatId={setCurrentChatId} setContactFullPage={setContactFullPage}/>
             });
         }
         else {
-            return <h3>No Contacts</h3>
+            return <h3 className="NoContactsMessage">No Contacts Yet</h3>
         }
     }
 
 
     return (
-        <>
-            <div class="col-4 left-slide justify-content-between border-right">
-                <TopBarLeftSide contacts={contacts} setContacts={setContacts} user={user} />
-                <ul class="list-group chats">
-                    {showContacts()}
-                </ul>
+        <div className="col-4 left-slide justify-content-between border-right left-chat">
+            <TopBarLeftSide contacts={contacts} setContacts={setContacts} user={user} />
+            <ul className="list-group contact-list" >
+                {showContacts()}
+            </ul>
 
-            </div>
-        </>
+        </div>
     )
+
 }
 export default LeftSide;

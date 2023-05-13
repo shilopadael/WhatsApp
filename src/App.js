@@ -1,6 +1,6 @@
 import './App.css';
 
-import LoginPage from './components/loginPage/LoginPage';
+import LoginPage from './components/LoginPage/LoginPage';
 import RegisterPage from './components/registerPage/RegisterPage';
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Chat from './components/Chat';
@@ -27,7 +27,7 @@ function App() {
       <Routes>
         <Route path="/" element={<LoginPage userInfo={usersInformation} setAuthenticated={setAuthenticated} />} />
         <Route path="/register" element={<RegisterPage userInfo={usersInformation} />} />
-        <Route path="/chat" element={<Chat authenticated={authenticated} />} />
+        <Route path="/chat" element={<Chat authenticated={authenticated} setAuthenticated={setAuthenticated}/>} />
       </Routes>
     </BrowserRouter>
   );

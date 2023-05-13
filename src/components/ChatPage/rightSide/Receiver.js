@@ -4,7 +4,7 @@
 function Receiver ({message}) {
     return (
         <>
-            <div class="chat-bubble-left">{message}</div>
+            <div className="chat-bubble-left">{message}</div>
         </>
     )
 }

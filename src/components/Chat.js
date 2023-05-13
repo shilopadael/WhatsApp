@@ -1,9 +1,10 @@
-import { ContactsProvider } from "./ChatPage/ContactsContext";
 import MainBlock from "./ChatPage/MainBlock";
 import { useEffect, useState } from "react";
+import LogOut from "./ChatPage/LogOutButton";
+import ChatSystemLogo from "./ChatSystemLogo/ChatSystemLogo";
 
 function Chat(props) {
-  const { authenticated } = props;
+  const { authenticated, setAuthenticated } = props;
   const [user, setUser] = useState(null);
 
   useEffect(() => {
@@ -16,8 +17,10 @@ function Chat(props) {
 
   if (!authenticated) {
     return (
-      <div>
-        <h1>This zone is for users only! please log in!</h1>
+      <div className="container border shadow container-lg container-md container-sm">
+        <div className="row no-gutters h-100 black">
+          <h2 className="defaultChatMessage">This zone is for users only! please log in to access.</h2>
+        </div>
       </div>
     );
   } else {
@@ -26,11 +29,10 @@ function Chat(props) {
     }
     return (
       <>
-        <ContactsProvider>
-          <div className="topScreen"></div>
-          <div className="lowerScreen"></div>
-          <MainBlock user={user} />
-        </ContactsProvider>
+        <div className="topScreen"></div>
+        <LogOut setAuthenticated={setAuthenticated} />
+        <div className="lowerScreen"></div>
+        <MainBlock user={user} />
       </>
     );
   }

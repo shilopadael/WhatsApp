@@ -2,7 +2,6 @@
 import FormInput from "./FormInput";
 import { useRef } from "react";
 import { useNavigate } from "react-router-dom";
-import { useState } from "react";
 
 
 function LoginForm(props) {
@@ -46,7 +45,7 @@ function LoginForm(props) {
             <FormInput type="email" id="loginEmail" placeholder="enter your email" className="form-control" label="Email" required={true} />
             <FormInput type="password" id="loginPassword" placeholder="enter your password" className="form-control" label="Password" required={true} />
             <div className="form-group form-check">
-                <div className="row">
+                {/* <div className="row">
                     <div className="col-md-6">
                         <input type="checkbox" className="form-check-input" id="loginRemmemberMeCheckBox" ></input>
                         <label
@@ -61,10 +60,10 @@ function LoginForm(props) {
                             Forgot Password?
                         </a>
                     </div>
-                </div>
+                </div> */}
             </div>
             <div className="col-md-3" id="">
-                <button type="submit" className="btn btn-primary">
+                <button type="submit" className="btn btn-primary btnLogInSignUp">
                     Sign in
                 </button>
             </div>

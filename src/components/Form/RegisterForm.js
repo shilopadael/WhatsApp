@@ -136,7 +136,7 @@ function RegisterForm(props) {
                 </div>
                 <button
                     type="submit"
-                    className="btn btn-primary mt-4 btn-lg center">
+                    className="btn btn-primary mt-4 btn-lg center btnLogInSignUp">
                     Sign up
                 </button>
             </div>
