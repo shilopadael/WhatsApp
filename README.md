@@ -1,4 +1,5 @@
 <h1>the submission of ex1 inside branch name <b>ex1</b>!</h1>
+<h1>the submission of ex2 inside branch name <b>ex2</b>!</h1>
 
 
 # Advancad Programming 2 - WhatsApp Project
