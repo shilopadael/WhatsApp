@@ -333,13 +333,14 @@ body {
 
 .rightNav {
   height: 55px;
-  
 }
 
 
 .profilePic {
   padding: 0px;
-  margin: 0px;
+  margin-left: 2px;
+  width: 45px;
+  height: 45px;
 }
 
 .profileName {
@@ -399,9 +400,6 @@ body {
     align-items: center;
     width: 70%;
     height: 80%;
-  }
-  .defaultContactBlock {
-    /* width: 400px; */
   }
 }
 

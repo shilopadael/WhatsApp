@@ -4,8 +4,7 @@ import HeaderText from "../HeaderText/HeaderText";
 import LoginForm from "../Form/LoginForm";
 import LoginImg from "./loginImg/LoginImg";
 import { Link } from "react-router-dom";
-import { useState } from "react";
-
+import './LoginPage.css';
 
 function LoginPage(props) {
 
@@ -17,7 +16,7 @@ function LoginPage(props) {
                 <ChatSystemLogo />
                 <div className="row">
                     {/* big white container in the middle of the screen */}
-                    <div className="col-xl-10  mx-auto bg-white rounded shadow">
+                    <div className="col-xl-10  mx-auto bg-white rounded shadow loginPageWhiteContainer">
                         <div className="row">
                             <div className="col-md-6">
                                 {/* the login form header */}

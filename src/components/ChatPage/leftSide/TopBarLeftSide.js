@@ -5,15 +5,19 @@ import defaultProfile from '../../../assets/registerImg/profile.png'
 function TopBarLeftSide(props) {
 
     const { contacts, user, setContacts, setCurrentChatId, contactToShow, setContactToShow } = props;
-
-    const userImage = user?.image || defaultProfile;
+    const userImage = user?.img || defaultProfile;
     const displayName = user?.displayName || '';
 
-    return (<>
+    function changeUserImg(event) {
+        event.preventDefault();
+        //TODO
+    }
+
+    return (
         <nav className="navbar navbar-expand-lg line-up p-0 leftNav">
             <div className="container-fluid dark-blue1 rounded m-0 p-1">
                 <div className="col-10">
-                    <a className="navbar-brand" href="#">
+                    <a className="navbar-brand" href="" onContextMenu={changeUserImg} onClick={(e) => e.preventDefault()}>
                         <img src={userImage} className="rounded-circle profilePic" alt="Logo"></img>
                     </a>
                     <span className="profileName">{displayName}</span>
@@ -27,7 +31,6 @@ function TopBarLeftSide(props) {
                 </div>
             </div>
         </nav>
-    </>
     );
 }
 export default TopBarLeftSide;
