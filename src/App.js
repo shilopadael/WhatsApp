@@ -1,27 +1,13 @@
 import './App.css';
-
 import LoginPage from './components/LoginPage/LoginPage';
 import RegisterPage from './components/registerPage/RegisterPage';
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Chat from './components/Chat';
-import imageOmer from './assests/images/Omer.png';
 import { useState } from 'react';
 
-function App() {
-
+function App(props) {
+  const { usersInformation } = props;
   const [authenticated, setAuthenticated] = useState(localStorage.getItem("authenticated") === "true");
-
-  let data = {
-    email: "omerbar@gmail.com",
-    password: "123",
-    displayName: "test",
-    image: imageOmer
-  };
-
-  const usersInformation = [];
-  usersInformation.push(data);
-  localStorage.setItem(data.email, JSON.stringify(data));
-
   return (
     <BrowserRouter>
       <Routes>

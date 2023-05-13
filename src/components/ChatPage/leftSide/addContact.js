@@ -10,27 +10,30 @@ const data = {
 }
 
 function AddContact(props) {
-  const { contacts, setContacts } = props;
+  const { contacts, setContacts, contactToShow, setContactToShow } = props;
 
   const [newItem, setNewItem] = useState("");
 
 
   function addContact(name) {
+
     var random = Math.floor(Math.random() * (5 - 1 + 1)) + 1
     var newId = contacts.length + 1;
-    const newContact = { id: newId, 
-      name: name, 
-      image: defaultProfile, 
-      lastSeen: "now", 
-      unRead: 0, 
-      lastMessage: "", 
-      messages: [], 
+    const newContact = {
+      id: newId,
+      name: name,
+      image: defaultProfile,
+      lastMessageTime: "",
+      lastMessageDate: new Date(),
+      unRead: 0,
+      lastMessage: "",
+      messages: [],
       status: data[random],
-      };
+    };
+
     setContacts([...contacts, newContact]);
-    // contacts.forEach((item) => {
-    //   console.log(item);
-    // });
+    setContactToShow([...contactToShow, newContact])
+
   };
 
   function handleSubmit(e) {

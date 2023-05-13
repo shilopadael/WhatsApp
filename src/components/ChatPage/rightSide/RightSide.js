@@ -11,9 +11,17 @@ function RightSide(props) {
 
     // const currentUserId = localStorage.getItem("currentUserId");
     const currentUser = contacts.find((contact) => String(contact.id) == currentChatId);
-    contacts.forEach((item) => {
-        console.log(item);
-      });
+
+    // const newContact = { id: newId, 
+    //     name: name, 
+    //     image: defaultProfile, 
+    //     lastMessageTime: "now", 
+    //     unRead: 0, 
+    //     lastMessage: "", 
+    //     messages: [], 
+    //     status: data[random],
+    //     };
+
     if (currentUser === undefined) {
         return (
             setContactFullPage(true)
@@ -25,6 +33,8 @@ function RightSide(props) {
                 <TopBarRightSlide currentUser={currentUser} setContactFullPage={setContactFullPage}/>
                 <BoxMessage userMessages={userMessages}/>
                 <MessageNav
+                    setContacts={setContacts}
+                    contacts={contacts}
                     user={currentUser}
                     userChat={userMessages}
                     setMessage={setMessage}

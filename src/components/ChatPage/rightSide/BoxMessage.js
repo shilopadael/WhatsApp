@@ -1,5 +1,5 @@
 import Receiver from "./Receiver";
-import Sender from "./sender";
+import Sender from "./Sender";
 
 
 function BoxMessage(props) {
@@ -9,10 +9,10 @@ function BoxMessage(props) {
         <div className="text-chat BoxMessage right-chat">
             {userMessages.map((mail, index) => {
                 if (mail.sender === "me") {
-                    return <Sender key={index} message={mail.message} />;
+                    return <Sender key={index} message={mail.message} time={mail.time}/>;
                 }
                 else if (mail.sender === "them") {
-                    return <Receiver key={index} message={mail.message} />;
+                    return <Receiver key={index} message={mail.message} time={mail.time}/>;
                 }
             })}
 

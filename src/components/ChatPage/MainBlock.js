@@ -8,6 +8,17 @@ import LogOut from './LogOutButton';
 function MainBlock(props) {
 
   const { user } = props;
+
+  //   user is :
+  //   let data = {
+  //     "email": email, 
+  //     "password": password,
+  //     "displayName": displayName,
+  //     "img": img
+  // };
+
+  console.log("user is " + user.img)
+  
   const [contacts, setContacts] = useState([]);
   const [currentChatId, setCurrentChatId] = useState(null);
   const [contactFullPage, setContactFullPage] = useState(true);

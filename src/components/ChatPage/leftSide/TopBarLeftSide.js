@@ -4,7 +4,7 @@ import defaultProfile from '../../../assets/registerImg/profile.png'
 
 function TopBarLeftSide(props) {
 
-    const { contacts ,user, setContacts , setCurrentChatId} = props;
+    const { contacts, user, setContacts, setCurrentChatId, contactToShow, setContactToShow } = props;
 
     const userImage = user?.image || defaultProfile;
     const displayName = user?.displayName || '';
@@ -19,19 +19,14 @@ function TopBarLeftSide(props) {
                     <span className="profileName">{displayName}</span>
                 </div>
                 <div className="col-2">
-                    <AddContact setContacts={setContacts} contacts={contacts} setCurrentChatId={setCurrentChatId}/>
+                    <AddContact setContacts={setContacts}
+                        contacts={contacts}
+                        setCurrentChatId={setCurrentChatId}
+                        contactToShow={contactToShow}
+                        setContactToShow={setContactToShow} />
                 </div>
             </div>
         </nav>
-        <div>
-            <nav className="navbar navbar-light">
-                <div className="container-fluid contact-search-bar">
-                    <form className="d-flex">
-                        <input className="form-control border-none" type="search" placeholder="Search contact" aria-label="Search"></input>
-                    </form>
-                </div>
-            </nav>
-        </div>
     </>
     );
 }
