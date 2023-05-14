@@ -1,24 +1,23 @@
 import './App.css';
-
-import LoginPage from './components/loginPage/LoginPage';
+import LoginPage from './components/LoginPage/LoginPage';
 import RegisterPage from './components/registerPage/RegisterPage';
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import { useState } from "react";
+import Chat from './components/Chat';
+import { useState } from 'react';
 
+function App(props) {
 
-function App() {
-
-  const [users, setUsers] = useState([]);
+  const { usersInformation } = props;
+  const [authenticated, setAuthenticated] = useState(localStorage.getItem("authenticated") === "true");
   
   return (
-
     <BrowserRouter>
       <Routes>
-        <Route path="/" element={<LoginPage users={users} setUsers={setUsers} />} />
-        <Route path="/register" element={<RegisterPage users={users} setUsers={setUsers} />} />
+        <Route path="/" element={<LoginPage userInfo={usersInformation} setAuthenticated={setAuthenticated} />} />
+        <Route path="/register" element={<RegisterPage userInfo={usersInformation} />} />
+        <Route path="/chat" element={<Chat authenticated={authenticated} setAuthenticated={setAuthenticated}/>} />
       </Routes>
     </BrowserRouter>
-
   );
 }
 

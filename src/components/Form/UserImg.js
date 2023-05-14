@@ -3,10 +3,9 @@ import Input from "./FormInput";
 function UserImg(props) {
     const { img ,setImg } = props;
 
-    function changeImg() {
+    function changeImg(event) {
 
-        const input = document.getElementById('profilePic');
-        const file = input.files[0];
+        const file = event.target.files[0];
         const reader = new FileReader();
         // checking file type
         if (!file.type.match('image.*')) { 
@@ -15,6 +14,7 @@ function UserImg(props) {
         }
         reader.onload = function () {
           const dataURL = reader.result;
+          console.log("img url: " + dataURL);
           setImg(dataURL);
         }
         reader.readAsDataURL(file);

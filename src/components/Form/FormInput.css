@@ -1,14 +1,19 @@
-span {
+.register span {
     color: red;
     font-size: 12px;
     font-weight: 400;
     display: none;
 }
 
-input:invalid[focused="true"] {
+.register input:invalid[focused="true"] {
     border: 1px solid red;
 }
 
-input:invalid[focused="true"] ~ span {
+.register input:invalid[focused="true"] ~ span {
     display: block;
 }
+
+/* TODO:change span to errror message.
+.errorMessage{
+    /* fill */
+/* } */ 

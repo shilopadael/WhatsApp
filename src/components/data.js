@@ -27,9 +27,14 @@ function Data() {
     },
   ]);
 
-
+  // const [chats, setChats] = useState([
+  //   {
+  //     id: 1,
+  //   }
+  // ]);
   const [chats, setChats] = useState([  
      {id: 1,
+      image: imageShilo,
       chats: [{id: 1, 
                lastSeen: 'today',
                name: 'Shilo Padael',
@@ -70,21 +75,6 @@ function Data() {
             { message: 'Hi, how are you?', sender: 'me' },
             { message: "I'm good, thanks. How about you?", sender: 'them' },
             { message: 'Not bad. What have you been up to?', sender: 'me' },
-            { message: 'Just working. You?', sender: 'them' },
-            { message: 'Same here. Anyway, gotta run. Catch you later?', sender: 'me' },
-            { message: 'Sure, talk to you soon!', sender: 'them' },
-            { message: "Hey, what's up?", sender: 'them' },
-            { message: 'Not much. You?', sender: 'me' },
-            { message: 'Just wanted to check in. Everything going okay?', sender: 'them' },
-            { message: 'Yeah, things are good. How about you?', sender: 'me' },
-            { message: 'Same here. Anyway, gotta go. Talk to you later!', sender: 'them' },
-            { message: "I'm good, thanks. How about you?", sender: 'them' },
-            { message: 'Not bad. What have you been up to?', sender: 'me' },
-            { message: 'Just working. You?', sender: 'them' },
-            { message: 'Same here. Anyway, gotta run. Catch you later?', sender: 'me' },
-            { message: 'Sure, talk to you soon!', sender: 'them' },
-            { message: "Hey, what's up?", sender: 'them' },
-            { message: 'Not much. You?', sender: 'me' },
             { message: 'Just wanted to check in. Everything going okay?', sender: 'them' },
             { message: 'Yeah, things are good. How about you?', sender: 'me' },
             { message: 'Same here. Anyway, gotta go. Talk to you later!', sender: 'them' },
@@ -94,6 +84,7 @@ function Data() {
   },
   {
     id: 2,
+    image: imageShilo,
     chats: [
       {
         id: 2,

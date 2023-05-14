@@ -10,9 +10,9 @@ function FormInput(props) {
         setFocused(true);
     }
 
-    const { label, errormessage, ...rest } = props;
+    const { label, errormessage } = props;
     return (
-        <div className="form-group input-effect">
+        <div className="form-group input-effect register">
                 <label htmlFor={props.id} className="font-semibold capitalize">
                     {label}
                 </label>
@@ -21,7 +21,7 @@ function FormInput(props) {
             focused={focused.toString()}
             onFocus={() => {props.id === "confirmPassword" && setFocused(true)}}
             />
-            <span>{errormessage}</span>
+            <span className="errorMessage">{errormessage}</span>
         </div>
     );
 }
