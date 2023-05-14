@@ -7,7 +7,7 @@ function BoxMessage(props) {
 
     return (
         <div className="text-chat BoxMessage right-chat">
-            {userMessages.map((mail, index) => {
+            {[...userMessages].reverse().map((mail, index) => {
                 if (mail.sender === "me") {
                     return <Sender key={index} message={mail.message} time={mail.time}/>;
                 }

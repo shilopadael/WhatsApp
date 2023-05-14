@@ -5,7 +5,7 @@ function Receiver({ message , time}) {
     return (
         <div className="chat-bubble-left">
             {message}
-            <div className="chat-bubble-right-time">{time}</div>
+            <div className="chat-bubble-left-time">{time}</div>
         </div>
     )
 }
