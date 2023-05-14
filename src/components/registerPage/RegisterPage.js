@@ -2,12 +2,13 @@ import ChatSystemLogo from "../ChatSystemLogo/ChatSystemLogo";
 import HeaderText from "../HeaderText/HeaderText";
 import RegisterForm from "../Form/RegisterForm";
 import "../style.css";
+import "./RegisterPage.css"
 
 function RegisterPage(props) {
     const { userInfo } = props;
     return(
         <div className="topScreen">
-            <section className="mt-0 flex-column min-vh-100 justify-content-center align-item-center">
+            <section className="mt-0 flex-column min-vh-100 justify-content-center align-item-center ">
                 <div className="container-md">
                     <ChatSystemLogo />
                     <div className="row">

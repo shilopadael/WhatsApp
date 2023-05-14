@@ -102,7 +102,7 @@ function RegisterForm(props) {
                             id="confirmPassword"
                             placeholder="enter your password"
                             aria-describedby="passwordNotice"
-                            label="enter your password again"
+                            label="Confirm Password"
                             onChange={handleConfirmPasswordChange}
                             errormessage="Make sure your passwords match."
                             pattern={password}
