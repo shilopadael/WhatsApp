@@ -1,0 +1,479 @@
+body {
+  height: 100vh;
+  position: relative; /* add this line to set the body as the container's nearest positioned ancestor */
+  background-image: linear-gradient(#7295ca, transparent),
+    url("../../assests/images/bgpattern.png");
+}
+
+.lowerScreen {
+  display: relative;
+  justify-content: center;
+  align-items: center;
+  height: 82vh;
+  background-image: linear-gradient(#c8defe, transparent),
+    url("../../assests/images/bgpattern.png");
+  z-index: 2;
+}
+
+.topScreen {
+  padding-bottom: 3px;
+  display: relative;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 18vh;
+  background-color: #041941;
+}
+
+.container {
+  border: white;
+  border-radius: 10px;
+  border-width: 10px;
+  position: absolute; /* change this line from fixed to absolute */
+  top: 10%;
+  left: 15%;
+  right: 15%;
+  width: 70%; /* change this value to a fixed width that works for your design */
+  height: 85%;
+  background-color: rgb(238, 238, 238);
+  transition: all 0.1s ease;
+}
+
+#addContactBtn:hover {
+  background-color: rgb(93, 90, 174);
+}
+
+@media (max-width: 992px) {
+  .whenChatIsOpen .left-slide {
+    display: none; /* hide the left slide on small screens */
+  }
+  .right-slide {
+    width: 100%; /* change the width of the right slide to 100% on small screens */
+  }
+}
+
+/* .small-screen {
+  position: relative;
+  left: 0;
+} */
+
+.form-control.border-none {
+  border: none;
+}
+@media (max-width: 992px) {
+  .dropdown-wrapper {
+    position: relative;
+  }
+
+  .dropdown-wrapper .dropdown-menu {
+    position: absolute;
+    top: 100%;
+    right: 0;
+    z-index: 1000;
+  }
+}
+
+/*Left-side*/
+.left-slide {
+  background-color: #555555 !;
+  background-image: url("../../assests/images/Ski.jpeg");
+  background-size: fixed;
+  background-repeat: no-repeat;
+  float: left; /* add this line to float the left slide to the left */
+  border-radius: 10px;
+}
+.list-group-item:hover {
+  background-color: lightgray;
+}
+.navbar-brand img {
+  width: 50px; /* default size */
+}
+
+.cursor-pointer:hover {
+  cursor: pointer;
+}
+.gray-light {
+  background-color: #cbccd3;
+}
+.dark-blue1 {
+  background-color: #063269;
+}
+/*Make all icons in the same color*/
+.bi {
+  fill: #cbccd3;
+}
+
+.btn {
+  color: #54555a;
+}
+.last-seen {
+  font-size: 12px;
+  padding-bottom: 5px;
+  color: #0b093e;
+}
+
+/*Right side*/
+.right-slide {
+  border-left: 2px solid;
+  background-color: #7294ca;
+  background-image: url("../../assests/images/chat-background.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+  float: left; /* add this line to float the right slide to the left */
+  border-radius: 10px;
+}
+.black {
+  background-color: #000000;
+}
+
+/*the container of the right-side*/
+.parent-div {
+  position: relative;
+  height: 100%;
+}
+.top-chat {
+  position: relative;
+  height: 7%;
+  width: 100%;
+  left: 0;
+  z-index: 102;
+  border-radius: 10px;
+}
+.bottom-chat {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  z-index: 102;
+  border-radius: 10px;
+}
+.text-chat {
+  position: absolute;
+  width: 100%;
+  margin-top: 2%;
+}
+.chat-bubble-right {
+  font-size: 16px;
+  background-color: #dcf8c6;
+  border-radius: 30px;
+  padding: 10px 20px;
+  margin-bottom: 5px;
+  margin-top: 10px;
+  margin-right: 15px;
+  margin-left: auto;
+  max-width: 40%;
+  clear: both;
+  width: fit-content;
+  float: right; /* or float: left; for the receiver's chat bubble */
+  word-break: break-word; /* break long words onto the next line */
+}
+
+.chat-bubble-right-time {
+  font-size: 12px;
+}
+.chat-bubble-left-time {
+  font-size: 12px;
+}
+
+.chat-bubble-left {
+  font-size: 16px;
+  background-color: #cccccc;
+  border-radius: 30px;
+  padding: 10px 20px;
+  margin-left: 15px;
+  margin-bottom: 5px;
+  margin-top: 10px;
+  max-width: 40%;
+  width: fit-content;
+  clear: both;
+  float: left; /* or float: left; for the receiver's chat bubble */
+  word-break: break-word; /* break long words onto the next line */
+}
+
+.opacity {
+  opacity: 0.5;
+}
+.list-group-item {
+  background-color: #a9bcde;
+}
+#add-contact-icon:hover {
+  pointer-events: none;
+  cursor: pointer;
+}
+
+/* left side */
+.profile-nav-left {
+  background: #eee;
+  padding: 10px 15px;
+  display: flex;
+  border-radius: 10px;
+}
+
+.profile-image {
+  width: 45px;
+  height: 45px;
+  border-radius: 25px;
+}
+
+.profile-nav-left {
+  background: rgb(147, 77, 77);
+  padding: 10px 15px;
+  display: flex;
+  border-radius: 10px;
+}
+
+.profile-nav-chat-info {
+  left: 0;
+  display: block;
+}
+
+.profile-nav-chat-info h6 {
+  margin: 0px;
+  margin-left: 0px;
+}
+
+.profile-nav-chat-info p {
+  margin: 0px;
+  margin-left: 0px;
+  color: rgb(191, 191, 191);
+}
+
+.profile-nav-left button {
+  margin-top: 2px;
+}
+
+.profile-text {
+  text-align: center;
+  margin-top: 15px;
+  margin-left: 5px;
+}
+
+.contact-list {
+  height: 80%;
+  overflow: auto;
+  direction: ltr;
+}
+
+.contact-list::-webkit-scrollbar {
+  width: 0px; /* Width of the scrollbar */
+  background-color: transparent; /* Background color of the scrollbar track */
+}
+
+.contact-list-item {
+  color: #000000;
+  padding: 10px 10px;
+  border-radius: 5px;
+  vertical-align: baseline;
+  display: flex;
+}
+
+.left-chat {
+  border-style: inset;
+  border-width: 0px;
+  height: 100%;
+}
+
+.contact-list-item img {
+  margin-right: 10px;
+}
+
+.contact-list-hover:hover {
+  background: gainsboro;
+  /* border-radius: 15px; */
+  cursor: pointer;
+}
+
+/* right side */
+.profile-text-chat {
+  margin-top: 5px;
+  margin-left: 10px;
+  color: rgb(227, 227, 227);
+}
+
+.profile-text-about {
+  display: block;
+  color: rgb(227, 227, 227);
+}
+
+.right-chat {
+  padding-left: 0px;
+  padding-right: 0px;
+  border-width: 3px;
+  border-color: rgb(38, 8, 102);
+  overflow-y: auto;
+  height: 85%;
+  margin-top: 0px;
+  display: flex;
+  flex-direction: column-reverse;
+}
+
+@media (max-height: 800px) {
+  .right-chat {
+    height: 82%;
+  }
+  .contact-list {
+    height: 80%;
+  }
+}
+
+@media (max-height: 700px) {
+  .right-chat {
+    height: 75%;
+  }
+  .contact-list {
+    height: 75%;
+  }
+}
+
+.right-chat::-webkit-scrollbar {
+  width: 0px;
+  /* background-color: transparent; Background color of the scrollbar track */
+}
+
+.rightNav {
+  height: 55px;
+}
+
+.profilePic {
+  padding: 0px;
+  margin-left: 2px;
+  width: 45px;
+  height: 45px;
+}
+
+.profileName {
+  color: rgb(227, 227, 227);
+  margin-left: 0px;
+  padding-left: 0px;
+}
+
+.chat-box-input {
+  background: #eee;
+  display: flex;
+  align-items: center;
+  padding: 5px 10px;
+  border-radius: 10px;
+}
+
+.gray {
+  display: none;
+  background-color: #878787;
+  background-image: url("../../assests/images/chat-background.png");
+}
+
+.defaultContactList {
+  width: 20%;
+}
+
+.defaultContactList .left-chat {
+  width: 400px;
+}
+
+.contact-search-bar {
+  justify-content: center;
+  align-items: center;
+  max-width: 300px;
+}
+
+.NoContactsMessage {
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.NoContactsFoundMessage {
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+@media (max-width: 576px) {
+  .defaultContactList .left-slide {
+    display: block;
+  }
+  .defaultContactList {
+    align-items: center;
+    width: 70%;
+    height: 80%;
+  }
+}
+
+@media (min-width: 576px) {
+  .defaultContactList .left-slide {
+    display: block;
+  }
+  .defaultContactList {
+    width: 400px;
+  }
+}
+
+@media (max-width: 992px) and (min-width: 768px) {
+  .ContactBlock .left-slide {
+    display: none;
+  }
+}
+
+.right-chat-profile-name {
+  margin-left: 0px;
+  padding-left: 0px;
+}
+
+.back-to-contact-icon {
+  align-items: center;
+  width: auto;
+  height: auto;
+  display: none;
+}
+
+.search-icon {
+  margin-right: 5%;
+}
+
+@media (max-width: 576px) {
+  .back-to-contact-icon {
+    margin-right: 0px;
+  }
+}
+
+@media (max-width: 992px) {
+  .back-to-contact-icon {
+    display: block;
+    margin-right: 15px;
+  }
+  .search-icon {
+    margin-right: 3%;
+  }
+}
+
+@media (max-width: 440px) {
+  .back-to-contact-icon {
+    display: block;
+    margin-left: 0px;
+    margin-right: 5px;
+  }
+  .search-icon {
+    margin-right: 1%;
+  }
+}
+
+.back-to-contact-icon a {
+  cursor: default;
+}
+
+.back-to-contact-icon:hover {
+  background-color: #eeeeee;
+}
+
+.logOutbtn {
+  z-index: 150;
+  color: white;
+}
+
+.defaultChatMessage {
+  color: white;
+  margin-left: 20%;
+  margin-top: 28%;
+}
+
+.btnLogInSignUp {
+  color: white;
+}
