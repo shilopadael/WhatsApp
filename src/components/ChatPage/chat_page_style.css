@@ -118,16 +118,7 @@ body {
   color: #0b093e;
 }
 
-/*Right side*/
-.right-slide {
-  border-left: 2px solid;
-  background-color: #7294ca;
-  background-image: url("../../assests/images/chat-background.png");
-  background-size: cover;
-  background-repeat: no-repeat;
-  float: left; /* add this line to float the right slide to the left */
-  border-radius: 10px;
-}
+
 .black {
   background-color: #000000;
 }
@@ -204,17 +195,9 @@ body {
 
 
 
-/* right side */
-.profile-text-chat {
-  margin-top: 5px;
-  margin-left: 10px;
-  color: rgb(227, 227, 227);
-}
 
-.profile-text-about {
-  display: block;
-  color: rgb(227, 227, 227);
-}
+
+
 
 .right-chat {
   padding-left: 0px;

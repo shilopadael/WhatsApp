@@ -19,6 +19,8 @@
   border-style: inset;
   border-width: 0px;
   height: 100%;
+  margin:0px;
+  
 }
 
 @keyframes gradient {
@@ -145,4 +147,9 @@
   #add-contact-icon:hover {
     pointer-events: none;
     cursor: pointer;
+  }
+
+  .leftNav {
+    background: linear-gradient(-45deg, #041941, #212e47, #3c414a);
+    border-radius: 15px;
   }

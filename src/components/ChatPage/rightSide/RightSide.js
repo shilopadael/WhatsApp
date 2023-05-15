@@ -1,4 +1,4 @@
-
+import './RightSide.css';
 import MessageNav from './MessageNav';
 import BoxMessage from './BoxMessage';
 import TopBarRightSlide from './TopBarRightSide';
