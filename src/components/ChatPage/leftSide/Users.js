@@ -3,23 +3,38 @@ import { useState } from 'react';
 
 function Users(props) {
 
-    
-    const { id, 
-        name, 
-        image, 
-        lastMessageTime, 
-        lastMessage, 
-        unRead, 
-        setCurrentChatId, 
-        setContactFullPage ,
+    // const newContact = {
+    //     id: newId,
+    //     name: name,
+    //     image: defaultProfile,
+    //     lastMessageTime: "",
+    //     lastMessageDate: "",
+    //     unRead: 0,
+    //     lastMessage: "",
+    //     messages: [],
+    //     status: data[random],
+    //     currentChat: false,
+    //   };
+    const { id,
+        name,
+        image,
+        lastMessageTime,
+        lastMessage,
+        unRead,
+        setCurrentChatId,
+        setContactFullPage,
+        contactFullPage,
         setContacts,
         contacts,
-        setContactToShow} = props;
+        setContactToShow,
+        setSelectedContact,
+        selectedContact} = props;
 
     const [showContextMenu, setShowContextMenu] = useState(false);
     const [contextMenuPosition, setContextMenuPosition] = useState({ x: 0, y: 0 });
 
     function goToChat() {
+        setSelectedContact(id);
         setCurrentChatId(id);
         setContactFullPage(false);
     }
@@ -44,9 +59,10 @@ function Users(props) {
         setContextMenuPosition({ x: 0, y: 0 })
     }
 
+
     return (
         <>
-            <li className="list-group-item d-flex contact-list-item contact-list-hover" onClick={goToChat} onContextMenu={handleRightClick}>
+            <li className={`d-flex contact-list-item ${selectedContact === id && !contactFullPage ? 'selected' : ''}` } onClick={goToChat} onContextMenu={handleRightClick}>
                 {showContextMenu && (
                     <div
                         className="col-4 pt-1"
@@ -79,5 +95,6 @@ function Users(props) {
 
     );
 }
+
 
 export default Users;

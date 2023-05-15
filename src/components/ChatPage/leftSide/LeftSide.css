@@ -1,0 +1,148 @@
+.left-slide {
+  background-color: #555555;
+  background: linear-gradient(-45deg, #5a7d82, #b4d5de, #78acbd);
+  background-size: cover;
+  float: left; /* add this line to float the left slide to the left */
+  border-radius: 10px;
+  animation: gradient 15s ease infinite;
+}
+
+.contact-list-item {
+  color: #000000;
+  padding: 10px 10px;
+  border-radius: 5px;
+  vertical-align: baseline;
+  display: flex;
+}
+
+.left-chat {
+  border-style: inset;
+  border-width: 0px;
+  height: 100%;
+}
+
+@keyframes gradient {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 100%;
+  }
+}
+
+#addContactBtn:hover {
+    background-color: rgb(93, 90, 174);
+  }
+  
+  @media (max-width: 992px) {
+    .whenChatIsOpen .left-slide {
+      display: none; /* hide the left slide on small screens */
+    }
+    .right-slide {
+      width: 100%; /* change the width of the right slide to 100% on small screens */
+    }
+  }
+
+.contact-list::-webkit-scrollbar {
+    width: 0px; /* Width of the scrollbar */
+    background-color: transparent; /* Background color of the scrollbar track */
+  }
+  
+  
+  .contact-list-item img {
+    margin-right: 10px;
+  }
+
+  
+  .contact-list-item {
+    border-radius: 15px;
+    background-color: #c9dbe1;
+    border-width: 1px;
+    border-style: solid;
+    border-color: white;
+    margin-bottom: 5px;
+  }
+
+  .contact-list-item.selected {
+    background-color: rgb(183, 180, 180);
+  }
+  
+  .contact-list-item:hover {
+    background: linear-gradient(-45deg, rgb(211, 211, 211), rgb(145, 145, 145));
+    /* background: rgb(183, 180, 180); */
+    border-radius: 15px;
+    cursor: pointer;
+    animation: contact-animation 2.5s ease infinite;
+  }
+  @keyframes contact-animation {
+    0% {
+        background-position: 0% 50%;
+      }
+      50% {
+        background-position: 100% 50%;
+      }
+      100% {
+        background-position: 0% 100%;
+      }
+  }
+  
+  .profile-image {
+    width: 45px;
+    height: 45px;
+    border-radius: 25px;
+  }
+  
+  .profile-nav-left {
+    background: rgb(147, 77, 77);
+    padding: 10px 15px;
+    display: flex;
+    border-radius: 10px;
+  }
+  
+  .profile-nav-chat-info {
+    left: 0;
+    display: block;
+  }
+  
+  .profile-nav-chat-info h6 {
+    margin: 0px;
+    margin-left: 0px;
+  }
+  
+  .profile-nav-chat-info p {
+    margin: 0px;
+    margin-left: 0px;
+    color: rgb(191, 191, 191);
+  }
+  
+  .profile-nav-left button {
+    margin-top: 2px;
+  }
+  
+  .profile-text {
+    text-align: center;
+    margin-top: 15px;
+    margin-left: 5px;
+  }
+  
+  .contact-list {
+    height: 80%;
+    overflow: auto;
+    direction: ltr;
+  }
+
+.profile-nav-left {
+    background: #eee;
+    padding: 10px 15px;
+    display: flex;
+    border-radius: 10px;
+  }
+  
+
+  #add-contact-icon:hover {
+    pointer-events: none;
+    cursor: pointer;
+  }
