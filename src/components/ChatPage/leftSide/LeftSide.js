@@ -10,7 +10,7 @@ import './LeftSide.css';
 
 function LeftSide(props) {
 
-    const { user , contacts, setContacts, setCurrentChatId, currentChatId , contactFullPage ,setContactFullPage } = props; // contacts
+    const { user , contacts, setContacts, setCurrentChatId, currentChatId , contactFullPage ,setContactFullPage, setAuthenticated } = props; // contacts
     const [ contactToShow, setContactToShow ] = useState(contacts);
     const [selectedContact, setSelectedContact] = useState(null);
 

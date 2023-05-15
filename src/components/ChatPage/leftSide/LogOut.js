@@ -13,7 +13,6 @@ function LogOut({ setAuthenticated }) {
   }
 
   function handleLogout() {
-    setAuthenticated(false);
     setShowModal(false);
     document.getElementById('root').classList.remove('modal-open');
     navigate("/");
