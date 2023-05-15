@@ -19,7 +19,8 @@
   border-style: inset;
   border-width: 0px;
   height: 100%;
-  margin:0px;
+  /* margin:0px; */
+  padding: 0px;
   
 }
 
@@ -140,7 +141,7 @@
     background: #eee;
     padding: 10px 15px;
     display: flex;
-    border-radius: 10px;
+    border-radius: 15px;
   }
   
 
@@ -151,5 +152,24 @@
 
   .leftNav {
     background: linear-gradient(-45deg, #041941, #212e47, #3c414a);
-    border-radius: 15px;
+    border-radius: 10px;
+  }
+  .defaultContactList {
+    width: 20%;
+  }
+  
+  .defaultContactList .left-chat {
+    width: 400px;
+  }
+  
+  .contact-search-bar {
+    justify-content: center;
+    align-items: center;
+    max-width: 300px;
+  }
+  
+  .NoContactsMessage {
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
   }

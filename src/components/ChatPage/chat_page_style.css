@@ -265,25 +265,7 @@ body {
   background-image: url("../../assests/images/chat-background.png");
 }
 
-.defaultContactList {
-  width: 20%;
-}
 
-.defaultContactList .left-chat {
-  width: 400px;
-}
-
-.contact-search-bar {
-  justify-content: center;
-  align-items: center;
-  max-width: 300px;
-}
-
-.NoContactsMessage {
-  text-align: center;
-  margin-left: auto;
-  margin-right: auto;
-}
 
 .NoContactsFoundMessage {
   text-align: center;
