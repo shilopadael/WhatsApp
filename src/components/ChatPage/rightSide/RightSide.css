@@ -1,7 +1,7 @@
 /*Right side*/
 .right-slide {
     border-left: 2px solid;
-    background-color: #7294ca;
+    /* background-color: linear-gradient(-45deg, #b5ced2, #7fa2ab, #6794a2); */
     background-image: url("../../../assests/images/chat-background.png");
     background-size: cover;
     background-repeat: no-repeat;

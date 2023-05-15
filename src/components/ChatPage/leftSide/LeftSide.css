@@ -1,6 +1,6 @@
 .left-slide {
   background-color: #555555;
-  background: linear-gradient(-45deg, #5a7d82, #b4d5de, #78acbd);
+  background: linear-gradient(-45deg, #dbfaff, #b1eeff, #9ee7ff);
   background-size: cover;
   float: left; /* add this line to float the left slide to the left */
   border-radius: 10px;
