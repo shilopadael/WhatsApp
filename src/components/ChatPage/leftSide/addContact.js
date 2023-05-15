@@ -51,6 +51,7 @@ function AddContact(props) {
   function handleAddContact() {
     addContact(newItem);
     setNewItem("");
+    
     // setShowModal(false);
     // document.getElementById('root').classList.remove('modal-open');
   }
@@ -63,6 +64,8 @@ function AddContact(props) {
     if ( event.key === 'Enter') {
       event.preventDefault();
       addContact(newItem);
+      setNewItem("");
+
     }; // Prevent the default behavior of the key event
   }
 
