@@ -1,4 +1,5 @@
 import './App.css';
+import './components/ChatSystemLogo/ChatSystemLogo.css';
 import LoginPage from './components/LoginPage/LoginPage';
 import RegisterPage from './components/registerPage/RegisterPage';
 import { BrowserRouter, Routes, Route } from "react-router-dom";
