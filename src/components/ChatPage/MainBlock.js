@@ -7,7 +7,7 @@ import LogOut from './LogOutButton';
 
 function MainBlock(props) {
 
-  const { user } = props;
+  const { user , setAuthenticated } = props;
 
   //   user is :
   //   let data = {
@@ -28,6 +28,7 @@ function MainBlock(props) {
       <div className="container border shadow container-lg container-md container-sm defaultContactList" >
         <div className="row no-gutters h-100 defaultContactBlock">
           <LeftSide user={user}
+            setAuthenticated={setAuthenticated}
             contacts={contacts}
             setContacts={setContacts}
             setCurrentChatId={setCurrentChatId}

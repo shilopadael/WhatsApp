@@ -46,6 +46,7 @@ function LeftSide(props) {
     return (
         <div className="col-4 left-slide justify-content-between border-right left-chat">
             <TopBarLeftSide
+                setAuthenticated={setAuthenticated}
                 contacts={contacts}
                 setContacts={setContacts}
                 user={user}
