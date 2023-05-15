@@ -1,0 +1,18 @@
+.logOutModalTitle{ 
+    color: white;
+    margin-left: 55px;
+  }
+  
+  .buttonClose{
+    color: white;
+    background-color: white;
+  }
+
+  .danger-btn{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .text-light{
+    color: white;
+  }

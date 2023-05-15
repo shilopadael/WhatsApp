@@ -17,14 +17,14 @@ function TopBarRightSlide(props) {
                         <path d="M13.683 1a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2h-7.08a2 2 0 0 1-1.519-.698L.241 8.65a1 1 0 0 1 0-1.302L5.084 1.7A2 2 0 0 1 6.603 1h7.08zm-7.08 1a1 1 0 0 0-.76.35L1 8l4.844 5.65a1 1 0 0 0 .759.35h7.08a1 1 0 0 0 1-1V3a1 1 0 0 0-1-1h-7.08z" />
                     </svg>
                 </a>
-                <div className="col-2">
+                <div className="col-1">
                     <img
                         src={currentUser.image}
                         className="rounded-circle topBarRightSlide profile-image"
                         alt="chatUserImg"
                     />
                 </div>
-                <div className="col-8">
+                <div className="col-11">
                     <div>
                         <div className="row mt-0 mb-0">
                             <div className="profile-nav-chat-info">
@@ -34,9 +34,9 @@ function TopBarRightSlide(props) {
                         </div>
                     </div>
                 </div>
-                <div className="col-10">
+                {/* <div className="col-10">
 
-                </div>
+                </div> */}
                 {/* <div className="col-10 search-icon">
                     <span>
                         <svg

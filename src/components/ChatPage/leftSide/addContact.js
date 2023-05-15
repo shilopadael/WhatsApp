@@ -41,72 +41,104 @@ function AddContact(props) {
     addContact(newItem);
     setNewItem("");
   }
+  const [showModal, setShowModal] = useState(false);
+
+  function handleIconClick() {
+    setShowModal(true);
+    document.getElementById('root').classList.add('modal-open');
+  }
+
+  function handleAddContact() {
+    addContact(newItem);
+    setNewItem("");
+    // setShowModal(false);
+    // document.getElementById('root').classList.remove('modal-open');
+  }
+
+  function handleCancel() {
+    setShowModal(false);
+    document.getElementById('root').classList.remove('modal-open');
+  }
+  function handleKeyDown(event) {
+    if ( event.key === 'Enter') {
+      event.preventDefault();
+      addContact(newItem);
+    }; // Prevent the default behavior of the key event
+  }
 
   return (
     <>
       <button
         type="button"
-        id="addContactBtn"
+        id="logoutBtn"
         className="btn"
-        data-bs-toggle="modal"
-        data-bs-target="#addContactModal"
+        onClick={handleIconClick}
+        data-bs-toggle="tooltip" // Add the data-bs-toggle attribute for tooltip
+        title="Add Contact" // Specify the tooltip text
+
       >
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          width="16"
-          height="16"
-          fill="currentColor"
-          className="bi bi-person-plus-fill"
-          viewBox="0 0 16 16"
-        >
-          <path
-            d="M1 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1H1zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6z"
-          />
-          <path
-            fillRule="evenodd"
-            d="M13.5 5a.5.5 0 0 1 .5.5V7h1.5a.5.5 0 0 1 0 1H14v1.5a.5.5 0 0 1-1 0V8h-1.5a.5.5 0 0 1 0-1H13V5.5a.5.5 0 0 1 .5-.5z"
-          />
-        </svg>
+      <svg 
+      xmlns="http://www.w3.org/2000/svg" 
+      width="16" 
+      height="16" 
+      fill="currentColor" 
+      class="bi bi-person-plus-fill" 
+      viewBox="0 0 16 16">
+        <path d="M1 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1H1zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6z"/>
+        <path fill-rule="evenodd" d="M13.5 5a.5.5 0 0 1 .5.5V7h1.5a.5.5 0 0 1 0 1H14v1.5a.5.5 0 0 1-1 0V8h-1.5a.5.5 0 0 1 0-1H13V5.5a.5.5 0 0 1 .5-.5z"/>
+      </svg>
       </button>
 
-      <div className="modal fade" id="addContactModal" tabIndex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div className="modal-dialog">
-          <div className="modal-content">
-            <div className="modal-header bg-primary">
-              <h5 className="modal-title" id="exampleModalLabel">
-                Add New Contact
-              </h5>
-              <button
-                type="button"
-                className="btn-close"
-                data-bs-dismiss="modal"
-                aria-label="Close"
-              ></button>
-            </div>
-            <div className="modal-body">
-              <form onSubmit={handleSubmit}>
-                <div className="mb-3">
-                  <input
-                    type="text"
-                    className="form-control"
-                    id="newItemInput"
-                    placeholder="Enter contact name"
-                    value={newItem}
-                    onChange={(e) => setNewItem(e.target.value)}
-                  />
-                </div>
-                <button
-                  type="submit"
-                  className="btn btn-primary text-light"
-                  disabled={!newItem}
-                >
+      {showModal && (
+        <div className="modal fade show" tabIndex="-1" role="dialog" style={{ display: 'block' }}>
+          <div className="modal-dialog">
+            <div className="modal-content">
+              <div className="modal-header bg-dark">
+                <h5 className="modal-title logOutModalTitle">Add new Contact</h5>
+                {/* <button type="button" className="close" onClick={handleCancel}>
+                  <span aria-hidden="true">&times;</span>
+                </button> */}
+
+              </div>
+              <div className="modal-body danger-btn">
+              <form
+                        onSubmit={handleAddContact}
+                        className="d-flex">
+                        <input
+                            onChange={(e) => setNewItem(e.target.value)}
+                            className="form-control me-2"
+                            type="search"
+                            placeholder="Type your message"
+                            value={newItem}
+                            aria-label="Search"
+                            onKeyPress={handleKeyDown}></input>
+
+                    </form>
+
+                
+
+              </div>
+              <div className="modal-footer">
+              <button type="button" className="btn btn-secondary" onClick={handleCancel}>
+                  Cancel
+                </button>
+                <button type="button" className="btn btn-danger" onClick={handleAddContact}>
                   Add Contact
                 </button>
-              </form>
+                <p></p>
+              </div>
+              {/* <div className="modal-footer">
+                <button type="button" className="btn btn-secondary" onClick={handleCancel}>
+                  Cancel
+                </button>
+                <button type="button" className="btn btn-primary" onClick={handleLogout}>
+                  Log Out
+                </button>
+              </div> */}
             </div>
           </div>
         </div>
-      </div>
+      )}
     </>
   );
 }

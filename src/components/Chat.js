@@ -35,7 +35,7 @@ function Chat(props) {
         <div className="topScreen"></div>
         <LogOut setAuthenticated={setAuthenticated} />
         <div className="lowerScreen"></div>
-        <MainBlock user={user} />
+        <MainBlock user={user}  setAuthenticated={setAuthenticated} />
       </>
     );
   }

@@ -16,3 +16,17 @@
   .text-light{
     color: white;
   }
+  .modal-open {
+    overflow: hidden;
+  }
+  
+  .modal-open::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.75); /* Adjust the alpha value to control the darkness of the shadow */
+    z-index: 1040; /* Make sure the shadow is displayed above the modal */
+  }

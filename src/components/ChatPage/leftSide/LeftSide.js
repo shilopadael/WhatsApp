@@ -9,7 +9,7 @@ import { useState } from 'react';
 
 function LeftSide(props) {
 
-    const { user , contacts, setContacts, setCurrentChatId, setContactFullPage } = props; // contacts
+    const { user , contacts, setContacts, setCurrentChatId, setContactFullPage ,setAuthenticated} = props; // contacts
     const [ contactToShow, setContactToShow ] = useState(contacts);
 
 
@@ -40,6 +40,7 @@ function LeftSide(props) {
     return (
         <div className="col-4 left-slide justify-content-between border-right left-chat">
             <TopBarLeftSide
+                setAuthenticated={setAuthenticated}
                 contacts={contacts}
                 setContacts={setContacts}
                 user={user}
