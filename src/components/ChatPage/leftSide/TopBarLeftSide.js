@@ -15,7 +15,7 @@ function TopBarLeftSide(props) {
     }
 
     return (
-        <nav className="navbar navbar-expand-lg line-up p-0 leftNav">
+        <nav className="navbar navbar-expand-lg line-up p-0 leftNav linerLine-color">
             <div className="container-fluid rounded m-0 p-1">
                 <div className="col-9">
                     <a className="navbar-brand" href="" onContextMenu={changeUserImg} onClick={(e) => e.preventDefault()}>

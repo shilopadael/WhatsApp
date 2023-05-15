@@ -7,6 +7,21 @@ body {
 }
 
 
+
+.topScreen {
+  padding-bottom: 3px;
+  display: relative;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 18vh;
+  /* background-color: #041941; */
+  background: linear-gradient(-45deg, #041941, #212e47, #3c414a);
+  animation: gradient 15s ease infinite;
+}
+
+
+
 .lowerScreen {
   display: relative;
   justify-content: center;
@@ -31,19 +46,6 @@ body {
   .back-arrow {
     display: contents !important;
   }
-}
-
-
-.topScreen {
-  padding-bottom: 3px;
-  display: relative;
-  justify-content: center;
-  align-items: center;
-  width: 100%;
-  height: 18vh;
-  /* background-color: #041941; */
-  background: linear-gradient(-45deg, #041941, #212e47, #3c414a);
-  animation: gradient 15s ease infinite;
 }
 
 @keyframes gradient {
@@ -76,6 +78,7 @@ body {
 .form-control.border-none {
   border: none;
 }
+
 @media (max-width: 992px) {
   .dropdown-wrapper {
     position: relative;
@@ -88,7 +91,6 @@ body {
     z-index: 1000;
   }
 }
-
 
 
 .navbar-brand img {
@@ -128,14 +130,7 @@ body {
   position: relative;
   height: 100%;
 }
-.top-chat {
-  position: relative;
-  height: 7%;
-  width: 100%;
-  left: 0;
-  z-index: 102;
-  border-radius: 10px;
-}
+
 .bottom-chat {
   position: absolute;
   bottom: 0;
@@ -191,26 +186,6 @@ body {
 }
 
 
-
-
-
-
-
-
-
-
-.right-chat {
-  padding-left: 0px;
-  padding-right: 0px;
-  border-width: 3px;
-  border-color: rgb(38, 8, 102);
-  overflow-y: auto;
-  height: 85%;
-  margin-top: 0px;
-  display: flex;
-  flex-direction: column-reverse;
-}
-
 @media (max-height: 800px) {
   .right-chat {
     height: 82%;
@@ -229,14 +204,7 @@ body {
   }
 }
 
-.right-chat::-webkit-scrollbar {
-  width: 0px;
-  /* background-color: transparent; Background color of the scrollbar track */
-}
 
-.rightNav {
-  height: 55px;
-}
 
 .profilePic {
   padding: 0px;
@@ -251,27 +219,17 @@ body {
   padding-left: 0px;
 }
 
-.chat-box-input {
-  background: #eee;
-  display: flex;
-  align-items: center;
-  padding: 5px 10px;
-  border-radius: 10px;
-}
 
-.gray {
+
+/* .gray {
   display: none;
-  background-color: #878787;
+  background-color: #d3d3d3;
   background-image: url("../../assests/images/chat-background.png");
-}
+} */
 
 
 
-.NoContactsFoundMessage {
-  text-align: center;
-  margin-left: auto;
-  margin-right: auto;
-}
+
 
 @media (max-width: 576px) {
   .defaultContactList .left-slide {
@@ -299,36 +257,21 @@ body {
   }
 }
 
-.right-chat-profile-name {
-  margin-left: 0px;
-  padding-left: 0px;
-}
 
-.back-to-contact-icon {
-  align-items: center;
-  width: auto;
-  height: auto;
-  display: none;
-}
-
-.search-icon {
+/* .search-icon {
   margin-right: 5%;
-}
+} */
 
-@media (max-width: 576px) {
-  .back-to-contact-icon {
-    margin-right: 0px;
-  }
-}
+
 
 @media (max-width: 992px) {
   .back-to-contact-icon {
     display: block;
     margin-right: 15px;
   }
-  .search-icon {
+  /* .search-icon {
     margin-right: 3%;
-  }
+  } */
 }
 
 @media (max-width: 440px) {
@@ -337,18 +280,11 @@ body {
     margin-left: 0px;
     margin-right: 5px;
   }
-  .search-icon {
+  /* .search-icon {
     margin-right: 1%;
-  }
+  } */
 }
 
-.back-to-contact-icon a {
-  cursor: default;
-}
-
-.back-to-contact-icon:hover {
-  background-color: #eeeeee;
-}
 
 .logOutbtn {
   z-index: 150;

@@ -9,7 +9,7 @@ function TopBarRightSlide(props) {
     }
 
     return (
-        <nav className="navbar navbar-expand-sm dark-blue1 top-chat small-nav p-0 m-0 rightNav">
+        <nav className="navbar navbar-expand-sm top-chat p-0 m-0 linerLine-color-right">
             <div className="container-fluid small-screen">
                 <a className="col-1 back-to-contact-icon" onClick={changeToChatHandle}>
                     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" className="bi bi-backspace" viewBox="0 0 16 16">

@@ -150,8 +150,11 @@
     cursor: pointer;
   }
 
-  .leftNav {
+  .linerLine-color {
     background: linear-gradient(-45deg, #041941, #212e47, #3c414a);
+  }
+
+  .leftNav {
     border-radius: 10px;
   }
   .defaultContactList {
@@ -169,6 +172,12 @@
   }
   
   .NoContactsMessage {
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .NoContactsFoundMessage {
     text-align: center;
     margin-left: auto;
     margin-right: auto;
