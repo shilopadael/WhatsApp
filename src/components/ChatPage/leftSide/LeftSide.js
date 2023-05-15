@@ -4,13 +4,15 @@ import TopBarLeftSide from './TopBarLeftSide';
 import SearchContacts from './SearchContacts.js';
 import Users from './Users';
 import { useState } from 'react';
+import './LeftSide.css';
 
 
 
 function LeftSide(props) {
 
-    const { user , contacts, setContacts, setCurrentChatId, setContactFullPage } = props; // contacts
+    const { user , contacts, setContacts, setCurrentChatId, currentChatId , contactFullPage ,setContactFullPage } = props; // contacts
     const [ contactToShow, setContactToShow ] = useState(contacts);
+    const [selectedContact, setSelectedContact] = useState(null);
 
 
     function showContacts() {
@@ -26,6 +28,10 @@ function LeftSide(props) {
                     contacts={contacts}
                     setContacts={setContacts}
                     setContactToShow={setContactToShow}
+                    contactToShow={contactToShow}
+                    contactFullPage={contactFullPage}
+                    setSelectedContact={setSelectedContact}
+                    selectedContact={selectedContact}
                 />
             });
         }

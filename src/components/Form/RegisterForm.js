@@ -2,6 +2,7 @@ import defaultImg from "../../assets/registerImg/profile.png";
 import validate from "./FormValidation";
 import FormInput from "./FormInput";
 import UserImg from "./UserImg";
+import "./RegisterForm.css"
 import { useState } from "react";
 import { Link } from 'react-router-dom';
 import { useNavigate } from 'react-router-dom';

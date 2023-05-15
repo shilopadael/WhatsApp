@@ -13,7 +13,6 @@ function Chat(props) {
       // Retrieve user data from local storage
       // const userData = JSON.parse(localStorage.getItem("user")); // connect database here
       const userData = state;
-      console.log("userData " + userData.displayName);
       setUser(userData);
     }
   }, [authenticated]);

@@ -1,3 +1,4 @@
+import './UserImg.css';
 import Input from "./FormInput";
 
 function UserImg(props) {
