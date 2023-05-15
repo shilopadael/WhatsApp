@@ -1,8 +1,11 @@
 import React, { useState } from 'react';
 import './LogOutButton.css';
+import { useNavigate } from "react-router-dom";
 
 function LogOut({ setAuthenticated }) {
   const [showModal, setShowModal] = useState(false);
+
+  const navigate = useNavigate();
 
   function handleIconClick() {
     setShowModal(true);
@@ -10,9 +13,9 @@ function LogOut({ setAuthenticated }) {
   }
 
   function handleLogout() {
-    setAuthenticated(false);
     setShowModal(false);
     document.getElementById('root').classList.remove('modal-open');
+    navigate("/");
   }
 
   function handleCancel() {

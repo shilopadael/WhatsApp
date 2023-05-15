@@ -26,7 +26,7 @@ function TopBarRightSlide(props) {
                 </div>
                 <div className="col-11">
                     <div>
-                        <div className="row mt-0 mb-0">
+                        <div className="row">
                             <div className="profile-nav-chat-info">
                                 <h6 className="profile-text-chat">{currentUser.name}</h6>
                                 <p className="profile-text-about">{currentUser.status}</p>
