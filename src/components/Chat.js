@@ -1,16 +1,19 @@
 import MainBlock from "./ChatPage/MainBlock";
 import { useEffect, useState } from "react";
 import LogOut from "./ChatPage/LogOutButton";
+import { useLocation } from "react-router-dom";
 
 function Chat(props) {
-
+  const {state} = useLocation();
   const { authenticated, setAuthenticated } = props;
   const [user, setUser] = useState(null);
 
   useEffect(() => {
     if (authenticated) {
       // Retrieve user data from local storage
-      const userData = JSON.parse(localStorage.getItem("user")); // connect database here
+      // const userData = JSON.parse(localStorage.getItem("user")); // connect database here
+      const userData = state;
+      console.log("userData " + userData.displayName);
       setUser(userData);
     }
   }, [authenticated]);

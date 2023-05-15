@@ -14,7 +14,7 @@ function UserImg(props) {
         }
         reader.onload = function () {
           const dataURL = reader.result;
-          console.log("img url: " + dataURL);
+        //   console.log("img url: " + dataURL);
           setImg(dataURL);
         }
         reader.readAsDataURL(file);

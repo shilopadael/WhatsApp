@@ -60,8 +60,6 @@ function RegisterForm(props) {
             // print the data:
             users.push(data);
             alert("You have successfully registered. retuning to the login page.");
-            // redirecting to the login page
-            // localStorage.setItem(data.email, JSON.stringify(data));
             navigate("/");
             return;
         }

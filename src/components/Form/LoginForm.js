@@ -26,9 +26,8 @@ function LoginForm(props) {
 
                 setAuthenticated(true);
                 const userData = users[i];
-                localStorage.setItem("user", JSON.stringify(userData));
                 localStorage.setItem("authenticated", true);
-                navigate("/chat");
+                navigate("/chat", {state: userData});
                 return;
             }
         }
