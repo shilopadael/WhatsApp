@@ -67,7 +67,7 @@
 <ol start="3">
 	<li>run the foloowing command::<br>
 		<code>npm start</code>
-		(make sure you have the dependencies listed by running "npm install" ).
+		(make sure you have the dependencies liste by running "npm install" ).
 	</li>
 </ol>
 	
