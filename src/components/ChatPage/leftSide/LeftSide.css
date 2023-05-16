@@ -1,6 +1,6 @@
 .left-slide {
   background-color: #555555;
-  background: linear-gradient(-45deg, #dbfaff, #b1eeff, #9ee7ff);
+  background: linear-gradient(-45deg, #bcd4d8, #97acb2, #cdd6d9);
   background-size: cover;
   float: left; /* add this line to float the left slide to the left */
   border-radius: 10px;
@@ -152,6 +152,7 @@
 
   .linerLine-color {
     background: linear-gradient(-45deg, #041941, #212e47, #3c414a);
+    /* color: white; */
   }
 
   .leftNav {
@@ -181,4 +182,23 @@
     text-align: center;
     margin-left: auto;
     margin-right: auto;
+  }
+
+  .white {
+    color: rgb(187, 187, 187)  !important;
+  }
+  .white:hover {
+    color: white !important;
+  }
+
+  .add-contact-btn:hover {
+    background-color: rgb(216, 216, 216);
+  }
+
+  .add-contact-btn {
+    margin-left: 10px;
+  }
+
+  .log-out-btn:hover {
+    background-color: rgb(216, 216, 216);
   }

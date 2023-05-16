@@ -13,7 +13,7 @@ function AddContact(props) {
   const { contacts, setContacts, contactToShow, setContactToShow } = props;
 
   const [newItem, setNewItem] = useState("");
-
+  const [showModal, setShowModal] = useState(false);
 
   function addContact(name) {
 
@@ -41,30 +41,31 @@ function AddContact(props) {
     addContact(newItem);
     setNewItem("");
   }
-  const [showModal, setShowModal] = useState(false);
+
 
   function handleIconClick() {
     setShowModal(true);
-    document.getElementById('root').classList.add('modal-open');
+
   }
 
   function handleAddContact() {
     addContact(newItem);
     setNewItem("");
-    
-    // setShowModal(false);
-    // document.getElementById('root').classList.remove('modal-open');
+    setShowModal(false);
+
+
   }
 
   function handleCancel() {
     setShowModal(false);
-    document.getElementById('root').classList.remove('modal-open');
   }
+
   function handleKeyDown(event) {
-    if ( event.key === 'Enter') {
+    if (event.key === 'Enter') {
       event.preventDefault();
       addContact(newItem);
       setNewItem("");
+      setShowModal(false);
 
     }; // Prevent the default behavior of the key event
   }
@@ -74,22 +75,22 @@ function AddContact(props) {
       <button
         type="button"
         id="logoutBtn"
-        className="btn"
+        className="btn add-contact-btn"
         onClick={handleIconClick}
         data-bs-toggle="tooltip" // Add the data-bs-toggle attribute for tooltip
         title="Add Contact" // Specify the tooltip text
 
       >
-      <svg 
-      xmlns="http://www.w3.org/2000/svg" 
-      width="16" 
-      height="16" 
-      fill="currentColor" 
-      class="bi bi-person-plus-fill" 
-      viewBox="0 0 16 16">
-        <path d="M1 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1H1zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6z"/>
-        <path fill-rule="evenodd" d="M13.5 5a.5.5 0 0 1 .5.5V7h1.5a.5.5 0 0 1 0 1H14v1.5a.5.5 0 0 1-1 0V8h-1.5a.5.5 0 0 1 0-1H13V5.5a.5.5 0 0 1 .5-.5z"/>
-      </svg>
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="16"
+          height="16"
+          fill="currentColor"
+          className="bi bi-person-plus-fill add-contact-img"
+          viewBox="0 0 16 16">
+          <path d="M1 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1H1zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6z" />
+          <path fill-rule="evenodd" d="M13.5 5a.5.5 0 0 1 .5.5V7h1.5a.5.5 0 0 1 0 1H14v1.5a.5.5 0 0 1-1 0V8h-1.5a.5.5 0 0 1 0-1H13V5.5a.5.5 0 0 1 .5-.5z" />
+        </svg>
       </button>
 
       {showModal && (
@@ -104,28 +105,28 @@ function AddContact(props) {
 
               </div>
               <div className="modal-body danger-btn">
-              <form
-                        onSubmit={handleAddContact}
-                        className="d-flex">
-                        <input
-                            onChange={(e) => setNewItem(e.target.value)}
-                            className="form-control me-2"
-                            type="search"
-                            placeholder="Add contact"
-                            value={newItem}
-                            aria-label="Search"
-                            onKeyPress={handleKeyDown}></input>
+                <form
+                  onSubmit={handleAddContact}
+                  className="d-flex">
+                  <input
+                    onChange={(e) => setNewItem(e.target.value)}
+                    className="form-control me-2"
+                    type="search"
+                    placeholder="Add contact"
+                    value={newItem}
+                    aria-label="Search"
+                    onKeyPress={handleKeyDown}></input>
 
-                    </form>
+                </form>
 
-                
+
 
               </div>
               <div className="modal-footer">
-              <button type="button" className="btn btn-secondary" onClick={handleCancel}>
+                <button type="button" className="btn btn-secondary" onClick={handleCancel}>
                   Cancel
                 </button>
-                <button type="button" className="btn btn-danger" onClick={handleAddContact}>
+                <button type="button" className="btn linerLine-color white" onClick={handleAddContact}>
                   Add Contact
                 </button>
                 <p></p>

@@ -16,7 +16,11 @@ function MessageNav(props) {
         })
         userChat.push({ sender: "me", message: newItem, time: timestamp });
         setMessage({ e });
-        user.lastMessage = newItem;
+        if(newItem.length > 20) {
+            user.lastMessage = newItem.slice(0, 20) + "...";
+        } else {
+            user.lastMessage = newItem;
+        }
         user.lastMessageTime = timestamp;
         user.lastMessageDate = current;
         // print all contacts

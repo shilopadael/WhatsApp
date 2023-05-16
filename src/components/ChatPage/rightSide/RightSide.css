@@ -2,7 +2,9 @@
 .right-slide {
     border-left: 2px solid;
     /* background-color: linear-gradient(-45deg, #b5ced2, #7fa2ab, #6794a2); */
-    background-image: url("../../../assests/images/chat-background.png");
+    /* background-image: url("../../../assests/images/chat-background.png"); */
+    background-image: linear-gradient(0deg, #7b899e,  transparent),
+    url("../../../assests/images/chat-background.png");
     background-size: cover;
     background-repeat: no-repeat;
     float: left; /* add this line to float the right slide to the left */
@@ -86,3 +88,4 @@
     background-color: #eeeeee;
   }
   
+
