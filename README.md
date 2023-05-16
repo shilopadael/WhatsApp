@@ -1,4 +1,4 @@
-<h1>this is the main branch for ex1Part2, transforming the html to react-app, until 16.5!</h1>
+<h1>this is the main branch for ex1Part2(ex2), transforming the html to react-app, until 16.5!</h1>
 
 <h1>Milestone 2: Design and Setup (Updated)</h1>
 
