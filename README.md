@@ -1,9 +1,5 @@
 <h1>this is the main branch for ex1Part2, transforming the html to react-app, until 16.5!</h1>
 
-
-# Advancad Programming 2 - WhatsApp Project
-<p>ChatApp is a web application built to resemble a messaging platform like WhatsApp. The project is currently in its first milestone, which includes building the login page, registration page, and the main chat interface.
-
 <h1>Milestone 2: Design and Setup (Updated)</h1>
 
 <h2>Features</h2>
