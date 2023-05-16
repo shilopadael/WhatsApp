@@ -16,6 +16,7 @@ function RegisterForm(props) {
     const { users } = props;
 
     const [email, setEmail] = useState("");
+    const [userTaken, setUserTaken] = useState("");
     const [password, setPassword] = useState("");
     const [confirmPassword, setConfirm] = useState("");
     const [displayName, setDisplayName] = useState("");
@@ -23,6 +24,14 @@ function RegisterForm(props) {
 
     const handleEmailChange = (e) => {
         setEmail(e.target.value);
+        // checking if the email already exist
+        for (let i = 0; i < users.length; i++) {
+            if (users[i].email === email) {
+                setUserTaken(email);
+                return;
+            }
+        }
+
     }
     const handlePasswordChange = (e) => {
         setPassword(e.target.value);
@@ -78,8 +87,8 @@ function RegisterForm(props) {
                         placeholder="enter your username"
                         label="Email"
                         onChange={handleEmailChange}
-                        errormessage="Please enter a valid email address."
-                        pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$"
+                        errormessage="This username already exist!"
+                        pattern={userTaken}
                         required={true}
                     />
                     <div className="form-group input-effect">
