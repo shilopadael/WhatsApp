@@ -32,6 +32,7 @@
     Handle form submission and authentication logic using React's state management.
 </p>
 ![Image](public/ReadmeImages/Screenshot from 2023-05-17 20-23-21.png)
+<image src="public/ReadmeImages/LoginImage">
 
 <h3>Registration Page</h3>
 <p>
