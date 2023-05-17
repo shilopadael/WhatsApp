@@ -31,7 +31,7 @@
     Create a Login component that includes a form for users to enter their login credentials.<br>
     Handle form submission and authentication logic using React's state management.
 </p>
-<image src="public/ReadmeImages/LoginImage.png" style="width=50%">
+<image src="public/ReadmeImages/LoginImage.png" style="width:50%">
 
 <h3>Registration Page</h3>
 <p>
