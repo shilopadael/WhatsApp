@@ -31,14 +31,14 @@
     Create a Login component that includes a form for users to enter their login credentials.<br>
     Handle form submission and authentication logic using React's state management.
 </p>
-![Image](public/ReadmeImages/Screenshot from 2023-05-17 20-23-21.png)
-<image src="public/ReadmeImages/LoginImage">
+<image src="public/ReadmeImages/LoginImage.png">
 
 <h3>Registration Page</h3>
 <p>
     Create a Registration component that includes a form for users to provide their personal information and register a new account.<br>
     Handle form submission and user registration logic using React's state management.
 </p>
+<image src="public/ReadmeImages/RegisterImage.png">
 
 <h3>Main Chat Interface</h3>
 <p>
@@ -46,6 +46,7 @@
     Fetch and display user conversations and messages using API calls or mock data.<br>
     Implement features like creating new chats, participating in existing chats, and sending messages.
 </p>
+<image src="public/ReadmeImages/ChatImage.png">
 
 <h3>Styling</h3>
 <p>
