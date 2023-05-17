@@ -82,7 +82,7 @@ function Users(props) {
                     </div>
                 </div>
                 <div className="col-2 text-end">
-                    <div className="col-12 last-seen opacity">{lastMessageTime}</div>
+                    <span className="col-12 last-seen opacity">{lastMessageTime}</span>
                     <div>
                         {/*if lastSeen is 0, then don't show the badge*/}
                         {unRead ? <span className="badge bg-primary rounded-pill">{unRead}</span> : null}

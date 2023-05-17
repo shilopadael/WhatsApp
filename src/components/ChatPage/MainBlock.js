@@ -11,13 +11,12 @@ function MainBlock(props) {
 
   //   user is :
   //   let data = {
-  //     "email": email, 
+  //     "username": email, 
   //     "password": password,
   //     "displayName": displayName,
   //     "img": img
   // };
 
-  console.log("user is " + user.img)
   
   const [contacts, setContacts] = useState([]);
   const [currentChatId, setCurrentChatId] = useState(null);

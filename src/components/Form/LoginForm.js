@@ -16,12 +16,12 @@ function LoginForm(props) {
         e.preventDefault();
         // getting the email and password from the form
         
-        let email = formRef.current[0].value;
+        let username = formRef.current[0].value;
         let password = formRef.current[1].value;
 
         //checking if the email and password are correct in the userlst
         for (let i = 0; i < users.length; i++) {
-            if (users[i].email === email && users[i].password === password) {
+            if (users[i].username === username && users[i].password === password) {
                 alert("You have successfully logged in.");
 
                 setAuthenticated(true);
@@ -41,8 +41,8 @@ function LoginForm(props) {
 
     return (
         <form ref={formRef} className="m-4" id="loginForm" onSubmit={handleLoginSubmit}>
-            <FormInput type="email" id="loginEmail" placeholder="enter your email" className="form-control" label="Email" required={true} />
-            <FormInput type="password" id="loginPassword" placeholder="enter your password" className="form-control" label="Password" required={true} />
+            <FormInput type="text" id="loginUsername" placeholder="enter your username" className="form-control" label="Username" required={true} pattern="^.*$"/>
+            <FormInput type="password" id="loginPassword" placeholder="enter your password" className="form-control" label="Password" required={true} pattern="^.*$"/>
             <div className="form-group form-check">
                 {/* <div className="row">
                     <div className="col-md-6">

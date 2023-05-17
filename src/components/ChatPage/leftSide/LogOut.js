@@ -1,23 +1,26 @@
 import React, { useState } from 'react';
 import './LogOutButton.css';
+import { useNavigate } from "react-router-dom";
 
 function LogOut({ setAuthenticated }) {
   const [showModal, setShowModal] = useState(false);
 
+  const navigate = useNavigate();
+
   function handleIconClick() {
     setShowModal(true);
-    document.getElementById('root').classList.add('modal-open');
+    // document.getElementById('root').classList.add('modal-open');
   }
 
   function handleLogout() {
-    setAuthenticated(false);
     setShowModal(false);
-    document.getElementById('root').classList.remove('modal-open');
+    // document.getElementById('root').classList.remove('modal-open');
+    navigate("/");
   }
 
   function handleCancel() {
     setShowModal(false);
-    document.getElementById('root').classList.remove('modal-open');
+    // document.getElementById('root').classList.remove('modal-open');
   }
 
   return (
@@ -25,7 +28,7 @@ function LogOut({ setAuthenticated }) {
       <button
         type="button"
         id="logoutBtn"
-        className="btn"
+        className="btn log-out-btn"
         onClick={handleIconClick}
         data-bs-toggle="tooltip" // Add the data-bs-toggle attribute for tooltip
         title="Log Out" // Specify the tooltip text
@@ -35,7 +38,7 @@ function LogOut({ setAuthenticated }) {
           width="16"
           height="16"
           fill="currentColor"
-          className="bi bi-box-arrow-left"
+          className="bi bi-box-arrow-left log-out-img"
           viewBox="0 0 16 16"
         >
           <path

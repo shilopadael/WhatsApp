@@ -16,7 +16,11 @@ function MessageNav(props) {
         })
         userChat.push({ sender: "me", message: newItem, time: timestamp });
         setMessage({ e });
-        user.lastMessage = newItem;
+        if(newItem.length > 20) {
+            user.lastMessage = newItem.slice(0, 20) + "...";
+        } else {
+            user.lastMessage = newItem;
+        }
         user.lastMessageTime = timestamp;
         user.lastMessageDate = current;
         // print all contacts
@@ -25,7 +29,7 @@ function MessageNav(props) {
     }
 
     return (
-        <nav className="navbar navbar-expand-lg navbar-light dark-blue1 bottom-chat">
+        <nav className="navbar navbar-expand-lg navbar-light linerLine-color-right bottom-chat">
             <div className="container-fluid ">
                 <div className="col-1 text-center">
                     <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="currentColor" className="bi bi-emoji-smile" viewBox="0 0 16 16">

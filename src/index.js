@@ -4,12 +4,7 @@ import './index.css';
 import App from './App';
 import img from "./assets/registerImg/profile.png"
 
-const usersInformation = [{
-  "email": "omerbar@gmail.com", 
-  "password": "123",
-  "displayName": "Omer",
-  "img": img
-}];
+const usersInformation = [];
 localStorage.setItem("authenticated", false);
 
 const root = ReactDOM.createRoot(document.getElementById('root'));

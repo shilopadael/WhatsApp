@@ -12,8 +12,3 @@
 .register input:invalid[focused="true"] ~ span {
     display: block;
 }
-
-/* TODO:change span to errror message.
-.errorMessage{
-    /* fill */
-/* } */ 

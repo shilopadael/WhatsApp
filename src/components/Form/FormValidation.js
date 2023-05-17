@@ -1,8 +1,8 @@
 
 
 // validation function
-function validateEmail(value, setEmailError) {
-  const regex = /\S+@\S+\.\S+/;
+function validateUsername(value) {
+  const regex = /^\w{3,12}$/
   if(!regex.test(value)) {
     return false;
   }
@@ -10,7 +10,7 @@ function validateEmail(value, setEmailError) {
 }
 
 
-function validateDisplayName(value, setDisplayNameError) {
+function validateDisplayName(value) {
   const regex = /^[a-zA-Z0-9]+$/;
   if(!regex.test(value)) {
     return false;
@@ -20,13 +20,13 @@ function validateDisplayName(value, setDisplayNameError) {
 
 
 
-function validate(email, password, confirmPassword, displayName) {
+function validate(username, password, confirmPassword, displayName) {
   let flag = true;
   if (!validateDisplayName(displayName)) {
     flag = false;
   }
 
-  if (!validateEmail(email)) {
+  if (!validateUsername(username)) {
     flag = false;
   }
 
