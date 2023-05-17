@@ -12,7 +12,7 @@ function TopBarRightSlide(props) {
         <nav className="navbar navbar-expand-sm top-chat p-0 m-0 linerLine-color-right">
             <div className="container-fluid">
                 <div className="row align-items-center">
-                    <div className="col-2 col-md-2 justify-content-center">
+                    <div className="col-2 col-md-2 justify-content-center back-to-contact-icon-wrapper">
                         <a className="back-to-contact-icon" onClick={changeToChatHandle}>
                             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" className="bi bi-backspace" viewBox="0 0 16 16">
                                 <path d="M5.83 5.146a.5.5 0 0 0 0 .708L7.975 8l-2.147 2.146a.5.5 0 0 0 .707.708l2.147-2.147 2.146 2.147a.5.5 0 0 0 .707-.708L9.39 8l2.146-2.146a.5.5 0 0 0-.707-.708L8.683 7.293 6.536 5.146a.5.5 0 0 0-.707 0z" />

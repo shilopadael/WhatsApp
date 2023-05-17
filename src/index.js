@@ -5,7 +5,7 @@ import App from './App';
 import img from "./assets/registerImg/profile.png"
 
 const usersInformation = [{
-  "email": "omerbar@gmail.com", 
+  "username": "omer", 
   "password": "123",
   "displayName": "Omer",
   "img": img

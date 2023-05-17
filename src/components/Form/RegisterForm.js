@@ -3,7 +3,7 @@ import validate from "./FormValidation";
 import FormInput from "./FormInput";
 import UserImg from "./UserImg";
 import "./RegisterForm.css"
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Link } from 'react-router-dom';
 import { useNavigate } from 'react-router-dom';
 
@@ -15,24 +15,48 @@ function RegisterForm(props) {
 
     const { users } = props;
 
-    const [email, setEmail] = useState("");
+    const [username, setUsername] = useState("");
     const [userTaken, setUserTaken] = useState("");
+    const [userErrorMessage, setUserErrorMessage] = useState(""); 
+    const [userPattern, setUserPattern] = useState("");
     const [password, setPassword] = useState("");
     const [confirmPassword, setConfirm] = useState("");
     const [displayName, setDisplayName] = useState("");
     const [img, setImg] = useState(defaultImg);
 
-    const handleEmailChange = (e) => {
-        setEmail(e.target.value);
-        // checking if the email already exist
+    useEffect(() => {
+    }, [userTaken, userPattern]);
+
+    const handleUserNameChange = (e) => {
+        const newUsername = e.target.value;
+        let errorMessage = ""; // Initialize the error message
+        let isUsernameTaken = false; // Flag to track if username is taken
+
+        // Checking if the username already exists
         for (let i = 0; i < users.length; i++) {
-            if (users[i].email === email) {
-                setUserTaken(email);
-                return;
+            if (users[i].username === newUsername) {
+                setUserTaken(newUsername);
+                setUserPattern(`^(?!.*\\b(${userTaken}))\\w{3,12}$`);
+                isUsernameTaken = true;
+                break;
             }
         }
 
-    }
+        if (isUsernameTaken) {
+            errorMessage = `Username "${newUsername}" already exists`;
+        } else if (newUsername.length < 3 || newUsername.length > 12) {
+            setUserTaken("");
+            setUserPattern(`^[a-zA-Z0-9]{3,12}$`);
+            errorMessage = "Username must be between 3 and 12 characters long";
+        } else {
+            setUserTaken("");
+            setUserPattern(`^[a-zA-Z0-9]{3,12}$`);
+            setUsername(newUsername);
+        }
+        setUserErrorMessage(errorMessage);
+
+    };
+
     const handlePasswordChange = (e) => {
         setPassword(e.target.value);
     }
@@ -47,21 +71,14 @@ function RegisterForm(props) {
         e.preventDefault();
 
         // validation
-        const val = validate(email, password, confirmPassword, displayName);
+        const val = validate(username, password, confirmPassword, displayName);
         if (!val) {
             return;
         } else {
-            // checking if the email already exist
-            for (let i = 0; i < users.length; i++) {
-                if (users[i].email === email) {
-                    alert("This email already exist.");
-                    return;
-                }
-            }
             // if got here adding the new username:
 
             let data = {
-                "email": email, 
+                "username": username,
                 "password": password,
                 "displayName": displayName,
                 "img": img
@@ -83,12 +100,12 @@ function RegisterForm(props) {
                     <FormInput
                         type="text"
                         className="form-control"
-                        id="registerEmail"
+                        id="registerUsername"
                         placeholder="enter your username"
-                        label="Email"
-                        onChange={handleEmailChange}
-                        errormessage="This username already exist!"
-                        pattern={userTaken}
+                        label="Username"
+                        onChange={handleUserNameChange}
+                        errormessage={userErrorMessage}
+                        pattern={userPattern}
                         required={true}
                     />
                     <div className="form-group input-effect">
