@@ -290,11 +290,19 @@ body {
   z-index: 150;
   color: white;
 }
+.defaultChatMessageContainer {
+  background-color: #000000;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 
 .defaultChatMessage {
   color: white;
-  margin-left: 20%;
-  margin-top: 28%;
+  position: absolute;
+  top: 50%;
+  left: 60%;
+  transform: translate(-50%, -50%);
 }
 
 .btnLogInSignUp {

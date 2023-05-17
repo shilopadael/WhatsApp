@@ -19,7 +19,7 @@ function Chat(props) {
 
   if (!authenticated) {
     return (
-      <div className="container border shadow container-lg container-md container-sm">
+      <div className="container border shadow container-lg container-md container-sm defaultChatMessageContainer">
         <div className="row no-gutters h-100 black">
           <h2 className="defaultChatMessage">This zone is for users only! please log in to access.</h2>
         </div>

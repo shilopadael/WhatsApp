@@ -41,8 +41,8 @@ function LoginForm(props) {
 
     return (
         <form ref={formRef} className="m-4" id="loginForm" onSubmit={handleLoginSubmit}>
-            <FormInput type="text" id="loginUsername" placeholder="enter your username" className="form-control" label="Username" required={true} />
-            <FormInput type="password" id="loginPassword" placeholder="enter your password" className="form-control" label="Password" required={true} />
+            <FormInput type="text" id="loginUsername" placeholder="enter your username" className="form-control" label="Username" required={true} pattern="^.*$"/>
+            <FormInput type="password" id="loginPassword" placeholder="enter your password" className="form-control" label="Password" required={true} pattern="^.*$"/>
             <div className="form-group form-check">
                 {/* <div className="row">
                     <div className="col-md-6">
