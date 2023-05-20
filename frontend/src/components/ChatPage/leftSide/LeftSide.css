@@ -1,0 +1,221 @@
+.left-slide {
+  background-color: #555555;
+  background: linear-gradient(-45deg, #aeaeae, #cfcfcf);
+  background-size: cover;
+  float: left; /* add this line to float the left slide to the left */
+  border-radius: 10px;
+  animation: gradient 15s ease infinite;
+}
+
+.contact-list-item {
+  color: #000000;
+  padding: 10px 10px;
+  border-radius: 5px;
+  vertical-align: baseline;
+  display: flex;
+}
+
+.left-chat {
+  border-style: inset;
+  border-width: 0px;
+  height: 100%;
+  padding: 0px;
+}
+
+@keyframes gradient {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 100%;
+  }
+}
+
+#addContactBtn:hover {
+  background-color: rgb(93, 90, 174);
+}
+
+@media (max-width: 992px) {
+  .whenChatIsOpen .left-slide {
+    display: none; /* hide the left slide on small screens */
+  }
+  .right-slide {
+    width: 100%; /* change the width of the right slide to 100% on small screens */
+  }
+}
+
+.contact-list::-webkit-scrollbar {
+  width: 0px; /* Width of the scrollbar */
+  background-color: transparent; /* Background color of the scrollbar track */
+}
+
+.contact-list-item img {
+  margin-right: 10px;
+}
+
+.contact-list-item {
+  margin-left: 2%;
+  margin-right: 2%;
+  border-radius: 15px;
+  background-color: #c9dbe1;
+  border-width: 0px;
+  border-style: solid;
+  border-color: rgb(130, 130, 130);
+  margin-bottom: 5px;
+  transition: all 0.3s ease;
+}
+
+.contact-list-item:hover {
+  border-radius: 15px;
+  cursor: pointer;
+}
+
+.contact-list-item.selected {
+  background-color: rgb(126, 126, 126) !important;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  border-width: 1px;
+}
+
+.selected:hover {
+  background-color: rgb(126, 126, 126) !important;
+}
+
+
+.contact-list-item.selected span {
+  color: rgb(226, 226, 226) !important;
+
+}
+
+@keyframes contact-animation {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 100%;
+  }
+}
+
+.profile-image {
+  width: 45px;
+  height: 45px;
+  border-radius: 25px;
+}
+
+.profile-nav-left {
+  background: rgb(147, 77, 77);
+  padding: 10px 15px;
+  display: flex;
+  border-radius: 10px;
+}
+
+.profile-nav-chat-info {
+  left: 0;
+  display: block;
+}
+
+.profile-nav-chat-info h6 {
+  margin: 0px;
+  margin-left: 0px;
+}
+
+.profile-nav-chat-info p {
+  margin: 0px;
+  margin-left: 0px;
+  color: rgb(191, 191, 191);
+}
+
+.profile-nav-left button {
+  margin-top: 2px;
+}
+
+.profile-text {
+  text-align: center;
+  margin-top: 15px;
+  margin-left: 5px;
+}
+
+.contact-list {
+  height: 80%;
+  overflow: auto;
+  direction: ltr;
+}
+
+.profile-nav-left {
+  background: #eee;
+  padding: 10px 15px;
+  display: flex;
+  border-radius: 15px;
+}
+
+#add-contact-icon:hover {
+  pointer-events: none;
+  cursor: pointer;
+}
+
+.linerLine-color {
+  background: linear-gradient(-45deg, #041941, #212e47, #3c414a);
+  /* color: white; */
+}
+
+.leftNav {
+  border-radius: 10px;
+}
+.defaultContactList {
+  width: 20%;
+}
+
+.defaultContactList .left-chat {
+  width: 400px;
+}
+
+.contact-search-bar {
+  justify-content: center;
+  align-items: center;
+  max-width: 300px;
+}
+
+.NoContactsMessage {
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.NoContactsFoundMessage {
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.white {
+  color: rgb(187, 187, 187) !important;
+}
+.white:hover {
+  color: white !important;
+}
+
+.add-contact-btn:hover {
+  background-color: rgb(216, 216, 216);
+
+}
+
+.add-contact-btn:hover .add-contact-img{
+  fill: black;  
+}
+
+.add-contact-btn {
+  margin-left: 10px;
+}
+
+.log-out-btn:hover {
+  background-color: rgb(216, 216, 216);
+}
+
+.log-out-btn:hover .log-out-img { 
+  fill: black;  
+}
