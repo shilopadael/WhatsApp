@@ -1,8 +1,8 @@
-import MainBlock from "./ChatPage/MainBlock";
+import MainBlock from "./MainBlock";
 import { useEffect, useState } from "react";
-import LogOut from "./ChatPage/LogOutButton";
+import LogOut from "./leftSide/LogOutButton";
 import { useLocation } from "react-router-dom";
-import auth from "../services/auth-service";
+import auth from "../../services/auth-service";
 
 function Chat(props) {
   const { state } = useLocation();

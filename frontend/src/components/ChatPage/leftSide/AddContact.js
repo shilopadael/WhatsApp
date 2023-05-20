@@ -1,5 +1,5 @@
 import { useState } from "react";
-import defaultProfile from '../../../assets/registerImg/profile.png';
+import defaultProfile from '../../../assets/registerImgs/profile.png';
 import get from "../../../services/get-service";
 import post from "../../../services/post-service";
 

@@ -1,4 +1,3 @@
-import "../style.css";
 import ChatSystemLogo from "../ChatSystemLogo/ChatSystemLogo";
 import HeaderText from "../HeaderText/HeaderText";
 import LoginForm from "../Form/LoginForm";

@@ -1,9 +1,9 @@
 import './App.css';
 import './components/ChatSystemLogo/ChatSystemLogo.css';
 import LoginPage from './components/LoginPage/LoginPage';
-import RegisterPage from './components/registerPage/RegisterPage';
+import RegisterPage from './components/RegisterPage/RegisterPage';
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import Chat from './components/Chat';
+import Chat from './components/ChatPage/Chat';
 import { useState } from 'react';
 
 function App() {

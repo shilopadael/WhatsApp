@@ -1,6 +1,6 @@
 
-import AddContact from './addContact';
-import defaultProfile from '../../../assets/registerImg/profile.png'
+import AddContact from './AddContact';
+import defaultProfile from '../../../assets/registerImgs/profile.png'
 import LogOut from './LogOut';
 
 function TopBarLeftSide(props) {

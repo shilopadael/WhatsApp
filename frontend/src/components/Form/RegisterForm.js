@@ -1,12 +1,12 @@
-import defaultImg from "../../assets/registerImg/profile.png";
+import defaultImg from "../../assets/registerImgs/profile.png";
 import auth from "../../services/auth-service";
 import validate from "./FormValidation";
 import FormInput from "./FormInput";
 import UserImg from "./UserImg";
-import "./RegisterForm.css"
 import { useState, useEffect } from "react";
 import { Link } from 'react-router-dom';
 import { useNavigate } from 'react-router-dom';
+import "./RegisterForm.css"
 
 
 

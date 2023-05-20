@@ -1,7 +1,7 @@
 // importing the img files
-import img1 from "../../../assets/loginImg/loginimg1.svg";
-import img2 from "../../../assets/loginImg/loginimg2.svg";
-import img3 from "../../../assets/loginImg/loginimg3.svg";
+import img1 from "../../../assets/loginImgs/loginimg1.svg";
+import img2 from "../../../assets/loginImgs/loginimg2.svg";
+import img3 from "../../../assets/loginImgs/loginimg3.svg";
 import { useState, useEffect } from "react";
 
 function LoginImg() {

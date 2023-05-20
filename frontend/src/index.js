@@ -1,8 +1,8 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import './index.css';
 import App from './App';
-import img from "./assets/registerImg/profile.png"
+import './index.css';
+
 
 localStorage.setItem("authenticated", false);
 

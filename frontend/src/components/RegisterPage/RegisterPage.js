@@ -1,7 +1,6 @@
 import ChatSystemLogo from "../ChatSystemLogo/ChatSystemLogo";
 import HeaderText from "../HeaderText/HeaderText";
 import RegisterForm from "../Form/RegisterForm";
-import "../style.css";
 import "./RegisterPage.css"
 
 function RegisterPage() {
