@@ -1,4 +1,3 @@
-import server from "../../Data";
 import FormInput from "./FormInput";
 import { useRef } from "react";
 import { useNavigate } from "react-router-dom";

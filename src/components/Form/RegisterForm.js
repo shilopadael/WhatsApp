@@ -10,53 +10,20 @@ import { useNavigate } from 'react-router-dom';
 
 
 
-function RegisterForm(props) {
+function RegisterForm() {
 
     const navigate = useNavigate();
 
-    const { users } = props;
-
+    // register states
     const [username, setUsername] = useState("");
-    const [userTaken, setUserTaken] = useState("");
-    const [userErrorMessage, setUserErrorMessage] = useState("");
-    const [userPattern, setUserPattern] = useState("");
     const [password, setPassword] = useState("");
     const [confirmPassword, setConfirm] = useState("");
     const [displayName, setDisplayName] = useState("");
     const [img, setImg] = useState(defaultImg);
 
-    useEffect(() => {
-    }, [userTaken, userPattern]);
 
     const handleUserNameChange = (e) => {
-        const newUsername = e.target.value;
-        let errorMessage = ""; // Initialize the error message
-        let isUsernameTaken = false; // Flag to track if username is taken
-
-        // Checking if the username already exists
-
-        for (let i = 0; i < users.length; i++) {
-            if (users[i].username === newUsername) {
-                setUserTaken(newUsername);
-                setUserPattern(`^(?!.*\\b(${userTaken}))\\w{3,12}$`);
-                isUsernameTaken = true;
-                break;
-            }
-        }
-
-        if (isUsernameTaken) {
-            errorMessage = `Username "${newUsername}" already exists`;
-        } else if (newUsername.length < 3 || newUsername.length > 12) {
-            setUserTaken("");
-            setUserPattern(`^[a-zA-Z0-9]{3,12}$`);
-            errorMessage = "Username must be between 3 and 12 characters long";
-        } else {
-            setUserTaken("");
-            setUserPattern(`^[a-zA-Z0-9]{3,12}$`);
-            setUsername(newUsername);
-        }
-        setUserErrorMessage(errorMessage);
-
+        setUsername(e.target.value);
     };
 
     const handlePasswordChange = (e) => {
@@ -81,7 +48,7 @@ function RegisterForm(props) {
         } else {
             // trying to add the new user to the server
             flag = await auth.register(username, password, displayName, img);
-            if(flag) {
+            if (flag) {
                 // registered successfully
                 alert("You have successfully registered. retuning to the login page.");
                 navigate("/");
@@ -104,8 +71,8 @@ function RegisterForm(props) {
                         placeholder="enter your username"
                         label="Username"
                         onChange={handleUserNameChange}
-                        errormessage={userErrorMessage}
-                        pattern={userPattern}
+                        errormessage="Username must be between 3 and 12 characters long"
+                        pattern="^[a-zA-Z0-9]{3,12}$"
                         required={true}
                     />
                     <div className="form-group input-effect">

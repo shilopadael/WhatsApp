@@ -4,6 +4,7 @@
 function validateUsername(value) {
   const regex = /^\w{3,12}$/
   if(!regex.test(value)) {
+    console.log("username is not valid:" + value);
     return false;
   }
   return true;
@@ -13,6 +14,7 @@ function validateUsername(value) {
 function validateDisplayName(value) {
   const regex = /^[a-zA-Z0-9\s]+$/;
   if(!regex.test(value)) {
+    console.log("display name is not valid");
     return false;
   };
   return true;

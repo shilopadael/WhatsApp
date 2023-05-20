@@ -4,13 +4,12 @@ import './index.css';
 import App from './App';
 import img from "./assets/registerImg/profile.png"
 
-const usersInformation = [];
 localStorage.setItem("authenticated", false);
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <App usersInformation={usersInformation}/>
+    <App />
   </React.StrictMode>
 );
 
