@@ -2,19 +2,31 @@ import MainBlock from "./ChatPage/MainBlock";
 import { useEffect, useState } from "react";
 import LogOut from "./ChatPage/LogOutButton";
 import { useLocation } from "react-router-dom";
+import auth from "../services/auth-service";
 
 function Chat(props) {
-  const {state} = useLocation();
+  const { state } = useLocation();
   const { authenticated, setAuthenticated } = props;
   const [user, setUser] = useState(null);
 
   useEffect(() => {
-    if (authenticated) {
-      // Retrieve user data from local storage
-      // const userData = JSON.parse(localStorage.getItem("user")); // connect database here
-      const userData = state;
-      setUser(userData);
-    }
+    const fetchData = async () => {
+      if (authenticated) {
+        // trying to get user information from the database
+        var userData = await auth.getCurrentUser();
+        if (userData !== null) {
+          console.log(userData);
+          setUser(userData);
+        } else {
+          setAuthenticated(false);
+          auth.logout();
+        }
+      }
+    };
+
+    // Invoking the asynchronous function
+    fetchData();
+
   }, [authenticated]);
 
   if (!authenticated) {
@@ -34,7 +46,7 @@ function Chat(props) {
         <div className="topScreen"></div>
         {/* <LogOut setAuthenticated={setAuthenticated} /> */}
         <div className="lowerScreen"></div>
-        <MainBlock user={user}  setAuthenticated={setAuthenticated} />
+        <MainBlock user={user} setAuthenticated={setAuthenticated} />
       </>
     );
   }

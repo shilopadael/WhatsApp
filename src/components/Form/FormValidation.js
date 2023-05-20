@@ -11,7 +11,7 @@ function validateUsername(value) {
 
 
 function validateDisplayName(value) {
-  const regex = /^[a-zA-Z0-9]+$/;
+  const regex = /^[a-zA-Z0-9\s]+$/;
   if(!regex.test(value)) {
     return false;
   };

@@ -6,7 +6,7 @@ import LogOut from './LogOut';
 function TopBarLeftSide(props) {
 
     const { contacts, user, setContacts, setCurrentChatId, contactToShow, setContactToShow ,setAuthenticated} = props;
-    const userImage = user?.img || defaultProfile;
+    const userImage = user?.profilePic || defaultProfile;
     const displayName = user?.displayName || '';
 
     function changeUserImg(event) {

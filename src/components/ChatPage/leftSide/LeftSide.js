@@ -3,16 +3,36 @@
 import TopBarLeftSide from './TopBarLeftSide';
 import SearchContacts from './SearchContacts.js';
 import Users from './Users';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import './LeftSide.css';
+import get from '../../../services/get-service'
+import auth from '../../../services/auth-service'
 
 
 
 function LeftSide(props) {
 
-    const { user , contacts, setContacts, setCurrentChatId , setAuthenticated,contactFullPage ,setContactFullPage } = props; // contacts
-    const [ contactToShow, setContactToShow ] = useState(contacts);
+    const { user, contacts, setContacts, setCurrentChatId, setAuthenticated, contactFullPage, setContactFullPage } = props; // contacts
+    const [contactToShow, setContactToShow] = useState(contacts);
     const [selectedContact, setSelectedContact] = useState(null);
+
+    useEffect(() => {
+        const getChatsData = async () => {
+            // getting the contacts from the server
+            let contactsData = await get.Chats();
+            if (contactsData !== null) {
+                // setting the contacts states
+                setContacts(contactsData);
+                setContactToShow(contactsData);
+            } else {
+                setContacts([]);
+                setContactToShow([]);
+            }
+        };
+        // Invoking the asynchronous function
+        getChatsData();
+
+    }, []);
 
 
     function showContacts() {

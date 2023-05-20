@@ -2,7 +2,6 @@ import LeftSide from './leftSide/LeftSide';
 import RightSide from './rightSide/RightSide';
 import { useState } from 'react';
 import './chat_page_style.css'
-import LogOut from './LogOutButton';
 
 
 function MainBlock(props) {
@@ -14,7 +13,7 @@ function MainBlock(props) {
   //     "username": email, 
   //     "password": password,
   //     "displayName": displayName,
-  //     "img": img
+  //     "profilePic": img
   // };
 
   

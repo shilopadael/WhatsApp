@@ -1,4 +1,5 @@
 import defaultImg from "../../assets/registerImg/profile.png";
+import auth from "../../services/auth-service";
 import validate from "./FormValidation";
 import FormInput from "./FormInput";
 import UserImg from "./UserImg";
@@ -17,7 +18,7 @@ function RegisterForm(props) {
 
     const [username, setUsername] = useState("");
     const [userTaken, setUserTaken] = useState("");
-    const [userErrorMessage, setUserErrorMessage] = useState(""); 
+    const [userErrorMessage, setUserErrorMessage] = useState("");
     const [userPattern, setUserPattern] = useState("");
     const [password, setPassword] = useState("");
     const [confirmPassword, setConfirm] = useState("");
@@ -33,6 +34,7 @@ function RegisterForm(props) {
         let isUsernameTaken = false; // Flag to track if username is taken
 
         // Checking if the username already exists
+
         for (let i = 0; i < users.length; i++) {
             if (users[i].username === newUsername) {
                 setUserTaken(newUsername);
@@ -67,33 +69,31 @@ function RegisterForm(props) {
         setDisplayName(e.target.value);
     }
 
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault();
-
         // validation
         const val = validate(username, password, confirmPassword, displayName);
+        let flag = false;
         if (!val) {
+            // validation failed
+            alert("Failed to register please try again. (all fields are required)");
             return;
         } else {
-            // if got here adding the new username:
-
-            let data = {
-                "username": username,
-                "password": password,
-                "displayName": displayName,
-                "img": img
-            };
-
-            // print the data:
-            users.push(data);
-            alert("You have successfully registered. retuning to the login page.");
-            navigate("/");
-            return;
+            // trying to add the new user to the server
+            flag = await auth.register(username, password, displayName, img);
+            if(flag) {
+                // registered successfully
+                alert("You have successfully registered. retuning to the login page.");
+                navigate("/");
+            } else {
+                // failed to register
+                alert("Failed to register please try again. (all fields are required)");
+            }
         }
     }
 
     return (
-        <form action="#" className="form-horizontal needs-validation" onSubmit={handleSubmit}>
+        <form className="form-horizontal needs-validation" onSubmit={handleSubmit}>
             {/* forther improvment: adding validation to the field, including password valid (both the same, 8-20 char long) */}
             <div className="row">
                 <div className="col-md">
@@ -171,3 +171,4 @@ function RegisterForm(props) {
 }
 
 export default RegisterForm;
+

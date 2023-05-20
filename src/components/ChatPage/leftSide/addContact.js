@@ -1,38 +1,26 @@
 import { useState } from "react";
 import defaultProfile from '../../../assets/registerImg/profile.png';
+import get from "../../../services/get-service";
+import post from "../../../services/post-service";
 
-const data = {
-  1: "dragonball is the best",
-  2: "dont eat the mellon!",
-  3: "this is a status",
-  4: "normal status",
-  5: "stupid status"
-}
+// const data = {
+//   1: "dragonball is the best",
+//   2: "dont eat the mellon!",
+//   3: "this is a status",
+//   4: "normal status",
+//   5: "stupid status"
+// }
 
 function AddContact(props) {
-  const { contacts, setContacts, contactToShow, setContactToShow } = props;
 
+  const { contacts, setContacts, contactToShow, setContactToShow } = props;
   const [newItem, setNewItem] = useState("");
   const [showModal, setShowModal] = useState(false);
 
   function addContact(name) {
 
-    var random = Math.floor(Math.random() * (5 - 1 + 1)) + 1
-    var newId = contacts.length + 1;
-    const newContact = {
-      id: newId,
-      name: name,
-      image: defaultProfile,
-      lastMessageTime: "",
-      lastMessageDate: "",
-      unRead: 0,
-      lastMessage: "",
-      messages: [],
-      status: data[random],
-    };
-
-    setContacts([...contacts, newContact]);
-    setContactToShow([...contactToShow, newContact])
+    // setContacts([...contacts, newContact]);
+    // setContactToShow([...contactToShow, newContact])
 
   };
 
@@ -48,12 +36,53 @@ function AddContact(props) {
 
   }
 
-  function handleAddContact() {
-    addContact(newItem);
+  const handleAddContact = async () => {
+    // checking if the username exists
+    let contact = await get.ContactInformation(newItem);
+    
+    console.log(contact);
+    if (contact !== null && contact !== undefined) {
+      // checking if the contact already exists in the contact list
+      let contactExists = contacts.find((contact) => contact.username === newItem);
+      if (contactExists !== undefined) {
+        // contacts already exists
+        alert("Contact already exists");
+      } else {
+        // contact exists adding to the contact li
+        const newContact = {
+          id: contacts.lenth + 1,
+          username: newItem,
+          displayName: contact.displayName,
+          profilePic: contact.profilePic,
+          lastMessageTime: "",
+          lastMessageDate: "",
+          unRead: 0,
+          lastMessage: "",
+          status: "",
+        };
+
+        // post request to the server to add the contact to the user contact list
+        let serverReq = await post.Contact(newContact);
+
+        if(serverReq === null){
+          alert("Error adding contact");
+        } else {
+          // adding the contact to the contact list
+          setContacts([...contacts, newContact]);
+          setContactToShow([...contactToShow, newContact]);
+        }
+
+      }
+
+
+
+    }
+    else {
+      // contact doesnt exists
+      alert("Contact doesn't exists");
+    }
     setNewItem("");
     setShowModal(false);
-
-
   }
 
   function handleCancel() {
