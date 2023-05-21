@@ -1,6 +1,6 @@
 import LeftSide from './leftSide/LeftSide';
 import RightSide from './rightSide/RightSide';
-import { useState } from 'react';
+import { useState , useEffect } from 'react';
 import './chat_page_style.css'
 
 
@@ -21,6 +21,11 @@ function MainBlock(props) {
   const [currentChatId, setCurrentChatId] = useState(null);
   const [contactFullPage, setContactFullPage] = useState(true);
 
+  useEffect(() => {
+    console.log("main block: id=" + currentChatId + "  contactfullpage: " + contactFullPage);
+  }, [currentChatId, contactFullPage]);
+
+  // console.log("main block: id=" + currentChatId + "  contactfullpage: " + contactFullPage)
   if (contactFullPage) {
     return (
       <div className="container border shadow container-lg container-md container-sm defaultContactList" >

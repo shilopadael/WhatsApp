@@ -3,8 +3,9 @@ import MessageNav from './MessageNav';
 import BoxMessage from './BoxMessage';
 import TopBarRightSlide from './TopBarRightSide';
 import { useState } from 'react';
+import get from '../../../services/get-service';
 
-function RightSide(props) {
+async function RightSide(props) {
 
     const [message, setMessage] = useState("");
     const { contacts, setContacts, currentChatId , setContactFullPage} = props;
@@ -27,7 +28,10 @@ function RightSide(props) {
             setContactFullPage(true)
         );
     } else {
-        const userMessages = currentUser.messages;
+
+        // getting user messages
+        const userMessages = await get.Messages(currentChatId);
+
         return (
             <div className="col-8 right-slide line-up p-0 parent-div">
                 <TopBarRightSlide currentUser={currentUser} setContactFullPage={setContactFullPage}/>

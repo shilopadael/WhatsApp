@@ -7,7 +7,7 @@ function SearchContacts(props) {
 
     function modiftyShowContact(e) {
         const value = e.target.value;
-        setContactToShow(contacts.filter(contact => contact.name.includes(value)));
+        setContactToShow(contacts.filter(contact => contact.displayName.includes(value)));
     }
 
     function handleKeyPress(e) {

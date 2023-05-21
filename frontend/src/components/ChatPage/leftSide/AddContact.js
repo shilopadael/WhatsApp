@@ -17,20 +17,6 @@ function AddContact(props) {
   const [newItem, setNewItem] = useState("");
   const [showModal, setShowModal] = useState(false);
 
-  function addContact(name) {
-
-    // setContacts([...contacts, newContact]);
-    // setContactToShow([...contactToShow, newContact])
-
-  };
-
-  function handleSubmit(e) {
-    e.preventDefault();
-    addContact(newItem);
-    setNewItem("");
-  }
-
-
   function handleIconClick() {
     setShowModal(true);
 
@@ -40,7 +26,7 @@ function AddContact(props) {
     // checking if the username exists
     let contact = await get.ContactInformation(newItem);
     
-    console.log(contact);
+
     if (contact !== null && contact !== undefined) {
       // checking if the contact already exists in the contact list
       let contactExists = contacts.find((contact) => contact.username === newItem);

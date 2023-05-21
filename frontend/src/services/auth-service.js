@@ -47,10 +47,10 @@ const register = async (username, password, displayName, img) => {
         },
         body: JSON.stringify(data),
     })
-    console.log(serverReq)
+
     if(serverReq.ok) {
         return true;
-    } else if(serverReq.status === 409) {
+    } else if(serverReq.status >= 400 && serverReq.status < 500) {
 
     }
     return false;

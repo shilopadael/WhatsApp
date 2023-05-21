@@ -18,19 +18,38 @@ const Chats = async () => {
         let chats = await serverReq.json();
 
         // got the usernames contact list, now need to get the contact information
-        let userInformation = chats.map(async (chat) => {
-            return await ContactInformation(chat.username);
-        });
+        let userInformation = await Promise.all(chats.map(async (chat) => {
+            return await chat;
+        }));
         return userInformation;
     }
 
     return null;
 }
 
-const ContactInformation = async (username) => {
-    // getting data from the server
+// const ContactInformation = async (username) => {
+//     // getting data from the server
+//     let header = authHeader();
+//     const serverReq = await fetch(`${SERVER_API}/api/Users/${username}`, {
+//         method: "GET",
+//         headers: {
+//             "Content-Type": "application/json",
+//             "Authorization": header.Authorization,
+//         },
+//     });
+
+//     if (serverReq.ok) {
+//         let contactInfo = await serverReq.json();
+//         return contactInfo;
+//     }
+
+//     return null;
+
+// }
+
+const Messages = async (id) => { 
     let header = authHeader();
-    const serverReq = await fetch(`${SERVER_API}/api/Users/${username}`, {
+    const serverReq = await fetch(`${SERVER_API}/api/Chat/${id}/Messages`, {
         method: "GET",
         headers: {
             "Content-Type": "application/json",
@@ -39,17 +58,16 @@ const ContactInformation = async (username) => {
     });
 
     if (serverReq.ok) {
-        let contactInfo = await serverReq.json();
-        return contactInfo;
+        let messages = await Promise.all(serverReq.json());
+        return messages;
     }
 
     return null;
-
 }
 
 const get = {
     Chats,
-    ContactInformation,
+    // ContactInformation,
 }
 
 export default get;

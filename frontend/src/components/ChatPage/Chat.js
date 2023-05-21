@@ -15,10 +15,8 @@ function Chat(props) {
         // trying to get user information from the database
         var userData = await auth.getCurrentUser();
         if (userData !== null) {
-          console.log(userData);
           setUser(userData);
         } else {
-          setAuthenticated(false);
           auth.logout();
         }
       }
@@ -44,7 +42,6 @@ function Chat(props) {
     return (
       <>
         <div className="topScreen"></div>
-        {/* <LogOut setAuthenticated={setAuthenticated} /> */}
         <div className="lowerScreen"></div>
         <MainBlock user={user} setAuthenticated={setAuthenticated} />
       </>

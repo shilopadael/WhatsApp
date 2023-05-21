@@ -16,8 +16,8 @@ function Users(props) {
     //     currentChat: false,
     //   };
     const { id,
-        name,
-        image,
+        displayName,
+        profilePic,
         lastMessageTime,
         lastMessage,
         unRead,
@@ -34,6 +34,7 @@ function Users(props) {
     const [contextMenuPosition, setContextMenuPosition] = useState({ x: 0, y: 0 });
 
     function goToChat() {
+        console.log("here")
         setSelectedContact(id);
         setCurrentChatId(id);
         setContactFullPage(false);
@@ -72,12 +73,12 @@ function Users(props) {
                     </div>
                 )}
                 <div className="col-3 m-0">
-                    <img src={image} className="rounded-circle profile-image"
+                    <img src={profilePic} className="rounded-circle profile-image"
                         alt="profile img"></img>
                 </div>
                 <div className="col-6">
                     <div className="row">
-                        <span className="p-0 m-0">{name}</span>
+                        <span className="p-0 m-0">{displayName}</span>
                         <span className="p-0 text-muted">{lastMessage}</span>
                     </div>
                 </div>

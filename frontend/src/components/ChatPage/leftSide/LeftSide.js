@@ -41,8 +41,20 @@ function LeftSide(props) {
                 return c2.lastMessageDate - c1.lastMessageDate;
             });
             return contactToShow.map((contact, index) => {
+
+                // getting contactInformation
+                let lastMessage = contact.lastMessage;
+                if (lastMessage && lastMessage.length > 20) {
+                    lastMessage = lastMessage.substring(0, 20) + "...";
+                }
+                let userInfo = contact.user;
+                console.log(userInfo)
+
+                console.log(contact);
                 return <Users key={index}
-                    {...contact}
+                    {...userInfo}
+                    id={contact.id}
+                    lastMessage={lastMessage}
                     setCurrentChatId={setCurrentChatId}
                     setContactFullPage={setContactFullPage}
                     contacts={contacts}

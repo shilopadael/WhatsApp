@@ -1,5 +1,6 @@
 import { useNavigate } from "react-router-dom";
 import { useState } from "react";
+import auth from "../../../services/auth-service";
 import './LogOutButton.css';
 
 function LogOut(props) {
@@ -10,6 +11,7 @@ function LogOut(props) {
     const handleLogOut = () => {
         setAuthenticated(false);
         localStorage.setItem("authenticated", false);
+        auth.logout();
         navigate('/', () => {
             console.log("Logging Out...");
         });
