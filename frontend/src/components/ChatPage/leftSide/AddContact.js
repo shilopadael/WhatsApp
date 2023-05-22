@@ -23,53 +23,39 @@ function AddContact(props) {
   }
 
   const handleAddContact = async () => {
-    // checking if the username exists
-    let contact = await get.ContactInformation(newItem);
-    
 
-    if (contact !== null && contact !== undefined) {
-      // checking if the contact already exists in the contact list
-      let contactExists = contacts.find((contact) => contact.username === newItem);
-      if (contactExists !== undefined) {
-        // contacts already exists
-        alert("Contact already exists");
-      } else {
-        // contact exists adding to the contact li
-        const newContact = {
-          id: contacts.lenth + 1,
-          username: newItem,
-          displayName: contact.displayName,
-          profilePic: contact.profilePic,
-          lastMessageTime: "",
-          lastMessageDate: "",
-          unRead: 0,
-          lastMessage: "",
-          status: "",
-        };
+    // trying to create a new contact with the given name
+    let flag = await post.Contact(newItem);
 
-        // post request to the server to add the contact to the user contact list
-        let serverReq = await post.Contact(newContact);
+    if (flag === true) {
+      // added the user successfully, updating getting the contact from the server
+      // getting all chats
+      let contactsChats = await get.Chats();
+      contactsChats = contactsChats.filter((contact) => contact.user.username === newItem);
 
-        if(serverReq === null){
-          alert("Error adding contact");
-        } else {
-          // adding the contact to the contact list
-          setContacts([...contacts, newContact]);
-          setContactToShow([...contactToShow, newContact]);
-        }
+      setContacts([...contacts, contactsChats]);
+      setContactToShow([...contactToShow, contactsChats]);
+      setNewItem("");
+      setShowModal(false);
 
-      }
-
-
+    } else {
+      // contact exists adding to the contact li
+      // const newContact = {
+      //   id: 
+      //   username: newItem,
+      //   displayName: contact.displayName,
+      //   profilePic: contact.profilePic,
+      //   lastMessageTime: "",
+      //   lastMessageDate: "",
+      //   unRead: 0,
+      //   lastMessage: "",
+      //   status: "",
+      // };
+      alert(localStorage.getItem("error"));
 
     }
-    else {
-      // contact doesnt exists
-      alert("Contact doesn't exists");
-    }
-    setNewItem("");
-    setShowModal(false);
-  }
+  };
+
 
   function handleCancel() {
     setShowModal(false);
@@ -78,9 +64,7 @@ function AddContact(props) {
   function handleKeyDown(event) {
     if (event.key === 'Enter') {
       event.preventDefault();
-      addContact(newItem);
-      setNewItem("");
-      setShowModal(false);
+      handleAddContact();
 
     }; // Prevent the default behavior of the key event
   }
@@ -161,5 +145,6 @@ function AddContact(props) {
     </>
   );
 }
+
 
 export default AddContact;

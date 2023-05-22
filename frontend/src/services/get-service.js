@@ -16,12 +16,13 @@ const Chats = async () => {
 
     if (serverReq.ok) {
         let chats = await serverReq.json();
-
         // got the usernames contact list, now need to get the contact information
         let userInformation = await Promise.all(chats.map(async (chat) => {
             return await chat;
         }));
         return userInformation;
+    } else {
+        localStorage.setItem("error" , serverReq.text());
     }
 
     return null;
@@ -49,7 +50,7 @@ const Chats = async () => {
 
 const Messages = async (id) => { 
     let header = authHeader();
-    const serverReq = await fetch(`${SERVER_API}/api/Chat/${id}/Messages`, {
+    const serverReq = await fetch(`${SERVER_API}/api/Chats/${id}/Messages`, {
         method: "GET",
         headers: {
             "Content-Type": "application/json",
@@ -65,9 +66,34 @@ const Messages = async (id) => {
     return null;
 }
 
+const LastMessageDate = async (id) => {
+    let header = authHeader();
+    const serverReq = await fetch(`${SERVER_API}/api/Chats/${id}/Messages`, {
+        method: "GET",
+        headers: {
+            "Content-Type": "text/plain",
+            "Authorization": header.Authorization,
+        },
+        
+    });
+    if (serverReq.ok) {
+        let messages = await serverReq.json();
+        if (messages.length > 0) {
+            return messages[messages.length - 1].created;
+        } else {
+            return null;
+        }
+    } else {
+        localStorage.setItem("error", await serverReq.text());
+        return null;
+    }
+
+}
+
+
 const get = {
     Chats,
-    // ContactInformation,
+    LastMessageDate,
 }
 
 export default get;

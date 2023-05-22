@@ -20,10 +20,39 @@ function LeftSide(props) {
         const getChatsData = async () => {
             // getting the contacts from the server
             let contactsData = await get.Chats();
+            let adapterContacts;
             if (contactsData !== null) {
                 // setting the contacts states
-                setContacts(contactsData);
-                setContactToShow(contactsData);
+                // data is in the form:
+                // adding more data
+                adapterContacts = await Promise.all(contactsData.map(async (contact) => {
+                    // getting the last message time if exists
+                    // fetch l messages
+                    let lastMessageDate = await get.LastMessageDate(contact.id);
+                    let lastMessageTime;
+                    if(lastMessageDate !== null){
+                        // getting only the time from the lastMessageDate
+                        var createdDate = new Date(lastMessageDate);
+                        var hours = createdDate.getHours();
+                        var minutes = createdDate.getMinutes();
+                        lastMessageTime = hours + ":" + minutes;
+                    } else {
+                        lastMessageTime = "just created";
+                    }
+
+                    let data = {
+                        id: contact.id,
+                        username: contact.user.username,
+                        displayName: contact.user.displayName,
+                        profilePic: contact.user.profilePic,
+                        lastMessage: contact.lastMessage,
+                        lastMessageDate: lastMessageDate,
+                        lastMessageTime: lastMessageTime,
+                    }
+                    return data;
+                }));
+                setContacts(adapterContacts);
+                setContactToShow(adapterContacts);
             } else {
                 setContacts([]);
                 setContactToShow([]);
@@ -42,19 +71,28 @@ function LeftSide(props) {
             });
             return contactToShow.map((contact, index) => {
 
+                // let data = {
+                //     id: contact.id,
+                //     username: contact.user.username,
+                //     displayName: contact.user.displayName,
+                //     profilePic: contact.user.profilePic,
+                //     lastMessage: contact.lastMessage,
+                //     lastMessageDate: lastMessageDate,
+                //     lastMessageTime: lastMessageTime,
+                // }
+
                 // getting contactInformation
                 let lastMessage = contact.lastMessage;
                 if (lastMessage && lastMessage.length > 20) {
                     lastMessage = lastMessage.substring(0, 20) + "...";
                 }
-                let userInfo = contact.user;
-                console.log(userInfo)
+                let userInfo = contact;
 
-                console.log(contact);
                 return <Users key={index}
                     {...userInfo}
                     id={contact.id}
                     lastMessage={lastMessage}
+                    lastMessageTime={contact.lastMessageTime}
                     setCurrentChatId={setCurrentChatId}
                     setContactFullPage={setContactFullPage}
                     contacts={contacts}

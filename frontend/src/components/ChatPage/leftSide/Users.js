@@ -18,8 +18,8 @@ function Users(props) {
     const { id,
         displayName,
         profilePic,
-        lastMessageTime,
         lastMessage,
+        lastMessageTime,
         unRead,
         setCurrentChatId,
         setContactFullPage,
@@ -30,11 +30,11 @@ function Users(props) {
         setSelectedContact,
         selectedContact} = props;
 
+
     const [showContextMenu, setShowContextMenu] = useState(false);
     const [contextMenuPosition, setContextMenuPosition] = useState({ x: 0, y: 0 });
 
     function goToChat() {
-        console.log("here")
         setSelectedContact(id);
         setCurrentChatId(id);
         setContactFullPage(false);

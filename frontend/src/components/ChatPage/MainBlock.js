@@ -21,9 +21,8 @@ function MainBlock(props) {
   const [currentChatId, setCurrentChatId] = useState(null);
   const [contactFullPage, setContactFullPage] = useState(true);
 
-  useEffect(() => {
-    console.log("main block: id=" + currentChatId + "  contactfullpage: " + contactFullPage);
-  }, [currentChatId, contactFullPage]);
+  // useEffect(() => {
+  // }, [currentChatId, contactFullPage]);
 
   // console.log("main block: id=" + currentChatId + "  contactfullpage: " + contactFullPage)
   if (contactFullPage) {

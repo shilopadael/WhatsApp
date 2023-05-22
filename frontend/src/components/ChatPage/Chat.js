@@ -1,13 +1,18 @@
 import MainBlock from "./MainBlock";
 import { useEffect, useState } from "react";
-import LogOut from "./leftSide/LogOutButton";
-import { useLocation } from "react-router-dom";
 import auth from "../../services/auth-service";
+import defaultImg from '../../assets/registerImgs/profile.png'
+
+const defaultUser ={
+  username: "",
+  displayName: "",
+  profilePic: defaultImg,
+}
 
 function Chat(props) {
-  const { state } = useLocation();
+
   const { authenticated, setAuthenticated } = props;
-  const [user, setUser] = useState(null);
+  const [user, setUser] = useState(defaultUser);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -36,9 +41,6 @@ function Chat(props) {
       </div>
     );
   } else {
-    if (user === null) {
-      return <div>Loading user data...</div>;
-    }
     return (
       <>
         <div className="topScreen"></div>
