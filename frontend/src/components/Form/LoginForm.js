@@ -30,7 +30,7 @@ function LoginForm(props) {
             // alert the user that the username or password are incorrect
             alert("The email or password are incorrect.");
         }
-    
+     
     }
 
     return (
