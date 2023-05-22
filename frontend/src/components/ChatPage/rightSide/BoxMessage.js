@@ -1,11 +1,10 @@
-import React, { useEffect, useRef } from "react";
+import React, { useState ,useEffect, useRef } from "react";
 import Receiver from "./Receiver";
 import Sender from "./Sender";
 
 
 function BoxMessage(props) {
-    const { user } = props;
-    const [ userMessages, setUserMessages ] = useState([]); 
+    const { user , userMessages } = props;
     const boxMessageRef = useRef(null);
   
     useEffect(() => {

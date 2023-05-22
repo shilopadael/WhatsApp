@@ -2,30 +2,30 @@
 import { useState } from 'react';
 
 function MessageNav(props) {
-    const { userChat, setMessage, user , contacts, setContacts } = props;
+    const { setUserMessages, setMessage, user , contacts, setContacts } = props;
     // const { setChats,chats, currentChatId , currentUser} = useContacts();
     const [newItem, setNewItem] = useState("");
     const current = new Date();
 
     function sendMessage(e) {
-        e.preventDefault();
-        let timestamp = current.toLocaleTimeString("en-US", {
-            hour: "2-digit",
-            minute: "2-digit",
-            hour12: false
-        })
-        userChat.push({ sender: "me", message: newItem, time: timestamp });
-        setMessage({ e });
-        if(newItem.length > 20) {
-            user.lastMessage = newItem.slice(0, 20) + "...";
-        } else {
-            user.lastMessage = newItem;
-        }
-        user.lastMessageTime = timestamp;
-        user.lastMessageDate = current;
-        // print all contacts
-        setContacts([...contacts]);
-        setNewItem("");
+        // e.preventDefault();
+        // let timestamp = current.toLocaleTimeString("en-US", {
+        //     hour: "2-digit",
+        //     minute: "2-digit",
+        //     hour12: false
+        // })
+        // userChat.push({ sender: "me", message: newItem, time: timestamp });
+        // setMessage({ e });
+        // if(newItem.length > 20) {
+        //     user.lastMessage = newItem.slice(0, 20) + "...";
+        // } else {
+        //     user.lastMessage = newItem;
+        // }
+        // user.lastMessageTime = timestamp;
+        // user.lastMessageDate = current;
+        // // print all contacts
+        // setContacts([...contacts]);
+        // setNewItem("");
     }
 
     return (

@@ -36,6 +36,7 @@ function Users(props) {
 
     function goToChat() {
         setSelectedContact(id);
+        console.log("in user id: " + id + " changing the current chat id")
         setCurrentChatId(id);
         setContactFullPage(false);
     }

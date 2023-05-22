@@ -85,6 +85,8 @@ function LeftSide(props) {
                 let lastMessage = contact.lastMessage;
                 if (lastMessage && lastMessage.length > 20) {
                     lastMessage = lastMessage.substring(0, 20) + "...";
+                } else {
+                    lastMessage = "";
                 }
                 let userInfo = contact;
 

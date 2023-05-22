@@ -25,7 +25,10 @@ const login = async (username, password) => {
         localStorage.setItem("token", JSON.stringify(token));
         localStorage.setItem("username", username);
         return true;
-    } 
+    } else {
+        let error = await serverReq.text();
+        localStorage.setItem("error", error);
+    }
 
     return false;
 
