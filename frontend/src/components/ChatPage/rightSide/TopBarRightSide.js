@@ -22,7 +22,7 @@ function TopBarRightSlide(props) {
                     </div>
                     <div className="col-2 col-md-2 d-flex justify-content-center">
                         <img
-                            src={currentUser.image}
+                            src={currentUser.profilePic}
                             className="rounded-circle topBarRightSlide profile-image"
                             alt="chatUserImg"
                         />
@@ -31,8 +31,8 @@ function TopBarRightSlide(props) {
                         <div>
                             <div className="row">
                                 <div className="profile-nav-chat-info">
-                                    <h6 className="profile-text-chat">{currentUser.name}</h6>
-                                    <p className="profile-text-about">{currentUser.status}</p>
+                                    <h6 className="profile-text-chat">{currentUser.displayName}</h6>
+                                    <p className="profile-text-about">no status</p>
                                 </div>
                             </div>
                         </div>

@@ -4,7 +4,8 @@ import Sender from "./Sender";
 
 
 function BoxMessage(props) {
-    const { userMessages } = props;
+    const { user } = props;
+    const [ userMessages, setUserMessages ] = useState([]); 
     const boxMessageRef = useRef(null);
   
     useEffect(() => {
@@ -22,11 +23,11 @@ function BoxMessage(props) {
     return (
         <div className="text-chat BoxMessage right-chat" ref={boxMessageRef}>
             {[...userMessages].reverse().map((mail, index) => {
-                if (mail.sender === "me") {
-                    return <Sender key={index} message={mail.message} time={mail.time}/>;
+                if (mail.sender.username === user.username) {
+                    return <Sender key={index} message={mail.content} time={mail.created}/>;
                 }
-                else if (mail.sender === "them") {
-                    return <Receiver key={index} message={mail.message} time={mail.time}/>;
+                else {
+                    return <Receiver key={index} message={mail.content} time={mail.created}/>;
                 }
             })}
         </div>

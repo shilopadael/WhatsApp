@@ -49,20 +49,22 @@ const Chats = async () => {
 // }
 
 const Messages = async (id) => { 
+
     let header = authHeader();
     const serverReq = await fetch(`${SERVER_API}/api/Chats/${id}/Messages`, {
         method: "GET",
         headers: {
-            "Content-Type": "application/json",
+            "Content-Type": "text/plain",
             "Authorization": header.Authorization,
         },
     });
 
     if (serverReq.ok) {
-        let messages = await Promise.all(serverReq.json());
+        let messages = await serverReq.json();
         return messages;
     }
-
+    let error = await serverReq.text();
+    localStorage.setItem("error", error);
     return null;
 }
 
@@ -94,6 +96,7 @@ const LastMessageDate = async (id) => {
 const get = {
     Chats,
     LastMessageDate,
+    Messages,
 }
 
 export default get;

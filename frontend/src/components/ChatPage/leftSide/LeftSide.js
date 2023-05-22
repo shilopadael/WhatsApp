@@ -37,7 +37,7 @@ function LeftSide(props) {
                         var minutes = createdDate.getMinutes();
                         lastMessageTime = hours + ":" + minutes;
                     } else {
-                        lastMessageTime = "just created";
+                        lastMessageTime = "";
                     }
 
                     let data = {
