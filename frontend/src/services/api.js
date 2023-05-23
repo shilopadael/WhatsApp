@@ -1,4 +1,5 @@
-const SERVER_API = "http://localhost:5000";
+const PORT = 5000;
+const SERVER_API = `http://localhost:${PORT}`;
 
 // extern the server
 export default SERVER_API;

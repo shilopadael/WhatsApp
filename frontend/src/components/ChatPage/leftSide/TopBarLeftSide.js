@@ -5,7 +5,7 @@ import LogOut from './LogOut';
 
 function TopBarLeftSide(props) {
 
-    const { contacts, user, setContacts, setCurrentChatId, contactToShow, setContactToShow ,setAuthenticated, setAddContact} = props;
+    const { contacts, user, setContacts, setCurrentChatId, contactToShow, setContactToShow ,setAuthenticated, setAddContact, addContact} = props;
     const userImage = user?.profilePic || defaultProfile;
     const displayName = user?.displayName || '';
 
@@ -30,6 +30,7 @@ function TopBarLeftSide(props) {
                 <div className="col-2">
                     <AddContact setContacts={setContacts}
                         contacts={contacts}
+                        addContact={addContact}
                         setCurrentChatId={setCurrentChatId}
                         contactToShow={contactToShow}
                         setContactToShow={setContactToShow} 

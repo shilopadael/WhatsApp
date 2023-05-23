@@ -1,5 +1,6 @@
 
 import { useState } from 'react';
+import post from '../../../services/post-service';
 
 function Users(props) {
 
@@ -19,7 +20,8 @@ function Users(props) {
         contacts,
         setContactToShow,
         setSelectedContact,
-        selectedContact } = props;
+        selectedContact,
+        currentChatId } = props;
 
     const { displayName, profilePic } = user;
     let unRead = null;
@@ -29,11 +31,15 @@ function Users(props) {
     const [contextMenuPosition, setContextMenuPosition] = useState({ x: 0, y: 0 });
 
     function goToChat() {
+        if (showContextMenu) {
+            return;
+        }
         if (selectedContact !== id && !contactFullPage) {
             setSelectedContact(id);
             setCurrentChatId(id);
         }
-        else if(contactFullPage){
+        else if (contactFullPage) {
+            setSelectedContact(id);
             setCurrentChatId(id);
             setContactFullPage(false);
         }
@@ -41,7 +47,7 @@ function Users(props) {
 
     function handleRightClick(e) {
         e.preventDefault();
-        if (showContextMenu == true) {
+        if (showContextMenu === true) {
             setShowContextMenu(false);
             setContextMenuPosition({ x: 0, y: 0 })
         } else {
@@ -50,13 +56,24 @@ function Users(props) {
         }
     }
 
-    function handleDeleteUser(e) {
+    async function handleDeleteUser(e) {
         e.preventDefault();
-        let updatedLst = contacts.filter((contact) => contact.id !== id);
-        setContacts(updatedLst);
-        setContactToShow(updatedLst)
-        setShowContextMenu(false);
-        setContextMenuPosition({ x: 0, y: 0 })
+        console.log(selectedContact == id);
+        // deleting the user from the server
+        let deletedUser = await post.DeleteContact(id);
+        if (deletedUser === true) {
+            let updatedLst = contacts.filter((contact) => contact.id !== id);
+            setContacts(updatedLst);
+            setContactToShow(updatedLst)
+            setShowContextMenu(false);
+            setContextMenuPosition({ x: 0, y: 0 })
+        }
+        else {
+            alert(localStorage.getItem("error"));
+        }
+        if (currentChatId == id) {
+            setContactFullPage(true);
+        }
     }
 
     const displayTime = (lastTime) => {
@@ -117,9 +134,7 @@ function Users(props) {
                         {unRead ? <span className="badge bg-primary rounded-pill">{unRead}</span> : null}
                     </div>
                 </div>
-
             </li>
-
         </>
 
     );

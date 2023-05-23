@@ -26,8 +26,6 @@ function RightSide(props) {
   const [currentUserChat, setCurrentUserChat] = useState(null);
   const { user, contacts, setContacts, currentChatId, setContactFullPage , setCurrentChatId} = props;
 
-  const contactsRef = useRef(contacts);
-
   const memoizedCurrentUserChat = useMemo(() => currentChatId, [currentChatId]);
   
   const memoizedCurrentUserChatCallback = useCallback(() => {
@@ -37,30 +35,17 @@ function RightSide(props) {
   useEffect(memoizedCurrentUserChatCallback, [memoizedCurrentUserChat]);
 
   if (currentUserChat === undefined) {
-    console.log("in currentUserChat undefine")
     setContactFullPage(true)
     return (
       <div></div>
     );
 
   } else {
-    let currentUser = contactsRef.current.filter((contact) => {
+    let currentUser = contacts.filter((contact) => {
       return contact.id == currentChatId;
     });
 
     currentUser = currentUser[0].user;
-    console.log("currentChatId" + currentChatId);
-    
-    // console.log("contacts:");
-    // console.log(contacts);
-    // console.log("user:");
-    // console.log(user);
-    // console.log("userMessages");
-    // console.log(userMessages);
-    // console.log("currentChatId:");
-    // console.log(currentChatId);
-
-
     return (
       <div className="col-8 right-slide line-up p-0 parent-div">
         <TopBarRightSlide currentUser={currentUser}

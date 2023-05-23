@@ -12,13 +12,14 @@ import get from '../../../services/get-service'
 
 function LeftSide(props) {
 
-    const { user, contacts, setContacts, setCurrentChatId, setAuthenticated, contactFullPage, setContactFullPage } = props; // contacts
+    const { user, contacts, setContacts, setCurrentChatId, setAuthenticated, contactFullPage, setContactFullPage ,currentChatId } = props; // contacts
     const [contactToShow, setContactToShow] = useState(contacts);
     const [selectedContact, setSelectedContact] = useState(null);
     const [addContact, setAddContact] = useState(false);
 
 
     useEffect(() => {
+        console.log("adding contact");
         const getChatsData = async () => {
             // getting the contacts from the server
             let contactsData = await get.Chats();
@@ -34,9 +35,7 @@ function LeftSide(props) {
         getChatsData();
     }, [addContact]);
 
-    useEffect(() => {
-        
-    }, [contactToShow]);
+
     
     function showContacts() {
         if (contactToShow.length > 0) {
@@ -59,6 +58,7 @@ function LeftSide(props) {
 
                 return <Users key={index}
                     {...contact}
+                    currentChatId={currentChatId}
                     setCurrentChatId={setCurrentChatId}
                     setContactFullPage={setContactFullPage}
                     contacts={contacts}
@@ -71,7 +71,7 @@ function LeftSide(props) {
                 />
             });
         }
-        else if (contacts.length == 0) {
+        else if (contacts.length === 0) {
             return <h5 className="NoContactsMessage">No Contacts Yet</h5>
         }
         else {
@@ -84,6 +84,7 @@ function LeftSide(props) {
         <div className="col-4 left-slide justify-content-between border-right left-chat">
             <TopBarLeftSide
                 setAuthenticated={setAuthenticated}
+                addContact={addContact}
                 setAddContact={setAddContact}
                 contacts={contacts}
                 setContacts={setContacts}

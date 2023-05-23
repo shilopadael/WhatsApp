@@ -3,7 +3,7 @@ import post from "../../../services/post-service";
 
 function AddContact(props) {
 
-  const { contacts, setContacts, contactToShow, setContactToShow , setAddContact } = props;
+  const { contacts, setContacts, contactToShow, setContactToShow, setAddContact, addContact } = props;
   const [newItem, setNewItem] = useState("");
   const [showModal, setShowModal] = useState(false);
 
@@ -22,10 +22,10 @@ function AddContact(props) {
         user: user,
         lastMessage: null,
       }
-      
+
+      setAddContact(addContact ^ true)
       setContacts([...contacts, data]);
       setContactToShow([...contactToShow, data]);
-
       setNewItem("");
       setShowModal(false);
     } else {
@@ -43,7 +43,7 @@ function AddContact(props) {
     if (event.key === 'Enter') {
       event.preventDefault();
       handleAddContact();
-    }; 
+    };
   }
 
   return (
