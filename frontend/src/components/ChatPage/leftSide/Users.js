@@ -20,7 +20,7 @@ function Users(props) {
         setContactToShow,
         setSelectedContact,
         selectedContact } = props;
-    
+
     const { displayName, profilePic } = user;
     let unRead = null;
 
@@ -57,11 +57,18 @@ function Users(props) {
     const displayTime = (lastTime) => {
         let createdDate = new Date(lastTime);
         // if the current data is the same date today then display hourse and minutes
-        if()
-        let hours = createdDate.getHours();
-        let minutes = createdDate.getMinutes();
-        let time = hours + ":" + minutes;
-        return time;
+        if (createdDate.getDate() === new Date().getDate()) {
+            let hours = createdDate.getHours();
+            let minutes = createdDate.getMinutes();
+            let time = hours + ":" + minutes;
+            return time;
+        } else {
+            // displaying the date
+            let day = createdDate.getDate();
+            let month = createdDate.getMonth() + 1;
+            let year = createdDate.getFullYear();
+            return day + "." + month + "." + year;
+        }
     }
 
     const displayMessage = (message) => {
@@ -69,7 +76,7 @@ function Users(props) {
             return "";
         } else {
             let msg;
-            if(message.content.length > 20) {
+            if (message.content.length > 20) {
                 msg = message.content.substring(0, 20) + "...";
             } else {
                 msg = message.content;
@@ -80,7 +87,7 @@ function Users(props) {
 
     return (
         <>
-            <li className={`d-flex contact-list-item ${selectedContact === id && !contactFullPage ? 'selected' : ''}` } onClick={goToChat} onContextMenu={handleRightClick}>
+            <li className={`d-flex contact-list-item ${selectedContact === id && !contactFullPage ? 'selected' : ''}`} onClick={goToChat} onContextMenu={handleRightClick}>
                 {showContextMenu && (
                     <div
                         className="col-4 pt-1"
