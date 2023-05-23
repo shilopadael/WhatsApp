@@ -29,9 +29,14 @@ function Users(props) {
     const [contextMenuPosition, setContextMenuPosition] = useState({ x: 0, y: 0 });
 
     function goToChat() {
-        setSelectedContact(id);
-        setCurrentChatId(id);
-        setContactFullPage(false);
+        if (selectedContact !== id && !contactFullPage) {
+            setSelectedContact(id);
+            setCurrentChatId(id);
+        }
+        else if(contactFullPage){
+            setCurrentChatId(id);
+            setContactFullPage(false);
+        }
     }
 
     function handleRightClick(e) {
@@ -97,7 +102,7 @@ function Users(props) {
                 )}
                 <div className="col-3 m-0">
                     <img src={profilePic} className="rounded-circle profile-image"
-                        alt="profile img"></img>
+                        alt=""></img>
                 </div>
                 <div className="col-6">
                     <div className="row">

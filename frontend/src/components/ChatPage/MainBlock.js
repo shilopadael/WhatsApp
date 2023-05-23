@@ -1,27 +1,22 @@
 import LeftSide from './leftSide/LeftSide';
 import RightSide from './rightSide/RightSide';
-import { useState , useEffect } from 'react';
+import { useState , useEffect, useCallback } from 'react';
 import './chat_page_style.css'
 
 
 function MainBlock(props) {
 
   const { user , setAuthenticated } = props;
-
-  //   user is :
-  //   let data = {
-  //     "username": email, 
-  //     "displayName": displayName,
-  //     "profilePic": img
-  // };
-
   
   const [contacts, setContacts] = useState([]);
   const [currentChatId, setCurrentChatId] = useState(null);
   const [contactFullPage, setContactFullPage] = useState(true);
 
-  // useEffect(() => {
-  // }, [currentChatId, contactFullPage]);
+  // const memoizedCurrentChatId = useCallback(() => currentChatId, [currentChatId]);
+
+  useEffect(() => {
+    console.log("chaning the fullpage")
+  }, [currentChatId, contactFullPage, contacts]);
 
   // console.log("main block: id=" + currentChatId + "  contactfullpage: " + contactFullPage)
   if (contactFullPage) {
@@ -41,12 +36,13 @@ function MainBlock(props) {
     )
 
   }
-
+  console.log("mainblock")
   return (
     <div className="container border shadow container-lg container-md container-sm ContactList">
       <div className="row no-gutters h-100 ContactBlock">
         <LeftSide user={user}
           contacts={contacts}
+          setAuthenticated={setAuthenticated}
           setContacts={setContacts}
           setCurrentChatId={setCurrentChatId}
           setContactFullPage={setContactFullPage}
@@ -55,7 +51,8 @@ function MainBlock(props) {
           contacts={contacts}
           setContacts={setContacts}
           currentChatId={currentChatId}
-          setContactFullPage={setContactFullPage} />
+          setContactFullPage={setContactFullPage} 
+          setCurrentChatId={setCurrentChatId}/>
       </div>
     </div>
   );

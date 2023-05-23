@@ -15,6 +15,7 @@ function Chat(props) {
   const [user, setUser] = useState(defaultUser);
 
   useEffect(() => {
+    console.log("in chat.js")
     const fetchData = async () => {
       if (authenticated) {
         // trying to get user information from the database
@@ -22,6 +23,7 @@ function Chat(props) {
         if (userData !== null) {
           setUser(userData);
         } else {
+          setAuthenticated(false);
           auth.logout();
         }
       }
@@ -29,6 +31,8 @@ function Chat(props) {
 
     // Invoking the asynchronous function
     fetchData();
+    console.log("fetching data");
+    console.log(authenticated);
 
   }, [authenticated]);
 
@@ -41,6 +45,7 @@ function Chat(props) {
       </div>
     );
   } else {
+    // console.log("in chat.js")
     return (
       <>
         <div className="topScreen"></div>

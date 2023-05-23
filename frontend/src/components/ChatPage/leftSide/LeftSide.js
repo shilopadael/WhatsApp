@@ -3,6 +3,7 @@
 import TopBarLeftSide from './TopBarLeftSide';
 import SearchContacts from './SearchContacts.js';
 import Users from './Users';
+import auth from '../../../services/auth-service';
 import { useEffect, useState } from 'react';
 import './LeftSide.css';
 import get from '../../../services/get-service'
@@ -14,6 +15,8 @@ function LeftSide(props) {
     const { user, contacts, setContacts, setCurrentChatId, setAuthenticated, contactFullPage, setContactFullPage } = props; // contacts
     const [contactToShow, setContactToShow] = useState(contacts);
     const [selectedContact, setSelectedContact] = useState(null);
+    const [addContact, setAddContact] = useState(false);
+
 
     useEffect(() => {
         const getChatsData = async () => {
@@ -23,26 +26,28 @@ function LeftSide(props) {
                 setContacts(contactsData);
                 setContactToShow(contactsData);
             } else {
-                setContacts([]);
-                setContactToShow([]);
+                setAuthenticated(false);
+                auth.logout();
             }
         };
         // Invoking the asynchronous function
         getChatsData();
+    }, [addContact]);
 
-    }, [contacts]);
-
-
+    useEffect(() => {
+        
+    }, [contactToShow]);
+    
     function showContacts() {
         if (contactToShow.length > 0) {
             contactToShow.sort((c1, c2) => {
-                if(c1.lastMessage === null && c2.lastMessage === null){
+                if (c1.lastMessage === null && c2.lastMessage === null) {
                     return 0;
                 }
-                if(c1.lastMessage === null){
+                if (c1.lastMessage === null) {
                     return 1;
                 }
-                if(c2.lastMessage === null){
+                if (c2.lastMessage === null) {
                     return -1;
                 }
                 return c2.lastMessage.created - c1.lastMessage.created;
@@ -74,10 +79,12 @@ function LeftSide(props) {
         }
     }
 
+
     return (
         <div className="col-4 left-slide justify-content-between border-right left-chat">
             <TopBarLeftSide
                 setAuthenticated={setAuthenticated}
+                setAddContact={setAddContact}
                 contacts={contacts}
                 setContacts={setContacts}
                 user={user}

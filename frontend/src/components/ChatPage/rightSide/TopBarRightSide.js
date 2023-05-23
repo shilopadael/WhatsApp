@@ -6,6 +6,7 @@ function TopBarRightSlide(props) {
     // when pressing the back button going back to the chat contacts
     const changeToChatHandle = () => {
         setContactFullPage(true)
+        // setCurrentChatId(null);
     }
 
     return (

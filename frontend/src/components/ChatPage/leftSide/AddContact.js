@@ -3,7 +3,7 @@ import post from "../../../services/post-service";
 
 function AddContact(props) {
 
-  const { contacts, setContacts, contactToShow, setContactToShow } = props;
+  const { contacts, setContacts, contactToShow, setContactToShow , setAddContact } = props;
   const [newItem, setNewItem] = useState("");
   const [showModal, setShowModal] = useState(false);
 
@@ -22,9 +22,10 @@ function AddContact(props) {
         user: user,
         lastMessage: null,
       }
-
+      
       setContacts([...contacts, data]);
       setContactToShow([...contactToShow, data]);
+
       setNewItem("");
       setShowModal(false);
     } else {

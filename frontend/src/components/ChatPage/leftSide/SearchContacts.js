@@ -2,18 +2,18 @@ import { useRef } from 'react'
 
 function SearchContacts(props) {
 
-    const { contacts , setContactToShow} = props
+    const { contacts, setContactToShow } = props
     const searchRef = useRef("");
 
     function modiftyShowContact(e) {
         const value = e.target.value;
-        setContactToShow(contacts.filter(contact => contact.displayName.includes(value)));
+        setContactToShow(contacts.filter(contact => contact.user.displayName.includes(value)));
     }
 
     function handleKeyPress(e) {
         if (e.key === 'Enter') {
             e.preventDefault();
-          }
+        }
     }
 
     return (

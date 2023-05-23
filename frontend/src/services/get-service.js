@@ -28,6 +28,25 @@ const Chats = async () => {
     return null;
 }
 
+const ChatsById = async (id) => {
+    let header = authHeader();
+    let serverReq = await fetch(`${SERVER_API}/api/Chats/${id}`, {
+        method: "GET",
+        headers: {
+            "Content-Type": "application/json",
+            "Authorization": header.Authorization,
+        },
+    })
+
+    if (serverReq.ok) {
+        let user = await serverReq.json();
+        return user;
+    } else {
+        localStorage.setItem("error" , serverReq.text());
+        return null;
+    }
+}
+
 
 const Messages = async (id) => { 
 
@@ -76,6 +95,7 @@ const LastMessageDate = async (id) => {
 
 const get = {
     Chats,
+    ChatsById,
     LastMessageDate,
     Messages,
 }

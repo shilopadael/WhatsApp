@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import './LogOutButton.css';
+import auth from '../../../services/auth-service';
 import { useNavigate } from "react-router-dom";
 
 function LogOut({ setAuthenticated }) {
@@ -9,18 +10,17 @@ function LogOut({ setAuthenticated }) {
 
   function handleIconClick() {
     setShowModal(true);
-    // document.getElementById('root').classList.add('modal-open');
   }
 
   function handleLogout() {
     setShowModal(false);
-    // document.getElementById('root').classList.remove('modal-open');
+    setAuthenticated(false);
+    auth.logout();
     navigate("/");
   }
 
   function handleCancel() {
     setShowModal(false);
-    // document.getElementById('root').classList.remove('modal-open');
   }
 
   return (
@@ -64,7 +64,7 @@ function LogOut({ setAuthenticated }) {
 
               </div>
               <div className="modal-body danger-btn">
-                 <button type="button" className="btn btn-secondary" onClick={handleCancel}>
+                <button type="button" className="btn btn-secondary" onClick={handleCancel}>
                   Cancel
                 </button>
                 <button type="button" className="btn btn-danger" onClick={handleLogout}>
