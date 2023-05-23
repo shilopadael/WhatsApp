@@ -3,24 +3,15 @@ import { useState } from 'react';
 
 function Users(props) {
 
-    // const newContact = {
-    //     id: newId,
-    //     name: name,
-    //     image: defaultProfile,
-    //     lastMessageTime: "",
-    //     lastMessageDate: "",
-    //     unRead: 0,
-    //     lastMessage: "",
-    //     messages: [],
-    //     status: data[random],
-    //     currentChat: false,
-    //   };
+    // let data = {
+    //     id: user.id,
+    //     user: user,
+    //     lastMessage: null,
+    //   }
+
     const { id,
-        displayName,
-        profilePic,
+        user,
         lastMessage,
-        lastMessageTime,
-        unRead,
         setCurrentChatId,
         setContactFullPage,
         contactFullPage,
@@ -28,7 +19,10 @@ function Users(props) {
         contacts,
         setContactToShow,
         setSelectedContact,
-        selectedContact} = props;
+        selectedContact } = props;
+    
+    const { displayName, profilePic } = user;
+    let unRead = null;
 
 
     const [showContextMenu, setShowContextMenu] = useState(false);
@@ -36,7 +30,6 @@ function Users(props) {
 
     function goToChat() {
         setSelectedContact(id);
-        console.log("in user id: " + id + " changing the current chat id")
         setCurrentChatId(id);
         setContactFullPage(false);
     }
@@ -61,6 +54,29 @@ function Users(props) {
         setContextMenuPosition({ x: 0, y: 0 })
     }
 
+    const displayTime = (lastTime) => {
+        let createdDate = new Date(lastTime);
+        // if the current data is the same date today then display hourse and minutes
+        if()
+        let hours = createdDate.getHours();
+        let minutes = createdDate.getMinutes();
+        let time = hours + ":" + minutes;
+        return time;
+    }
+
+    const displayMessage = (message) => {
+        if (message === null) {
+            return "";
+        } else {
+            let msg;
+            if(message.content.length > 20) {
+                msg = message.content.substring(0, 20) + "...";
+            } else {
+                msg = message.content;
+            }
+            return msg;
+        }
+    }
 
     return (
         <>
@@ -80,11 +96,11 @@ function Users(props) {
                 <div className="col-6">
                     <div className="row">
                         <span className="p-0 m-0">{displayName}</span>
-                        <span className="p-0 text-muted">{lastMessage}</span>
+                        <span className="p-0 text-muted">{displayMessage(lastMessage)}</span>
                     </div>
                 </div>
                 <div className="col-2 text-end">
-                    <span className="col-12 last-seen opacity">{lastMessageTime}</span>
+                    <span className="col-12 last-seen opacity">{lastMessage ? displayTime(lastMessage.created) : ''}</span>
                     <div>
                         {/*if lastSeen is 0, then don't show the badge*/}
                         {unRead ? <span className="badge bg-primary rounded-pill">{unRead}</span> : null}

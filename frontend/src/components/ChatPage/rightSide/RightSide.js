@@ -78,7 +78,6 @@ async function RightSide(props) {
         setMessage={setMessage}
       />
     </div>
-
   );
 
 

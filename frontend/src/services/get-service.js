@@ -28,25 +28,6 @@ const Chats = async () => {
     return null;
 }
 
-// const ContactInformation = async (username) => {
-//     // getting data from the server
-//     let header = authHeader();
-//     const serverReq = await fetch(`${SERVER_API}/api/Users/${username}`, {
-//         method: "GET",
-//         headers: {
-//             "Content-Type": "application/json",
-//             "Authorization": header.Authorization,
-//         },
-//     });
-
-//     if (serverReq.ok) {
-//         let contactInfo = await serverReq.json();
-//         return contactInfo;
-//     }
-
-//     return null;
-
-// }
 
 const Messages = async (id) => { 
 

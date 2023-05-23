@@ -20,11 +20,11 @@ const Contact = async (contact) => {
     });
 
     if (serverReq.ok) {
-        return true;
+        return await serverReq.json();
     }
     else {
         localStorage.setItem("error", await serverReq.text());
-        return false;
+        return null;
     }
  }
 

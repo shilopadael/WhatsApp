@@ -25,33 +25,25 @@ function AddContact(props) {
   const handleAddContact = async () => {
 
     // trying to create a new contact with the given name
-    let flag = await post.Contact(newItem);
+    const user = await post.Contact(newItem);
 
-    if (flag === true) {
-      // added the user successfully, updating getting the contact from the server
-      // getting all chats
-      let contactsChats = await get.Chats();
-      contactsChats = contactsChats.filter((contact) => contact.user.username === newItem);
+    if (user !== null) {
 
-      setContacts([...contacts, contactsChats]);
-      setContactToShow([...contactToShow, contactsChats]);
+      let data = {
+        id: user.id,
+        user: user,
+        lastMessage: null,
+      }
+     
+      setContacts([...contacts, data]);
+      setContactToShow([...contactToShow, data]);
       setNewItem("");
       setShowModal(false);
 
     } else {
-      // contact exists adding to the contact li
-      // const newContact = {
-      //   id: 
-      //   username: newItem,
-      //   displayName: contact.displayName,
-      //   profilePic: contact.profilePic,
-      //   lastMessageTime: "",
-      //   lastMessageDate: "",
-      //   unRead: 0,
-      //   lastMessage: "",
-      //   status: "",
-      // };
+
       alert(localStorage.getItem("error"));
+      setNewItem("");
 
     }
   };

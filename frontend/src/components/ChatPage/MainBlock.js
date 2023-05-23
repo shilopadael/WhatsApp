@@ -11,7 +11,6 @@ function MainBlock(props) {
   //   user is :
   //   let data = {
   //     "username": email, 
-  //     "password": password,
   //     "displayName": displayName,
   //     "profilePic": img
   // };
