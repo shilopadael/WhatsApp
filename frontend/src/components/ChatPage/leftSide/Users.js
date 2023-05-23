@@ -56,18 +56,17 @@ function Users(props) {
 
     const displayTime = (lastTime) => {
         let createdDate = new Date(lastTime);
-        // if the current data is the same date today then display hourse and minutes
-        if (createdDate.getDate() === new Date().getDate()) {
+        let todayDate = new Date();
+        let todayDateFormat = todayDate.getDate() + "." + (todayDate.getMonth() + 1) + "." + todayDate.getFullYear();
+        let createdDateFormat = createdDate.getDate() + "." + (createdDate.getMonth() + 1) + "." + createdDate.getFullYear();
+        if (todayDateFormat === createdDateFormat) {
             let hours = createdDate.getHours();
             let minutes = createdDate.getMinutes();
             let time = hours + ":" + minutes;
             return time;
         } else {
             // displaying the date
-            let day = createdDate.getDate();
-            let month = createdDate.getMonth() + 1;
-            let year = createdDate.getFullYear();
-            return day + "." + month + "." + year;
+            return todayDateFormat;
         }
     }
 
