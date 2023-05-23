@@ -6,7 +6,6 @@ import Users from './Users';
 import { useEffect, useState } from 'react';
 import './LeftSide.css';
 import get from '../../../services/get-service'
-import auth from '../../../services/auth-service'
 
 
 

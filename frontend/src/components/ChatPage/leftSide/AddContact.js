@@ -1,15 +1,5 @@
 import { useState } from "react";
-import defaultProfile from '../../../assets/registerImgs/profile.png';
-import get from "../../../services/get-service";
 import post from "../../../services/post-service";
-
-// const data = {
-//   1: "dragonball is the best",
-//   2: "dont eat the mellon!",
-//   3: "this is a status",
-//   4: "normal status",
-//   5: "stupid status"
-// }
 
 function AddContact(props) {
 
@@ -19,14 +9,12 @@ function AddContact(props) {
 
   function handleIconClick() {
     setShowModal(true);
-
   }
 
   const handleAddContact = async () => {
 
     // trying to create a new contact with the given name
     const user = await post.Contact(newItem);
-
     if (user !== null) {
 
       let data = {
@@ -34,17 +22,14 @@ function AddContact(props) {
         user: user,
         lastMessage: null,
       }
-     
+
       setContacts([...contacts, data]);
       setContactToShow([...contactToShow, data]);
       setNewItem("");
       setShowModal(false);
-
     } else {
-
       alert(localStorage.getItem("error"));
       setNewItem("");
-
     }
   };
 
@@ -57,8 +42,7 @@ function AddContact(props) {
     if (event.key === 'Enter') {
       event.preventDefault();
       handleAddContact();
-
-    }; // Prevent the default behavior of the key event
+    }; 
   }
 
   return (
