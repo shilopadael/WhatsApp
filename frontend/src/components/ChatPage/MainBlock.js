@@ -20,19 +20,22 @@ function MainBlock(props) {
   // console.log("main block: id=" + currentChatId + "  contactfullpage: " + contactFullPage)
   if (contactFullPage) {
     return (
-      <div className="container border shadow container-lg container-md container-sm defaultContactList" >
-        <div className="row no-gutters h-100 defaultContactBlock">
-          <LeftSide user={user}
-            currentChatId={currentChatId}
-            setAuthenticated={setAuthenticated}
-            contacts={contacts}
-            setContacts={setContacts}
-            setCurrentChatId={setCurrentChatId}
-            contactFullPage={contactFullPage}
-            setContactFullPage={setContactFullPage}
-           />
+      <>
+        <div className="container border shadow container-lg container-md container-sm defaultContactList" >
+          <div className="row no-gutters h-100 defaultContactBlock">
+            <LeftSide user={user}
+              currentChatId={currentChatId}
+              setAuthenticated={setAuthenticated}
+              contacts={contacts}
+              setContacts={setContacts}
+              setCurrentChatId={setCurrentChatId}
+              contactFullPage={contactFullPage}
+              setContactFullPage={setContactFullPage}
+            />
+          </div>
         </div>
-      </div>
+      </>
+
     )
 
   } else {

@@ -1,6 +1,7 @@
 
 import { useState } from 'react';
 import post from '../../../services/post-service';
+import $ from 'jquery';
 
 function Users(props) {
 
