@@ -12,18 +12,18 @@ import get from '../../../services/get-service'
 
 function LeftSide(props) {
 
-    const { user, contacts, setContacts, setCurrentChatId, setAuthenticated, contactFullPage, setContactFullPage ,currentChatId } = props; // contacts
+    const { user, contacts, setContacts, setCurrentChatId, setAuthenticated, contactFullPage, setContactFullPage ,currentChatId , newMsg } = props; // contacts
     const [contactToShow, setContactToShow] = useState(contacts);
     const [selectedContact, setSelectedContact] = useState(null);
     const [addContact, setAddContact] = useState(false);
 
 
     useEffect(() => {
-        console.log("adding contact");
         const getChatsData = async () => {
             // getting the contacts from the server
             let contactsData = await get.Chats();
             if (contactsData !== null) {
+                console.log(contactsData)
                 setContacts(contactsData);
                 setContactToShow(contactsData);
             } else {
@@ -33,9 +33,12 @@ function LeftSide(props) {
         };
         // Invoking the asynchronous function
         getChatsData();
-    }, [addContact]);
 
+    }, [addContact, newMsg]);
 
+    // useEffect(() => {
+    //     console.log("in left side")
+    // }, [newMsg]);
     
     function showContacts() {
         if (contactToShow.length > 0) {

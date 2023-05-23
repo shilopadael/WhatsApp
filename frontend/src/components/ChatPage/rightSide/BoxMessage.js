@@ -4,7 +4,7 @@ import Sender from "./Sender";
 
 
 function BoxMessage(props) {
-    const { user , userMessages } = props;
+    const { user , newMsg , userMessages } = props;
     const boxMessageRef = useRef(null);
   
     useEffect(() => {

@@ -9,6 +9,7 @@ function MainBlock(props) {
   const { user, setAuthenticated } = props;
 
   const [contacts, setContacts] = useState([]);
+  const [newMsg , setNewMsg] = useState(false); // messages
   const [currentChatId, setCurrentChatId] = useState(null);
   const [contactFullPage, setContactFullPage] = useState(true);
 
@@ -27,6 +28,7 @@ function MainBlock(props) {
               currentChatId={currentChatId}
               setAuthenticated={setAuthenticated}
               contacts={contacts}
+              newMsg={newMsg}
               setContacts={setContacts}
               setCurrentChatId={setCurrentChatId}
               contactFullPage={contactFullPage}
@@ -47,11 +49,14 @@ function MainBlock(props) {
             currentChatId={currentChatId}
             setAuthenticated={setAuthenticated}
             setContacts={setContacts}
+            newMsg={newMsg}
             setCurrentChatId={setCurrentChatId}
             setContactFullPage={setContactFullPage}
             contactFullPage={contactFullPage} />
           <RightSide user={user}
             contacts={contacts}
+            newMsg={newMsg}
+            setNewMsg={setNewMsg}
             setContacts={setContacts}
             currentChatId={currentChatId}
             setContactFullPage={setContactFullPage}

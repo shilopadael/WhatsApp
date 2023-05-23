@@ -1,14 +1,27 @@
 
 import { useState } from 'react';
+import post from '../../../services/post-service';
 
 function MessageNav(props) {
-    const { setUserMessages, setMessage, user , contacts, setContacts } = props;
+    const { setUserMessages, user , contacts, setContacts , setNewMsg , newMsg } = props;
     // const { setChats,chats, currentChatId , currentUser} = useContacts();
     const [newItem, setNewItem] = useState("");
-    const current = new Date();
 
-    function sendMessage(e) {
-        // e.preventDefault();
+
+    async function sendMessage(e) {
+        e.preventDefault();
+
+        let serverReq = await post.Message(user.id, newItem);
+        if(serverReq !== null) {
+            // success
+            setNewMsg(newMsg^true);
+            setNewItem("");
+        } else {
+            // error
+            alert(localStorage.getItem("error"));
+            return;
+        }
+
         // let timestamp = current.toLocaleTimeString("en-US", {
         //     hour: "2-digit",
         //     minute: "2-digit",

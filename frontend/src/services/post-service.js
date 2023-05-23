@@ -39,10 +39,8 @@ const Contact = async (contact) => {
                 "Authorization": header.Authorization,
             },
         });
-        console.log(serverReq);
         // if the server return ok
         if (serverReq.ok) {
-            console.log("deleting user");
             return true;
         } else {
             let error = await serverReq.text();
@@ -55,10 +53,41 @@ const Contact = async (contact) => {
     }   
  }
 
+ const Message = async (id, content) => {
+    let header = authHeader();
+
+    let data = {
+        "msg" : content
+    }
+    try{
+        let serverReq = await fetch(`${SERVER_API}/api/Chats/${id}/Messages`, {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+                "Authorization": header.Authorization,
+            },
+            body: JSON.stringify(data),
+        });
+        // if the server return ok
+        if (serverReq.ok) {
+            let data = await serverReq.json();
+            return data;
+        } else {
+            let error = await serverReq.text();
+            localStorage.setItem("error", error);
+            return null;
+        }
+    } catch(e) {
+        localStorage.setItem("error", e.message);
+        return null;
+    }   
+ }
+
 
 const post = {
     Contact,
     DeleteContact,
+    Message,
 };
 
 export default post;
