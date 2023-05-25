@@ -141,11 +141,13 @@ body {
 .text-chat {
   position: absolute;
   width: 100%;
-  margin-top: 2%;
+  margin-top: 0%;
 }
 .chat-bubble-right {
   font-size: 16px;
-  background-color: #dcf8c6;
+  color:#ffffff;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  background-color: #2e2e2e;
   border-radius: 30px;
   padding: 10px 20px;
   margin-bottom: 5px;
@@ -161,14 +163,17 @@ body {
 
 .chat-bubble-right-time {
   font-size: 12px;
+  text-align: left;
 }
 .chat-bubble-left-time {
   font-size: 12px;
+  text-align: right;
 }
 
 .chat-bubble-left {
   font-size: 16px;
-  background-color: #cccccc;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  background-color: #ffffff;
   border-radius: 30px;
   padding: 10px 20px;
   margin-left: 15px;
@@ -186,7 +191,7 @@ body {
 }
 
 
-@media (max-height: 800px) {
+@media (max-height: 870) {
   .right-chat {
     height: 82%;
   }
@@ -197,7 +202,7 @@ body {
 
 @media (max-height: 700px) {
   .right-chat {
-    height: 75%;
+    height: 80%;
   }
   .contact-list {
     height: 75%;

@@ -1,7 +1,6 @@
 
 import { useState } from 'react';
 import post from '../../../services/post-service';
-import $ from 'jquery';
 
 function Users(props) {
 
@@ -109,13 +108,20 @@ function Users(props) {
 
     return (
         <>
-            <li className={`d-flex contact-list-item ${selectedContact === id && !contactFullPage ? 'selected' : ''}`} onClick={goToChat} onContextMenu={handleRightClick}>
+            <li className={`d-flex contact-list-item ${selectedContact === id && !contactFullPage ? 'selected' : ''}`} 
+            onClick={goToChat} 
+            onContextMenu={handleRightClick}
+            data-bs-toggle="tooltip" // Add the data-bs-toggle attribute for tooltip
+            data-bs-custom-class="custom-tooltip"
+            data-bs-placement="top"
+            title="Right Click To Delete" // Specify the tooltip text
+            >
                 {showContextMenu && (
                     <div
                         className="col-4 pt-1"
                         style={{ top: contextMenuPosition.y, left: contextMenuPosition.x }}
                     >
-                        <button className='btn btn-danger' onClick={handleDeleteUser}>Delete</button>
+                        <button className='btn btn-danger deleteUserBtn' onClick={handleDeleteUser}>Delete</button>
                     </div>
                 )}
                 <div className="col-3 m-0">

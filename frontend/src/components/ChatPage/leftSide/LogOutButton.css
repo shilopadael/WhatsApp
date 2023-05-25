@@ -30,3 +30,7 @@
     background-color: rgba(0, 0, 0, 0.75); /* Adjust the alpha value to control the darkness of the shadow */
     z-index: 1040; /* Make sure the shadow is displayed above the modal */
   }
+
+  .custom-tooltip {
+    --bs-tooltip-bg: var(--bs-primary);
+  }

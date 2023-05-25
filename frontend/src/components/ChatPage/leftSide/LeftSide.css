@@ -1,6 +1,6 @@
 .left-slide {
   background-color: #555555;
-  background: linear-gradient(-45deg, #aeaeae, #cfcfcf);
+  background: linear-gradient(-45deg, #e7e7e7, #cfcfcf);
   background-size: cover;
   float: left; /* add this line to float the left slide to the left */
   border-radius: 10px;
@@ -218,4 +218,8 @@
 
 .log-out-btn:hover .log-out-img { 
   fill: black;  
+}
+
+.deleteUserBtn{
+  color: white !important
 }

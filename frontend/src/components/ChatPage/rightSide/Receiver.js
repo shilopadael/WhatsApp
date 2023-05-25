@@ -10,9 +10,9 @@ function Receiver({ message, time }) {
     time = hours + ":" + minutes;
 
     return (
-        <div className="chat-bubble-left">
+        <div className="chat-bubble-right">
             {message}
-            <div className="chat-bubble-left-time">{time}</div>
+            <div className="chat-bubble-right-time">{time}</div>
         </div>
     )
 }

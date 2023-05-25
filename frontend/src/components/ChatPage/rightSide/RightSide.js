@@ -30,8 +30,6 @@ async function updateUserMessages(currentChatId, setUserMessages) {
 
 function RightSide(props) {
 
-  // const [message, setMessage] = useState("");
-  // const [newMsg, setNewMsg] = useState(false); // messages
   const [userMessages, setUserMessages] = useState([]);
   const [currentUserChat, setCurrentUserChat] = useState(null);
   const { user, contacts, setContacts, currentChatId, setContactFullPage , newMsg , setNewMsg} = props;
@@ -44,9 +42,9 @@ function RightSide(props) {
 
   useEffect(memoizedCurrentUserChatCallback, [memoizedCurrentUserChat]);
 
-  useEffect(() => {
-    updateUserMessages(currentChatId, setUserMessages);
-  }, [newMsg]);
+  // useEffect(() => {
+  //   updateUserMessages(currentChatId, setUserMessages);
+  // }, [newMsg]);
 
   if (currentUserChat === undefined) {
     setContactFullPage(true)
@@ -74,6 +72,7 @@ function RightSide(props) {
           setNewMsg={setNewMsg}
           newMsg={newMsg}
           setUserMessages={setUserMessages}
+          userMessages={userMessages}
         />
       </div>
     );

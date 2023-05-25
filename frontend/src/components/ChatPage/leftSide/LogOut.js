@@ -31,6 +31,8 @@ function LogOut({ setAuthenticated }) {
         className="btn log-out-btn"
         onClick={handleIconClick}
         data-bs-toggle="tooltip" // Add the data-bs-toggle attribute for tooltip
+        data-bs-custom-class="custom-tooltip"
+        data-bs-placement="top"
         title="Log Out" // Specify the tooltip text
 
       >

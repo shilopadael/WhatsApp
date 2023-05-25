@@ -71,6 +71,7 @@ const Contact = async (contact) => {
         // if the server return ok
         if (serverReq.ok) {
             let data = await serverReq.json();
+            console.log(data);
             return data;
         } else {
             let error = await serverReq.text();

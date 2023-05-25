@@ -88,7 +88,7 @@ function AddContact(props) {
                     onChange={(e) => setNewItem(e.target.value)}
                     className="form-control me-2"
                     type="search"
-                    placeholder="Add contact"
+                    placeholder="enter contact username"
                     value={newItem}
                     aria-label="Search"
                     onKeyPress={handleKeyDown}></input>
