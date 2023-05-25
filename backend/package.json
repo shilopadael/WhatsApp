@@ -5,7 +5,8 @@
   "main": "app.js",
   "scripts": {
     "test": "export NODE_ENV=test && node app.js",
-    "start": "export NODE_ENV=local && node app.js"
+    "start": "export NODE_ENV=local && node app.js",
+    "omer": "export NODE_ENV=omer && node app.js"
   },
   "keywords": [],
   "author": "",
