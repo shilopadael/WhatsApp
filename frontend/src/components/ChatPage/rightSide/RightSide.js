@@ -18,14 +18,6 @@ async function fetchCurrentUserChat(currentChatId, setContactFullPage, setCurren
   }
 }
 
-async function updateUserMessages(currentChatId, setUserMessages) {
-  try {
-    const currentUserChat = await get.ChatsById(currentChatId);
-    setUserMessages(currentUserChat.messages);
-  } catch (error) {
-    console.error(error);
-  }
-}
 
 
 function RightSide(props) {
@@ -42,9 +34,6 @@ function RightSide(props) {
 
   useEffect(memoizedCurrentUserChatCallback, [memoizedCurrentUserChat]);
 
-  // useEffect(() => {
-  //   updateUserMessages(currentChatId, setUserMessages);
-  // }, [newMsg]);
 
   if (currentUserChat === undefined) {
     setContactFullPage(true)
@@ -54,7 +43,7 @@ function RightSide(props) {
 
   } else {
     let currentUser = contacts.filter((contact) => {
-      return contact.id == currentChatId;
+      return contact.id === currentChatId;
     });
 
     currentUser = currentUser[0].user;
