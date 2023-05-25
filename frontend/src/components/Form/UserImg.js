@@ -1,26 +1,32 @@
 import './UserImg.css';
 import Input from "./FormInput";
+import defaultImg from '../../assets/registerImgs/profile.png'
 
 function UserImg(props) {
-    const { img ,setImg } = props;
+    const { img, setImg } = props;
 
     function changeImg(event) {
-
+        // checking if the event is not undefined
+        if (event.target.files[0] === undefined) {
+            setImg(defaultImg);
+            return;
+        }
         const file = event.target.files[0];
         const reader = new FileReader();
         // checking file type
-        if (!file.type.match('image.*')) { 
+        if (!file.type.match('image.*')) {
             alert("Please select image only.");
             return;
         }
         reader.onload = function () {
-          const dataURL = reader.result;
-        //   console.log("img url: " + dataURL);
-          setImg(dataURL);
+            const dataURL = reader.result;
+            if (dataURL !== undefined) {
+                setImg(dataURL);
+            }
         }
         reader.readAsDataURL(file);
-      }
-    
+    }
+
 
     return (
         <>
