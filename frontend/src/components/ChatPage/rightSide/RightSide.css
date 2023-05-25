@@ -49,6 +49,7 @@
 .right-chat::-webkit-scrollbar {
   width: 0px;
   /* background-color: transparent; Background color of the scrollbar track */
+  
 }
 
 .chat-box-input {
