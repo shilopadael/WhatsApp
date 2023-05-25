@@ -5,20 +5,34 @@ const Schema = mongoose.Schema;
 const UserPassName = new Schema({
     username: {
         type: String,
-        required: true
+        nullable: true
     },
     password: {
         type: String,
-        require: true
+        nullable: true
     },
     displayName: {
         type: String,
-        required: true
+        nullable: true
     },
     profilePic: {
         type: String,
-        required: true
+        nullable: true
     }
 });
+
+function getDisplayName() {
+    return this.displayName;
+}
+function getProfilePic() { 
+    return this.profilePic;
+}
+function getUsername() {
+    return this.username;
+}
+function getPassword() {
+    return this.password;
+}
+
 
 module.exports = mongoose.model('UserPassName', UserPassName);

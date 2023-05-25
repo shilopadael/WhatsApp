@@ -12,11 +12,12 @@ const Chat = new Schema(
         },
         users: {
             type: [User],
-            required: true
+            nullable: true
+
         },
         messages: {
+            nullable: true,
             type: [Message],
-            required: true
     }
 });
 
