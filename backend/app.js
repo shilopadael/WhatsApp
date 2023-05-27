@@ -40,7 +40,7 @@ const { getTokenFromHeaders, isLogIn } = require('./services/token');
 app.get('/', isLogIn, index)
 
 //adding new user
-app.post('/Users', addUser);
+app.post('api/Users', addUser);
 
 app.listen(process.env.PORT, () => {
     console.log(`Server running on port ${process.env.PORT}`);

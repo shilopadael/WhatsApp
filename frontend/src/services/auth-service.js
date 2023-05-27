@@ -54,7 +54,9 @@ const register = async (username, password, displayName, img) => {
     if(serverReq.ok) {
         return true;
     } else if(serverReq.status >= 400 && serverReq.status < 500) {
-
+        // problem at the user
+        let error = await serverReq.text();
+        localStorage.setItem("error", error);
     }
     return false;
 };

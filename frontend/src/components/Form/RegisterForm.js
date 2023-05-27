@@ -54,7 +54,7 @@ function RegisterForm() {
                 navigate("/");
             } else {
                 // failed to register
-                alert("Failed to register please try again. (all fields are required)");
+                alert(localStorage.getItem("error"));
             }
         }
     }
