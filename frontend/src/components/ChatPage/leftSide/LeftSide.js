@@ -11,7 +11,6 @@ import get from '../../../services/get-service'
 
 
 function LeftSide(props) {
-
     const { user, contacts, setContacts, setCurrentChatId, setAuthenticated, contactFullPage, setContactFullPage ,currentChatId , newMsg } = props; // contacts
     const [contactToShow, setContactToShow] = useState(contacts);
     const [selectedContact, setSelectedContact] = useState(null);

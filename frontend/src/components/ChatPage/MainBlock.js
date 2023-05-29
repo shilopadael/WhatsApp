@@ -60,6 +60,7 @@ function MainBlock(props) {
             setContacts={setContacts}
             currentChatId={currentChatId}
             setContactFullPage={setContactFullPage}
+            setAuthenticated={setAuthenticated}
             setCurrentChatId={setCurrentChatId} />
         </div>
       </div>

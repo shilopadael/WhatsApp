@@ -6,30 +6,31 @@ import { useState, useEffect, useMemo, useRef, useCallback } from 'react';
 import get from '../../../services/get-service';
 
 
-async function fetchCurrentUserChat(currentChatId, setContactFullPage, setCurrentUserChat, setUserMessages) {
+async function fetchCurrentUserChat(currentChatId, setContactFullPage, setCurrentUserChat, setUserMessages, setAuthenticated) {
   try {
-    console.log("test");
     const currentUserChat = await get.ChatsById(currentChatId);
     setCurrentUserChat(currentUserChat);
     setUserMessages(currentUserChat.messages);
   } catch (error) {
     console.error(error);
     setContactFullPage(true);
+    // the user is not authenticated
+    setAuthenticated(false);
+    alert("token is expired, please log in again");
   }
 }
 
 
 
 function RightSide(props) {
-
   const [userMessages, setUserMessages] = useState([]);
   const [currentUserChat, setCurrentUserChat] = useState(null);
-  const { user, contacts, setContacts, currentChatId, setContactFullPage , newMsg , setNewMsg} = props;
+  const { user, contacts, setContacts, currentChatId, setContactFullPage , newMsg , setNewMsg , setAuthenticated} = props;
 
   const memoizedCurrentUserChat = useMemo(() => currentChatId, [currentChatId]);
 
   const memoizedCurrentUserChatCallback = useCallback(() => {
-    fetchCurrentUserChat(memoizedCurrentUserChat, setContactFullPage, setCurrentUserChat, setUserMessages);
+    fetchCurrentUserChat(memoizedCurrentUserChat, setContactFullPage, setCurrentUserChat, setUserMessages , setAuthenticated);
   }, [memoizedCurrentUserChat]);
 
   useEffect(memoizedCurrentUserChatCallback, [memoizedCurrentUserChat]);
