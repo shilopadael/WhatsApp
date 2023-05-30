@@ -1,23 +1,17 @@
 const User = require('../models/User');
 const UserPassName = require('../models/UserPassName');
-const {getTokenFromHeaders} = require('../services/token');
+const AllChats = require('../models/AllChats');
+
 
 const createUser = async (newUser) => {
     const { username, password, displayName, profilePic } = newUser;
-
-    // Create a new instance of the UserPassName model with the provided fields
-    const user = new UserPassName({
-      username,
-      password,
-      displayName,
-      profilePic
-    });
-
-    // Save the user to the database
     try {
         //check if username already exists
-        const UserPassName = await getUserPassName(newUser);
-        if(!UserPassName) {
+        const userPass = await getUserPassName(newUser);
+        if(!userPass === null || !userPass === undefined || userPass.length !== 0 ) {
+            return { error: 'Username already exists' };
+        }
+        if(userPass.username === newUser.username) {
             return { error: 'Username already exists' };
         }
 
@@ -30,7 +24,33 @@ const createUser = async (newUser) => {
         else if( newUser.password.length > 72) {
             throw new Error('Password must be less than 72 characters');
         }
-        const savedUser = await user.save();
+        //all the users that in the system
+        const users = await User.find({});
+
+        const id = generateNewId(users);
+        const user = new UserPassName({
+            id: id,
+            username,
+            password,
+            displayName,
+            profilePic
+        });
+          //save the user to Users
+        const userNoPass = new User({
+              id: id,
+              username,
+              displayName,
+              profilePic
+        });
+
+        const allchat = new AllChats({
+            username: username,
+            chats: []
+        });
+        const savedAllChats = await allchat.save();
+        const savedUser = await userNoPass.save();
+        const savedNewUser = await user.save();
+
         return { success: true, savedUser }
 
     } catch (error) {
@@ -45,11 +65,30 @@ const getUserPassName = async (user) => {
 }
 const getUserByUsername = async (username) => {
     const userDetils =  await User.find({ username: username });
-    if(userDetilds != getTokenFromHeaders) {
-        return { error: 'Unauthorized' };
-    }else {
-        return { success: true, userDetils };
-    }
+    if(userDetils.length === 0) {
+        return { error: 'Username does not exist' };
+    } else{
+        const user = {username: userDetils[0].username, 
+            displayName: userDetils[0].displayName, 
+            profilePic: userDetils[0].profilePic
+        };
+        return user;
+    };
 }
+
+function generateNewId(objectList) {
+    if (objectList.length === 0) {
+      // If the list is empty, return 1 as the new ID
+      return 1;
+    }
+  
+    // Find the maximum ID in the list
+    const maxId = Math.max(...objectList.map((obj) => obj.id));
+  
+    // Generate the new ID by incrementing the maximum ID by 1
+    const newId = maxId + 1;
+  
+    return newId;
+  }
 
 module.exports = { createUser , getUserPassName, getUserByUsername};

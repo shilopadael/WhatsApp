@@ -1,24 +1,28 @@
 const mongoose = require('mongoose');
-const User = require('./User');
-const Message = require('./Message');
 const Schema = mongoose.Schema;
 
 // this is the Chat schema
-const Chat = new Schema(
-    {
-        id: {
-            type: Number,
-            required: true
+const Chat = new Schema({
+    id: {
+      type: Number,
+      required: true
+    },
+    users: {
+      type: [{ type: Schema.Types.ObjectId, ref: 'User' }],
+      default: [],
+      validate: {
+        validator: function (users) {
+          return users.length >= 0;
         },
-        users: {
-            type: [User],
-            nullable: true
-
-        },
-        messages: {
-            nullable: true,
-            type: [Message],
+        message: 'Users must be iterable'
+      }
+    },
+    messages: {
+      type: [{ type: Schema.Types.ObjectId, ref: 'Message' }],
+      default: []
     }
-});
+  });
 
+
+  
 module.exports = mongoose.model('Chat', Chat);

@@ -1,33 +1,56 @@
 const jwt = require('jsonwebtoken');
+const UserPassName  = require('../models/UserPassName');
+const { json } = require('body-parser');
 
 
-const createToken = async (username) => {
-    return jwt.sign({username});
+const key = "Some super secret key shhhhhhhhhhhhhhhhh!!!!!"
+
+
+const createNewToken = async (req) => {
+    const username = req.body.username;
+    const password = req.body.password;
+    const user = await UserPassName.find({username: username, password: password});
+    if (user.length > 0) {
+        const data = { username };
+        const token = jwt.sign(data , key);
+        return token;
+    }
+    else {
+        return { error: 'Invalid username or password' };
+    }
 }
-const verifyToken = async (authorization) => {
-    const token = tokenWithBearer.replace('Bearer ', '');
 
-}
 const  getTokenFromHeaders = (req) => {
     const { headers: { authorization } } = req;
-    if (authorization && authorization.split(' ')[0] === 'Bearer') {
-        const username = authorization.split(' ')[1];
-        return username;
+    if (authorization && authorization.split(" ")[0] === 'bearer') {
+        const token = authorization.split(" ")[1];
+        return token;
     }
     return null;
 }
 
-const isLogIn = (req, res, next) => {
+const getUserName = (req) => {
     const token = getTokenFromHeaders(req);
-    if (token) {
-        const data = jwt.verify(token, key);
-        console.log('The logged in user is: ' + data.username);
-        req.username = data.username;
-        return next();
+    const formattedToken = token.replace(/"/g, ''); 
+    try {
+        const data = jwt.verify(formattedToken, key);
+        return data.username;
+
     }
-    else {
+    catch (error) {
         return res.status(403).send('Token required');
     }
-
 }
-module.exports = { createToken, verifyToken, getTokenFromHeaders, isLogIn };
+
+const isLogIn = (req, res, next) => {
+    const token = getTokenFromHeaders(req);
+    const formattedToken = token.replace(/"/g, ''); 
+    try {
+        const data = jwt.verify(formattedToken, key);
+        req.username = data.username;
+        return next();
+    } catch (error) {
+        return res.status(403).send('Token required');
+    }
+}
+module.exports = { createNewToken, getTokenFromHeaders, isLogIn, getUserName };
