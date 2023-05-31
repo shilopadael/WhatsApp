@@ -1,4 +1,4 @@
-const PORT = 5000;
+const PORT = 5002;
 const SERVER_API = `http://localhost:${PORT}`;
 
 // extern the server

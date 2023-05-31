@@ -1,5 +1,4 @@
 const mongoose = require('mongoose');
-const User = require('./User');
 const Schema = mongoose.Schema;
 
 // this is the Message schema
@@ -13,7 +12,8 @@ const Message = new Schema({
         default: Date.now()
     },
     sender: {
-        type: User,
+        type: Schema.Types.ObjectId,
+        ref: 'User',
         required: true
     },
     content: {

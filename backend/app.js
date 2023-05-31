@@ -1,5 +1,4 @@
-// first Routes -> Controllers -> Models -> Services
-const key = "Some super secret key shhhhhhhhhhhhhhhhh!!!!!"
+
 
 const express = require('express');
 const app = express();
@@ -24,23 +23,18 @@ mongoose.connect(process.env.CONNECTION_STRING, {
 app.use(express.static('public'));
 
 const Users = require('./routes/Users');
-const addUser = require('./routes/addUser');
+const getToken = require('./routes/Tokens');
+const Chats = require('./routes/Chats');
 
 
-// Define a function that responds with a json response.
-// Only logged in users should be able to execute this function
-const index = (req, res) => {
-    app.use('/Users', Users);
-    app.use('/Chats', Chats);
-}
 
-const { getTokenFromHeaders, isLogIn } = require('./services/token');
+app.use('/api/Chats',Chats);
 
-// Show sensitive route index - only if logged in
-app.get('/', isLogIn, index)
+app.use('/api/Users', Users);
 
-//adding new user
-app.post('api/Users', addUser);
+app.use('/api/Tokens', getToken)
+
+
 
 app.listen(process.env.PORT, () => {
     console.log(`Server running on port ${process.env.PORT}`);

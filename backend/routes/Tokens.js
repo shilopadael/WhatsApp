@@ -4,4 +4,7 @@ const express = require('express');
 var router = express.Router();
 
 router.route('/')
-    .post(Tokens.createToken);
+       .post(Tokens.createToken);
+
+
+module.exports = router;
