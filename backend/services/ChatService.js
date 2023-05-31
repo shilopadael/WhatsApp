@@ -4,10 +4,8 @@ const Message = require('../models/Message');
 const AllChats = require('../models/AllChats');
 const {getUserName} = require('./token');
 const UserPassName = require('../models/UserPassName');
-const { ObjectId } = require('mongodb');
-const { all } = require('moongose/routes');
-const { trusted } = require('mongoose');
 const Chat = require('../models/Chat');
+const mongoose = require('mongoose');
 
 
 // get all chats
@@ -39,8 +37,16 @@ const getChats = async (req, res) => {
               }
             }
   
-            if (otherUser) {
+            if (otherUser) {  
               const otherUserDetails = await User.findOne({ username: otherUser.username });
+
+              
+              const content = await findLastMessage(NOJchat);
+              // content = await idToMesagges(NOJchat.messages[NOJchat.messages.length - 1]);
+              console.log(content);
+              //wait for sure that  content got his data from db
+
+              
   
               let chatToAdd = {
                 id: NOJchat.id,
@@ -49,7 +55,7 @@ const getChats = async (req, res) => {
                   profilePic: otherUserDetails.profilePic,
                   displayName: otherUserDetails.displayName
                 },
-                lastMessage: null
+                lastMessage: content
               };
   
               listOfChats.push(chatToAdd);
@@ -63,6 +69,21 @@ const getChats = async (req, res) => {
       return { error: 'An error occurred' };
     }
   };
+
+  //function that find the max id in chats.messges
+  async function findLastMessage(chat) {
+    let max = 0;
+    let id_Message = null;
+    for (const message of chat.messages) {
+      let message1 = await Message.findOne({ _id: message });
+      if (message1.id > max) {
+        max = message1.id;
+        id_Message = message1;
+      }
+    }
+    return id_Message;
+  }
+
              
 
 const addChat = async (req, res) => {
@@ -228,14 +249,26 @@ async function idToUser(id) {
 
 
 const deleteChatById = async (req, res) => { 
-    const idToDelete = req.params.id;
-    const chatToDelete = await Chats.findOne({id: idToDelete});
 
-    const user = getUserName(req);
-    const userToDelete = await AllChats.findOne({username: user});
 
-    userToDelete.chats.pull(chatToDelete._id);
-    userToDelete.save();
+    // const idToDelete = req.params.id;
+    // const chatToDelete = await Chats.findOne({id: idToDelete});
+
+    // for(const user in chatToDelete.users) {
+    //     console.log(user);
+    //     User.findOne({_id: user}).then((user) => {
+    //       AllChats.findOne({username: user.username}).then((allChats) => {
+    //         allChats.chats = allChats.chats.deleteOne({_id: chatToDelete._id});
+    //         console.log(allChats.chats);
+    //       });
+    //     });
+    //   }
+
+    
+
+
+
+
 
     return {success: true};
 

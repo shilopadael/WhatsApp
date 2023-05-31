@@ -26,6 +26,10 @@ const  getTokenFromHeaders = (req) => {
         const token = authorization.split(" ")[1];
         return token;
     }
+    if (authorization && authorization.split(" ")[0] === 'Bearer') {
+        const token = authorization.split(" ")[1];
+        return token;
+    }
     return null;
 }
 

@@ -21,8 +21,8 @@ const createUser = async (newUser) => {
         else if( newUser.password.length < 8) {
             throw new Error('Password must be at least 8 characters');
         }
-        else if( newUser.password.length > 72) {
-            throw new Error('Password must be less than 72 characters');
+        else if( newUser.password.length > 20) {
+            throw new Error('Password must be less than 20 characters');
         }
         //all the users that in the system
         const users = await User.find({});
@@ -55,7 +55,7 @@ const createUser = async (newUser) => {
 
     } catch (error) {
         console.error('Error creating user:', error.message);
-        return { error: error.message };
+        return { success: false, error: error.message };
 
     }
 }
@@ -64,13 +64,17 @@ const getUserPassName = async (user) => {
     return await UserPassName.find({ username: user.username });
 }
 const getUserByUsername = async (username) => {
-    const userDetils =  await User.find({ username: username });
+    
+    // const thisUser = getUserName(req);
+
+
+    const userDetils =  await User.findOne({ username: username });
     if(userDetils.length === 0) {
         return { error: 'Username does not exist' };
     } else{
-        const user = {username: userDetils[0].username, 
-            displayName: userDetils[0].displayName, 
-            profilePic: userDetils[0].profilePic
+        const user = {username: userDetils.username, 
+            displayName: userDetils.displayName, 
+            profilePic: userDetils.profilePic
         };
         return user;
     };

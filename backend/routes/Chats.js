@@ -9,12 +9,12 @@ router.route('/')
         .post(isLogIn, chatControl.addChat);
 
 router.route('/:id/Messages')
-        .get(chatControl.getMessages)
-        .post(chatControl.addMessage);
+        .get(isLogIn,chatControl.getMessages)
+        .post(isLogIn, chatControl.addMessage);
 
 router.route('/:id')
-        .get(chatControl.getChatById)
-        .delete(chatControl.deleteChatById);
+        .get(isLogIn, chatControl.getChatById)
+        .delete(isLogIn, chatControl.deleteChatById);
 
 
 
