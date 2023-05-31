@@ -8,8 +8,6 @@ import { useEffect, useState } from 'react';
 import './LeftSide.css';
 import get from '../../../services/get-service'
 
-
-
 function LeftSide(props) {
     const { user, contacts, setContacts, setCurrentChatId, setAuthenticated, contactFullPage, setContactFullPage ,currentChatId , newMsg } = props; // contacts
     const [contactToShow, setContactToShow] = useState(contacts);
