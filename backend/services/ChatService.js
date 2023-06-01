@@ -276,6 +276,10 @@ const deleteChatById = async (req) => {
       await allChats.save();
     }
 
+    // deleting the chat messages from the database
+    for (const message of chatToDelete.messages) {
+      await Message.deleteOne({ _id: message });
+    }
     await Chat.deleteOne({ _id: chatToDelete._id });
     return { success: true };
   }
