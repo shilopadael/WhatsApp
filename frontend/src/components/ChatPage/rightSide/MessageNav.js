@@ -3,7 +3,7 @@ import { useState } from 'react';
 import post from '../../../services/post-service';
 
 function MessageNav(props) {
-    const { setUserMessages, user , setNewMsg , newMsg , userMessages} = props;
+    const { setUserMessages, chat , setNewMsg , newMsg , userMessages , setContacts ,contacts} = props;
     // const { setChats,chats, currentChatId , currentUser} = useContacts();
     const [newItem, setNewItem] = useState("");
 
@@ -11,10 +11,30 @@ function MessageNav(props) {
     async function sendMessage(e) {
         e.preventDefault();
 
-        let serverReq = await post.Message(user.id, newItem);
+        let serverReq = await post.Message(chat.id, newItem);
         if(serverReq !== null) {
             // success
             setUserMessages([...userMessages , serverReq]);
+            // setNewMsg(!newMsg);
+            // finding the contact
+            let contact = contacts.filter((contact) => {
+                return contact.id === chat.id;
+            });
+
+            contact = contact[0];
+
+            // updating the contact
+            // setting the last message
+            console.log(serverReq);
+            contact.lastMessage = serverReq;
+
+            // update the contacts
+            // removing the old contact
+            let newContacts = contacts.filter((contact) => {
+                return contact.id !== chat.id;
+            });
+            setContacts([contact, ...newContacts]);
+
             setNewItem("");
         } else {
             // error

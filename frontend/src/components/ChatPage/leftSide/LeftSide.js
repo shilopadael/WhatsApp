@@ -33,9 +33,9 @@ function LeftSide(props) {
 
     }, [addContact, newMsg]);
 
-    // useEffect(() => {
-    //     console.log("in left side")
-    // }, [newMsg]);
+    useEffect(() => {
+        setContactToShow(contacts);
+    }, [contacts]);
     
     function showContacts() {
         if (contactToShow.length > 0) {

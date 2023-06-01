@@ -39,7 +39,6 @@ const getUserName = (req) => {
     try {
         const data = jwt.verify(formattedToken, key);
         return data.username;
-
     }
     catch (error) {
         return res.status(403).send('Token required');

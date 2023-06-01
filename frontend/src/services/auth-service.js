@@ -10,27 +10,30 @@ const login = async (username, password) => {
         "username": username,
         "password": password
     };
+    try {
+        let serverReq = await fetch(`${SERVER_API}/api/Tokens`, {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify(user),
+        })
 
-    let serverReq = await fetch(`${SERVER_API}/api/Tokens`, {
-        method: "POST",
-        headers: {
-            "Content-Type": "application/json",
-        },
-        body: JSON.stringify(user),
-    })
-
-    if (serverReq.ok) {
-        // retreiving the token from the server
-        let token = await serverReq.text();
-        localStorage.setItem("token", JSON.stringify(token));
-        localStorage.setItem("username", username);
-        return true;
-    } else {
-        let error = await serverReq.text();
-        localStorage.setItem("error", error);
+        if (serverReq.ok) {
+            // retreiving the token from the server
+            let token = await serverReq.text();
+            localStorage.setItem("token", JSON.stringify(token));
+            localStorage.setItem("username", username);
+            return true;
+        } else {
+            let error = await serverReq.text();
+            localStorage.setItem("error", error);
+        }
+        return false;
+    } catch (err) {
+        localStorage.setItem("error", err.message);
+        return false;
     }
-
-    return false;
 
 };
 
@@ -42,23 +45,28 @@ const register = async (username, password, displayName, img) => {
         "displayName": displayName,
         "profilePic": img
     };
+    try {
+        const serverReq = await fetch(`${SERVER_API}/api/Users`, {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify(data),
+        })
 
-    const serverReq = await fetch(`${SERVER_API}/api/Users`, {
-        method: "POST",
-        headers: {
-            "Content-Type": "application/json",
-        },
-        body: JSON.stringify(data),
-    })
-
-    if(serverReq.ok) {
-        return true;
-    } else if(serverReq.status >= 400 && serverReq.status < 500) {
-        // problem at the user
-        let error = await serverReq.text();
-        localStorage.setItem("error", error);
+        if (serverReq.ok) {
+            return true;
+        } else if (serverReq.status >= 400 && serverReq.status < 500) {
+            // problem at the user
+            let error = await serverReq.text();
+            localStorage.setItem("error", error);
+        }
+        return false;
+    } catch (err) {
+        localStorage.setItem("error", err.message);
+        return false;
     }
-    return false;
+
 };
 
 const logout = () => {
@@ -67,24 +75,31 @@ const logout = () => {
 };
 
 const getCurrentUser = async () => {
-    let username =  localStorage.getItem("username");
+    let username = localStorage.getItem("username");
     // getting data from the server
     let header = authHeader();
+    try {
+        const serverReq = await fetch(`${SERVER_API}/api/Users/${username}`, {
+            method: "GET",
+            headers: {
+                "Content-Type": "application/json",
+                "Authorization": header.Authorization,
+            },
+        });
 
-    const serverReq = await fetch(`${SERVER_API}/api/Users/${username}`, {
-        method: "GET",
-        headers: {
-            "Content-Type": "application/json",
-            "Authorization": header.Authorization,
-        },
-    });
-
-    if(serverReq.ok) {
-        const user = await serverReq.json();
-        return user;
-    } else {
+        if (serverReq.ok) {
+            const user = await serverReq.json();
+            return user;
+        } else {
+            return null;
+        }
+    } catch (err) {
         return null;
+        alert(err.message);
+        // failed to fetch user disconnecting
+        logout();
     }
+
 
 };
 

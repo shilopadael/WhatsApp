@@ -9,7 +9,7 @@ function MainBlock(props) {
   const { user, setAuthenticated } = props;
 
   const [contacts, setContacts] = useState([]);
-  const [newMsg , setNewMsg] = useState(false); // messages
+  const [newMsg, setNewMsg] = useState(false); // messages
   const [currentChatId, setCurrentChatId] = useState(null);
   const [contactFullPage, setContactFullPage] = useState(true);
 
@@ -55,9 +55,9 @@ function MainBlock(props) {
             contactFullPage={contactFullPage} />
           <RightSide user={user}
             contacts={contacts}
+            setContacts={setContacts}
             newMsg={newMsg}
             setNewMsg={setNewMsg}
-            setContacts={setContacts}
             currentChatId={currentChatId}
             setContactFullPage={setContactFullPage}
             setAuthenticated={setAuthenticated}

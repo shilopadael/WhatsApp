@@ -51,6 +51,7 @@ const createUser = async (newUser) => {
         const savedUser = await userNoPass.save();
         const savedNewUser = await user.save();
 
+        console.log(savedUser);
         return { success: true, savedUser }
 
     } catch (error) {

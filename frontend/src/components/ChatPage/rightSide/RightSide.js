@@ -58,7 +58,7 @@ function RightSide(props) {
         <MessageNav
           setContacts={setContacts}
           contacts={contacts}
-          user={currentUserChat}
+          chat={currentUserChat}
           setNewMsg={setNewMsg}
           newMsg={newMsg}
           setUserMessages={setUserMessages}

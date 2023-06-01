@@ -9,7 +9,6 @@ const AllChats = new Schema(
         username: {
             type: String,
             required: true
-        
         },
         chats: {
             type: [{ type: Schema.Types.ObjectId, ref: 'Chat' }],
