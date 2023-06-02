@@ -20,6 +20,35 @@ mongoose.connect(process.env.CONNECTION_STRING, {
     useUnifiedTopology: true
 });
 
+const http = require('http');
+const server = http.createServer(app);
+const  { Server } = require('socket.io');
+const io = new Server(server);
+
+let users = [];
+io.on('connection', (socket) => {
+    const username = socket.handshake.query.username;
+    users.push({ id: socket.id, username: username });
+    console.log('a user connected');
+    console.log(users);
+    socket.on('disconnect', () => {
+        console.log('user disconnected');
+        users = users.filter(user => user.id !== socket.id);
+        console.log(users);
+    }
+    );
+    socket.on('send-message', (data) => {
+        console.log(data);
+        const user = users.find(user => user.username === data.receiverUsername);
+        console.log(user);
+        if (user) {
+            io.to(user.id).emit('receive-message', data.message);
+        }
+    });
+});
+
+
+
 app.use(express.static('public'));
 
 const Users = require('./routes/Users');

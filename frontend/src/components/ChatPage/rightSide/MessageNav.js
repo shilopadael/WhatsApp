@@ -1,17 +1,49 @@
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import post from '../../../services/post-service';
 
+import io from "socket.io-client";
+const SERVER_API = require('../../../../src/services/api');
+
+
+
 function MessageNav(props) {
-    const { setUserMessages, chat , setNewMsg , newMsg , userMessages , setContacts ,contacts} = props;
+    const { setUserMessages, chat , setNewMsg , newMsg , userMessages , setContacts ,contacts, currentUser, user} = props;
     // const { setChats,chats, currentChatId , currentUser} = useContacts();
     const [newItem, setNewItem] = useState("");
+
+    const [socket, setSocket] = useState(null);
+    const [message, setMessage] = useState([]);
+
+
+    useEffect(() => {
+        const newSocket = io(SERVER_API, { query: { username: user.username} });
+        setSocket(newSocket);
+
+        return () => newSocket.close();
+    }, [chat.id]);
+
+
+    useEffect(() => {
+        if (socket) {
+            socket.on("receive-message", (message) => {
+                setUserMessages([...userMessages, message]);
+            });
+        }
+    }, [socket, userMessages]);
+
+    const sendNewMessage = (message, username) => {
+        socket.emit("send-message", {message: message, receiverUsername:username });
+    };
+
 
 
     async function sendMessage(e) {
         e.preventDefault();
 
-        let serverReq = await post.Message(chat.id, newItem);
+        let serverReq = await post.Message(newItem, currentUser.username);
+        //sending new message to the server.
+        sendNewMessage(newItem);
         if(serverReq !== null) {
             // success
             setUserMessages([...userMessages , serverReq]);

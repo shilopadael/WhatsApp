@@ -53,7 +53,8 @@ function RightSide(props) {
         <TopBarRightSlide currentUser={currentUser}
           setContactFullPage={setContactFullPage}
         />
-        <BoxMessage user={user}
+        <BoxMessage 
+          user={user}
           userMessages={userMessages} />
         <MessageNav
           setContacts={setContacts}
@@ -63,6 +64,8 @@ function RightSide(props) {
           newMsg={newMsg}
           setUserMessages={setUserMessages}
           userMessages={userMessages}
+          currentUser={currentUser}
+          user={user}
         />
       </div>
     );
