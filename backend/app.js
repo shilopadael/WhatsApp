@@ -22,19 +22,17 @@ mongoose.connect(process.env.CONNECTION_STRING, {
 
 const http = require('http');
 const server = http.createServer(app);
-const  { Server } = require('socket.io');
-const io = new Server(server);
+const  socketIo = require('socket.io');
+const io = socketIo(server);
 
 let users = [];
 io.on('connection', (socket) => {
     const username = socket.handshake.query.username;
     users.push({ id: socket.id, username: username });
-    console.log('a user connected');
-    console.log(users);
+    console.log(`${username} connected to the socket`);
     socket.on('disconnect', () => {
-        console.log('user disconnected');
+        console.log(`${username} disconnected from the socket`);
         users = users.filter(user => user.id !== socket.id);
-        console.log(users);
     }
     );
     socket.on('send-message', (data) => {

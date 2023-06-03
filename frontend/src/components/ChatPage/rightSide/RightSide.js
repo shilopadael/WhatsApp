@@ -20,12 +20,10 @@ async function fetchCurrentUserChat(currentChatId, setContactFullPage, setCurren
   }
 }
 
-
-
 function RightSide(props) {
   const [userMessages, setUserMessages] = useState([]);
   const [currentUserChat, setCurrentUserChat] = useState(null);
-  const { user, contacts, setContacts, currentChatId, setContactFullPage , newMsg , setNewMsg , setAuthenticated} = props;
+  const { user, contacts, setContacts, currentChatId, setContactFullPage , newMsg , setNewMsg , setAuthenticated , socket} = props;
 
   const memoizedCurrentUserChat = useMemo(() => currentChatId, [currentChatId]);
 
@@ -65,6 +63,8 @@ function RightSide(props) {
           setUserMessages={setUserMessages}
           userMessages={userMessages}
           currentUser={currentUser}
+          currentChatId={currentChatId}
+          socket={socket}
           user={user}
         />
       </div>

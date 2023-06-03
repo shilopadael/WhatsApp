@@ -1,36 +1,30 @@
 
 import { useState, useEffect } from 'react';
 import post from '../../../services/post-service';
-
 import io from "socket.io-client";
-const SERVER_API = require('../../../../src/services/api');
+
 
 
 
 function MessageNav(props) {
-    const { setUserMessages, chat , setNewMsg , newMsg , userMessages , setContacts ,contacts, currentUser, user} = props;
+    const { setUserMessages, chat, setNewMsg, newMsg, userMessages, setContacts, contacts, currentUser, user, currentChatId, socket } = props;
     // const { setChats,chats, currentChatId , currentUser} = useContacts();
     const [newItem, setNewItem] = useState("");
 
-    const [socket, setSocket] = useState(null);
     const [message, setMessage] = useState([]);
 
 
-    useEffect(() => {
-        const newSocket = io(SERVER_API, { query: { username: user.username} });
-        setSocket(newSocket);
-
-        return () => newSocket.close();
-    }, [chat.id]);
+    // useEffect(() => {
+    // }, [currentChatId]);
 
 
-    useEffect(() => {
-        if (socket) {
-            socket.on("receive-message", (message) => {
-                setUserMessages([...userMessages, message]);
-            });
-        }
-    }, [socket, userMessages]);
+    // useEffect(() => {
+    //     if (socket) {
+    //         socket.on("receive-message", (message) => {
+    //             setUserMessages([...userMessages, message]);
+    //         });
+    //     }
+    // }, [socket, userMessages]);
 
     const sendNewMessage = (message, username) => {
         socket.emit("send-message", {message: message, receiverUsername:username });
@@ -41,14 +35,16 @@ function MessageNav(props) {
     async function sendMessage(e) {
         e.preventDefault();
 
-        let serverReq = await post.Message(newItem, currentUser.username);
+        let serverReq = await post.Message(currentChatId, newItem);
         //sending new message to the server.
-        sendNewMessage(newItem);
-        if(serverReq !== null) {
+        console.log("current user: " + currentUser.username); // chat people
+        console.log("user: " + user.username); // me
+
+
+        if (serverReq !== null) {
             // success
-            setUserMessages([...userMessages , serverReq]);
-            // setNewMsg(!newMsg);
-            // finding the contact
+            setUserMessages([...userMessages, serverReq]);
+            sendNewMessage(newItem, currentUser.username);
             let contact = contacts.filter((contact) => {
                 return contact.id === chat.id;
             });
@@ -57,7 +53,6 @@ function MessageNav(props) {
 
             // updating the contact
             // setting the last message
-            console.log(serverReq);
             contact.lastMessage = serverReq;
 
             // update the contacts
@@ -66,7 +61,6 @@ function MessageNav(props) {
                 return contact.id !== chat.id;
             });
             setContacts([contact, ...newContacts]);
-
             setNewItem("");
         } else {
             // error
@@ -74,23 +68,6 @@ function MessageNav(props) {
             return;
         }
 
-        // let timestamp = current.toLocaleTimeString("en-US", {
-        //     hour: "2-digit",
-        //     minute: "2-digit",
-        //     hour12: false
-        // })
-        // userChat.push({ sender: "me", message: newItem, time: timestamp });
-        // setMessage({ e });
-        // if(newItem.length > 20) {
-        //     user.lastMessage = newItem.slice(0, 20) + "...";
-        // } else {
-        //     user.lastMessage = newItem;
-        // }
-        // user.lastMessageTime = timestamp;
-        // user.lastMessageDate = current;
-        // // print all contacts
-        // setContacts([...contacts]);
-        // setNewItem("");
     }
 
     return (

@@ -1,24 +1,34 @@
 import LeftSide from './leftSide/LeftSide';
 import RightSide from './rightSide/RightSide';
 import { useState, useEffect, useCallback } from 'react';
+import {io} from "socket.io-client";
 import './chat_page_style.css'
 
 
 function MainBlock(props) {
 
   const { user, setAuthenticated } = props;
-
+  const [socket , setSocket] = useState(null); // messages
   const [contacts, setContacts] = useState([]);
   const [newMsg, setNewMsg] = useState(false); // messages
   const [currentChatId, setCurrentChatId] = useState(null);
   const [contactFullPage, setContactFullPage] = useState(true);
 
-  // const memoizedCurrentChatId = useCallback(() => currentChatId, [currentChatId]);
+
+  useEffect(() => {
+    // connecting to the server
+    // const socket = io.connect("//localhost:5000", { query: { username: user.username }});
+    const socket = io("//localhost:5000", { query: { username: user.username }});
+    setSocket(socket);
+    // adding cleanup function
+    console.log(socket);
+    return () => socket.close();
+    },[]);
+
 
   useEffect(() => {
   }, [currentChatId, contactFullPage, contacts]);
 
-  // console.log("main block: id=" + currentChatId + "  contactfullpage: " + contactFullPage)
   if (contactFullPage) {
     return (
       <>
@@ -55,6 +65,7 @@ function MainBlock(props) {
             contactFullPage={contactFullPage} />
           <RightSide user={user}
             contacts={contacts}
+            socket={socket}
             setContacts={setContacts}
             newMsg={newMsg}
             setNewMsg={setNewMsg}

@@ -1,8 +1,12 @@
-const PORT = 5002;
+const PORT = 5000;
 const SERVER_API = `http://localhost:${PORT}`;
+const SERVER_API_WS = `ws://localhost:${PORT}`;
 
 // extern the server
 export default SERVER_API;
+// module.exports = {
+//     SERVER_API_WS,
+// }
 
 
 // GET api/Chats
