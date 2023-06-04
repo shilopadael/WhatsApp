@@ -30,7 +30,8 @@ function MainBlock(props) {
               setCurrentChatId={setCurrentChatId}
               contactFullPage={contactFullPage}
               setContactFullPage={setContactFullPage}
-              socket={socket} />
+              socket={socket}
+              setNewMsg={setNewMsg} />
           </div>
         </div>
       </>
@@ -50,7 +51,8 @@ function MainBlock(props) {
             setCurrentChatId={setCurrentChatId}
             setContactFullPage={setContactFullPage}
             contactFullPage={contactFullPage}
-            socket={socket}/>
+            socket={socket}
+            setNewMsg={setNewMsg}/>
           <RightSide user={user}
             contacts={contacts}
             socket={socket}

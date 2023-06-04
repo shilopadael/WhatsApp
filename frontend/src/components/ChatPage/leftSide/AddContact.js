@@ -22,7 +22,6 @@ function AddContact(props) {
     // trying to create a new contact with the given name
     const user = await post.Contact(newItem);
     if (user !== null) {
-      console.log(user);
       let data = {
         id: user.id,
         user: user,
@@ -34,7 +33,7 @@ function AddContact(props) {
       setContactToShow([...contactToShow, data]);
       setNewItem("");
       setShowModal(false);
-      socket.emit('adding-contact', { username: user.username });
+      socket.emit('adding-contact', { username: user.user.username });
     } else {
       alert(localStorage.getItem("error"));
       setNewItem("");

@@ -45,10 +45,10 @@ function Chat(props) {
       setSocket(socket);
       setOnline(true);
 
-      socket.on('alert', (data) => {
-        // console.log("in chat.js", data);
-        alert(`${data.data.sender.username} sent you: ${data.data.content}`);
-      });
+      // socket.on('alert', (data) => {
+      //   // console.log("in chat.js", data);
+      //   alert(`${data.data.sender.username} sent you: ${data.data.content}`);
+      // });
 
     }
     return () => {
@@ -68,7 +68,7 @@ function Chat(props) {
         </div>
       </div>
     );
-  } else if (user === null) {
+  } else if (user === null || socket === null) {
     <>
       <div className="topScreen"></div>
       <div className="lowerScreen"></div>

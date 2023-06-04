@@ -18,7 +18,8 @@ function LeftSide(props) {
         setContactFullPage,
         currentChatId,
         newMsg,
-        socket } = props;
+        socket,
+        setNewMsg } = props;
 
     const [contactToShow, setContactToShow] = useState(contacts);
     const [selectedContact, setSelectedContact] = useState(null);
@@ -34,13 +35,12 @@ function LeftSide(props) {
                 setContacts(contactsData);
                 setContactToShow(contactsData);
             } else {
-                // setAuthenticated(false);
-                // auth.logout();
+                setAuthenticated(false);
+                auth.logout();
             }
         };
         // Invoking the asynchronous function
         getChatsData();
-
     }, [addContact, newMsg]);
 
     useEffect(() => {
@@ -50,6 +50,26 @@ function LeftSide(props) {
     if (socket) {
         socket.on('update-contact-list', (data) => {
             setAddContact(!addContact);
+        })
+
+        socket.on('alert', (data) => {
+            alert(`${data.data.sender.username} sent you: ${data.data.content}`);
+            // updating the contact
+            // let contact = contacts.filter((contact) => {
+            //     return contact.id === data.id;
+            // });
+
+            // contact = contact[0];
+            // // updating the contact
+            // // setting the last message
+            // contact.lastMessage = data.data;
+            // // update the contacts
+            // // removing the old contact
+            // let newContacts = contacts.filter((contact) => {
+            //     return contact.id !== data.id;
+            // });
+            // setContacts([contact, ...newContacts]);
+            setNewMsg(!newMsg);
         })
     }
 

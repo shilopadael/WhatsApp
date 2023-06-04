@@ -10,31 +10,42 @@ function MessageNav(props) {
     const { setUserMessages, chat, setNewMsg, newMsg, userMessages, setContacts, contacts, currentUser, user, currentChatId, socket } = props;
     // const { setChats,chats, currentChatId , currentUser} = useContacts();
     const [newItem, setNewItem] = useState("");
+    const [lastMessage, setLastMessage] = useState(null);
 
     const [message, setMessage] = useState([]);
 
 
-    // useEffect(() => {
-    // }, [currentChatId]);
+    useEffect(() => {
+        if (lastMessage !== null) {
+            let contact = contacts.filter((contact) => {
+                return contact.id === chat.id;
+            });
 
+            contact = contact[0];
+            // updating the contact
+            // setting the last message
+            contact.lastMessage = lastMessage;
+            // update the contacts
+            // removing the old contact
+            let newContacts = contacts.filter((contact) => {
+                return contact.id !== chat.id;
+            });
+            setContacts([contact, ...newContacts]);
 
-    // useEffect(() => {
-    //     if (socket) {
-    //         socket.on("receive-message", (message) => {
-    //             setUserMessages([...userMessages, message]);
-    //         });
-    //     }
-    // }, [socket, userMessages]);
+        }
+    }, [lastMessage]);
 
     const sendNewMessage = (data, username) => {
-        socket.emit("send-message", { data: data, receiverUsername: username });
+        console.log("sending message to");
+        socket.emit("send-message", { data: data, receiverUsername: username, id: currentChatId });
     };
 
     socket.on("receive-message", (data) => {
         // checking if the message is for the current chat
-        console.log(data);
-        if (data.data.sender.username === currentUser.username) {
+        // console.log(data);
+        if (data.id === currentChatId) {
             setUserMessages([...userMessages, data.data]);
+            setLastMessage(data.data);
         } else {
             socket.emit('alert', data);
         }
@@ -50,31 +61,13 @@ function MessageNav(props) {
 
         let serverReq = await post.Message(currentChatId, newItem);
         //sending new message to the server.
-        console.log("current user: " + currentUser.username); // chat people
-        console.log("user: " + user.username); // me
-
-
+        // console.log("current user: " + currentUser.username); // chat people
+        // console.log("user: " + user.username); // me
         if (serverReq !== null) {
             // success
             setUserMessages([...userMessages, serverReq]);
             sendNewMessage(serverReq, currentUser.username);
-            console.log(chat);
-            let contact = contacts.filter((contact) => {
-                return contact.id === chat.id;
-            });
-
-            contact = contact[0];
-
-            // updating the contact
-            // setting the last message
-            contact.lastMessage = serverReq;
-
-            // update the contacts
-            // removing the old contact
-            let newContacts = contacts.filter((contact) => {
-                return contact.id !== chat.id;
-            });
-            setContacts([contact, ...newContacts]);
+            setLastMessage(serverReq);
             setNewItem("");
         } else {
             // error
