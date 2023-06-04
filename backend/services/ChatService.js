@@ -42,11 +42,8 @@ const getChats = async (req, res) => {
 
 
           const content = await findLastMessage(NOJchat);
-          // content = await idToMesagges(NOJchat.messages[NOJchat.messages.length - 1]);
           console.log(content);
           //wait for sure that  content got his data from db
-
-
 
           let chatToAdd = {
             id: NOJchat.id,

@@ -45,13 +45,11 @@ io.on('connection', (socket) => {
     }
     );
     socket.on('send-message', (data) => {
-        console.log(data);
         let currentUserName = data.receiverUsername;
         const user = users.find(user => user.username === currentUserName);
         if (user) {
             // console.log(user.id);
             console.log("sending message to " + user.username)
-            console.log(data);
             io.to(user.id).emit('receive-message', data);
         }
     });
@@ -59,11 +57,19 @@ io.on('connection', (socket) => {
     socket.on('alert', (data) => {
         const user = users.find(user => user.username === data.receiverUsername);
         if (user) {
-            console.log("sending alert to " + user.username);
-            console.log(data);
             io.to(user.id).emit('alert', data);
         }
     });
+
+    socket.on('adding-contact', (data) => {
+        console.log(data);
+        const user = users.find(user => user.username === data.username);
+        console.log("sending update-contact-list to ");
+        if (user) {
+            console.log("sending update-contact-list to " + user.username);
+            io.to(user.id).emit('update-contact-list', data);
+        }
+    })
 });
 
 

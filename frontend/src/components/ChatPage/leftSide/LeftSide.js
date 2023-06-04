@@ -9,7 +9,17 @@ import './LeftSide.css';
 import get from '../../../services/get-service'
 
 function LeftSide(props) {
-    const { user, contacts, setContacts, setCurrentChatId, setAuthenticated, contactFullPage, setContactFullPage ,currentChatId , newMsg } = props; // contacts
+    const { user,
+        contacts,
+        setContacts,
+        setCurrentChatId,
+        setAuthenticated,
+        contactFullPage,
+        setContactFullPage,
+        currentChatId,
+        newMsg,
+        socket } = props;
+
     const [contactToShow, setContactToShow] = useState(contacts);
     const [selectedContact, setSelectedContact] = useState(null);
     const [addContact, setAddContact] = useState(false);
@@ -24,8 +34,8 @@ function LeftSide(props) {
                 setContacts(contactsData);
                 setContactToShow(contactsData);
             } else {
-                setAuthenticated(false);
-                auth.logout();
+                // setAuthenticated(false);
+                // auth.logout();
             }
         };
         // Invoking the asynchronous function
@@ -36,7 +46,14 @@ function LeftSide(props) {
     useEffect(() => {
         setContactToShow(contacts);
     }, [contacts]);
-    
+
+    if (socket) {
+        socket.on('update-contact-list', (data) => {
+            setAddContact(!addContact);
+        })
+    }
+
+
     function showContacts() {
         if (contactToShow.length > 0) {
             contactToShow.sort((c1, c2) => {
@@ -90,7 +107,8 @@ function LeftSide(props) {
                 setContacts={setContacts}
                 user={user}
                 contactToShow={contactToShow}
-                setContactToShow={setContactToShow} />
+                setContactToShow={setContactToShow}
+                socket={socket} />
             <SearchContacts contacts={contacts} setContactToShow={setContactToShow} />
             <ul className="list-group contact-list" >
                 {showContacts()}

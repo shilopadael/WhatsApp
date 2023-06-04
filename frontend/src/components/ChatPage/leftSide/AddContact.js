@@ -3,7 +3,14 @@ import post from "../../../services/post-service";
 
 function AddContact(props) {
 
-  const { contacts, setContacts, contactToShow, setContactToShow, setAddContact, addContact } = props;
+  const { contacts,
+    setContacts,
+    contactToShow,
+    setContactToShow,
+    setAddContact,
+    addContact,
+    socket } = props;
+
   const [newItem, setNewItem] = useState("");
   const [showModal, setShowModal] = useState(false);
 
@@ -12,11 +19,10 @@ function AddContact(props) {
   }
 
   const handleAddContact = async () => {
-
     // trying to create a new contact with the given name
     const user = await post.Contact(newItem);
     if (user !== null) {
-
+      console.log(user);
       let data = {
         id: user.id,
         user: user,
@@ -28,6 +34,7 @@ function AddContact(props) {
       setContactToShow([...contactToShow, data]);
       setNewItem("");
       setShowModal(false);
+      socket.emit('adding-contact', { username: user.username });
     } else {
       alert(localStorage.getItem("error"));
       setNewItem("");
