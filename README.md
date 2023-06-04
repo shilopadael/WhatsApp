@@ -1,58 +1,35 @@
-<h1>this is the main branch for ex2, adding server side and client, until 1.6!</h1>
 
-<h1>Milestone 2: Design and Setup (Updated)</h1>
+<h1>this is the main branch for ex2(part 3), transforming the html to react-app, until 16.5!</h1>
+
+<h1>Milestone: "Full-Stack Chat Application with Real-Time Messaging"</h1>
 
 <h2>Features</h2>
+<p>We have created:</p>
 <ul>
-    <li>Login page: Allows users to enter their login credentials and authenticate their identity.</li>
-    <li>Registration page: Allows new users to create an account and provide their personal information.</li>
-    <li>Main chat interface: Enables users to view their conversations, create new chats, and participate in existing ones.</li>
+  <li>A server using the MVC architecture that supports a specific API.</li>
+  <li>Frontend development using React, which is integrated with the server.</li>
+  <li>MongoDB as the underlying database module.</li>
+  <li>Real-time messaging using WebSockets:</li>
+  <ul>
+    <li>When user X sends a message to user Y on the same website, user Y will receive an instant message.</li>
+    <li>An alert will appear in the user interface of user Y.</li>
+    <li>The server is capable of pushing messages immediately to user Y, although user Y still needs to request them.</li>
+  </ul>
 </ul>
 
 <h2>Technologies Used</h2>
+
 <ul>
-    <li>React: A JavaScript library for building user interfaces. We'll use React to create components and manage the application's state.</li>
-    <li>React Router: A library for routing in React applications. We'll use it to handle navigation between different pages.</li>
-    <li>HTML: The markup language used to structure the web pages.</li>
-    <li>CSS: The styling language used to design the web pages.</li>
-    <li>Bootstrap: A popular CSS framework used to make responsive and mobile-first websites.</li>
+  <li>Node.js</li>
+  <li>Express.js</li>
+  <li>React</li>
+  <li>WebSocket</li>
+  <li>MongoDB</li>
+  <li>HTML</li>
+  <li>CSS</li>
+  <li>JavaScript</li>
 </ul>
 
-<h2>Updated Features and Implementation</h2>
-
-<h3>Navigation</h3>
-<p>
-    Implement React Router to handle navigation between different pages: login, registration, and chat.<br>
-    Set up routes for each page and configure the necessary components to render.
-</p>
-
-<h3>Login Page</h3>
-<p>
-    Create a Login component that includes a form for users to enter their login credentials.<br>
-    Handle form submission and authentication logic using React's state management.
-</p>
-<image src="frontend/public/ReadmeImages/LoginImage.png" style="width:60%">
-
-<h3>Registration Page</h3>
-<p>
-    Create a Registration component that includes a form for users to provide their personal information and register a new account.<br>
-    Handle form submission and user registration logic using React's state management.
-</p>
-<image src="frontend/public/ReadmeImages/RegisterImage.png" style="width:60%">
-
-<h3>Main Chat Interface</h3>
-<p>
-    Design and implement the main chat interface using React components.<br>
-    Fetch and display user conversations and messages using API calls or mock data.<br>
-    Implement features like creating new chats, participating in existing chats, and sending messages.
-</p>
-<image src="frontend/public/ReadmeImages/ChatImage.png" style="width:60%">
-
-<h3>Styling</h3>
-<p>
-    Update the CSS styles to match the design and layout of the existing WhatsApp project.<br>
-    Utilize Bootstrap or other CSS frameworks to enhance the visual appeal and responsiveness of the application.
-</p>
 
 <h1>Installation</h1>
 <ol>
