@@ -54,7 +54,8 @@ function RegisterForm() {
                 navigate("/");
             } else {
                 // failed to register
-                alert(localStorage.getItem("error"));
+                alert("couldn't sign to the server, check if the picture data is not too big. or if the browser connection to the server is blocked.");
+                // alert(localStorage.getItem("error"));
             }
         }
     }
