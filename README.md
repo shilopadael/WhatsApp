@@ -1,4 +1,3 @@
-
 <h1>creating an MVC server using express, http and websockets!</h1>
 
 <h1>Milestone: "Full-Stack Chat Application with Real-Time Messaging"</h1>
@@ -29,7 +28,6 @@
   <li>CSS</li>
   <li>JavaScript</li>
 </ul>
-
 
 <h1>Installation</h1>
 <ol>
@@ -62,6 +60,23 @@
     <p>save the file and run:</p>
     <code>npm start</code>
     <p>at the /backend folder</p>
+	</li>
+</ol>
+<ol start="6">
+	<li>Start The Client<br>
+    <p>There is two ways:</p>
+		<code>1. from static file (served from the server)</code>
+    <p>just go to the server ip address and port</p>
+    <code>on your computer is http://localhost/5000</code><br>
+    <code>2. from a react app port</code>
+    <p>go to the folder /frontend and execute:</p>
+    <code>npm start</code><br>
+    <p>If you changed the port (at the server .env.local) you need to modify the react app! the react app is setup for port 5000 at express and 5001 at socket.io</p>
+    <p>to change the express port go to:</p>
+    <code> /frontend/src/services/api.js</code>
+    <p>and to change the socket.io port go to: </p>
+    <code>/frontend/src/components/ChatPage/Chat.js</code>
+    <p>and change the port from each of them</p>
 	</li>
 </ol>
 	
