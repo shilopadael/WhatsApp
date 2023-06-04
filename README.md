@@ -1,5 +1,5 @@
 
-<h1>this is the main branch for ex2(part 3), transforming the html to react-app, until 16.5!</h1>
+<h1>creating an MVC server using express, http and websockets!</h1>
 
 <h1>Milestone: "Full-Stack Chat Application with Real-Time Messaging"</h1>
 
@@ -43,11 +43,25 @@
 		<code>cd Advance-Programing-Project-2</code>
 	</li>
 </ol>
-	
 <ol start="3">
-	<li>run the following command:<br>
-		<code>npm start</code>
-		(make sure you have the dependencies list by running "npm install" ).
+	<li>Install the backend packages:<br>
+		<code>cd backend && npm i</code>
+	</li>
+</ol>
+<ol start="4">
+	<li>Install the frontend packages:<br>
+		<code>cd frontend && npm i</code>
+	</li>
+</ol>
+<ol start="5">
+	<li>Start Server<br>
+    <p>Here you will need to set up your database connection string at mongoDB</p>
+    <p>Go to the ./config folder and edit the file .env.local</p>
+		<code>CONNECTION_STRING should be the mongoDB database connection string url</code>
+		<code>port should be the port of the server is going to listen to</code>
+    <p>save the file and run:</p>
+    <code>npm run local</code>
+    <p>at the /backend folder</p>
 	</li>
 </ol>
 	
