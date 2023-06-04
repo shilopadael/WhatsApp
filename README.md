@@ -1,6 +1,6 @@
 <h1>this is the main branch for ex2(part 3), transforming the html to react-app, until 16.5!</h1>
 
-<h1>Milestone 2: Design and Setup (Updated)</h1>
+<h1>Milestone: "Full-Stack Chat Application with Real-Time Messaging"</h1>
 
 <h2>Features</h2>
 <p>We have created:</p>
