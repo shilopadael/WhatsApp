@@ -55,12 +55,12 @@
 </ol>
 <ol start="5">
 	<li>Start Server<br>
-    <p>Here you will need to set up your database connection string at mongoDB</p>
-    <p>Go to the ./config folder and edit the file .env.local</p>
-		<code>CONNECTION_STRING should be the mongoDB database connection string url</code>
-		<code>port should be the port of the server is going to listen to</code>
+    <p>Here you will need to set up your database connection string at mongoDB. Go to the ./config folder and edit the file .env.local.
+    CONNECTION_STRING should be the mongoDB database connection string url
+    port should be the port of the server is going to listen to</p>
+		<code>by default the port of the express is 5000 and the socket.io is 5001</code>
     <p>save the file and run:</p>
-    <code>npm run local</code>
+    <code>npm start</code>
     <p>at the /backend folder</p>
 	</li>
 </ol>

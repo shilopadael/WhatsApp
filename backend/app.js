@@ -29,9 +29,11 @@ const io = socketIo(server, {
         method: ['GET', 'POST'],
     }
 });
-
-server.listen('5001', () => {
-    console.log(`Server-io running on port 5001`);
+let socketPort = process.env.PORT;
+// converting the number
+socketPort = Number(socketPort) + 1;
+server.listen(socketPort, () => {
+    console.log(`Server-io running on port ${socketPort}`);
 });
 
 let users = [];
