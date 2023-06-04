@@ -1,5 +1,6 @@
 <h1>ex1 part 1 is in BRANCH ex1</h1>
 <h1>ex1 part 2 is in BRANCH ex2</h1>
+<h1>ex2 is in BRANCH ex3</h1>
 
 # Advancad Programming 2 - WhatsApp Project
 <p>ChatApp is a web application built to resemble a messaging platform like WhatsApp. The project is currently in its first milestone, which includes building the login page, registration page, and the main chat interface.
