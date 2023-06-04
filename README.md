@@ -66,9 +66,9 @@
 	<li>Start The Client<br>
     <p>There is two ways:</p>
 		<code>1. from static file (served from the server)</code>
-    <p>just go to the server ip address and port</p>
+    <p>Just go to the server ip address and port</p>
     <code>on your computer is http://localhost/5000</code><br>
-    <code>2. from a react app port</code>
+    <code>2. from a react app</code>
     <p>go to the folder /frontend and execute:</p>
     <code>npm start</code><br>
     <p>If you changed the port (at the server .env.local) you need to modify the react app! the react app is setup for port 5000 at express and 5001 at socket.io</p>
