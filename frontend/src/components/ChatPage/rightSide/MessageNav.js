@@ -20,6 +20,8 @@ function MessageNav(props) {
             let contact = contacts.filter((contact) => {
                 return contact.id === chat.id;
             });
+            console.log("before update");
+            console.log(contacts);
 
             contact = contact[0];
             // updating the contact
@@ -31,7 +33,8 @@ function MessageNav(props) {
                 return contact.id !== chat.id;
             });
             setContacts([contact, ...newContacts]);
-
+            console.log("after update");
+            console.log(contacts);
         }
     }, [lastMessage]);
 
@@ -44,6 +47,7 @@ function MessageNav(props) {
         // checking if the message is for the current chat
         // console.log(data);
         if (data.id === currentChatId) {
+            console.log("in receive message same chat id");
             setUserMessages([...userMessages, data.data]);
             setLastMessage(data.data);
         } else {

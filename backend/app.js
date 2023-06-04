@@ -61,15 +61,19 @@ io.on('connection', (socket) => {
     });
 
     socket.on('adding-contact', (data) => {
-        console.log(data);
-        console.log(users);
         const user = users.find(user => user.username === data.username);
         // console.log("sending update-contact-list to ");
         if (user) {
-            console.log("sending update-contact-list to " + user.username);
             io.to(user.id).emit('update-contact-list', data);
         }
     })
+
+    socket.on('remove-contact', (data) => {
+        const user = users.find(user => user.username === data.username);
+        if (user) {
+            io.to(user.id).emit('update-contact-list', data);
+        }
+    });
 });
 
 

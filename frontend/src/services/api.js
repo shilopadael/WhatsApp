@@ -1,6 +1,7 @@
 const PORT = 5000;
+const PORT_WS = 5001;
 const SERVER_API = `http://localhost:${PORT}`;
-const SERVER_API_WS = `ws://localhost:${PORT}`;
+const SERVER_API_WS = `http://localhost:${PORT_WS}`;
 
 // extern the server
 export default SERVER_API;

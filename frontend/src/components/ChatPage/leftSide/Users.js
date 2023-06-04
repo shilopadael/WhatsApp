@@ -21,7 +21,8 @@ function Users(props) {
         setContactToShow,
         setSelectedContact,
         selectedContact,
-        currentChatId } = props;
+        currentChatId,
+        socket } = props;
 
     const { displayName, profilePic } = user;
     let unRead = null;
@@ -67,6 +68,7 @@ function Users(props) {
             setContactToShow(updatedLst)
             setShowContextMenu(false);
             setContextMenuPosition({ x: 0, y: 0 })
+            socket.emit('remove-contact', { username: user.username, id: id});
         }
         else {
             alert(localStorage.getItem("error"));
@@ -108,13 +110,13 @@ function Users(props) {
 
     return (
         <>
-            <li className={`d-flex contact-list-item ${selectedContact === id && !contactFullPage ? 'selected' : ''}`} 
-            onClick={goToChat} 
-            onContextMenu={handleRightClick}
-            data-bs-toggle="tooltip" // Add the data-bs-toggle attribute for tooltip
-            data-bs-custom-class="custom-tooltip"
-            data-bs-placement="top"
-            title="Right Click To Delete" // Specify the tooltip text
+            <li className={`d-flex contact-list-item ${selectedContact === id && !contactFullPage ? 'selected' : ''}`}
+                onClick={goToChat}
+                onContextMenu={handleRightClick}
+                data-bs-toggle="tooltip" // Add the data-bs-toggle attribute for tooltip
+                data-bs-custom-class="custom-tooltip"
+                data-bs-placement="top"
+                title="Right Click To Delete" // Specify the tooltip text
             >
                 {showContextMenu && (
                     <div

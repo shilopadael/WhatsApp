@@ -45,10 +45,9 @@ function Chat(props) {
       setSocket(socket);
       setOnline(true);
 
-      // socket.on('alert', (data) => {
-      //   // console.log("in chat.js", data);
-      //   alert(`${data.data.sender.username} sent you: ${data.data.content}`);
-      // });
+      socket.on('alert', (data) => {
+        alert(`${data.data.sender.username} sent you: ${data.data.content}`);
+      });
 
     }
     return () => {

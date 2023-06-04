@@ -12,7 +12,15 @@ function MainBlock(props) {
   const [currentChatId, setCurrentChatId] = useState(null);
   const [contactFullPage, setContactFullPage] = useState(true);
 
-
+  // if(socket) {
+  //   socket.on('receive-message', (data) => {
+  //       if(contactFullPage === true) {
+  //           socket.emit('right-side-alert', data);
+  //       } else {
+  //           socket.emit('alert', data);
+  //       }
+  //   })
+  // }
   useEffect(() => {
   }, [currentChatId, contactFullPage, contacts]);
 
