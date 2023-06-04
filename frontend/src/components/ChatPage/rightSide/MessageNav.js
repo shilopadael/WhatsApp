@@ -26,11 +26,24 @@ function MessageNav(props) {
     //     }
     // }, [socket, userMessages]);
 
-    const sendNewMessage = (message, username) => {
-        socket.emit("send-message", {message: message, receiverUsername:username });
+    const sendNewMessage = (data, username) => {
+        socket.emit("send-message", { data: data, receiverUsername: username });
     };
 
+    socket.on("receive-message", (data) => {
+        // checking if the message is for the current chat
+        console.log(data);
+        if (data.data.sender.username === currentUser.username) {
+            setUserMessages([...userMessages, data.data]);
+        } else {
+            socket.emit('alert', data);
+        }
+    });
 
+
+    // useEffect(() => {
+    //     console.log(userMessages);
+    // }, [userMessages]);
 
     async function sendMessage(e) {
         e.preventDefault();
@@ -44,7 +57,8 @@ function MessageNav(props) {
         if (serverReq !== null) {
             // success
             setUserMessages([...userMessages, serverReq]);
-            sendNewMessage(newItem, currentUser.username);
+            sendNewMessage(serverReq, currentUser.username);
+            console.log(chat);
             let contact = contacts.filter((contact) => {
                 return contact.id === chat.id;
             });

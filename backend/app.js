@@ -23,13 +23,22 @@ mongoose.connect(process.env.CONNECTION_STRING, {
 const http = require('http');
 const server = http.createServer(app);
 const  socketIo = require('socket.io');
-const io = socketIo(server);
+const io = socketIo(server, {
+    cors: {
+        origin: '*',
+        method: ['GET', 'POST'],
+    }
+});
+
+server.listen('5001', () => {
+    console.log(`Server-io running on port 5001`);
+});
 
 let users = [];
 io.on('connection', (socket) => {
     const username = socket.handshake.query.username;
     users.push({ id: socket.id, username: username });
-    console.log(`${username} connected to the socket`);
+    console.log(`${username} connected to the socket ${socket.id}`);
     socket.on('disconnect', () => {
         console.log(`${username} disconnected from the socket`);
         users = users.filter(user => user.id !== socket.id);
@@ -37,10 +46,22 @@ io.on('connection', (socket) => {
     );
     socket.on('send-message', (data) => {
         console.log(data);
-        const user = users.find(user => user.username === data.receiverUsername);
-        console.log(user);
+        let currentUserName = data.receiverUsername;
+        const user = users.find(user => user.username === currentUserName);
         if (user) {
-            io.to(user.id).emit('receive-message', data.message);
+            // console.log(user.id);
+            console.log("sending message to " + user.username)
+            console.log(data);
+            io.to(user.id).emit('receive-message', data);
+        }
+    });
+
+    socket.on('alert', (data) => {
+        const user = users.find(user => user.username === data.receiverUsername);
+        if (user) {
+            console.log("sending alert to " + user.username);
+            console.log(data);
+            io.to(user.id).emit('alert', data);
         }
     });
 });

@@ -1,29 +1,16 @@
 import LeftSide from './leftSide/LeftSide';
 import RightSide from './rightSide/RightSide';
 import { useState, useEffect, useCallback } from 'react';
-import {io} from "socket.io-client";
 import './chat_page_style.css'
 
 
 function MainBlock(props) {
 
-  const { user, setAuthenticated } = props;
-  const [socket , setSocket] = useState(null); // messages
+  const { user, setAuthenticated , socket } = props;
   const [contacts, setContacts] = useState([]);
   const [newMsg, setNewMsg] = useState(false); // messages
   const [currentChatId, setCurrentChatId] = useState(null);
   const [contactFullPage, setContactFullPage] = useState(true);
-
-
-  useEffect(() => {
-    // connecting to the server
-    // const socket = io.connect("//localhost:5000", { query: { username: user.username }});
-    const socket = io("//localhost:5000", { query: { username: user.username }});
-    setSocket(socket);
-    // adding cleanup function
-    console.log(socket);
-    return () => socket.close();
-    },[]);
 
 
   useEffect(() => {

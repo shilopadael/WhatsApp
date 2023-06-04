@@ -1,9 +1,10 @@
 import MainBlock from "./MainBlock";
-import { useEffect, useState } from "react";
+import { useEffect, useState, useMemo } from "react";
 import auth from "../../services/auth-service";
 import defaultImg from '../../assets/registerImgs/profile.png'
+import { io } from "socket.io-client";
 
-const defaultUser ={
+const defaultUser = {
   username: "",
   displayName: "",
   profilePic: defaultImg,
@@ -12,10 +13,11 @@ const defaultUser ={
 function Chat(props) {
 
   const { authenticated, setAuthenticated } = props;
-  const [user, setUser] = useState(defaultUser);
+  const [user, setUser] = useState(null);
+  const [socket, setSocket] = useState(null); // messages
+  const [online, setOnline] = useState(false);
 
   useEffect(() => {
-    console.log("in chat.js")
     const fetchData = async () => {
       if (authenticated) {
         // trying to get user information from the database
@@ -31,10 +33,32 @@ function Chat(props) {
 
     // Invoking the asynchronous function
     fetchData();
-    console.log("fetching data");
-    console.log(authenticated);
-
   }, [authenticated]);
+
+
+  useEffect(() => {
+    if (socket || online) {
+      // nothing
+    }
+    else if (user) {
+      const socket = io.connect("http://localhost:5001", { query: { username: user.username } });
+      setSocket(socket);
+      setOnline(true);
+
+      socket.on('alert', (data) => {
+        // console.log("in chat.js", data);
+        alert(`${data.data.sender.username} sent you: ${data.data.content}`);
+      });
+
+    }
+    return () => {
+      if (socket) {
+        socket.close();
+      }
+    }
+  }, [user]);
+
+
 
   if (!authenticated) {
     return (
@@ -44,13 +68,20 @@ function Chat(props) {
         </div>
       </div>
     );
-  } else {
-    // console.log("in chat.js")
+  } else if (user === null) {
+    <>
+      <div className="topScreen"></div>
+      <div className="lowerScreen"></div>
+    </>
+  }
+  else {
     return (
       <>
         <div className="topScreen"></div>
         <div className="lowerScreen"></div>
-        <MainBlock user={user} setAuthenticated={setAuthenticated} />
+        <MainBlock user={user}
+          setAuthenticated={setAuthenticated}
+          socket={socket} />
       </>
     );
   }

@@ -38,6 +38,7 @@ const getUserName = (req) => {
     const formattedToken = token.replace(/"/g, ''); 
     try {
         const data = jwt.verify(formattedToken, key);
+        console.log("inside token: ", data.username);
         return data.username;
     }
     catch (error) {
