@@ -30,6 +30,7 @@
 </ul>
 
 <h1>Installation</h1>
+<p>Note: be patience when the server send request, because of the free mongoDB database the reads and writes to the database are slow!</p>
 <ol>
 	<li>Clone the repository to your local machine:
 	<br><code>git clone https://github.com/shilopadael/Advance-Programing-Project-2</code>
