@@ -1,0 +1,92 @@
+/*Right side*/
+.right-slide {
+  /* border-left: 4px solid; */
+  background-image: linear-gradient(0deg, #939eae, transparent),
+    url("../../../assets/chatImgs/chat-background.png");
+  background-repeat:repeat;
+  float: left; /* add this line to float the right slide to the left */
+  border-radius: 10px;
+}
+
+/* right side */
+.profile-text-chat {
+  margin-top: 5px;
+  margin-left: 10px;
+  color: rgb(227, 227, 227);
+}
+
+.profile-text-about {
+  display: block;
+  color: rgb(227, 227, 227);
+}
+
+.linerLine-color-right {
+  background: linear-gradient(45deg, #041941, #212e47, #3c414a);
+}
+
+.top-chat {
+  position: relative;
+  height: 53px;
+  width: 100%;
+  left: 0;
+  z-index: 102;
+  border-radius: 10px;
+}
+
+.right-chat {
+  padding-left: 0px;
+  padding-right: 0px;
+  padding-bottom: 10px;
+  border-width: 3px;
+  border-color: rgb(38, 8, 102);
+  overflow-y: auto;
+  height: 86%;
+  margin-top: 0px;
+  display: flex;
+  flex-direction: column-reverse;
+}
+
+.right-chat::-webkit-scrollbar {
+  width: 0px;
+  /* background-color: transparent; Background color of the scrollbar track */
+  
+}
+
+.chat-box-input {
+  background: #eee;
+  display: flex;
+  align-items: center;
+  padding: 5px 10px;
+  border-radius: 10px;
+}
+.right-chat-profile-name {
+  margin-left: 0px;
+  padding-left: 0px;
+}
+
+.back-to-contact-icon {
+  align-items: center;
+  width: auto;
+  height: auto;
+  display: none;
+}
+
+@media (max-width: 576px) {
+  .back-to-contact-icon {
+    margin-right: 0px;
+  }
+}
+
+.back-to-contact-icon a {
+  /* cursor: default; */
+}
+
+.back-to-contact-icon {
+  /* background-color: #eeeeee; */
+  color: black;
+}
+
+.back-to-contact-icon-wrapper:hover {
+  /* background-color: #eeeeee; */
+  cursor: pointer;
+}
