@@ -17,7 +17,7 @@
   <li>the socket.io connection is updating the client live! when a new client successfuly login to the chat page it holds a socket connection to the server socket.io port (by default is 5001), this connection will update the client when:</li>
   <ul>
     <li>new message</li>
-    <li>adding a new chat (the user that you added will update the chat list)<li>
+    <li>adding a new chat (the user that you added will update the chat list)</li>
     <li>upon deleting a contact, it will delete the chat from both contacts</li>
   </ul>
 </ul>
