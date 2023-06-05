@@ -1,6 +1,10 @@
+
 <h1>creating an MVC server using express, http and websockets!</h1>
 
 <h1>Milestone: "Full-Stack Chat Application with Real-Time Messaging"</h1>
+<h1>ex1 part 1 is in BRANCH ex1</h1>
+<h1>ex1 part 2 is in BRANCH ex2</h1>
+<h1>ex2 is in BRANCH ex3</h1>
 
 <h2>Features</h2>
 <p>We have created:</p>
