@@ -20,8 +20,7 @@ public class UsersAdapter extends RecyclerView.Adapter<UsersAdapter.ViewHolder>{
 
     ArrayList<Users> list;
 
-    public UsersAdapter(ArrayList<Users> list, Context context) {
-        this.list = list;
+    public UsersAdapter(Context context) {
         this.context = context;
     }
 
@@ -36,18 +35,26 @@ public class UsersAdapter extends RecyclerView.Adapter<UsersAdapter.ViewHolder>{
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
-        Users users = list.get(position);
-        /////go back for the image
-//        holder.image.setImageURI(users.getProfilePic());
-
-
-        holder.userName.setText(users.getUsername());
+        if (list != null) {
+            final Users current = list.get(position);
+            holder.userName.setText(current.getUsername());
+            holder.lastMessage.setText(current.getLastMessage());
+            holder.image.setImageResource(current.getProfilePic());
+        }
 
     }
 
     @Override
     public int getItemCount() {
-        return list.size();
+        if (list != null) {
+            return list.size();
+        }
+        return 0;
+    }
+
+    public void setList(ArrayList<Users> list) {
+        this.list = list;
+        notifyDataSetChanged();
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder{

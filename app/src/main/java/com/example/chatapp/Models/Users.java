@@ -1,14 +1,24 @@
 package com.example.chatapp.Models;
 
-public class Users {
 
-    String profilePic,username,password, userId, lastMessage, status;
+import androidx.room.Entity;
+import androidx.room.PrimaryKey;
+
+@Entity
+public class Users {
+    
+
+    String username,password, lastMessage, status;
+    @PrimaryKey(autoGenerate = true)
+    int userId;
+
+    int profilePic;
 
     public Users(){
 
     }
 
-    public Users(String profilePic, String username, String password, String userId, String lastMessage, String status) {
+    public Users(int profilePic, String username, String password, int userId, String lastMessage, String status) {
         this.profilePic = profilePic;
         this.username = username;
         this.password = password;
@@ -17,11 +27,11 @@ public class Users {
         this.status = status;
     }
 
-    public String getProfilePic() {
+    public int getProfilePic() {
         return profilePic;
     }
 
-    public void setProfilePic(String profilePic) {
+    public void setProfilePic(int profilePic) {
         this.profilePic = profilePic;
     }
 
@@ -41,11 +51,11 @@ public class Users {
         this.password = password;
     }
 
-    public String getUserId() {
+    public int getUserId() {
         return userId;
     }
 
-    public void setUserId(String userId) {
+    public void setUserId(int userId) {
         this.userId = userId;
     }
 
@@ -65,7 +75,7 @@ public class Users {
         this.status = status;
     }
 
-    public Users(String profilePic, String username, String password) {
+    public Users(int profilePic, String username, String password) {
         this.profilePic = profilePic;
         this.username = username;
         this.password = password;
