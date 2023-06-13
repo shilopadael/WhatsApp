@@ -1,0 +1,296 @@
+body {
+  height: 100vh;
+  position: relative; /* add this line to set the body as the container's nearest positioned ancestor */
+  background-image: linear-gradient(#7295ca, transparent),
+    url("../../assets/bgpattern.png");
+  overflow-y: hidden;
+}
+
+
+
+.topScreen {
+  padding-bottom: 3px;
+  display: relative;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 18vh;
+  /* background-color: #041941; */
+  background: linear-gradient(-45deg, #041941, #212e47, #3c414a);
+  animation: gradient 15s ease infinite;
+}
+
+
+
+.lowerScreen {
+  display: relative;
+  justify-content: center;
+  align-items: center;
+  height: 82vh;
+  background-image: linear-gradient(#c8defe, transparent),
+    url("../../assets/bgpattern.png");
+  z-index: 2;
+}
+
+  
+@media all and (max-width: 768px) {
+  #loginImg {
+      display: none;
+  }
+  #topLogo{
+      display: none;
+  }
+  .left-chat {
+      display: none;
+  }
+  .back-arrow {
+    display: contents !important;
+  }
+}
+
+@keyframes gradient {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 100%;
+  }
+}
+
+.container {
+  border: white;
+  border-radius: 10px;
+  border-width: 10px;
+  position: absolute; /* change this line from fixed to absolute */
+  top: 10%;
+  left: 15%;
+  right: 15%;
+  width: 70%; /* change this value to a fixed width that works for your design */
+  height: 85%;
+  background-color: rgb(238, 238, 238);
+  transition: all 0.3s ease;
+}
+
+
+.form-control.border-none {
+  border: none;
+}
+
+@media (max-width: 992px) {
+  .dropdown-wrapper {
+    position: relative;
+  }
+
+  .dropdown-wrapper .dropdown-menu {
+    position: absolute;
+    top: 100%;
+    right: 0;
+    z-index: 1000;
+  }
+}
+
+
+.navbar-brand img {
+  width: 50px; /* default size */
+}
+
+.cursor-pointer:hover {
+  cursor: pointer;
+}
+.gray-light {
+  background-color: #cbccd3;
+}
+.dark-blue1 {
+  background-color: #063269;
+}
+/*Make all icons in the same color*/
+.bi {
+  fill: #cbccd3;
+}
+
+.btn {
+  color: #54555a;
+}
+.last-seen {
+  font-size: 12px;
+  padding-bottom: 5px;
+  color: #0b093e;
+}
+
+
+.black {
+  background-color: #000000;
+}
+
+/*the container of the right-side*/
+.parent-div {
+  position: relative;
+  height: 100%;
+}
+
+.bottom-chat {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  z-index: 102;
+  border-radius: 10px;
+}
+.text-chat {
+  position: absolute;
+  width: 100%;
+  margin-top: 0%;
+}
+.chat-bubble-right {
+  font-size: 16px;
+  color:#ffffff;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  background-color: #2e2e2e;
+  border-radius: 30px;
+  padding: 10px 20px;
+  margin-bottom: 5px;
+  margin-top: 10px;
+  margin-right: 15px;
+  margin-left: auto;
+  max-width: 40%;
+  clear: both;
+  width: fit-content;
+  float: right; /* or float: left; for the receiver's chat bubble */
+  word-break: break-word; /* break long words onto the next line */
+}
+
+.chat-bubble-right-time {
+  font-size: 12px;
+  text-align: left;
+}
+.chat-bubble-left-time {
+  font-size: 12px;
+  text-align: right;
+}
+
+.chat-bubble-left {
+  font-size: 16px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  background-color: #ffffff;
+  border-radius: 30px;
+  padding: 10px 20px;
+  margin-left: 15px;
+  margin-bottom: 5px;
+  margin-top: 10px;
+  max-width: 40%;
+  width: fit-content;
+  clear: both;
+  float: left; /* or float: left; for the receiver's chat bubble */
+  word-break: break-word; /* break long words onto the next line */
+}
+
+.opacity {
+  opacity: 0.5;
+}
+
+
+@media (max-height: 870) {
+  .right-chat {
+    height: 82%;
+  }
+  .contact-list {
+    height: 80%;
+  }
+}
+
+@media (max-height: 700px) {
+  .right-chat {
+    height: 80%;
+  }
+  .contact-list {
+    height: 75%;
+  }
+}
+
+
+
+.profilePic {
+  padding: 0px;
+  margin-left: 2px;
+  width: 45px;
+  height: 45px;
+}
+
+.profileName {
+  color: rgb(227, 227, 227);
+  margin-left: 0px;
+  padding-left: 0px;
+}
+
+
+
+@media (max-width: 576px) {
+  .defaultContactList .left-slide {
+    display: block;
+  }
+  .defaultContactList {
+    align-items: center;
+    width: 70%;
+    height: 80%;
+  }
+}
+
+@media (min-width: 576px) {
+  .defaultContactList .left-slide {
+    display: block;
+  }
+  .defaultContactList {
+    width: 400px;
+  }
+}
+
+@media (max-width: 992px) and (min-width: 768px) {
+  .ContactBlock .left-slide {
+    display: none;
+  }
+}
+
+
+
+@media (max-width: 992px) {
+  .back-to-contact-icon {
+    display: block;
+    margin-right: 15px;
+  }
+
+}
+
+@media (max-width: 440px) {
+  .back-to-contact-icon {
+    display: block;
+    margin-left: 0px;
+    margin-right: 5px;
+  }
+
+}
+
+
+.logOutbtn {
+  z-index: 150;
+  color: white;
+}
+.defaultChatMessageContainer {
+  background-color: #000000;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.defaultChatMessage {
+  color: white;
+  position: absolute;
+  top: 50%;
+  left: 60%;
+  transform: translate(-50%, -50%);
+}
+
+.btnLogInSignUp {
+  color: white;
+}
