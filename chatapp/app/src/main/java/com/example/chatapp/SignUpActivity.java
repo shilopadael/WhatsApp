@@ -2,6 +2,7 @@ package com.example.chatapp;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.room.Room;
 
 import android.content.Intent;
 import android.graphics.Bitmap;
@@ -17,6 +18,9 @@ import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.request.RequestOptions;
+import com.example.chatapp.Models.AppDB;
+import com.example.chatapp.Models.User;
+import com.example.chatapp.Models.UserDao;
 import com.example.chatapp.databinding.ActivityMainBinding;
 import com.example.chatapp.databinding.ActivitySignUpBinding;
 
@@ -34,6 +38,10 @@ public class SignUpActivity extends AppCompatActivity {
     private boolean isPasswordValid = false;
     private boolean isConfirmPasswordValid = false;
 
+    private AppDB appDB;
+
+    private UserDao userDao;
+
 
 
     @Override
@@ -42,6 +50,12 @@ public class SignUpActivity extends AppCompatActivity {
         binding = ActivitySignUpBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
         getSupportActionBar().hide();
+
+
+        //creating the DataBase
+        appDB = Room.databaseBuilder(getApplicationContext(), AppDB.class,"Users2").
+                allowMainThreadQueries().build();
+        userDao = appDB.userDao();
 
         // creating the event listeners
         Button signUp = binding.btnSignUp;
@@ -55,8 +69,22 @@ public class SignUpActivity extends AppCompatActivity {
 
         // adding event listeners
         signUp.setOnClickListener(v -> {
-            if(isImageUploaded && isUsernameValid && isPasswordValid && isConfirmPasswordValid){
-                // TODO: add sign up logic
+            if(  isUsernameValid && isPasswordValid && isConfirmPasswordValid){
+                // if that user already in the dataBase
+                if (userDao.getUserByUsername(username.getText().toString()) != null) {
+                    Toast.makeText(this, "Username already exist", Toast.LENGTH_SHORT).show();
+                    return;
+                }
+
+                // Create a new User object with the entered username and password
+                User newUser = new User(username.getText().toString(), password.getText().toString());
+                userDao.insert(newUser);
+
+                // Navigate to the login activity
+                Intent intent = new Intent(this, SignInActivity.class);
+                startActivity(intent);
+                finish();
+
             } else {
                 Toast.makeText(this, "Please fill in all the fields", Toast.LENGTH_SHORT).show();
             }
@@ -99,6 +127,8 @@ public class SignUpActivity extends AppCompatActivity {
         // check if passwords match
         confirmPassword.setOnFocusChangeListener((v, hasFocus) -> {
             if (!hasFocus) {
+                String pas1 = password.getText().toString();
+                String pas = confirmPassword.getText().toString();
                 if (!password.getText().toString().equals(confirmPassword.getText().toString())) {
                     confirmPassword.setError("Passwords do not match");
                     isConfirmPasswordValid = false;

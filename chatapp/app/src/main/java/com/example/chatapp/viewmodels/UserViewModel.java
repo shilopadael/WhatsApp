@@ -1,11 +1,5 @@
 package com.example.chatapp.viewmodels;
 
-import androidx.lifecycle.LiveData;
-import androidx.lifecycle.ViewModel;
-
-import com.example.chatapp.Models.Users;
-
-import java.util.List;
 //
 //public class UserViewModel extends ViewModel {
 //    private UsersRepoditory mRepository;

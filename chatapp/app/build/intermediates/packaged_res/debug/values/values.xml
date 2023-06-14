@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="black">#FF000000</color>
+    <color name="chat_background">#8BC34A</color>
+    <color name="chatbackground"> #AAAAAA</color>
+    <color name="colorAccent">#03DAC5</color>
+    <color name="colorPrimary">#0b6156</color>
+    <color name="colorPrimaryDark">#095049</color>
+    <color name="fb_color">#3c5793</color>
+    <color name="grayBackground">#BCBCBC</color>
+    <color name="lightGrey">#EDEDED</color>
+    <color name="lightgreen">#e5ffcc</color>
+    <color name="red">#9F0B0B</color>
+    <color name="settingsIconColor">#0E8374</color>
+    <color name="status_background">#009688</color>
+    <color name="whatsAppColor">#0b6156</color>
+    <color name="white">#FFFFFFFF</color>
+    <string name="BaseUrl">10.0.2.2/api/</string>
+    <string name="add_picture">Set Picture</string>
+    <string name="already_have_an_account">Already Have An Account?</string>
+    <string name="app_name">ChatApp</string>
+    <string name="click_to_sign_up">Click To Sign Up</string>
+    <string name="confirm_password_sign_up">Confirm Password</string>
+    <string name="default_web_client_id" translatable="false">109300452342-59h7qr2o18e9k6s9d83llevavppr5g1f.apps.googleusercontent.com</string>
+    <string name="enter_server_ip">Enter Server Ip</string>
+    <string name="gcm_defaultSenderId" translatable="false">109300452342</string>
+    <string name="google_api_key" translatable="false">AIzaSyCMvtX2OkMjqTpPHmE__Wc13Dxn2yfBh4g</string>
+    <string name="google_app_id" translatable="false">1:109300452342:android:81dea2d9ce04232ad795d7</string>
+    <string name="google_crash_reporting_api_key" translatable="false">AIzaSyCMvtX2OkMjqTpPHmE__Wc13Dxn2yfBh4g</string>
+    <string name="google_storage_bucket" translatable="false">chatapp-6669f.appspot.com</string>
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="password_sign_in">Password</string>
+    <string name="project_id" translatable="false">chatapp-6669f</string>
+    <string name="save_server_ip_btn">SAVE</string>
+    <string name="sign_in_button">Sign In</string>
+    <string name="sign_up_btn">Sign Up</string>
+    <string name="username_sign_in">Username</string>
+    <style name="Base.Theme.ChatApp" parent="Theme.MaterialComponents.DayNight.DarkActionBar">
+        
+        <item name="colorPrimary">@color/colorPrimary</item>
+        
+    </style>
+    <style name="Theme.ChatApp" parent="Base.Theme.ChatApp"/>
+</resources>
