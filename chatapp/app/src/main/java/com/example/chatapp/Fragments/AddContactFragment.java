@@ -16,13 +16,11 @@ import android.widget.Toast;
 
 import com.example.chatapp.Listeners.OnContactAddedListener;
 import com.example.chatapp.Models.AppDB;
-import com.example.chatapp.Models.Contact;
-import com.example.chatapp.Models.ContactDao;
-import com.example.chatapp.Models.Token;
-import com.example.chatapp.Models.TokenDao;
-import com.example.chatapp.Models.User;
-import com.example.chatapp.Models.UserDao;
-import com.example.chatapp.R;
+import com.example.chatapp.Models.ContactEntity.Contact;
+import com.example.chatapp.Models.ContactEntity.ContactDao;
+import com.example.chatapp.Models.TokenEntity.TokenDao;
+import com.example.chatapp.Models.UserEntity.User;
+import com.example.chatapp.Models.UserEntity.UserDao;
 import com.example.chatapp.databinding.FragmentAddContactBinding;
 
 /**

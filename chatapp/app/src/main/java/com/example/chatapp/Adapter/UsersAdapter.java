@@ -10,10 +10,16 @@ import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
+import androidx.room.Room;
 
 import com.example.chatapp.ChatDetailActivity;
-import com.example.chatapp.Models.Contact;
+//import com.example.chatapp.Models.AllChatsEntity.AllChatsDao;
+import com.example.chatapp.Models.AppDB;
+import com.example.chatapp.Models.ContactEntity.Contact;
+import com.example.chatapp.Models.ContactEntity.ContactDao;
 import com.example.chatapp.R;
+import com.example.chatapp.Schemes.Chat;
+import com.example.chatapp.SignInActivity;
 
 import java.util.ArrayList;
 
@@ -27,6 +33,9 @@ public class UsersAdapter extends RecyclerView.Adapter<UsersAdapter.ViewHolder>{
 
     Context context;
 
+
+
+
     @NonNull
     @Override
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
@@ -36,6 +45,14 @@ public class UsersAdapter extends RecyclerView.Adapter<UsersAdapter.ViewHolder>{
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
+        AppDB appDB;
+//        AllChatsDao allChatsDao;
+
+        appDB = Room.databaseBuilder(context, AppDB.class,"Users2").
+                allowMainThreadQueries().build();
+//        allChatsDao = appDB.allChatsDao();
+
+
         if (list != null) {
             Contact current = list.get(position);
             holder.userName.setText(current.getUsername());
@@ -44,7 +61,12 @@ public class UsersAdapter extends RecyclerView.Adapter<UsersAdapter.ViewHolder>{
 
             holder.itemView.setOnClickListener(v -> {
                 Intent intent = new Intent(context, ChatDetailActivity.class);
-                intent.putExtra("user", current.getUsername()); // Pass the selected user to the ChatDetailActivity
+                intent.putExtra("username", current.getUsername()); // Pass the selected user to the ChatDetailActivity
+                intent.putExtra("profilePic", current.getProfilePic());
+                intent.putExtra("userId", current.getUserId());
+
+                //check if there a chat open already if not create new one for that user
+
                 context.startActivity(intent);
             });
 

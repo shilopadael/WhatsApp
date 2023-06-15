@@ -15,9 +15,8 @@ import com.example.chatapp.Adapter.UsersAdapter;
 import com.example.chatapp.Fragments.AddContactFragment;
 import com.example.chatapp.Listeners.OnContactAddedListener;
 import com.example.chatapp.Models.AppDB;
-import com.example.chatapp.Models.Contact;
-import com.example.chatapp.Models.ContactDao;
-import com.example.chatapp.Models.UserDao;
+import com.example.chatapp.Models.ContactEntity.Contact;
+import com.example.chatapp.Models.ContactEntity.ContactDao;
 import com.example.chatapp.databinding.ActivityChatBinding;
 
 import java.util.ArrayList;
@@ -54,7 +53,7 @@ public class ChatActivity extends AppCompatActivity implements OnContactAddedLis
         adapter = new UsersAdapter(this);
         lstUsers.setAdapter(adapter);
         lstUsers.setLayoutManager(new LinearLayoutManager(this));
-        adapter.setList((ArrayList<Contact>) contactDao.index());
+        adapter.setList((ArrayList<Contact>)contactDao.index());
 
 //        ArrayList<Contact> list = new ArrayList<>();
 //        list.add(new Contact(R.drawable.ic_facebook, "Padael","Hola", 1, "dan","hey"));

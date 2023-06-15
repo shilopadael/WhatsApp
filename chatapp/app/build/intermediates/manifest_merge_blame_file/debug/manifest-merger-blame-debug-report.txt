@@ -38,7 +38,7 @@
 21-->[androidx.core:core:1.9.0] /home/shilopadael/.gradle/caches/transforms-3/57c95f7bce2a4c36ea305cb3932f8371/transformed/core-1.9.0/AndroidManifest.xml:26:22-94
 22
 23    <application
-23-->/home/shilopadael/CLionProjects/android/Advance-Programing-Project-2/chatapp/app/src/main/AndroidManifest.xml:7:5-46:19
+23-->/home/shilopadael/CLionProjects/android/Advance-Programing-Project-2/chatapp/app/src/main/AndroidManifest.xml:7:5-47:19
 24        android:allowBackup="true"
 24-->/home/shilopadael/CLionProjects/android/Advance-Programing-Project-2/chatapp/app/src/main/AndroidManifest.xml:8:9-35
 25        android:appComponentFactory="androidx.core.app.CoreComponentFactory"
@@ -82,35 +82,35 @@
 45-->/home/shilopadael/CLionProjects/android/Advance-Programing-Project-2/chatapp/app/src/main/AndroidManifest.xml:26:13-36
 46        </activity>
 47        <activity
-47-->/home/shilopadael/CLionProjects/android/Advance-Programing-Project-2/chatapp/app/src/main/AndroidManifest.xml:29:9-33:20
+47-->/home/shilopadael/CLionProjects/android/Advance-Programing-Project-2/chatapp/app/src/main/AndroidManifest.xml:29:9-38:20
 48            android:name="com.example.chatapp.SignInActivity"
 48-->/home/shilopadael/CLionProjects/android/Advance-Programing-Project-2/chatapp/app/src/main/AndroidManifest.xml:30:13-43
 49            android:exported="true" >
 49-->/home/shilopadael/CLionProjects/android/Advance-Programing-Project-2/chatapp/app/src/main/AndroidManifest.xml:31:13-36
-50        </activity>
-51        <activity
-51-->/home/shilopadael/CLionProjects/android/Advance-Programing-Project-2/chatapp/app/src/main/AndroidManifest.xml:34:9-42:20
-52            android:name="com.example.chatapp.SignUpActivity"
-52-->/home/shilopadael/CLionProjects/android/Advance-Programing-Project-2/chatapp/app/src/main/AndroidManifest.xml:35:13-43
-53            android:exported="true" >
-53-->/home/shilopadael/CLionProjects/android/Advance-Programing-Project-2/chatapp/app/src/main/AndroidManifest.xml:36:13-36
-54            <intent-filter>
-54-->/home/shilopadael/CLionProjects/android/Advance-Programing-Project-2/chatapp/app/src/main/AndroidManifest.xml:37:13-41:29
-55                <action android:name="android.intent.action.MAIN" />
-55-->/home/shilopadael/CLionProjects/android/Advance-Programing-Project-2/chatapp/app/src/main/AndroidManifest.xml:38:17-69
-55-->/home/shilopadael/CLionProjects/android/Advance-Programing-Project-2/chatapp/app/src/main/AndroidManifest.xml:38:25-66
-56
-57                <category android:name="android.intent.category.LAUNCHER" />
-57-->/home/shilopadael/CLionProjects/android/Advance-Programing-Project-2/chatapp/app/src/main/AndroidManifest.xml:40:17-77
-57-->/home/shilopadael/CLionProjects/android/Advance-Programing-Project-2/chatapp/app/src/main/AndroidManifest.xml:40:27-74
-58            </intent-filter>
+50            <intent-filter>
+50-->/home/shilopadael/CLionProjects/android/Advance-Programing-Project-2/chatapp/app/src/main/AndroidManifest.xml:32:13-36:29
+51                <action android:name="android.intent.action.MAIN" />
+51-->/home/shilopadael/CLionProjects/android/Advance-Programing-Project-2/chatapp/app/src/main/AndroidManifest.xml:33:17-69
+51-->/home/shilopadael/CLionProjects/android/Advance-Programing-Project-2/chatapp/app/src/main/AndroidManifest.xml:33:25-66
+52
+53                <category android:name="android.intent.category.LAUNCHER" />
+53-->/home/shilopadael/CLionProjects/android/Advance-Programing-Project-2/chatapp/app/src/main/AndroidManifest.xml:35:17-77
+53-->/home/shilopadael/CLionProjects/android/Advance-Programing-Project-2/chatapp/app/src/main/AndroidManifest.xml:35:27-74
+54            </intent-filter>
+55        </activity>
+56        <activity
+56-->/home/shilopadael/CLionProjects/android/Advance-Programing-Project-2/chatapp/app/src/main/AndroidManifest.xml:39:9-43:20
+57            android:name="com.example.chatapp.SignUpActivity"
+57-->/home/shilopadael/CLionProjects/android/Advance-Programing-Project-2/chatapp/app/src/main/AndroidManifest.xml:40:13-43
+58            android:exported="true" >
+58-->/home/shilopadael/CLionProjects/android/Advance-Programing-Project-2/chatapp/app/src/main/AndroidManifest.xml:41:13-36
 59        </activity>
 60        <activity
-60-->/home/shilopadael/CLionProjects/android/Advance-Programing-Project-2/chatapp/app/src/main/AndroidManifest.xml:43:9-45:39
+60-->/home/shilopadael/CLionProjects/android/Advance-Programing-Project-2/chatapp/app/src/main/AndroidManifest.xml:44:9-46:39
 61            android:name="com.example.chatapp.MainActivity"
-61-->/home/shilopadael/CLionProjects/android/Advance-Programing-Project-2/chatapp/app/src/main/AndroidManifest.xml:44:13-41
+61-->/home/shilopadael/CLionProjects/android/Advance-Programing-Project-2/chatapp/app/src/main/AndroidManifest.xml:45:13-41
 62            android:exported="true" />
-62-->/home/shilopadael/CLionProjects/android/Advance-Programing-Project-2/chatapp/app/src/main/AndroidManifest.xml:45:13-36
+62-->/home/shilopadael/CLionProjects/android/Advance-Programing-Project-2/chatapp/app/src/main/AndroidManifest.xml:46:13-36
 63
 64        <service
 64-->[androidx.room:room-runtime:2.4.1] /home/shilopadael/.gradle/caches/transforms-3/d5bb28b3767fa133b59d7ea8be7188d5/transformed/room-runtime-2.4.1/AndroidManifest.xml:25:9-28:40

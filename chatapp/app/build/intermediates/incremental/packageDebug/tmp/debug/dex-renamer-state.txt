@@ -1,6 +1,8 @@
-#Wed Jun 14 14:49:35 IDT 2023
+#Thu Jun 15 15:05:32 IDT 2023
 base.0=/home/shilopadael/CLionProjects/android/Advance-Programing-Project-2/chatapp/app/build/intermediates/dex/debug/mergeExtDexDebug/classes.dex
 base.1=/home/shilopadael/CLionProjects/android/Advance-Programing-Project-2/chatapp/app/build/intermediates/dex/debug/mergeProjectDexDebug/0/classes.dex
+base.10=/home/shilopadael/CLionProjects/android/Advance-Programing-Project-2/chatapp/app/build/intermediates/dex/debug/mergeProjectDexDebug/12/classes.dex
+base.11=/home/shilopadael/CLionProjects/android/Advance-Programing-Project-2/chatapp/app/build/intermediates/dex/debug/mergeProjectDexDebug/6/classes.dex
 base.2=/home/shilopadael/CLionProjects/android/Advance-Programing-Project-2/chatapp/app/build/intermediates/dex/debug/mergeProjectDexDebug/1/classes.dex
 base.3=/home/shilopadael/CLionProjects/android/Advance-Programing-Project-2/chatapp/app/build/intermediates/dex/debug/mergeProjectDexDebug/13/classes.dex
 base.4=/home/shilopadael/CLionProjects/android/Advance-Programing-Project-2/chatapp/app/build/intermediates/dex/debug/mergeProjectDexDebug/3/classes.dex
@@ -11,6 +13,8 @@ base.8=/home/shilopadael/CLionProjects/android/Advance-Programing-Project-2/chat
 base.9=/home/shilopadael/CLionProjects/android/Advance-Programing-Project-2/chatapp/app/build/intermediates/dex/debug/mergeProjectDexDebug/14/classes.dex
 path.0=classes.dex
 path.1=0/classes.dex
+path.10=12/classes.dex
+path.11=6/classes.dex
 path.2=1/classes.dex
 path.3=13/classes.dex
 path.4=3/classes.dex
@@ -21,6 +25,8 @@ path.8=classes2.dex
 path.9=14/classes.dex
 renamed.0=classes.dex
 renamed.1=classes2.dex
+renamed.10=classes11.dex
+renamed.11=classes12.dex
 renamed.2=classes3.dex
 renamed.3=classes4.dex
 renamed.4=classes5.dex

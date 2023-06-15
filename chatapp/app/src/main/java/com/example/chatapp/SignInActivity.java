@@ -12,12 +12,10 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.chatapp.Models.AppDB;
-import com.example.chatapp.Models.Token;
-import com.example.chatapp.Models.User;
-import com.example.chatapp.Models.UserDao;
-import com.example.chatapp.databinding.ActivityMainBinding;
+import com.example.chatapp.Models.TokenEntity.Token;
+import com.example.chatapp.Models.UserEntity.User;
+import com.example.chatapp.Models.UserEntity.UserDao;
 import com.example.chatapp.databinding.ActivitySignInBinding;
-import com.example.chatapp.databinding.ActivitySignUpBinding;
 
 public class SignInActivity extends AppCompatActivity {
 
@@ -70,7 +68,10 @@ public class SignInActivity extends AppCompatActivity {
             if (!isCorrectPass || !isCorrectUsername) {
                 Toast.makeText(this, "Incorrect username or password, please try again!", Toast.LENGTH_SHORT).show();
             } else {
+                //clean the table"
+                appDB.tokenDao().deleteToken();
 
+                //adding new token
                 appDB.tokenDao().insert(new Token("demo token", username.getText().toString()));
                 // Navigate to the login activity
                 Intent intent = new Intent(this, ChatActivity.class);

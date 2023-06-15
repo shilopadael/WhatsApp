@@ -17,6 +17,16 @@ import androidx.sqlite.db.SupportSQLiteDatabase;
 import androidx.sqlite.db.SupportSQLiteOpenHelper;
 import androidx.sqlite.db.SupportSQLiteOpenHelper.Callback;
 import androidx.sqlite.db.SupportSQLiteOpenHelper.Configuration;
+import com.example.chatapp.Models.ChatEntity.ChatsDao;
+import com.example.chatapp.Models.ChatEntity.ChatsDao_Impl;
+import com.example.chatapp.Models.ContactEntity.ContactDao;
+import com.example.chatapp.Models.ContactEntity.ContactDao_Impl;
+import com.example.chatapp.Models.MessageEntity.MessageDao;
+import com.example.chatapp.Models.MessageEntity.MessageDao_Impl;
+import com.example.chatapp.Models.TokenEntity.TokenDao;
+import com.example.chatapp.Models.TokenEntity.TokenDao_Impl;
+import com.example.chatapp.Models.UserEntity.UserDao;
+import com.example.chatapp.Models.UserEntity.UserDao_Impl;
 import java.lang.Class;
 import java.lang.Override;
 import java.lang.String;
@@ -110,7 +120,7 @@ public final class AppDB_Impl extends AppDB {
         final TableInfo _infoContact = new TableInfo("Contact", _columnsContact, _foreignKeysContact, _indicesContact);
         final TableInfo _existingContact = TableInfo.read(_db, "Contact");
         if (! _infoContact.equals(_existingContact)) {
-          return new RoomOpenHelper.ValidationResult(false, "Contact(com.example.chatapp.Models.Contact).\n"
+          return new RoomOpenHelper.ValidationResult(false, "Contact(com.example.chatapp.Models.ContactEntity.Contact).\n"
                   + " Expected:\n" + _infoContact + "\n"
                   + " Found:\n" + _existingContact);
         }
@@ -123,7 +133,7 @@ public final class AppDB_Impl extends AppDB {
         final TableInfo _infoToken = new TableInfo("Token", _columnsToken, _foreignKeysToken, _indicesToken);
         final TableInfo _existingToken = TableInfo.read(_db, "Token");
         if (! _infoToken.equals(_existingToken)) {
-          return new RoomOpenHelper.ValidationResult(false, "Token(com.example.chatapp.Models.Token).\n"
+          return new RoomOpenHelper.ValidationResult(false, "Token(com.example.chatapp.Models.TokenEntity.Token).\n"
                   + " Expected:\n" + _infoToken + "\n"
                   + " Found:\n" + _existingToken);
         }
@@ -136,7 +146,7 @@ public final class AppDB_Impl extends AppDB {
         final TableInfo _infoUser = new TableInfo("User", _columnsUser, _foreignKeysUser, _indicesUser);
         final TableInfo _existingUser = TableInfo.read(_db, "User");
         if (! _infoUser.equals(_existingUser)) {
-          return new RoomOpenHelper.ValidationResult(false, "User(com.example.chatapp.Models.User).\n"
+          return new RoomOpenHelper.ValidationResult(false, "User(com.example.chatapp.Models.UserEntity.User).\n"
                   + " Expected:\n" + _infoUser + "\n"
                   + " Found:\n" + _existingUser);
         }
@@ -150,7 +160,7 @@ public final class AppDB_Impl extends AppDB {
         final TableInfo _infoMessage = new TableInfo("Message", _columnsMessage, _foreignKeysMessage, _indicesMessage);
         final TableInfo _existingMessage = TableInfo.read(_db, "Message");
         if (! _infoMessage.equals(_existingMessage)) {
-          return new RoomOpenHelper.ValidationResult(false, "Message(com.example.chatapp.Models.Message).\n"
+          return new RoomOpenHelper.ValidationResult(false, "Message(com.example.chatapp.Models.MessageEntity.Message).\n"
                   + " Expected:\n" + _infoMessage + "\n"
                   + " Found:\n" + _existingMessage);
         }
@@ -163,7 +173,7 @@ public final class AppDB_Impl extends AppDB {
         final TableInfo _infoChats = new TableInfo("Chats", _columnsChats, _foreignKeysChats, _indicesChats);
         final TableInfo _existingChats = TableInfo.read(_db, "Chats");
         if (! _infoChats.equals(_existingChats)) {
-          return new RoomOpenHelper.ValidationResult(false, "Chats(com.example.chatapp.Models.Chats).\n"
+          return new RoomOpenHelper.ValidationResult(false, "Chats(com.example.chatapp.Models.ChatEntity.Chats).\n"
                   + " Expected:\n" + _infoChats + "\n"
                   + " Found:\n" + _existingChats);
         }

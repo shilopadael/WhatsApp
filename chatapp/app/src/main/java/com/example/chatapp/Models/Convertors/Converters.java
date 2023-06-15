@@ -1,8 +1,8 @@
 package com.example.chatapp.Models.Convertors;
 
 import androidx.room.TypeConverter;
-import com.example.chatapp.Models.Message;
-import com.example.chatapp.Models.User;
+import com.example.chatapp.Models.MessageEntity.Message;
+import com.example.chatapp.Models.UserEntity.User;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 import java.lang.reflect.Type;
