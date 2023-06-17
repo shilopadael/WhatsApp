@@ -5,10 +5,10 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
-import android.widget.LinearLayout;
 import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.viewbinding.ViewBinding;
 import androidx.viewbinding.ViewBindings;
 import com.example.chatapp.R;
@@ -18,7 +18,7 @@ import java.lang.String;
 
 public final class SampleShowUserBinding implements ViewBinding {
   @NonNull
-  private final LinearLayout rootView;
+  private final ConstraintLayout rootView;
 
   @NonNull
   public final TextView lastMessage;
@@ -27,19 +27,24 @@ public final class SampleShowUserBinding implements ViewBinding {
   public final ImageView profileImage;
 
   @NonNull
+  public final TextView userContactTime;
+
+  @NonNull
   public final TextView userNameList;
 
-  private SampleShowUserBinding(@NonNull LinearLayout rootView, @NonNull TextView lastMessage,
-      @NonNull ImageView profileImage, @NonNull TextView userNameList) {
+  private SampleShowUserBinding(@NonNull ConstraintLayout rootView, @NonNull TextView lastMessage,
+      @NonNull ImageView profileImage, @NonNull TextView userContactTime,
+      @NonNull TextView userNameList) {
     this.rootView = rootView;
     this.lastMessage = lastMessage;
     this.profileImage = profileImage;
+    this.userContactTime = userContactTime;
     this.userNameList = userNameList;
   }
 
   @Override
   @NonNull
-  public LinearLayout getRoot() {
+  public ConstraintLayout getRoot() {
     return rootView;
   }
 
@@ -76,14 +81,20 @@ public final class SampleShowUserBinding implements ViewBinding {
         break missingId;
       }
 
+      id = R.id.userContactTime;
+      TextView userContactTime = ViewBindings.findChildViewById(rootView, id);
+      if (userContactTime == null) {
+        break missingId;
+      }
+
       id = R.id.userNameList;
       TextView userNameList = ViewBindings.findChildViewById(rootView, id);
       if (userNameList == null) {
         break missingId;
       }
 
-      return new SampleShowUserBinding((LinearLayout) rootView, lastMessage, profileImage,
-          userNameList);
+      return new SampleShowUserBinding((ConstraintLayout) rootView, lastMessage, profileImage,
+          userContactTime, userNameList);
     }
     String missingId = rootView.getResources().getResourceName(id);
     throw new NullPointerException("Missing required view with ID: ".concat(missingId));

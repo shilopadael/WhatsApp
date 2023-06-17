@@ -10,7 +10,7 @@ import com.example.chatapp.R;
 public class Contact {
     
 
-    String username, lastMessage;
+    String username, lastMessage, lastMessageTime;
     @PrimaryKey(autoGenerate = true)
     int userId;
 
@@ -20,15 +20,17 @@ public class Contact {
 
     }
 
-    public Contact(String username, String lastMessage, int profilePic, int id) {
+    public Contact(String username, String lastMessage, int profilePic, int id, String lastMessageTime) {
         this.username = username;
         this.lastMessage = lastMessage;
         this.profilePic = profilePic;
         this.id = id;
+        this.lastMessageTime = lastMessageTime;
     }
-    public Contact(String username, String lastMessage, int id) {
-        this(username, lastMessage, R.drawable.avatar, id); // Set default id value to 0
+    public Contact(String username, String lastMessage, int id, String lastMessageTime) {
+        this(username, lastMessage, R.drawable.avatar, id, lastMessageTime); // Set default id value to 0
     }
+
 
     public String getUsername() {
         return username;
@@ -63,4 +65,15 @@ public class Contact {
         return id;
     }
 
+    public String getLastMessageTime() {
+        return lastMessageTime;
+    }
+
+    public void setLastMessageTime(String lastMessageTime) {
+        this.lastMessageTime = lastMessageTime;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
 }

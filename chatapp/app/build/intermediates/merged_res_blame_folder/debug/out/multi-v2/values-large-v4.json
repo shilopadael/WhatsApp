@@ -1,10 +1,10 @@
 {
     "logs": [
         {
-            "outputFile": "com.example.chatapp-mergeDebugResources-35:/values-large-v4/values-large-v4.xml",
+            "outputFile": "com.example.chatapp-mergeDebugResources-36:/values-large-v4/values-large-v4.xml",
             "map": [
                 {
-                    "source": "/home/shilopadael/.gradle/caches/transforms-3/ed0ff587a1864cda5e2e24ef58dfc0cd/transformed/appcompat-1.6.1/res/values-large-v4/values-large-v4.xml",
+                    "source": "/home/omer/.gradle/caches/transforms-3/ed0ff587a1864cda5e2e24ef58dfc0cd/transformed/appcompat-1.6.1/res/values-large-v4/values-large-v4.xml",
                     "from": {
                         "startLines": "2,3,4,5,6,7,8,9,10",
                         "startColumns": "4,4,4,4,4,4,4,4,4",
@@ -14,7 +14,7 @@
                     }
                 },
                 {
-                    "source": "/home/shilopadael/.gradle/caches/transforms-3/7a04553ca9af6ddbf476fcc7c860a00a/transformed/material-1.5.0/res/values-large-v4/values-large-v4.xml",
+                    "source": "/home/omer/.gradle/caches/transforms-3/7a04553ca9af6ddbf476fcc7c860a00a/transformed/material-1.5.0/res/values-large-v4/values-large-v4.xml",
                     "from": {
                         "startLines": "2,3,4,10",
                         "startColumns": "4,4,4,4",

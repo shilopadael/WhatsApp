@@ -26,15 +26,14 @@ import java.util.ArrayList;
 public class UsersAdapter extends RecyclerView.Adapter<UsersAdapter.ViewHolder>{
 
     ArrayList<Contact> list;
-
-    public UsersAdapter(Context context) {
-        this.context = context;
-    }
-
+    String username;
     Context context;
 
 
-
+    public UsersAdapter(Context context, String username) {
+        this.context = context;
+        this.username = username;
+    }
 
     @NonNull
     @Override
@@ -46,11 +45,9 @@ public class UsersAdapter extends RecyclerView.Adapter<UsersAdapter.ViewHolder>{
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         AppDB appDB;
-//        AllChatsDao allChatsDao;
 
-        appDB = Room.databaseBuilder(context, AppDB.class,"Users2").
+        appDB = Room.databaseBuilder(context, AppDB.class, username).
                 allowMainThreadQueries().build();
-//        allChatsDao = appDB.allChatsDao();
 
 
         if (list != null) {
@@ -58,6 +55,7 @@ public class UsersAdapter extends RecyclerView.Adapter<UsersAdapter.ViewHolder>{
             holder.userName.setText(current.getUsername());
             holder.lastMessage.setText(current.getLastMessage());
             holder.image.setImageResource(current.getProfilePic());
+            holder.time.setText(current.getLastMessageTime());
 
             holder.itemView.setOnClickListener(v -> {
                 Intent intent = new Intent(context, ChatDetailActivity.class);
@@ -88,9 +86,14 @@ public class UsersAdapter extends RecyclerView.Adapter<UsersAdapter.ViewHolder>{
         notifyDataSetChanged();
     }
 
+    public void clear() {
+        list.clear();
+        notifyDataSetChanged();
+    }
+
     public class ViewHolder extends RecyclerView.ViewHolder{
         ImageView image;
-        TextView userName, lastMessage;
+        TextView userName, lastMessage, time;
 
 
         public ViewHolder(@NonNull View itemView) {
@@ -99,6 +102,8 @@ public class UsersAdapter extends RecyclerView.Adapter<UsersAdapter.ViewHolder>{
             image = itemView.findViewById(R.id.profile_image);
             userName = itemView.findViewById(R.id.userNameList);
             lastMessage = itemView.findViewById(R.id.lastMessage);
+            time = itemView.findViewById(R.id.userContactTime);
+
         }
     }
 }

@@ -2521,6 +2521,7 @@ drawable ic_mtrl_checked_circle
 drawable ic_mtrl_chip_checked_black
 drawable ic_mtrl_chip_checked_circle
 drawable ic_mtrl_chip_close_circle
+drawable ic_name
 drawable ic_pass
 drawable ic_profile_icon
 drawable ic_settings
@@ -2687,6 +2688,7 @@ id bounceBoth
 id bounceEnd
 id bounceStart
 id btnAddPicture
+id btnSaveServerIp
 id btnSettings
 id btnSignIn
 id btnSignUp
@@ -2991,6 +2993,7 @@ id signInChatLogo
 id signInEtPassword
 id signInEtUsername
 id signUpConfirmPassword
+id signUpDisplayName
 id signUpDisplayPicture
 id signUpPassword
 id signUpUsername
@@ -3085,6 +3088,7 @@ id uniform
 id unlabeled
 id up
 id useLogo
+id userContactTime
 id userNameList
 id username
 id vertical_only
@@ -3296,6 +3300,7 @@ menu popup_menu
 mipmap ic_launcher
 mipmap ic_launcher_round
 plurals mtrl_badge_content_description
+raw firebase_common_keep
 string BaseUrl
 string abc_action_bar_home_description
 string abc_action_bar_up_description
@@ -3357,6 +3362,7 @@ string common_signin_button_text
 string common_signin_button_text_long
 string confirm_password_sign_up
 string default_web_client_id
+string display_name
 string enter_server_ip
 string error_icon_content_description
 string exposed_dropdown_menu_content_description

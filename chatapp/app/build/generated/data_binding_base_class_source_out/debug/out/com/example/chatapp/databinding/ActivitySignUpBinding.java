@@ -35,6 +35,9 @@ public final class ActivitySignUpBinding implements ViewBinding {
   public final TextInputEditText signUpConfirmPassword;
 
   @NonNull
+  public final TextInputEditText signUpDisplayName;
+
+  @NonNull
   public final ImageView signUpDisplayPicture;
 
   @NonNull
@@ -48,7 +51,8 @@ public final class ActivitySignUpBinding implements ViewBinding {
 
   private ActivitySignUpBinding(@NonNull ConstraintLayout rootView, @NonNull Button btnAddPicture,
       @NonNull Button btnSignUp, @NonNull ImageView imageView,
-      @NonNull TextInputEditText signUpConfirmPassword, @NonNull ImageView signUpDisplayPicture,
+      @NonNull TextInputEditText signUpConfirmPassword,
+      @NonNull TextInputEditText signUpDisplayName, @NonNull ImageView signUpDisplayPicture,
       @NonNull TextInputEditText signUpPassword, @NonNull TextInputEditText signUpUsername,
       @NonNull TextView tVAlreadyHaveAccount) {
     this.rootView = rootView;
@@ -56,6 +60,7 @@ public final class ActivitySignUpBinding implements ViewBinding {
     this.btnSignUp = btnSignUp;
     this.imageView = imageView;
     this.signUpConfirmPassword = signUpConfirmPassword;
+    this.signUpDisplayName = signUpDisplayName;
     this.signUpDisplayPicture = signUpDisplayPicture;
     this.signUpPassword = signUpPassword;
     this.signUpUsername = signUpUsername;
@@ -113,6 +118,12 @@ public final class ActivitySignUpBinding implements ViewBinding {
         break missingId;
       }
 
+      id = R.id.signUpDisplayName;
+      TextInputEditText signUpDisplayName = ViewBindings.findChildViewById(rootView, id);
+      if (signUpDisplayName == null) {
+        break missingId;
+      }
+
       id = R.id.signUpDisplayPicture;
       ImageView signUpDisplayPicture = ViewBindings.findChildViewById(rootView, id);
       if (signUpDisplayPicture == null) {
@@ -138,8 +149,8 @@ public final class ActivitySignUpBinding implements ViewBinding {
       }
 
       return new ActivitySignUpBinding((ConstraintLayout) rootView, btnAddPicture, btnSignUp,
-          imageView, signUpConfirmPassword, signUpDisplayPicture, signUpPassword, signUpUsername,
-          tVAlreadyHaveAccount);
+          imageView, signUpConfirmPassword, signUpDisplayName, signUpDisplayPicture, signUpPassword,
+          signUpUsername, tVAlreadyHaveAccount);
     }
     String missingId = rootView.getResources().getResourceName(id);
     throw new NullPointerException("Missing required view with ID: ".concat(missingId));

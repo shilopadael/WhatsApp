@@ -1,21 +1,28 @@
 package com.example.chatapp;
 
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.room.Room;
+import static android.content.ContentValues.TAG;
 
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
+
+import android.annotation.SuppressLint;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.util.Log;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
-
+import com.example.chatapp.Api.TaskAPI;
+import com.example.chatapp.Api.TokenAPI;
 import com.example.chatapp.Models.AppDB;
-import com.example.chatapp.Models.TokenEntity.Token;
-import com.example.chatapp.Models.UserEntity.User;
 import com.example.chatapp.Models.UserEntity.UserDao;
 import com.example.chatapp.databinding.ActivitySignInBinding;
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.messaging.FirebaseMessaging;
 
 public class SignInActivity extends AppCompatActivity {
 
@@ -23,6 +30,11 @@ public class SignInActivity extends AppCompatActivity {
 
     private AppDB appDB;
     private UserDao userDao;
+
+    private TokenAPI tokenAPI;
+    private String firebaseToken;
+
+    private SharedPreferences sharedPreferences;
 
     private EditText username, password;
 
@@ -33,10 +45,30 @@ public class SignInActivity extends AppCompatActivity {
         setContentView(binding.getRoot());
         getSupportActionBar().hide();
 
+        sharedPreferences = getSharedPreferences("chatSystem", MODE_PRIVATE);
+        String ip = sharedPreferences.getString("ip", "http://10.0.2.2:5000/");
 
-        appDB = Room.databaseBuilder(getApplicationContext(), AppDB.class,"Users2").
-                allowMainThreadQueries().build();
-        userDao = appDB.userDao();
+
+//        appDB = Room.databaseBuilder(getApplicationContext(), AppDB.class,"Users2").
+//                allowMainThreadQueries().build();
+//        userDao = appDB.userDao();
+        FirebaseMessaging.getInstance().getToken()
+                .addOnCompleteListener(new OnCompleteListener<String>() {
+                    @Override
+                    public void onComplete(@NonNull Task<String> task) {
+                        if (!task.isSuccessful()) {
+                            Log.w(TAG, "Fetching FCM registration token failed", task.getException());
+                            return;
+                        }
+                        // Get new FCM registration token
+                        firebaseToken = task.getResult();
+                        sharedPreferences = getSharedPreferences("chatSystem", MODE_PRIVATE);
+                        @SuppressLint("CommitPrefEdits") SharedPreferences.Editor editor = sharedPreferences.edit();
+                        editor.putString("firebaseToken", firebaseToken);
+                        tokenAPI = new TokenAPI(ip, firebaseToken);
+                    }
+                });
+
 
 
         // creating the event listeners
@@ -55,29 +87,32 @@ public class SignInActivity extends AppCompatActivity {
         });
 
         signIn.setOnClickListener(v -> {
-            // TODO: add sign in logic
-            User user = userDao.getUserByUsername(username.getText().toString());
-            if (user == null) {
-                Toast.makeText(this, "Incorrect username or password, please try again!", Toast.LENGTH_SHORT).show();
+            // getting the username and password
+            if(tokenAPI == null) {
+                Toast.makeText(SignInActivity.this, "Please wait for the token to be generated", Toast.LENGTH_SHORT).show();
                 return;
             }
-            //there is a user.
-            boolean isCorrectPass = user.getPassword().equals(password.getText().toString());
-            boolean isCorrectUsername = user.getUsername().equals(username.getText().toString());
+            String username = this.username.getText().toString();
+            String password = this.password.getText().toString();
+            tokenAPI.signIn(username, password, new TaskAPI<String>() {
+                @Override
+                public void onSuccess(String token) {
+                    // save the token
+                    SharedPreferences.Editor editor = sharedPreferences.edit();
+                    editor.putString("token", token);
+                    editor.putString("username", username);
+                    editor.apply();
 
-            if (!isCorrectPass || !isCorrectUsername) {
-                Toast.makeText(this, "Incorrect username or password, please try again!", Toast.LENGTH_SHORT).show();
-            } else {
-                //clean the table"
-                appDB.tokenDao().deleteToken();
+                    // go to the main activity
+                    Intent intent = new Intent(SignInActivity.this, ChatActivity.class);
+                    startActivity(intent);
+                }
 
-                //adding new token
-                appDB.tokenDao().insert(new Token("demo token", username.getText().toString()));
-                // Navigate to the login activity
-                Intent intent = new Intent(this, ChatActivity.class);
-                startActivity(intent);
-                finish();
-            }
+                @Override
+                public void onFailure(String message) {
+                    Toast.makeText(SignInActivity.this, message, Toast.LENGTH_SHORT).show();
+                }
+            });
         });
 
         btnSettings.setOnClickListener(v -> {
@@ -87,5 +122,15 @@ public class SignInActivity extends AppCompatActivity {
 
 
 
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        sharedPreferences = getSharedPreferences("chatSystem", MODE_PRIVATE);
+        String ip = sharedPreferences.getString("ip", "http://10.0.2.2:5000/");
+        if(tokenAPI != null) {
+            tokenAPI.setIp(ip);
+        }
     }
 }

@@ -30,6 +30,7 @@ drawable ic_google
 drawable ic_launcher_background
 drawable ic_launcher_foreground
 drawable ic_lock
+drawable ic_name
 drawable ic_pass
 drawable ic_profile_icon
 drawable ic_settings
@@ -51,6 +52,7 @@ drawable w4
 id appBarLayout
 id backArrow
 id btnAddPicture
+id btnSaveServerIp
 id btnSettings
 id btnSignIn
 id btnSignUp
@@ -82,6 +84,7 @@ id signInChatLogo
 id signInEtPassword
 id signInEtUsername
 id signUpConfirmPassword
+id signUpDisplayName
 id signUpDisplayPicture
 id signUpPassword
 id signUpUsername
@@ -89,6 +92,7 @@ id tVAlreadyHaveAccount
 id tVClickSignUp
 id tabLayout
 id toolbar
+id userContactTime
 id userNameList
 id username
 id viewPager
@@ -114,6 +118,7 @@ string app_name
 string click_to_sign_up
 string confirm_password_sign_up
 string default_web_client_id
+string display_name
 string enter_server_ip
 string gcm_defaultSenderId
 string google_api_key

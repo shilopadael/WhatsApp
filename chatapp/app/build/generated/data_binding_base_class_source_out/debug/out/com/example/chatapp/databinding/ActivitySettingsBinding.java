@@ -4,9 +4,9 @@ package com.example.chatapp.databinding;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
-import android.widget.LinearLayout;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.constraintlayout.widget.ConstraintLayout;
@@ -22,20 +22,20 @@ public final class ActivitySettingsBinding implements ViewBinding {
   private final ConstraintLayout rootView;
 
   @NonNull
-  public final EditText eTSetServerIp;
+  public final Button btnSaveServerIp;
 
   @NonNull
-  public final LinearLayout linearLayout;
+  public final EditText eTSetServerIp;
 
   @NonNull
   public final ImageView signInChatLogo;
 
   private ActivitySettingsBinding(@NonNull ConstraintLayout rootView,
-      @NonNull EditText eTSetServerIp, @NonNull LinearLayout linearLayout,
+      @NonNull Button btnSaveServerIp, @NonNull EditText eTSetServerIp,
       @NonNull ImageView signInChatLogo) {
     this.rootView = rootView;
+    this.btnSaveServerIp = btnSaveServerIp;
     this.eTSetServerIp = eTSetServerIp;
-    this.linearLayout = linearLayout;
     this.signInChatLogo = signInChatLogo;
   }
 
@@ -66,15 +66,15 @@ public final class ActivitySettingsBinding implements ViewBinding {
     // This is done to optimize the compiled bytecode for size and performance.
     int id;
     missingId: {
-      id = R.id.eTSetServerIp;
-      EditText eTSetServerIp = ViewBindings.findChildViewById(rootView, id);
-      if (eTSetServerIp == null) {
+      id = R.id.btnSaveServerIp;
+      Button btnSaveServerIp = ViewBindings.findChildViewById(rootView, id);
+      if (btnSaveServerIp == null) {
         break missingId;
       }
 
-      id = R.id.linearLayout;
-      LinearLayout linearLayout = ViewBindings.findChildViewById(rootView, id);
-      if (linearLayout == null) {
+      id = R.id.eTSetServerIp;
+      EditText eTSetServerIp = ViewBindings.findChildViewById(rootView, id);
+      if (eTSetServerIp == null) {
         break missingId;
       }
 
@@ -84,8 +84,8 @@ public final class ActivitySettingsBinding implements ViewBinding {
         break missingId;
       }
 
-      return new ActivitySettingsBinding((ConstraintLayout) rootView, eTSetServerIp, linearLayout,
-          signInChatLogo);
+      return new ActivitySettingsBinding((ConstraintLayout) rootView, btnSaveServerIp,
+          eTSetServerIp, signInChatLogo);
     }
     String missingId = rootView.getResources().getResourceName(id);
     throw new NullPointerException("Missing required view with ID: ".concat(missingId));

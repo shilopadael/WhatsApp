@@ -13,4 +13,5 @@
     <string name="enter_server_ip">Enter Server Ip</string>
     <string name="save_server_ip_btn">SAVE</string>
     <string name="BaseUrl">10.0.2.2/api/</string>
+    <string name="display_name">display name</string>
 </resources>

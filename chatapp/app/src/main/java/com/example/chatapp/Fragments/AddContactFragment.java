@@ -25,7 +25,7 @@ import com.example.chatapp.databinding.FragmentAddContactBinding;
 
 /**
  * A simple {@link Fragment} subclass.
- * Use the {@link AddContactFragment#newInstance} factory method to
+ * Use the  factory method to
  * create an instance of this fragment.
  */
 public class AddContactFragment extends Fragment {
@@ -65,30 +65,30 @@ public class AddContactFragment extends Fragment {
         EditText editTextName = binding.editTextName;
         Button buttonAddContact = binding.buttonAddContact;
 
-        buttonAddContact.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                String username = tokenDao.getToken().getUserName();
-
-                //TODO:: check i user exist /  reall will aske that contact from the server/!!!!!
-                User user = userDao.getUserByUsername(username);
-                if (user == null) {
-                    Toast.makeText(requireContext(), "No such user!", Toast.LENGTH_SHORT).show();
-                    return;
-                }else {
-                    //add contacts
-                    contactDao.insert(new Contact(editTextName.getText().toString(), null, user.getId()));
-
-                    // Check if the listener is set and call the callback method
-                    if (contactAddedListener != null) {
-                        contactAddedListener.onContactAdded();
-                    }
-                }
-
-                FragmentManager fragmentManager = requireActivity().getSupportFragmentManager();
-                fragmentManager.beginTransaction().remove(AddContactFragment.this).commit();
-            }
-        });
+//        buttonAddContact.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                String username = tokenDao.getToken().getUserName();
+//
+//                //TODO:: check i user exist /  reall will aske that contact from the server/!!!!!
+//                User user = userDao.getUserByUsername(username);
+//                if (user == null) {
+//                    Toast.makeText(requireContext(), "No such user!", Toast.LENGTH_SHORT).show();
+//                    return;
+//                }else {
+//                    //add contacts
+//                    contactDao.insert(new Contact(editTextName.getText().toString(), null, user.getId()));
+//
+//                    // Check if the listener is set and call the callback method
+//                    if (contactAddedListener != null) {
+//                        contactAddedListener.onContactAdded();
+//                    }
+//                }
+//
+//                FragmentManager fragmentManager = requireActivity().getSupportFragmentManager();
+//                fragmentManager.beginTransaction().remove(AddContactFragment.this).commit();
+//            }
+//        });
 
 
 

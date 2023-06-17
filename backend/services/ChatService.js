@@ -42,7 +42,8 @@ const getChats = async (req, res) => {
 
 
           const content = await findLastMessage(NOJchat);
-          console.log(content);
+          const populate = await Message.populate(content, { path: 'sender' });
+          console.log(populate);
           //wait for sure that  content got his data from db
 
           let chatToAdd = {
@@ -52,7 +53,7 @@ const getChats = async (req, res) => {
               profilePic: otherUserDetails.profilePic,
               displayName: otherUserDetails.displayName
             },
-            lastMessage: content
+            lastMessage: populate
           };
 
           listOfChats.push(chatToAdd);
