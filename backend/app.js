@@ -86,14 +86,14 @@ io.on('connection', (socket) => {
     });
 
     socket.on('alert', (data) => {
-        const user = users.find(user => user.username === data.receiverUsername);
+        const user = onlineUsers.getOnlineUser(data.receiverUsername);
         if (user) {
             io.to(user.id).emit('alert', data);
         }
     });
 
     socket.on('adding-contact', (data) => {
-        const user = users.find(user => user.username === data.username);
+        const user = onlineUsers.getOnlineUser(data.username);
         // console.log("sending update-contact-list to ");
         if (user && user.id !== null) {
             io.to(user.id).emit('update-contact-list', data);
@@ -101,7 +101,7 @@ io.on('connection', (socket) => {
     })
 
     socket.on('remove-contact', (data) => {
-        const user = users.find(user => user.username === data.username);
+        const user = onlineUsers.getOnlineUser(data.username);
         if (user && user.id !== null) {
             io.to(user.id).emit('update-contact-list', data);
         }

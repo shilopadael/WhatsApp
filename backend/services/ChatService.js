@@ -26,6 +26,7 @@ const getChats = async (req, res) => {
       for (const chat of allChats.chats) {
         //find the specific chat
         const NOJchat = await Chats.findOne({ _id: chat });
+        console.log("NOJchat ", NOJchat);
 
         let otherUser;
 
@@ -36,6 +37,8 @@ const getChats = async (req, res) => {
             break; // Found the other user, no need to continue the loop
           }
         }
+
+        console.log("other user " , otherUser);
 
         if (otherUser) {
           const otherUserDetails = await User.findOne({ username: otherUser.username });
@@ -54,11 +57,14 @@ const getChats = async (req, res) => {
             },
             lastMessage: populate
           };
+          console.log("chatToAdd ",  chatToAdd);
 
           listOfChats.push(chatToAdd);
         }
 
       }
+
+      console.log("all chat to add " , listOfChats);
 
       return listOfChats;
     }
@@ -119,12 +125,16 @@ const addChat = async (req, res) => {
     //all chats in system
     const chat = await Chats.find({});
     const id = generateNewId(chat);
-    const newChat = new Chats({
+    let data = {
       id: id,
-      user: [userToAdd._id, userPassName2._id],
+      users: [userToAdd._id, userPassName2._id],
       messages: []
-    });
+    }
+    const newChat = new Chats(data);
 
+    console.log(data)
+    console.log('userToAdd ', userToAdd);
+    console.log('userPassName2 ', userPassName2);
     await newChat.save();
 
 

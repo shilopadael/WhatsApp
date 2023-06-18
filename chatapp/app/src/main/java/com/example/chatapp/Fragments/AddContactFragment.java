@@ -18,6 +18,8 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.example.chatapp.Adapter.ChatAdapter;
+import com.example.chatapp.Adapter.UsersAdapter;
 import com.example.chatapp.Api.ChatAPI;
 import com.example.chatapp.Api.TaskAPI;
 import com.example.chatapp.Listeners.OnContactAddedListener;
@@ -30,6 +32,7 @@ import com.example.chatapp.Models.UserEntity.UserDao;
 import com.example.chatapp.Schemes.Chats.AddContactResponeScheme;
 import com.example.chatapp.databinding.FragmentAddContactBinding;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -41,6 +44,7 @@ public class AddContactFragment extends Fragment {
 
     public OnContactAddedListener contactAddedListener;
     private FragmentAddContactBinding binding;
+    private UsersAdapter adapter;
 
     private AppDB appDB;
     private SharedPreferences sharedPreferences;
@@ -97,14 +101,11 @@ public class AddContactFragment extends Fragment {
                         String profilePic = addContactResponeScheme.getUser().getProfilePic();
                         int id = addContactResponeScheme.getId();
 
-                        Contact newContact = new Contact(username, "", "", profilePic, displayName, id);
+                        Contact newContact = new Contact(username, "", "No Message Yet", profilePic, displayName, id);
                         contactDao.insert(newContact);
                         List<Contact> contacts = contactDao.index();
-
-                        for(Contact contact : contacts){
-                            Log.i(TAG, "onSuccess: " + contact.getDisplayName());
-                        }
-
+                        ArrayList<Contact> temp = new ArrayList<>(contacts);
+                        adapter.setList(temp);
                         FragmentManager fragmentManager = requireActivity().getSupportFragmentManager();
                         fragmentManager.beginTransaction().remove(AddContactFragment.this).commit();
                     }
@@ -125,5 +126,9 @@ public class AddContactFragment extends Fragment {
     public void onDestroyView() {
         super.onDestroyView();
         binding = null;
+    }
+
+    public void setAdapter(UsersAdapter adapter) {
+        this.adapter = adapter;
     }
 }

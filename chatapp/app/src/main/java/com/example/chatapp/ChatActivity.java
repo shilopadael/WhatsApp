@@ -84,6 +84,7 @@ public class ChatActivity extends AppCompatActivity implements OnContactAddedLis
         popupMenu.getMenuInflater().inflate(R.menu.popup_menu, popupMenu.getMenu());
         AddContactFragment addContactFragment = new AddContactFragment();
         addContactFragment.setOnContactAddedListener(this);
+        addContactFragment.setAdapter(this.adapter);
         popupMenu.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
 
             @Override
@@ -98,7 +99,6 @@ public class ChatActivity extends AppCompatActivity implements OnContactAddedLis
                             .replace(R.id.fragment_container, addContactFragment)
                             .addToBackStack(null)
                             .commit();
-                    adapter.notifyDataSetChanged();
                     return true;
                 }
                 return false;

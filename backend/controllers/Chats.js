@@ -11,6 +11,13 @@ const getChat = async (req, res) => {
         // let deviceType = req.headers['devicetype'];
         let chats;
         chats = chat.map(chat => {
+            if(chat.lastMessage == null) {
+                return {
+                    id: chat.id,
+                    user: chat.user,
+                    lastMessage: null
+                }
+            }
             return {
                 id: chat.id,
                 user: chat.user,
