@@ -1,5 +1,8 @@
 package com.example.chatapp.Fragments;
 
+import static android.content.ContentValues.TAG;
+
+import android.content.SharedPreferences;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -7,6 +10,7 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.room.Room;
 
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -14,6 +18,8 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.example.chatapp.Api.ChatAPI;
+import com.example.chatapp.Api.TaskAPI;
 import com.example.chatapp.Listeners.OnContactAddedListener;
 import com.example.chatapp.Models.AppDB;
 import com.example.chatapp.Models.ContactEntity.Contact;
@@ -21,7 +27,10 @@ import com.example.chatapp.Models.ContactEntity.ContactDao;
 import com.example.chatapp.Models.TokenEntity.TokenDao;
 import com.example.chatapp.Models.UserEntity.User;
 import com.example.chatapp.Models.UserEntity.UserDao;
+import com.example.chatapp.Schemes.Chats.AddContactResponeScheme;
 import com.example.chatapp.databinding.FragmentAddContactBinding;
+
+import java.util.List;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -34,9 +43,9 @@ public class AddContactFragment extends Fragment {
     private FragmentAddContactBinding binding;
 
     private AppDB appDB;
+    private SharedPreferences sharedPreferences;
 
-    private UserDao userDao;
-    private TokenDao tokenDao;
+    private ChatAPI chatAPI;
 
     private ContactDao contactDao;
 
@@ -53,42 +62,60 @@ public class AddContactFragment extends Fragment {
     public void onViewCreated(@NonNull View view, Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
-
+        sharedPreferences = requireActivity().getSharedPreferences("chatSystem", requireActivity().MODE_PRIVATE);
+        String currentUserName = sharedPreferences.getString("username", "#");
+        String ip = sharedPreferences.getString("ip", "http://10.0.2.2:5000/");
+        String token = sharedPreferences.getString("token", "#");
+        if(currentUserName.equals("#") || token.equals("#")){
+            // go to login
+            Toast.makeText(requireContext(), "Failed!", Toast.LENGTH_SHORT).show();
+            FragmentManager fragmentManager = requireActivity().getSupportFragmentManager();
+            fragmentManager.beginTransaction().remove(AddContactFragment.this).commit();
+            return;
+        }
         //creating the DataBase
-        appDB = Room.databaseBuilder(requireContext(), AppDB.class,"Users2").
-                allowMainThreadQueries().build();
-        userDao = appDB.userDao();
-        tokenDao = appDB.tokenDao();
+        appDB = Room.databaseBuilder(requireContext(), AppDB.class, currentUserName)
+                .fallbackToDestructiveMigration()
+                .allowMainThreadQueries().build();
         contactDao = appDB.contactsDao();
 
+        chatAPI = new ChatAPI(ip, token);
 
         EditText editTextName = binding.editTextName;
         Button buttonAddContact = binding.buttonAddContact;
 
-//        buttonAddContact.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                String username = tokenDao.getToken().getUserName();
-//
-//                //TODO:: check i user exist /  reall will aske that contact from the server/!!!!!
-//                User user = userDao.getUserByUsername(username);
-//                if (user == null) {
-//                    Toast.makeText(requireContext(), "No such user!", Toast.LENGTH_SHORT).show();
-//                    return;
-//                }else {
-//                    //add contacts
-//                    contactDao.insert(new Contact(editTextName.getText().toString(), null, user.getId()));
-//
-//                    // Check if the listener is set and call the callback method
-//                    if (contactAddedListener != null) {
-//                        contactAddedListener.onContactAdded();
-//                    }
-//                }
-//
-//                FragmentManager fragmentManager = requireActivity().getSupportFragmentManager();
-//                fragmentManager.beginTransaction().remove(AddContactFragment.this).commit();
-//            }
-//        });
+        buttonAddContact.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                chatAPI.addNewContact(editTextName.getText().toString(), new TaskAPI<AddContactResponeScheme>() {
+                    @Override
+                    public void onSuccess(AddContactResponeScheme addContactResponeScheme) {
+                        // updating the contact list
+                        String username = addContactResponeScheme.getUser().getUsername();
+                        String displayName = addContactResponeScheme.getUser().getDisplayName();
+                        String profilePic = addContactResponeScheme.getUser().getProfilePic();
+                        int id = addContactResponeScheme.getId();
+
+                        Contact newContact = new Contact(username, "", "", profilePic, displayName, id);
+                        contactDao.insert(newContact);
+                        List<Contact> contacts = contactDao.index();
+
+                        for(Contact contact : contacts){
+                            Log.i(TAG, "onSuccess: " + contact.getDisplayName());
+                        }
+
+                        FragmentManager fragmentManager = requireActivity().getSupportFragmentManager();
+                        fragmentManager.beginTransaction().remove(AddContactFragment.this).commit();
+                    }
+
+                    @Override
+                    public void onFailure(String message) {
+                        Toast.makeText(requireContext(), message, Toast.LENGTH_SHORT).show();
+                    }
+                });
+            }
+        });
 
 
 

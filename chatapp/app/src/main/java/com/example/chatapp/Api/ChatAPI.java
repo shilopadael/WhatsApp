@@ -1,8 +1,18 @@
 package com.example.chatapp.Api;
 
+import com.example.chatapp.Adapter.CustomDateAdapter;
 import com.example.chatapp.R;
 import com.example.chatapp.Schemes.Chat;
+import com.example.chatapp.Schemes.Chats.AddContactResponeScheme;
+import com.example.chatapp.Schemes.Chats.AddContactScheme;
+import com.example.chatapp.Schemes.Chats.GetChatsScheme;
+import com.example.chatapp.Schemes.Message;
+import com.example.chatapp.Schemes.Messages.GetMessagesScheme;
+import com.example.chatapp.Schemes.Messages.MessageToSend;
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
 
+import java.util.Date;
 import java.util.List;
 import java.util.concurrent.TimeUnit;
 
@@ -20,21 +30,26 @@ public class ChatAPI {
     private String token;
     private String bearerToken;
     private String ip;
+    private OkHttpClient client;
+    Gson gson;
 
     public ChatAPI(String ip, String token) {
         this.ip = ip;
         this.token = token;
         this.bearerToken = "Bearer " + token;
+        this.gson = new GsonBuilder()
+                .registerTypeAdapter(Date.class, new CustomDateAdapter())
+                .create();
         try {
-            OkHttpClient client = new OkHttpClient.Builder()
+            this.client = new OkHttpClient.Builder()
                     .connectTimeout(30, TimeUnit.SECONDS) // Adjust the timeout duration as needed
                     .readTimeout(30, TimeUnit.SECONDS)
                     .writeTimeout(30, TimeUnit.SECONDS)
                     .build();
             retrofit = new Retrofit.Builder()
-                    .client(client)
+                    .client(this.client)
                     .baseUrl(String.valueOf(this.ip))
-                    .addConverterFactory(GsonConverterFactory.create()).build();
+                    .addConverterFactory(GsonConverterFactory.create(this.gson)).build();
             service = retrofit.create(WebServiceAPI.class);
         } catch (Exception e) {
             e.printStackTrace();
@@ -43,16 +58,16 @@ public class ChatAPI {
         }
     }
 
-    public void getAllChat(TaskAPI<List<Chat>> taskAPI) {
+    public void getAllChat(TaskAPI<List<GetChatsScheme>> taskAPI) {
         if(service == null || retrofit == null) {
             // failed to get all chat
             return;
         }
 
         // sending get request
-        service.getChats(this.bearerToken, "Android").enqueue(new Callback<List<Chat>>() {
+        service.getChats(this.bearerToken, "Android").enqueue(new Callback<List<GetChatsScheme>>() {
             @Override
-            public void onResponse(Call<List<Chat>> call, Response<List<Chat>> response) {
+            public void onResponse(Call<List<GetChatsScheme>> call, Response<List<GetChatsScheme>> response) {
                 int status = response.raw().code();
                 if (status == 401) {
                     // failed to get all chat
@@ -64,14 +79,14 @@ public class ChatAPI {
                 else if(status == 404) {
                     // failed to get all chat
                 } else if(status == 200) {
-                    List<Chat> chats = response.body();
+                    List<GetChatsScheme> chats = response.body();
                     // success to get all chat
                     taskAPI.onSuccess(chats);
                 }
             }
 
             @Override
-            public void onFailure(Call<List<Chat>> call, Throwable t) {
+            public void onFailure(Call<List<GetChatsScheme>> call, Throwable t) {
                 // failed to get all chat
                 taskAPI.onFailure(t.getMessage());
             }
@@ -81,20 +96,103 @@ public class ChatAPI {
     public void setIp(String ip) {
         try {
             this.ip = ip;
-            OkHttpClient client = new OkHttpClient.Builder()
-                    .connectTimeout(30, TimeUnit.SECONDS) // Adjust the timeout duration as needed
-                    .readTimeout(30, TimeUnit.SECONDS)
-                    .writeTimeout(30, TimeUnit.SECONDS)
-                    .build();
             retrofit = new Retrofit.Builder()
-                    .client(client)
+                    .client(this.client)
                     .baseUrl(String.valueOf(this.ip))
-                    .addConverterFactory(GsonConverterFactory.create()).build();
+                    .addConverterFactory(GsonConverterFactory.create(this.gson)).build();
             service = retrofit.create(WebServiceAPI.class);
         } catch (Exception e) {
             e.printStackTrace();
             retrofit = null;
             service = null;
         }
+    }
+
+    public void getAllMessagesByChatId(int id, TaskAPI<List<GetMessagesScheme>> taskAPI) {
+        if(service == null || retrofit == null) {
+            // failed to get all chat
+            return;
+        }
+
+        service.getMessages(id, this.bearerToken).enqueue(new Callback<List<GetMessagesScheme>>() {
+            @Override
+            public void onResponse(Call<List<GetMessagesScheme>> call, Response<List<GetMessagesScheme>> response) {
+                int status = response.raw().code();
+                if (status == 401) {
+                    // failed to get all chat
+                } else if(status == 500) {
+                    // failed to get all chat
+                } else if(status == 400) {
+                    // failed to get all chat
+                }
+                else if(status == 404) {
+                    // failed to get all chat
+                } else if(status == 200) {
+                    List<GetMessagesScheme> messages = response.body();
+                    // success to get all chat
+                    taskAPI.onSuccess(messages);
+                }
+            }
+
+            @Override
+            public void onFailure(Call<List<GetMessagesScheme>> call, Throwable t) {
+                // failed to get all chat
+                taskAPI.onFailure(t.getMessage());
+            }
+        });
+    }
+
+    public void sendNewMessage(int chatId, String message ,TaskAPI<Message> taskAPI) {
+        if(service == null || retrofit == null) {
+            // failed to get all chat
+            return;
+        }
+        MessageToSend msg = new MessageToSend(message);
+        service.createMessage(chatId, msg, this.bearerToken).enqueue(new Callback<Message>() {
+            @Override
+            public void onResponse(Call<Message> call, Response<Message> response) {
+                int status = response.raw().code();
+                if(status != 200) {
+                    taskAPI.onFailure(response.message());
+                } else {
+                    Message msg = response.body();
+                    // success to get all chat
+                    taskAPI.onSuccess(msg);
+                }
+            }
+
+            @Override
+            public void onFailure(Call<Message> call, Throwable t) {
+                // failed to get all chat
+                taskAPI.onFailure(t.getMessage());
+            }
+        });
+    }
+
+    public void addNewContact(String username, TaskAPI<AddContactResponeScheme> taskAPI) {
+        if(service == null || retrofit == null) {
+            // failed to get all chat
+            return;
+        }
+        AddContactScheme contact = new AddContactScheme(username);
+        service.createChat(contact, this.bearerToken).enqueue(new Callback<AddContactResponeScheme>() {
+            @Override
+            public void onResponse(Call<AddContactResponeScheme> call, Response<AddContactResponeScheme> response) {
+                int status = response.raw().code();
+                if(status != 200) {
+                    taskAPI.onFailure(response.message());
+                } else {
+                    AddContactResponeScheme chat = response.body();
+                    // success to get all chat
+                    taskAPI.onSuccess(chat);
+                }
+            }
+
+            @Override
+            public void onFailure(Call<AddContactResponeScheme> call, Throwable t) {
+                // failed to get all chat
+                taskAPI.onFailure(t.getMessage());
+            }
+        });
     }
 }

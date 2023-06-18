@@ -3,6 +3,7 @@ package com.example.chatapp.Models.Convertors;
 import androidx.room.TypeConverter;
 import com.example.chatapp.Models.MessageEntity.Message;
 import com.example.chatapp.Models.UserEntity.User;
+import com.example.chatapp.Schemes.Messages.GetMessageSenderScheme;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 import java.lang.reflect.Type;
@@ -15,7 +16,7 @@ public class Converters {
     }
 
     @TypeConverter
-    public static String fromUser(User user) {
+    public static String fromUser(String user) {
         return new Gson().toJson(user);
     }
 

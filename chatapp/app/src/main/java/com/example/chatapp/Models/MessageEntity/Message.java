@@ -5,22 +5,27 @@ import androidx.room.Entity;
 import androidx.room.PrimaryKey;
 
 import com.example.chatapp.Models.UserEntity.User;
+import com.example.chatapp.Schemes.Messages.GetMessageSenderScheme;
 
 @Entity
 public class Message {
 
     @PrimaryKey(autoGenerate = true)
     int id;
-
     private String created;
-    private User sender;
+    int dbId;
+    private String sender;
     private String content;
 
-    public Message(int id, String created, User sender, String content) {
-        this.id = id;
+    public Message(int dbID, String created, String sender, String content) {
+        this.dbId = dbID;
         this.created = created;
         this.sender = sender;
         this.content = content;
+    }
+
+    public Message() {
+
     }
 
     public int getId() {
@@ -35,11 +40,11 @@ public class Message {
         this.created = created;
     }
 
-    public User getSender() {
+    public String getSender() {
         return sender;
     }
 
-    public void setSender(User sender) {
+    public void setSender(String sender) {
         this.sender = sender;
     }
 

@@ -6,6 +6,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
+import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.widget.Toolbar;
@@ -40,18 +41,23 @@ public final class ActivityChatBinding implements ViewBinding {
   public final SwipeRefreshLayout refreshLayout;
 
   @NonNull
+  public final TextView toolBarDisplayName;
+
+  @NonNull
   public final Toolbar toolbar;
 
   private ActivityChatBinding(@NonNull ConstraintLayout rootView,
       @NonNull AppBarLayout appBarLayout, @NonNull FrameLayout fragmentContainer,
       @NonNull ImageView imageView6, @NonNull RecyclerView lstUsers,
-      @NonNull SwipeRefreshLayout refreshLayout, @NonNull Toolbar toolbar) {
+      @NonNull SwipeRefreshLayout refreshLayout, @NonNull TextView toolBarDisplayName,
+      @NonNull Toolbar toolbar) {
     this.rootView = rootView;
     this.appBarLayout = appBarLayout;
     this.fragmentContainer = fragmentContainer;
     this.imageView6 = imageView6;
     this.lstUsers = lstUsers;
     this.refreshLayout = refreshLayout;
+    this.toolBarDisplayName = toolBarDisplayName;
     this.toolbar = toolbar;
   }
 
@@ -112,6 +118,12 @@ public final class ActivityChatBinding implements ViewBinding {
         break missingId;
       }
 
+      id = R.id.toolBarDisplayName;
+      TextView toolBarDisplayName = ViewBindings.findChildViewById(rootView, id);
+      if (toolBarDisplayName == null) {
+        break missingId;
+      }
+
       id = R.id.toolbar;
       Toolbar toolbar = ViewBindings.findChildViewById(rootView, id);
       if (toolbar == null) {
@@ -119,7 +131,7 @@ public final class ActivityChatBinding implements ViewBinding {
       }
 
       return new ActivityChatBinding((ConstraintLayout) rootView, appBarLayout, fragmentContainer,
-          imageView6, lstUsers, refreshLayout, toolbar);
+          imageView6, lstUsers, refreshLayout, toolBarDisplayName, toolbar);
     }
     String missingId = rootView.getResources().getResourceName(id);
     throw new NullPointerException("Missing required view with ID: ".concat(missingId));

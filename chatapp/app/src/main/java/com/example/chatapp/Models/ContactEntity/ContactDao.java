@@ -19,6 +19,9 @@ public interface ContactDao {
     @Query("SELECT * FROM Contact WHERE userId=:id")
     Contact get(int id);
 
+    @Query("SELECT * FROM Contact WHERE username=:username")
+    Contact getByUserName(String username);
+
     @Insert
     void insert(Contact...contacts);
 

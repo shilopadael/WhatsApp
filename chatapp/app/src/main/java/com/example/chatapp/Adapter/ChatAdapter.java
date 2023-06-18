@@ -1,6 +1,7 @@
 package com.example.chatapp.Adapter;
 
 import android.content.Context;
+import android.content.SharedPreferences;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -21,20 +22,25 @@ import com.example.chatapp.Models.UserEntity.UserDao;
 import com.example.chatapp.R;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class ChatAdapter extends  RecyclerView.Adapter{
 
-    ArrayList<Message> messages;
+    List<Message> messages;
+    String chatId;
     Context context;
     AppDB appDB;
-    TokenDao tokenDao;
+//    TokenDao tokenDao;
+    SharedPreferences sharedPreferences;
 
     int SENDER_VIEW_TYPE = 1;
     int RECEIVER_VIEW_TYPE = 2;
 
-    public ChatAdapter(ArrayList<Message> messages, Context context) {
+    public ChatAdapter(List<Message> messages, Context context, String chatId) {
         this.messages = messages;
         this.context = context;
+        this.chatId = chatId;
+        this.sharedPreferences = context.getSharedPreferences("chatSystem", Context.MODE_PRIVATE);
     }
 
     @NonNull
@@ -53,10 +59,10 @@ public class ChatAdapter extends  RecyclerView.Adapter{
 
     @Override
     public int getItemViewType(int position) {
-        appDB = Room.databaseBuilder(context, AppDB.class,"Users2").
+        appDB = Room.databaseBuilder(context, AppDB.class,this.chatId).
                 allowMainThreadQueries().build();
-        tokenDao = appDB.tokenDao();
-        if (messages.get(position).getSender().getUsername().equals(tokenDao.getToken().getUserName())){
+        String username = sharedPreferences.getString("username", "#");
+        if (messages.get(position).getSender().equals(username)){
             return SENDER_VIEW_TYPE;
         }
         else {
@@ -72,8 +78,10 @@ public class ChatAdapter extends  RecyclerView.Adapter{
 
         if (holder.getClass() == SenderViewHolder.class) {
             ((SenderViewHolder) holder).senderMsg.setText(message.getContent());
+            ((SenderViewHolder) holder).senderTime.setText(message.getCreated());
         } else {
             ((RecieverViewHolder)holder).receiverMsg.setText(message.getContent());
+            ((RecieverViewHolder)holder).receiverTime.setText(message.getCreated());
         }
 
 
@@ -84,7 +92,7 @@ public class ChatAdapter extends  RecyclerView.Adapter{
         return messages.size();
     }
 
-    public void setList(ArrayList<Message> list) {
+    public void setList(List<Message> list) {
         this.messages = list;
         notifyDataSetChanged();
     }

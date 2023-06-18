@@ -52,16 +52,16 @@ public final class AppDB_Impl extends AppDB {
 
   @Override
   protected SupportSQLiteOpenHelper createOpenHelper(DatabaseConfiguration configuration) {
-    final SupportSQLiteOpenHelper.Callback _openCallback = new RoomOpenHelper(configuration, new RoomOpenHelper.Delegate(1) {
+    final SupportSQLiteOpenHelper.Callback _openCallback = new RoomOpenHelper(configuration, new RoomOpenHelper.Delegate(4) {
       @Override
       public void createAllTables(SupportSQLiteDatabase _db) {
-        _db.execSQL("CREATE TABLE IF NOT EXISTS `Contact` (`username` TEXT, `lastMessage` TEXT, `lastMessageTime` TEXT, `userId` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `profilePic` INTEGER NOT NULL, `id` INTEGER NOT NULL)");
+        _db.execSQL("CREATE TABLE IF NOT EXISTS `Contact` (`userId` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `username` TEXT, `lastMessage` TEXT, `lastMessageTime` TEXT, `profilePicBase64` TEXT, `displayName` TEXT, `profilePic` INTEGER NOT NULL, `id` INTEGER NOT NULL)");
         _db.execSQL("CREATE TABLE IF NOT EXISTS `Token` (`id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `token` TEXT, `userName` TEXT)");
         _db.execSQL("CREATE TABLE IF NOT EXISTS `User` (`id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `username` TEXT, `password` TEXT)");
-        _db.execSQL("CREATE TABLE IF NOT EXISTS `Message` (`id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `created` TEXT, `sender` TEXT, `content` TEXT)");
+        _db.execSQL("CREATE TABLE IF NOT EXISTS `Message` (`id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `created` TEXT, `dbId` INTEGER NOT NULL, `sender` TEXT, `content` TEXT)");
         _db.execSQL("CREATE TABLE IF NOT EXISTS `Chats` (`id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `users` TEXT, `messages` TEXT)");
         _db.execSQL("CREATE TABLE IF NOT EXISTS room_master_table (id INTEGER PRIMARY KEY,identity_hash TEXT)");
-        _db.execSQL("INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, '7d9034a2bdc8cc2fbd49d48ca4ff9047')");
+        _db.execSQL("INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, '8886eafbba79acc28a5efb891045c292')");
       }
 
       @Override
@@ -109,11 +109,13 @@ public final class AppDB_Impl extends AppDB {
 
       @Override
       protected RoomOpenHelper.ValidationResult onValidateSchema(SupportSQLiteDatabase _db) {
-        final HashMap<String, TableInfo.Column> _columnsContact = new HashMap<String, TableInfo.Column>(6);
+        final HashMap<String, TableInfo.Column> _columnsContact = new HashMap<String, TableInfo.Column>(8);
+        _columnsContact.put("userId", new TableInfo.Column("userId", "INTEGER", true, 1, null, TableInfo.CREATED_FROM_ENTITY));
         _columnsContact.put("username", new TableInfo.Column("username", "TEXT", false, 0, null, TableInfo.CREATED_FROM_ENTITY));
         _columnsContact.put("lastMessage", new TableInfo.Column("lastMessage", "TEXT", false, 0, null, TableInfo.CREATED_FROM_ENTITY));
         _columnsContact.put("lastMessageTime", new TableInfo.Column("lastMessageTime", "TEXT", false, 0, null, TableInfo.CREATED_FROM_ENTITY));
-        _columnsContact.put("userId", new TableInfo.Column("userId", "INTEGER", true, 1, null, TableInfo.CREATED_FROM_ENTITY));
+        _columnsContact.put("profilePicBase64", new TableInfo.Column("profilePicBase64", "TEXT", false, 0, null, TableInfo.CREATED_FROM_ENTITY));
+        _columnsContact.put("displayName", new TableInfo.Column("displayName", "TEXT", false, 0, null, TableInfo.CREATED_FROM_ENTITY));
         _columnsContact.put("profilePic", new TableInfo.Column("profilePic", "INTEGER", true, 0, null, TableInfo.CREATED_FROM_ENTITY));
         _columnsContact.put("id", new TableInfo.Column("id", "INTEGER", true, 0, null, TableInfo.CREATED_FROM_ENTITY));
         final HashSet<TableInfo.ForeignKey> _foreignKeysContact = new HashSet<TableInfo.ForeignKey>(0);
@@ -151,9 +153,10 @@ public final class AppDB_Impl extends AppDB {
                   + " Expected:\n" + _infoUser + "\n"
                   + " Found:\n" + _existingUser);
         }
-        final HashMap<String, TableInfo.Column> _columnsMessage = new HashMap<String, TableInfo.Column>(4);
+        final HashMap<String, TableInfo.Column> _columnsMessage = new HashMap<String, TableInfo.Column>(5);
         _columnsMessage.put("id", new TableInfo.Column("id", "INTEGER", true, 1, null, TableInfo.CREATED_FROM_ENTITY));
         _columnsMessage.put("created", new TableInfo.Column("created", "TEXT", false, 0, null, TableInfo.CREATED_FROM_ENTITY));
+        _columnsMessage.put("dbId", new TableInfo.Column("dbId", "INTEGER", true, 0, null, TableInfo.CREATED_FROM_ENTITY));
         _columnsMessage.put("sender", new TableInfo.Column("sender", "TEXT", false, 0, null, TableInfo.CREATED_FROM_ENTITY));
         _columnsMessage.put("content", new TableInfo.Column("content", "TEXT", false, 0, null, TableInfo.CREATED_FROM_ENTITY));
         final HashSet<TableInfo.ForeignKey> _foreignKeysMessage = new HashSet<TableInfo.ForeignKey>(0);
@@ -180,7 +183,7 @@ public final class AppDB_Impl extends AppDB {
         }
         return new RoomOpenHelper.ValidationResult(true, null);
       }
-    }, "7d9034a2bdc8cc2fbd49d48ca4ff9047", "8cb0bb23f61339637444abfae683ef00");
+    }, "8886eafbba79acc28a5efb891045c292", "1d1f97da98f4fa49f603c1097717113a");
     final SupportSQLiteOpenHelper.Configuration _sqliteConfig = SupportSQLiteOpenHelper.Configuration.builder(configuration.context)
         .name(configuration.name)
         .callback(_openCallback)

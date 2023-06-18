@@ -55,7 +55,7 @@ public class SignUpActivity extends AppCompatActivity {
         setContentView(binding.getRoot());
         getSupportActionBar().hide();
         sharedPreferences = getSharedPreferences("chatSystem", MODE_PRIVATE);
-        String ip = sharedPreferences.getString("ip", "http://10.0.2.2:5000");
+        String ip = sharedPreferences.getString("ip", "http://10.0.2.2:5000/");
         userAPI = new UserAPI(ip);
 
 
@@ -167,7 +167,7 @@ public class SignUpActivity extends AppCompatActivity {
     protected void onResume() {
         super.onResume();
         sharedPreferences = getSharedPreferences("chatSystem", MODE_PRIVATE);
-        String ip = sharedPreferences.getString("ip", "");
+        String ip = sharedPreferences.getString("ip", "http://10.0.2.2:5000/");
         userAPI = new UserAPI(ip);
     }
 

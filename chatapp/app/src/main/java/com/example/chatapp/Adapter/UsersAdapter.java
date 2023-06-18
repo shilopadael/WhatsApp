@@ -2,6 +2,9 @@ package com.example.chatapp.Adapter;
 
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.net.Uri;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -12,6 +15,8 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.room.Room;
 
+import com.bumptech.glide.Glide;
+import com.bumptech.glide.request.RequestOptions;
 import com.example.chatapp.ChatDetailActivity;
 //import com.example.chatapp.Models.AllChatsEntity.AllChatsDao;
 import com.example.chatapp.Models.AppDB;
@@ -22,6 +27,7 @@ import com.example.chatapp.Schemes.Chat;
 import com.example.chatapp.SignInActivity;
 
 import java.util.ArrayList;
+import android.util.Base64;
 
 public class UsersAdapter extends RecyclerView.Adapter<UsersAdapter.ViewHolder>{
 
@@ -54,14 +60,24 @@ public class UsersAdapter extends RecyclerView.Adapter<UsersAdapter.ViewHolder>{
             Contact current = list.get(position);
             holder.userName.setText(current.getUsername());
             holder.lastMessage.setText(current.getLastMessage());
-            holder.image.setImageResource(current.getProfilePic());
+            String img = current.getProfilePicBase64();
+            String base64ImageData = img.substring(img.indexOf(",") + 1);
+            byte[] imageBytes = Base64.decode(base64ImageData, Base64.DEFAULT);
+            Bitmap bitmap = BitmapFactory.decodeByteArray(imageBytes, 0, imageBytes.length);
+            RequestOptions requestOptions = RequestOptions.circleCropTransform();
+            Glide.with(context)
+                    .load(bitmap)
+                    .apply(requestOptions)
+                    .into(holder.image);
             holder.time.setText(current.getLastMessageTime());
-
+            holder.image.setImageBitmap(bitmap);
+            int chatId = current.getId();
             holder.itemView.setOnClickListener(v -> {
                 Intent intent = new Intent(context, ChatDetailActivity.class);
-                intent.putExtra("username", current.getUsername()); // Pass the selected user to the ChatDetailActivity
-                intent.putExtra("profilePic", current.getProfilePic());
-                intent.putExtra("userId", current.getUserId());
+                intent.putExtra("displayName", current.getDisplayName()); // Pass the selected user to the ChatDetailActivity
+                intent.putExtra("username", current.getUsername()); // Pass the username to the ChatDetailActivity
+                intent.putExtra("chatId", chatId);
+                intent.putExtra("profilePic", current.getProfilePicBase64());
 
                 //check if there a chat open already if not create new one for that user
 

@@ -3071,6 +3071,7 @@ id title
 id titleDividerNoCustom
 id title_template
 id toggle
+id toolBarDisplayName
 id toolbar
 id top
 id topPanel

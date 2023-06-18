@@ -1,6 +1,7 @@
 package com.example.chatapp.Models.ContactEntity;
 
 
+import androidx.room.ColumnInfo;
 import androidx.room.Entity;
 import androidx.room.PrimaryKey;
 
@@ -8,11 +9,13 @@ import com.example.chatapp.R;
 
 @Entity
 public class Contact {
-    
 
-    String username, lastMessage, lastMessageTime;
+
     @PrimaryKey(autoGenerate = true)
     int userId;
+    @ColumnInfo(name = "username")
+    String username;
+    String lastMessage, lastMessageTime, profilePicBase64, displayName;
 
     int profilePic, id;
 
@@ -20,17 +23,24 @@ public class Contact {
 
     }
 
-    public Contact(String username, String lastMessage, int profilePic, int id, String lastMessageTime) {
-        this.username = username;
-        this.lastMessage = lastMessage;
-        this.profilePic = profilePic;
-        this.id = id;
-        this.lastMessageTime = lastMessageTime;
-    }
-    public Contact(String username, String lastMessage, int id, String lastMessageTime) {
-        this(username, lastMessage, R.drawable.avatar, id, lastMessageTime); // Set default id value to 0
-    }
 
+    public Contact(String username,
+                   String lastMessage,
+                   String lastMessageTime,
+                   String profilePicBase64,
+                     String displayName,
+                   int id) {
+        this.id = id;
+        this.username = username;
+        if(lastMessage.length() > 20) {
+            this.lastMessage = lastMessage.substring(0, 20) + "...";
+        } else {
+            this.lastMessage = lastMessage;
+        }
+        this.lastMessageTime = lastMessageTime;
+        this.profilePicBase64 = profilePicBase64;
+        this.displayName = displayName;
+    }
 
     public String getUsername() {
         return username;
@@ -38,6 +48,14 @@ public class Contact {
 
     public void setUsername(String username) {
         this.username = username;
+    }
+
+    public String getDisplayName() {
+        return displayName;
+    }
+
+    public void setDisplayName(String displayName) {
+        this.displayName = displayName;
     }
 
     public String getLastMessage() {
@@ -73,7 +91,16 @@ public class Contact {
         this.lastMessageTime = lastMessageTime;
     }
 
+    public String getProfilePicBase64() {
+        return profilePicBase64;
+    }
+
+    public void setProfilePicBase64(String profilePicBase64) {
+        this.profilePicBase64 = profilePicBase64;
+    }
+
     public void setId(int id) {
         this.id = id;
     }
+
 }

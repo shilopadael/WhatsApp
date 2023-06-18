@@ -91,6 +91,7 @@ id signUpUsername
 id tVAlreadyHaveAccount
 id tVClickSignUp
 id tabLayout
+id toolBarDisplayName
 id toolbar
 id userContactTime
 id userNameList

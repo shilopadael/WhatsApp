@@ -17,18 +17,18 @@ const getChat = async (req, res) => {
                 lastMessage: {
                     id: chat.lastMessage.id,
                     created: chat.lastMessage.created,
-                    sender: chat.lastMessage.sender,
                     content: chat.lastMessage.content
                 }
             }
         });
-
         res.status(200).json(chats);
     }
 }
 
 const addChat = async (req, res) => {
     const chat = await chatService.addChat(req);
+    console.log(req.body);
+    console.log(chat);
     if (chat.error) {
         res.status(400).json(chat.error);
     }
@@ -58,6 +58,16 @@ const deleteChatById = async (req, res) => {
 }
 
 const getMessages = async (req, res) => {
+    // [
+    //     {
+    //       "id": 76,
+    //       "created": "2023-06-18T01:12:26.5124551",
+    //       "sender": {
+    //         "username": "omer5"
+    //       },
+    //       "content": "dasdasD"
+    //     }
+    //   ]
     const messages = await chatService.getMessages(req);
     if (messages.error) {
         res.status(400).json(messages);

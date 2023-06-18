@@ -41,7 +41,8 @@
             android:exported="false" />
         <activity
             android:name="com.example.chatapp.ChatDetailActivity"
-            android:exported="true" />
+            android:exported="true"
+            android:windowSoftInputMode="adjustResize" />
         <activity
             android:name="com.example.chatapp.ChatActivity"
             android:exported="true" >

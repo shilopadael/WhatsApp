@@ -16,6 +16,10 @@ public interface MessageDao {
     @Insert
     void insert(Message message);
 
+    // DELETE ALL
+    @Query("DELETE FROM message")
+    void deleteAll();
+
     // Add other necessary methods for updating, deleting, or querying messages
 
 }

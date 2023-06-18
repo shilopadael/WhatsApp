@@ -43,7 +43,6 @@ const getChats = async (req, res) => {
 
           const content = await findLastMessage(NOJchat);
           const populate = await Message.populate(content, { path: 'sender' });
-          console.log(populate);
           //wait for sure that  content got his data from db
 
           let chatToAdd = {
@@ -101,21 +100,19 @@ const addChat = async (req, res) => {
 
     //check if that user already have an open chat with the user he want to chat with
     const alreadyWithChat = await AllChats.findOne({ username: req.body.username });
+    console.log(alreadyWithChat);
 
     if (alreadyWithChat) {
       for (const chat of alreadyWithChat.chats) {
         let reallChat = await Chats.findOne({ _id: chat });
         for (const user of reallChat.users) {
           const userInChat = await User.findOne({ _id: user });
-          if (userInChat.username === userToAdd.username) {
+          if (userInChat.username === thisUser) {
             return { error: 'Chat already exists' };
           }
         }
       }
     }
-
-
-
 
     const userPassName2 = await User.findOne({ username: thisUser });
 
@@ -124,7 +121,7 @@ const addChat = async (req, res) => {
     const id = generateNewId(chat);
     const newChat = new Chats({
       id: id,
-      users: [userToAdd._id, userPassName2._id],
+      user: [userToAdd._id, userPassName2._id],
       messages: []
     });
 
@@ -175,21 +172,45 @@ const getChatById = async (req, res) => {
 
   //fins all the messages that conatin the user
 
-
-
   return newChat;
 
 
 }
 
 const getMessages = async (req, res) => {
+    // [
+    //     {
+    //       "id": 76,
+    //       "created": "2023-06-18T01:12:26.5124551",
+    //       "sender": {
+    //         "username": "omer5"
+    //       },
+    //       "content": "dasdasD"
+    //     }
+    //   ]
   const mesggesId = req.params.id;
   const username = getUserName(req);
 
   //get the chat by the id chat
   const chat = await Chats.findOne({ id: mesggesId });
-
-  return chat.messages;
+  if(chat !== null){
+    const chatMessages = await Message.populate(chat, { path: 'messages', populate: { path: 'sender' } });
+    const messages = chatMessages.messages;
+    let newMessages = messages.map(message => {
+      return {
+        id: message.id,
+        created: message.created,
+        sender: {
+          username: message.sender.username
+        },
+        content: message.content
+      }
+    });
+    console.log(newMessages);
+    return newMessages;
+  } else {
+    return { error: 'Chat does not exist' };
+  }
 }
 
 const addMessage = async (req, res) => {
