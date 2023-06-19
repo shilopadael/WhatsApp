@@ -10,11 +10,11 @@ public class User {
     @PrimaryKey(autoGenerate = true)
     int id;
     String username;
-    String password;
+    String token;
 
-    public User(String username, String password) {
+    public User(String username, String token) {
         this.username = username;
-        this.password = password;
+        this.token = token;
     }
 
     public String getUsername() {
@@ -29,11 +29,15 @@ public class User {
         return id;
     }
 
-    public String getPassword() {
-        return password;
+    public void setId(int id) {
+        this.id = id;
     }
 
-    public void setPassword(String password) {
-        this.password = password;
+    public String getToken() {
+        return token;
+    }
+
+    public void setToken(String token) {
+        this.token = token;
     }
 }

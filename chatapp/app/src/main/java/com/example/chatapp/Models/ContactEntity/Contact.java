@@ -32,7 +32,10 @@ public class Contact implements Comparable<Contact> {
     @ColumnInfo(name = "timestamp")
     Long lastMessageTimeStamp;
 
-    int profilePic, id;
+    int profilePic;
+
+    @ColumnInfo(name = "databaseId")
+    int id;
 
     public Contact() {
 

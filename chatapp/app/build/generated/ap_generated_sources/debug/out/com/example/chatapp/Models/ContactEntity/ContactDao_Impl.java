@@ -10,6 +10,7 @@ import androidx.room.util.CursorUtil;
 import androidx.room.util.DBUtil;
 import androidx.sqlite.db.SupportSQLiteStatement;
 import java.lang.Class;
+import java.lang.Integer;
 import java.lang.Override;
 import java.lang.String;
 import java.lang.SuppressWarnings;
@@ -36,7 +37,7 @@ public final class ContactDao_Impl implements ContactDao {
     this.__insertionAdapterOfContact = new EntityInsertionAdapter<Contact>(__db) {
       @Override
       public String createQuery() {
-        return "INSERT OR ABORT INTO `Contact` (`userId`,`username`,`lastMessage`,`lastMessageTime`,`profilePicBase64`,`displayName`,`fullDate`,`timestamp`,`profilePic`,`id`) VALUES (nullif(?, 0),?,?,?,?,?,?,?,?,?)";
+        return "INSERT OR ABORT INTO `Contact` (`userId`,`username`,`lastMessage`,`lastMessageTime`,`profilePicBase64`,`displayName`,`fullDate`,`timestamp`,`profilePic`,`databaseId`) VALUES (nullif(?, 0),?,?,?,?,?,?,?,?,?)";
       }
 
       @Override
@@ -95,7 +96,7 @@ public final class ContactDao_Impl implements ContactDao {
     this.__updateAdapterOfContact = new EntityDeletionOrUpdateAdapter<Contact>(__db) {
       @Override
       public String createQuery() {
-        return "UPDATE OR ABORT `Contact` SET `userId` = ?,`username` = ?,`lastMessage` = ?,`lastMessageTime` = ?,`profilePicBase64` = ?,`displayName` = ?,`fullDate` = ?,`timestamp` = ?,`profilePic` = ?,`id` = ? WHERE `userId` = ?";
+        return "UPDATE OR ABORT `Contact` SET `userId` = ?,`username` = ?,`lastMessage` = ?,`lastMessageTime` = ?,`profilePicBase64` = ?,`displayName` = ?,`fullDate` = ?,`timestamp` = ?,`profilePic` = ?,`databaseId` = ? WHERE `userId` = ?";
       }
 
       @Override
@@ -252,7 +253,7 @@ public final class ContactDao_Impl implements ContactDao {
       final int _cursorIndexOfFullDate = CursorUtil.getColumnIndexOrThrow(_cursor, "fullDate");
       final int _cursorIndexOfLastMessageTimeStamp = CursorUtil.getColumnIndexOrThrow(_cursor, "timestamp");
       final int _cursorIndexOfProfilePic = CursorUtil.getColumnIndexOrThrow(_cursor, "profilePic");
-      final int _cursorIndexOfId = CursorUtil.getColumnIndexOrThrow(_cursor, "id");
+      final int _cursorIndexOfId = CursorUtil.getColumnIndexOrThrow(_cursor, "databaseId");
       final List<Contact> _result = new ArrayList<Contact>(_cursor.getCount());
       while(_cursor.moveToNext()) {
         final Contact _item;
@@ -334,7 +335,7 @@ public final class ContactDao_Impl implements ContactDao {
       final int _cursorIndexOfFullDate = CursorUtil.getColumnIndexOrThrow(_cursor, "fullDate");
       final int _cursorIndexOfLastMessageTimeStamp = CursorUtil.getColumnIndexOrThrow(_cursor, "timestamp");
       final int _cursorIndexOfProfilePic = CursorUtil.getColumnIndexOrThrow(_cursor, "profilePic");
-      final int _cursorIndexOfId = CursorUtil.getColumnIndexOrThrow(_cursor, "id");
+      final int _cursorIndexOfId = CursorUtil.getColumnIndexOrThrow(_cursor, "databaseId");
       final List<Contact> _result = new ArrayList<Contact>(_cursor.getCount());
       while(_cursor.moveToNext()) {
         final Contact _item;
@@ -418,7 +419,7 @@ public final class ContactDao_Impl implements ContactDao {
       final int _cursorIndexOfFullDate = CursorUtil.getColumnIndexOrThrow(_cursor, "fullDate");
       final int _cursorIndexOfLastMessageTimeStamp = CursorUtil.getColumnIndexOrThrow(_cursor, "timestamp");
       final int _cursorIndexOfProfilePic = CursorUtil.getColumnIndexOrThrow(_cursor, "profilePic");
-      final int _cursorIndexOfId = CursorUtil.getColumnIndexOrThrow(_cursor, "id");
+      final int _cursorIndexOfId = CursorUtil.getColumnIndexOrThrow(_cursor, "databaseId");
       final Contact _result;
       if(_cursor.moveToFirst()) {
         _result = new Contact();
@@ -506,7 +507,7 @@ public final class ContactDao_Impl implements ContactDao {
       final int _cursorIndexOfFullDate = CursorUtil.getColumnIndexOrThrow(_cursor, "fullDate");
       final int _cursorIndexOfLastMessageTimeStamp = CursorUtil.getColumnIndexOrThrow(_cursor, "timestamp");
       final int _cursorIndexOfProfilePic = CursorUtil.getColumnIndexOrThrow(_cursor, "profilePic");
-      final int _cursorIndexOfId = CursorUtil.getColumnIndexOrThrow(_cursor, "id");
+      final int _cursorIndexOfId = CursorUtil.getColumnIndexOrThrow(_cursor, "databaseId");
       final Contact _result;
       if(_cursor.moveToFirst()) {
         _result = new Contact();
@@ -564,6 +565,30 @@ public final class ContactDao_Impl implements ContactDao {
         _result.setId(_tmpId);
       } else {
         _result = null;
+      }
+      return _result;
+    } finally {
+      _cursor.close();
+      _statement.release();
+    }
+  }
+
+  @Override
+  public List<Integer> getChatIdList() {
+    final String _sql = "SELECT databaseId FROM Contact";
+    final RoomSQLiteQuery _statement = RoomSQLiteQuery.acquire(_sql, 0);
+    __db.assertNotSuspendingTransaction();
+    final Cursor _cursor = DBUtil.query(__db, _statement, false, null);
+    try {
+      final List<Integer> _result = new ArrayList<Integer>(_cursor.getCount());
+      while(_cursor.moveToNext()) {
+        final Integer _item;
+        if (_cursor.isNull(0)) {
+          _item = null;
+        } else {
+          _item = _cursor.getInt(0);
+        }
+        _result.add(_item);
       }
       return _result;
     } finally {

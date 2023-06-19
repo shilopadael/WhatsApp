@@ -27,6 +27,9 @@ public interface ContactDao {
     @Query("UPDATE Contact SET lastMessage = :newLastMessage, lastMessageTime = :newLastMessageTime WHERE userId = :userId")
     void updateLastMessageAndTime(String newLastMessage, String newLastMessageTime, int userId);
 
+    @Query("SELECT databaseId FROM Contact")
+    List<Integer> getChatIdList();
+
 
     @Insert
     void insert(Contact...contacts);

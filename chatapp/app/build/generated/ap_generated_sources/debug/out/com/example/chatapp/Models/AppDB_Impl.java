@@ -52,16 +52,16 @@ public final class AppDB_Impl extends AppDB {
 
   @Override
   protected SupportSQLiteOpenHelper createOpenHelper(DatabaseConfiguration configuration) {
-    final SupportSQLiteOpenHelper.Callback _openCallback = new RoomOpenHelper(configuration, new RoomOpenHelper.Delegate(6) {
+    final SupportSQLiteOpenHelper.Callback _openCallback = new RoomOpenHelper(configuration, new RoomOpenHelper.Delegate(7) {
       @Override
       public void createAllTables(SupportSQLiteDatabase _db) {
-        _db.execSQL("CREATE TABLE IF NOT EXISTS `Contact` (`userId` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `username` TEXT, `lastMessage` TEXT, `lastMessageTime` TEXT, `profilePicBase64` TEXT, `displayName` TEXT, `fullDate` TEXT, `timestamp` INTEGER, `profilePic` INTEGER NOT NULL, `id` INTEGER NOT NULL)");
+        _db.execSQL("CREATE TABLE IF NOT EXISTS `Contact` (`userId` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `username` TEXT, `lastMessage` TEXT, `lastMessageTime` TEXT, `profilePicBase64` TEXT, `displayName` TEXT, `fullDate` TEXT, `timestamp` INTEGER, `profilePic` INTEGER NOT NULL, `databaseId` INTEGER NOT NULL)");
         _db.execSQL("CREATE TABLE IF NOT EXISTS `Token` (`id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `token` TEXT, `userName` TEXT)");
-        _db.execSQL("CREATE TABLE IF NOT EXISTS `User` (`id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `username` TEXT, `password` TEXT)");
+        _db.execSQL("CREATE TABLE IF NOT EXISTS `User` (`id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `username` TEXT, `token` TEXT)");
         _db.execSQL("CREATE TABLE IF NOT EXISTS `Message` (`id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `created` TEXT, `dbId` INTEGER NOT NULL, `sender` TEXT, `content` TEXT)");
         _db.execSQL("CREATE TABLE IF NOT EXISTS `Chats` (`id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `users` TEXT, `messages` TEXT)");
         _db.execSQL("CREATE TABLE IF NOT EXISTS room_master_table (id INTEGER PRIMARY KEY,identity_hash TEXT)");
-        _db.execSQL("INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, 'f182307e7089fb8a542abee01b5f2c67')");
+        _db.execSQL("INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, '57290056876dc19980e69cbd26142fdd')");
       }
 
       @Override
@@ -119,7 +119,7 @@ public final class AppDB_Impl extends AppDB {
         _columnsContact.put("fullDate", new TableInfo.Column("fullDate", "TEXT", false, 0, null, TableInfo.CREATED_FROM_ENTITY));
         _columnsContact.put("timestamp", new TableInfo.Column("timestamp", "INTEGER", false, 0, null, TableInfo.CREATED_FROM_ENTITY));
         _columnsContact.put("profilePic", new TableInfo.Column("profilePic", "INTEGER", true, 0, null, TableInfo.CREATED_FROM_ENTITY));
-        _columnsContact.put("id", new TableInfo.Column("id", "INTEGER", true, 0, null, TableInfo.CREATED_FROM_ENTITY));
+        _columnsContact.put("databaseId", new TableInfo.Column("databaseId", "INTEGER", true, 0, null, TableInfo.CREATED_FROM_ENTITY));
         final HashSet<TableInfo.ForeignKey> _foreignKeysContact = new HashSet<TableInfo.ForeignKey>(0);
         final HashSet<TableInfo.Index> _indicesContact = new HashSet<TableInfo.Index>(0);
         final TableInfo _infoContact = new TableInfo("Contact", _columnsContact, _foreignKeysContact, _indicesContact);
@@ -145,7 +145,7 @@ public final class AppDB_Impl extends AppDB {
         final HashMap<String, TableInfo.Column> _columnsUser = new HashMap<String, TableInfo.Column>(3);
         _columnsUser.put("id", new TableInfo.Column("id", "INTEGER", true, 1, null, TableInfo.CREATED_FROM_ENTITY));
         _columnsUser.put("username", new TableInfo.Column("username", "TEXT", false, 0, null, TableInfo.CREATED_FROM_ENTITY));
-        _columnsUser.put("password", new TableInfo.Column("password", "TEXT", false, 0, null, TableInfo.CREATED_FROM_ENTITY));
+        _columnsUser.put("token", new TableInfo.Column("token", "TEXT", false, 0, null, TableInfo.CREATED_FROM_ENTITY));
         final HashSet<TableInfo.ForeignKey> _foreignKeysUser = new HashSet<TableInfo.ForeignKey>(0);
         final HashSet<TableInfo.Index> _indicesUser = new HashSet<TableInfo.Index>(0);
         final TableInfo _infoUser = new TableInfo("User", _columnsUser, _foreignKeysUser, _indicesUser);
@@ -185,7 +185,7 @@ public final class AppDB_Impl extends AppDB {
         }
         return new RoomOpenHelper.ValidationResult(true, null);
       }
-    }, "f182307e7089fb8a542abee01b5f2c67", "e33d07681f3e8e92bed53531c147cb47");
+    }, "57290056876dc19980e69cbd26142fdd", "226a0d102e9a42a9689ef4323fb4949e");
     final SupportSQLiteOpenHelper.Configuration _sqliteConfig = SupportSQLiteOpenHelper.Configuration.builder(configuration.context)
         .name(configuration.name)
         .callback(_openCallback)

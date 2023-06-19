@@ -30,6 +30,9 @@ import com.example.chatapp.Listeners.OnContactAddedListener;
 import com.example.chatapp.Models.AppDB;
 import com.example.chatapp.Models.ContactEntity.Contact;
 import com.example.chatapp.Models.ContactEntity.ContactDao;
+import com.example.chatapp.Models.LocalDatabase;
+import com.example.chatapp.Models.UserEntity.User;
+import com.example.chatapp.Models.UserEntity.UserDao;
 import com.example.chatapp.Schemes.Chat;
 import com.example.chatapp.Schemes.Chats.GetChatsScheme;
 import com.example.chatapp.databinding.ActivityChatBinding;
@@ -51,9 +54,12 @@ public class ChatActivity extends AppCompatActivity {
     private String username;
     UsersAdapter adapter;
 
+    private static Context context;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        context = getApplicationContext();
         binding = ActivityChatBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
         getSupportActionBar().hide();
@@ -69,7 +75,6 @@ public class ChatActivity extends AppCompatActivity {
         sharedPreferences = getSharedPreferences("chatSystem", MODE_PRIVATE);
         ip = sharedPreferences.getString("ip", "http://10.0.2.2:5000/");
         token = sharedPreferences.getString("token", "#");
-
         username = sharedPreferences.getString("username", "#");
         if (username.equals("#") || token.equals("#")) {
             // go to login
@@ -77,6 +82,29 @@ public class ChatActivity extends AppCompatActivity {
             Intent intent = new Intent(this, SignInActivity.class);
             startActivity(intent);
             finish();
+        }
+
+        // checking if the old username is the same username in the localStorage
+        UserDao user = LocalDatabase.getDB().userDao();
+        List<User> lst = user.getAllUsers();
+        if(lst == null || lst.isEmpty()) {
+            // setting the current user
+            user.deleteAll();
+            User currentUser = new User(username, token);
+            user.insert(currentUser);
+        } else {
+            User onlyUser = lst.get(0);
+            if(!onlyUser.getUsername().equals(username)) {
+                // changing the only username and deleting all the contact and room database
+                AppDB app = LocalDatabase.getDB();
+                // deleting old user messages
+                LocalDatabase.eraseDatabase(app.contactsDao().getChatIdList());
+                // deleting old user contacts
+                app.contactsDao().deleteAll();
+                user.deleteAll();
+                User currentUser = new User(username, token);
+                user.insert(currentUser);
+            }
         }
 
         // initializing the database Room
@@ -138,7 +166,6 @@ public class ChatActivity extends AppCompatActivity {
         PopupMenu popupMenu = new PopupMenu(this, view);
         popupMenu.getMenuInflater().inflate(R.menu.popup_menu, popupMenu.getMenu());
         AddContactFragment addContactFragment = new AddContactFragment();
-//        addContactFragment.setOnContactAddedListener(this);
         addContactFragment.setUserViewModel(userViewModel);
         popupMenu.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
 
@@ -147,6 +174,9 @@ public class ChatActivity extends AppCompatActivity {
                 int itemId = item.getItemId();
                 if (itemId == R.id.menu_logout) {
                     // Handle logout action
+                    Intent intent = new Intent(context, SignInActivity.class);
+                    startActivity(intent);
+                    finish();
                     return true;
                 } else if (itemId == R.id.menu_add_contact) {
                     getSupportFragmentManager().beginTransaction()
@@ -172,6 +202,7 @@ public class ChatActivity extends AppCompatActivity {
     protected void onDestroy() {
         super.onDestroy();
         // destroying all the db
+//        LocalDatabase.eraseDatabase(i);
 
     }
 }

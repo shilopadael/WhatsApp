@@ -6,7 +6,9 @@ import com.example.chatapp.MainActivity;
 import com.example.chatapp.Models.MessageEntity.Message;
 import com.example.chatapp.Models.MessageEntity.MessageDao;
 
+import java.io.File;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 public class LocalDatabase {
@@ -46,5 +48,16 @@ public class LocalDatabase {
             messageDaoMap.put(id, messageDao);
         }
         return messageDaoMap.get(id);
+    }
+
+    public static void eraseDatabase(List<Integer> lst) {
+        if(lst == null || lst.isEmpty()) {
+            return;
+        }
+        for(int i : lst) {
+            String name = Integer.toString(i);
+            File fileToDelete = MainActivity.context.getDatabasePath(name);
+            boolean flag = fileToDelete.delete();
+        }
     }
 }
