@@ -1,5 +1,7 @@
 package com.example.chatapp.Api;
 
+import android.widget.Toast;
+
 import com.example.chatapp.Adapter.CustomDateAdapter;
 import com.example.chatapp.R;
 import com.example.chatapp.Schemes.Chat;
@@ -17,6 +19,7 @@ import java.util.List;
 import java.util.concurrent.TimeUnit;
 
 import okhttp3.OkHttpClient;
+import okhttp3.ResponseBody;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -191,6 +194,31 @@ public class ChatAPI {
             @Override
             public void onFailure(Call<AddContactResponeScheme> call, Throwable t) {
                 // failed to get all chat
+                taskAPI.onFailure(t.getMessage());
+            }
+        });
+    }
+
+    public void deleteChat(int id, TaskAPI<String> taskAPI) {
+        if(service == null || retrofit == null) {
+            // failed to get all chat
+            return;
+        }
+
+        service.deleteChat(id, this.bearerToken).enqueue(new Callback<ResponseBody>() {
+            @Override
+            public void onResponse(Call<ResponseBody> call, Response<ResponseBody> response) {
+                int status = response.raw().code();
+
+                if(status >= 200 && status < 300) {
+                    taskAPI.onSuccess("deleted successfully");
+                } else {
+                    // failed
+                    taskAPI.onFailure("failed to delete");
+                }
+            }
+            @Override
+            public void onFailure(Call<ResponseBody> call, Throwable t) {
                 taskAPI.onFailure(t.getMessage());
             }
         });

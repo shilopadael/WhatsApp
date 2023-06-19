@@ -71,7 +71,7 @@ io.on('connection', (socket) => {
             const message = {
                 notification: {
                   title: currentUserName,
-                  body: "empty message"
+                  body: data.message
                 },
                 token: user.firebaseToken // Replace with the FCM device token of the recipient
               };

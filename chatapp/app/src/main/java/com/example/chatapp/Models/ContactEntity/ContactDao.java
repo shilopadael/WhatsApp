@@ -15,12 +15,18 @@ public interface ContactDao {
 
     @Query("SELECT * FROM contact")
     List<Contact> index();
+    @Query("SELECT * FROM Contact ORDER BY timestamp DESC")
+    List<Contact> getAllContactByOrder();
 
     @Query("SELECT * FROM Contact WHERE userId=:id")
     Contact get(int id);
 
     @Query("SELECT * FROM Contact WHERE username=:username")
     Contact getByUserName(String username);
+
+    @Query("UPDATE Contact SET lastMessage = :newLastMessage, lastMessageTime = :newLastMessageTime WHERE userId = :userId")
+    void updateLastMessageAndTime(String newLastMessage, String newLastMessageTime, int userId);
+
 
     @Insert
     void insert(Contact...contacts);

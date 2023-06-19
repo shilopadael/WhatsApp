@@ -23,6 +23,7 @@
     <uses-permission android:name="com.example.chatapp.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION" />
 
     <application
+        android:name="com.example.chatapp.MainActivity"
         android:allowBackup="true"
         android:appComponentFactory="androidx.core.app.CoreComponentFactory"
         android:dataExtractionRules="@xml/data_extraction_rules"
@@ -36,6 +37,14 @@
         android:testOnly="true"
         android:theme="@style/Theme.ChatApp"
         android:usesCleartextTraffic="true" >
+        <service
+            android:name="com.example.chatapp.Firebase.FireBaseMessageService"
+            android:exported="false" >
+            <intent-filter>
+                <action android:name="com.google.firebase.MESSAGING_EVENT" />
+            </intent-filter>
+        </service>
+
         <activity
             android:name="com.example.chatapp.SettingsActivity"
             android:exported="false" />
@@ -60,10 +69,9 @@
             android:name="com.example.chatapp.SignUpActivity"
             android:exported="true" >
         </activity>
-        <activity
-            android:name="com.example.chatapp.MainActivity"
-            android:exported="true" />
-
+        <!-- <activity -->
+        <!-- android:name=".MainActivity" -->
+        <!-- android:exported="true" /> -->
         <service
             android:name="androidx.room.MultiInstanceInvalidationService"
             android:directBootAware="true"

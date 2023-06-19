@@ -1,9 +1,12 @@
 package com.example.chatapp;
 
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.Activity;
+import android.app.Application;
 import android.app.Fragment;
+import android.content.Context;
 import android.os.Bundle;
 
 import com.example.chatapp.Adapter.FragmentsAdapter;
@@ -15,28 +18,12 @@ import com.google.android.gms.tasks.OnSuccessListener;
 //
 //
 //
-//public class MainActivity extends AppCompatActivity {
-//
-//    private ActivityMainBinding binding;
-//
-//    @Override
-//    protected void onCreate(Bundle savedInstanceState) {
-//        super.onCreate(savedInstanceState);
-//        binding = ActivityMainBinding.inflate(getLayoutInflater());
-//        setContentView(binding.getRoot());
-//
-//        binding.viewPager.setAdapter(new FragmentsAdapter(getSupportFragmentManager()));
-//        binding.tabLayout.setupWithViewPager(binding.viewPager);
-//
-//
-//        FirebaseInstanceId.getInstance().getInstanceId().addOnSuccessListener(MainActivity.this, instanceIdResult -> {
-//            String newToken = instanceIdResult.getToken();
-//
-//        });
-//
-//
-//
-//
-//
-//    }
-//}
+public class MainActivity extends Application {
+    public static Context context;
+
+    @Override
+    public void onCreate() {
+        super.onCreate();
+        context = getApplicationContext();
+    }
+}

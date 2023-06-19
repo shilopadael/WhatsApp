@@ -1,330 +1,326 @@
 [
     {
-        "merged": "/home/omer/.gradle/daemon/8.0/com.example.chatapp-merged_res-38:/mipmap-xhdpi_ic_launcher_round.webp.flat",
-        "source": "/home/omer/.gradle/daemon/8.0/com.example.chatapp-main-40:/mipmap-xhdpi/ic_launcher_round.webp"
+        "merged": "com.example.chatapp-merged_res-38:/xml_backup_rules.xml.flat",
+        "source": "com.example.chatapp-main-40:/xml/backup_rules.xml"
     },
     {
-        "merged": "/home/omer/.gradle/daemon/8.0/com.example.chatapp-merged_res-38:/mipmap-mdpi_ic_launcher_round.webp.flat",
-        "source": "/home/omer/.gradle/daemon/8.0/com.example.chatapp-main-40:/mipmap-mdpi/ic_launcher_round.webp"
+        "merged": "com.example.chatapp-merged_res-38:/drawable-xxhdpi_ic_name.png.flat",
+        "source": "com.example.chatapp-main-40:/drawable-xxhdpi/ic_name.png"
     },
     {
-        "merged": "/home/omer/.gradle/daemon/8.0/com.example.chatapp-merged_res-38:/layout_fragment_calls.xml.flat",
-        "source": "/home/omer/.gradle/daemon/8.0/com.example.chatapp-main-40:/layout/fragment_calls.xml"
+        "merged": "com.example.chatapp-merged_res-38:/drawable_privacy.png.flat",
+        "source": "com.example.chatapp-main-40:/drawable/privacy.png"
     },
     {
-        "merged": "/home/omer/.gradle/daemon/8.0/com.example.chatapp-merged_res-38:/drawable-xxhdpi_ic_name.png.flat",
-        "source": "/home/omer/.gradle/daemon/8.0/com.example.chatapp-main-40:/drawable-xxhdpi/ic_name.png"
-    },
-    {
-        "merged": "/home/omer/.gradle/daemon/8.0/com.example.chatapp-merged_res-38:/drawable-mdpi_ic_settings.png.flat",
-        "source": "/home/omer/.gradle/daemon/8.0/com.example.chatapp-main-40:/drawable-mdpi/ic_settings.png"
+        "merged": "com.example.chatapp-merged_res-38:/layout_fragment_calls.xml.flat",
+        "source": "com.example.chatapp-main-40:/layout/fragment_calls.xml"
     },
     {
         "merged": "com.example.chatapp-merged_res-38:/layout_activity_chat_detail.xml.flat",
         "source": "com.example.chatapp-main-40:/layout/activity_chat_detail.xml"
     },
     {
-        "merged": "/home/omer/.gradle/daemon/8.0/com.example.chatapp-merged_res-38:/drawable_bg_et_message.xml.flat",
-        "source": "/home/omer/.gradle/daemon/8.0/com.example.chatapp-main-40:/drawable/bg_et_message.xml"
+        "merged": "com.example.chatapp-merged_res-38:/mipmap-xhdpi_ic_launcher_round.webp.flat",
+        "source": "com.example.chatapp-main-40:/mipmap-xhdpi/ic_launcher_round.webp"
     },
     {
-        "merged": "/home/omer/.gradle/daemon/8.0/com.example.chatapp-merged_res-38:/drawable_invite.png.flat",
-        "source": "/home/omer/.gradle/daemon/8.0/com.example.chatapp-main-40:/drawable/invite.png"
+        "merged": "com.example.chatapp-merged_res-38:/drawable-anydpi_ic_settings.xml.flat",
+        "source": "com.example.chatapp-main-40:/drawable-anydpi/ic_settings.xml"
     },
     {
-        "merged": "/home/omer/.gradle/daemon/8.0/com.example.chatapp-merged_res-38:/drawable_ic_facebook.xml.flat",
-        "source": "/home/omer/.gradle/daemon/8.0/com.example.chatapp-main-40:/drawable/ic_facebook.xml"
+        "merged": "com.example.chatapp-merged_res-38:/layout_sample_reciver.xml.flat",
+        "source": "com.example.chatapp-main-40:/layout/sample_reciver.xml"
     },
     {
-        "merged": "/home/omer/.gradle/daemon/8.0/com.example.chatapp-merged_res-38:/drawable_plus.png.flat",
-        "source": "/home/omer/.gradle/daemon/8.0/com.example.chatapp-main-40:/drawable/plus.png"
+        "merged": "com.example.chatapp-merged_res-38:/layout_fragment_add_contact.xml.flat",
+        "source": "com.example.chatapp-main-40:/layout/fragment_add_contact.xml"
     },
     {
-        "merged": "/home/omer/.gradle/daemon/8.0/com.example.chatapp-merged_res-38:/mipmap-xxhdpi_ic_launcher_round.webp.flat",
-        "source": "/home/omer/.gradle/daemon/8.0/com.example.chatapp-main-40:/mipmap-xxhdpi/ic_launcher_round.webp"
+        "merged": "com.example.chatapp-merged_res-38:/mipmap-anydpi-v26_ic_launcher.xml.flat",
+        "source": "com.example.chatapp-main-40:/mipmap-anydpi-v26/ic_launcher.xml"
     },
     {
-        "merged": "/home/omer/.gradle/daemon/8.0/com.example.chatapp-merged_res-38:/mipmap-anydpi-v26_ic_launcher_round.xml.flat",
-        "source": "/home/omer/.gradle/daemon/8.0/com.example.chatapp-main-40:/mipmap-anydpi-v26/ic_launcher_round.xml"
+        "merged": "com.example.chatapp-merged_res-38:/drawable-anydpi_ic_pass.xml.flat",
+        "source": "com.example.chatapp-main-40:/drawable-anydpi/ic_pass.xml"
     },
     {
-        "merged": "/home/omer/.gradle/daemon/8.0/com.example.chatapp-merged_res-38:/layout_sample_show_user.xml.flat",
-        "source": "/home/omer/.gradle/daemon/8.0/com.example.chatapp-main-40:/layout/sample_show_user.xml"
+        "merged": "com.example.chatapp-merged_res-38:/mipmap-mdpi_ic_launcher.webp.flat",
+        "source": "com.example.chatapp-main-40:/mipmap-mdpi/ic_launcher.webp"
     },
     {
-        "merged": "/home/omer/.gradle/daemon/8.0/com.example.chatapp-merged_res-38:/drawable_ic_google.xml.flat",
-        "source": "/home/omer/.gradle/daemon/8.0/com.example.chatapp-main-40:/drawable/ic_google.xml"
+        "merged": "com.example.chatapp-merged_res-38:/mipmap-anydpi-v26_ic_launcher_round.xml.flat",
+        "source": "com.example.chatapp-main-40:/mipmap-anydpi-v26/ic_launcher_round.xml"
     },
     {
-        "merged": "/home/omer/.gradle/daemon/8.0/com.example.chatapp-merged_res-38:/layout_activity_sign_in.xml.flat",
-        "source": "/home/omer/.gradle/daemon/8.0/com.example.chatapp-main-40:/layout/activity_sign_in.xml"
+        "merged": "com.example.chatapp-merged_res-38:/drawable_bg_et_message.xml.flat",
+        "source": "com.example.chatapp-main-40:/drawable/bg_et_message.xml"
     },
     {
-        "merged": "/home/omer/.gradle/daemon/8.0/com.example.chatapp-merged_res-38:/drawable_avatar1.png.flat",
-        "source": "/home/omer/.gradle/daemon/8.0/com.example.chatapp-main-40:/drawable/avatar1.png"
+        "merged": "com.example.chatapp-merged_res-38:/layout_activity_chat.xml.flat",
+        "source": "com.example.chatapp-main-40:/layout/activity_chat.xml"
     },
     {
-        "merged": "/home/omer/.gradle/daemon/8.0/com.example.chatapp-merged_res-38:/drawable-mdpi_ic_profile_icon.png.flat",
-        "source": "/home/omer/.gradle/daemon/8.0/com.example.chatapp-main-40:/drawable-mdpi/ic_profile_icon.png"
+        "merged": "com.example.chatapp-merged_res-38:/layout_fragment_chat.xml.flat",
+        "source": "com.example.chatapp-main-40:/layout/fragment_chat.xml"
     },
     {
-        "merged": "/home/omer/.gradle/daemon/8.0/com.example.chatapp-merged_res-38:/drawable-mdpi_ic_lock.png.flat",
-        "source": "/home/omer/.gradle/daemon/8.0/com.example.chatapp-main-40:/drawable-mdpi/ic_lock.png"
+        "merged": "com.example.chatapp-merged_res-38:/drawable_ic_facebook.xml.flat",
+        "source": "com.example.chatapp-main-40:/drawable/ic_facebook.xml"
     },
     {
-        "merged": "/home/omer/.gradle/daemon/8.0/com.example.chatapp-merged_res-38:/drawable_leftarrow.png.flat",
-        "source": "/home/omer/.gradle/daemon/8.0/com.example.chatapp-main-40:/drawable/leftarrow.png"
+        "merged": "com.example.chatapp-merged_res-38:/drawable_avatar.png.flat",
+        "source": "com.example.chatapp-main-40:/drawable/avatar.png"
     },
     {
-        "merged": "/home/omer/.gradle/daemon/8.0/com.example.chatapp-merged_res-38:/drawable-anydpi_ic_settings.xml.flat",
-        "source": "/home/omer/.gradle/daemon/8.0/com.example.chatapp-main-40:/drawable-anydpi/ic_settings.xml"
+        "merged": "com.example.chatapp-merged_res-38:/layout_activity_sign_in.xml.flat",
+        "source": "com.example.chatapp-main-40:/layout/activity_sign_in.xml"
     },
     {
-        "merged": "/home/omer/.gradle/daemon/8.0/com.example.chatapp-merged_res-38:/layout_activity_chat.xml.flat",
-        "source": "/home/omer/.gradle/daemon/8.0/com.example.chatapp-main-40:/layout/activity_chat.xml"
+        "merged": "com.example.chatapp-merged_res-38:/drawable_w2.jpg.flat",
+        "source": "com.example.chatapp-main-40:/drawable/w2.jpg"
     },
     {
-        "merged": "/home/omer/.gradle/daemon/8.0/com.example.chatapp-merged_res-38:/drawable_about.xml.flat",
-        "source": "/home/omer/.gradle/daemon/8.0/com.example.chatapp-main-40:/drawable/about.xml"
+        "merged": "com.example.chatapp-merged_res-38:/layout_sample_show_user.xml.flat",
+        "source": "com.example.chatapp-main-40:/layout/sample_show_user.xml"
     },
     {
-        "merged": "/home/omer/.gradle/daemon/8.0/com.example.chatapp-merged_res-38:/layout_fragment_add_contact.xml.flat",
-        "source": "/home/omer/.gradle/daemon/8.0/com.example.chatapp-main-40:/layout/fragment_add_contact.xml"
+        "merged": "com.example.chatapp-merged_res-38:/drawable-xhdpi_ic_name.png.flat",
+        "source": "com.example.chatapp-main-40:/drawable-xhdpi/ic_name.png"
     },
     {
-        "merged": "/home/omer/.gradle/daemon/8.0/com.example.chatapp-merged_res-38:/drawable-hdpi_ic_name.png.flat",
-        "source": "/home/omer/.gradle/daemon/8.0/com.example.chatapp-main-40:/drawable-hdpi/ic_name.png"
+        "merged": "com.example.chatapp-merged_res-38:/drawable-mdpi_ic_settings.png.flat",
+        "source": "com.example.chatapp-main-40:/drawable-mdpi/ic_settings.png"
     },
     {
-        "merged": "/home/omer/.gradle/daemon/8.0/com.example.chatapp-merged_res-38:/drawable-anydpi_ic_lock.xml.flat",
-        "source": "/home/omer/.gradle/daemon/8.0/com.example.chatapp-main-40:/drawable-anydpi/ic_lock.xml"
+        "merged": "com.example.chatapp-merged_res-38:/drawable_menu.png.flat",
+        "source": "com.example.chatapp-main-40:/drawable/menu.png"
     },
     {
-        "merged": "/home/omer/.gradle/daemon/8.0/com.example.chatapp-merged_res-38:/mipmap-hdpi_ic_launcher.webp.flat",
-        "source": "/home/omer/.gradle/daemon/8.0/com.example.chatapp-main-40:/mipmap-hdpi/ic_launcher.webp"
+        "merged": "com.example.chatapp-merged_res-38:/drawable-mdpi_ic_lock.png.flat",
+        "source": "com.example.chatapp-main-40:/drawable-mdpi/ic_lock.png"
     },
     {
-        "merged": "/home/omer/.gradle/daemon/8.0/com.example.chatapp-merged_res-38:/drawable_help.png.flat",
-        "source": "/home/omer/.gradle/daemon/8.0/com.example.chatapp-main-40:/drawable/help.png"
+        "merged": "com.example.chatapp-merged_res-38:/drawable_leftarrow.png.flat",
+        "source": "com.example.chatapp-main-40:/drawable/leftarrow.png"
     },
     {
-        "merged": "/home/omer/.gradle/daemon/8.0/com.example.chatapp-merged_res-38:/mipmap-xxxhdpi_ic_launcher.webp.flat",
-        "source": "/home/omer/.gradle/daemon/8.0/com.example.chatapp-main-40:/mipmap-xxxhdpi/ic_launcher.webp"
+        "merged": "com.example.chatapp-merged_res-38:/drawable_profile.png.flat",
+        "source": "com.example.chatapp-main-40:/drawable/profile.png"
     },
     {
-        "merged": "/home/omer/.gradle/daemon/8.0/com.example.chatapp-merged_res-38:/drawable-xhdpi_ic_name.png.flat",
-        "source": "/home/omer/.gradle/daemon/8.0/com.example.chatapp-main-40:/drawable-xhdpi/ic_name.png"
+        "merged": "com.example.chatapp-merged_res-38:/drawable_avatar1.png.flat",
+        "source": "com.example.chatapp-main-40:/drawable/avatar1.png"
     },
     {
-        "merged": "/home/omer/.gradle/daemon/8.0/com.example.chatapp-merged_res-38:/drawable-anydpi_ic_name.xml.flat",
-        "source": "/home/omer/.gradle/daemon/8.0/com.example.chatapp-main-40:/drawable-anydpi/ic_name.xml"
+        "merged": "com.example.chatapp-merged_res-38:/drawable-mdpi_ic_name.png.flat",
+        "source": "com.example.chatapp-main-40:/drawable-mdpi/ic_name.png"
     },
     {
-        "merged": "/home/omer/.gradle/daemon/8.0/com.example.chatapp-merged_res-38:/drawable_ic_whatsapp.png.flat",
-        "source": "/home/omer/.gradle/daemon/8.0/com.example.chatapp-main-40:/drawable/ic_whatsapp.png"
+        "merged": "com.example.chatapp-merged_res-38:/layout_activity_settings.xml.flat",
+        "source": "com.example.chatapp-main-40:/layout/activity_settings.xml"
     },
     {
-        "merged": "/home/omer/.gradle/daemon/8.0/com.example.chatapp-merged_res-38:/drawable-hdpi_ic_lock.png.flat",
-        "source": "/home/omer/.gradle/daemon/8.0/com.example.chatapp-main-40:/drawable-hdpi/ic_lock.png"
+        "merged": "com.example.chatapp-merged_res-38:/xml_data_extraction_rules.xml.flat",
+        "source": "com.example.chatapp-main-40:/xml/data_extraction_rules.xml"
     },
     {
-        "merged": "/home/omer/.gradle/daemon/8.0/com.example.chatapp-merged_res-38:/drawable-xhdpi_ic_lock.png.flat",
-        "source": "/home/omer/.gradle/daemon/8.0/com.example.chatapp-main-40:/drawable-xhdpi/ic_lock.png"
+        "merged": "com.example.chatapp-merged_res-38:/drawable-xhdpi_ic_lock.png.flat",
+        "source": "com.example.chatapp-main-40:/drawable-xhdpi/ic_lock.png"
     },
     {
-        "merged": "/home/omer/.gradle/daemon/8.0/com.example.chatapp-merged_res-38:/drawable_avatar3.png.flat",
-        "source": "/home/omer/.gradle/daemon/8.0/com.example.chatapp-main-40:/drawable/avatar3.png"
+        "merged": "com.example.chatapp-merged_res-38:/mipmap-mdpi_ic_launcher_round.webp.flat",
+        "source": "com.example.chatapp-main-40:/mipmap-mdpi/ic_launcher_round.webp"
     },
     {
-        "merged": "/home/omer/.gradle/daemon/8.0/com.example.chatapp-merged_res-38:/mipmap-hdpi_ic_launcher_round.webp.flat",
-        "source": "/home/omer/.gradle/daemon/8.0/com.example.chatapp-main-40:/mipmap-hdpi/ic_launcher_round.webp"
+        "merged": "com.example.chatapp-merged_res-38:/layout_activity_main.xml.flat",
+        "source": "com.example.chatapp-main-40:/layout/activity_main.xml"
     },
     {
-        "merged": "/home/omer/.gradle/daemon/8.0/com.example.chatapp-merged_res-38:/drawable_w2.jpg.flat",
-        "source": "/home/omer/.gradle/daemon/8.0/com.example.chatapp-main-40:/drawable/w2.jpg"
+        "merged": "com.example.chatapp-merged_res-38:/layout_activity_sign_up.xml.flat",
+        "source": "com.example.chatapp-main-40:/layout/activity_sign_up.xml"
     },
     {
-        "merged": "/home/omer/.gradle/daemon/8.0/com.example.chatapp-merged_res-38:/layout_activity_main.xml.flat",
-        "source": "/home/omer/.gradle/daemon/8.0/com.example.chatapp-main-40:/layout/activity_main.xml"
+        "merged": "com.example.chatapp-merged_res-38:/mipmap-xxhdpi_ic_launcher.webp.flat",
+        "source": "com.example.chatapp-main-40:/mipmap-xxhdpi/ic_launcher.webp"
     },
     {
-        "merged": "/home/omer/.gradle/daemon/8.0/com.example.chatapp-merged_res-38:/drawable-v24_ic_launcher_foreground.xml.flat",
-        "source": "/home/omer/.gradle/daemon/8.0/com.example.chatapp-main-40:/drawable-v24/ic_launcher_foreground.xml"
+        "merged": "com.example.chatapp-merged_res-38:/layout_sample_sender.xml.flat",
+        "source": "com.example.chatapp-main-40:/layout/sample_sender.xml"
     },
     {
-        "merged": "/home/omer/.gradle/daemon/8.0/com.example.chatapp-merged_res-38:/drawable_videocall.png.flat",
-        "source": "/home/omer/.gradle/daemon/8.0/com.example.chatapp-main-40:/drawable/videocall.png"
+        "merged": "com.example.chatapp-merged_res-38:/drawable_ic_whatsapp.png.flat",
+        "source": "com.example.chatapp-main-40:/drawable/ic_whatsapp.png"
     },
     {
-        "merged": "/home/omer/.gradle/daemon/8.0/com.example.chatapp-merged_res-38:/layout_activity_chat_detail.xml.flat",
-        "source": "/home/omer/.gradle/daemon/8.0/com.example.chatapp-main-40:/layout/activity_chat_detail.xml"
+        "merged": "com.example.chatapp-merged_res-38:/drawable-hdpi_ic_settings.png.flat",
+        "source": "com.example.chatapp-main-40:/drawable-hdpi/ic_settings.png"
     },
     {
-        "merged": "/home/omer/.gradle/daemon/8.0/com.example.chatapp-merged_res-38:/drawable-xxhdpi_ic_settings.png.flat",
-        "source": "/home/omer/.gradle/daemon/8.0/com.example.chatapp-main-40:/drawable-xxhdpi/ic_settings.png"
+        "merged": "com.example.chatapp-merged_res-38:/drawable_circle_background.xml.flat",
+        "source": "com.example.chatapp-main-40:/drawable/circle_background.xml"
     },
     {
-        "merged": "/home/omer/.gradle/daemon/8.0/com.example.chatapp-merged_res-38:/drawable-anydpi_ic_pass.xml.flat",
-        "source": "/home/omer/.gradle/daemon/8.0/com.example.chatapp-main-40:/drawable-anydpi/ic_pass.xml"
+        "merged": "com.example.chatapp-merged_res-38:/drawable_ic_launcher_background.xml.flat",
+        "source": "com.example.chatapp-main-40:/drawable/ic_launcher_background.xml"
     },
     {
-        "merged": "/home/omer/.gradle/daemon/8.0/com.example.chatapp-merged_res-38:/drawable_profile.png.flat",
-        "source": "/home/omer/.gradle/daemon/8.0/com.example.chatapp-main-40:/drawable/profile.png"
+        "merged": "com.example.chatapp-merged_res-38:/drawable_about.xml.flat",
+        "source": "com.example.chatapp-main-40:/drawable/about.xml"
     },
     {
-        "merged": "/home/omer/.gradle/daemon/8.0/com.example.chatapp-merged_res-38:/drawable_leftarrowwhite.png.flat",
-        "source": "/home/omer/.gradle/daemon/8.0/com.example.chatapp-main-40:/drawable/leftarrowwhite.png"
+        "merged": "com.example.chatapp-merged_res-38:/drawable-xxhdpi_ic_lock.png.flat",
+        "source": "com.example.chatapp-main-40:/drawable-xxhdpi/ic_lock.png"
     },
     {
-        "merged": "/home/omer/.gradle/daemon/8.0/com.example.chatapp-merged_res-38:/layout_sample_sender.xml.flat",
-        "source": "/home/omer/.gradle/daemon/8.0/com.example.chatapp-main-40:/layout/sample_sender.xml"
+        "merged": "com.example.chatapp-merged_res-38:/drawable-xxhdpi_ic_settings.png.flat",
+        "source": "com.example.chatapp-main-40:/drawable-xxhdpi/ic_settings.png"
     },
     {
-        "merged": "/home/omer/.gradle/daemon/8.0/com.example.chatapp-merged_res-38:/mipmap-anydpi-v26_ic_launcher.xml.flat",
-        "source": "/home/omer/.gradle/daemon/8.0/com.example.chatapp-main-40:/mipmap-anydpi-v26/ic_launcher.xml"
+        "merged": "com.example.chatapp-merged_res-38:/drawable_ic_google.xml.flat",
+        "source": "com.example.chatapp-main-40:/drawable/ic_google.xml"
     },
     {
-        "merged": "/home/omer/.gradle/daemon/8.0/com.example.chatapp-merged_res-38:/drawable-xxhdpi_ic_pass.png.flat",
-        "source": "/home/omer/.gradle/daemon/8.0/com.example.chatapp-main-40:/drawable-xxhdpi/ic_pass.png"
+        "merged": "com.example.chatapp-merged_res-38:/drawable_send.png.flat",
+        "source": "com.example.chatapp-main-40:/drawable/send.png"
     },
     {
-        "merged": "/home/omer/.gradle/daemon/8.0/com.example.chatapp-merged_res-38:/drawable_bg_sender.xml.flat",
-        "source": "/home/omer/.gradle/daemon/8.0/com.example.chatapp-main-40:/drawable/bg_sender.xml"
+        "merged": "com.example.chatapp-merged_res-38:/drawable_bg_reciver.xml.flat",
+        "source": "com.example.chatapp-main-40:/drawable/bg_reciver.xml"
     },
     {
-        "merged": "/home/omer/.gradle/daemon/8.0/com.example.chatapp-merged_res-38:/drawable-xhdpi_ic_settings.png.flat",
-        "source": "/home/omer/.gradle/daemon/8.0/com.example.chatapp-main-40:/drawable-xhdpi/ic_settings.png"
+        "merged": "com.example.chatapp-merged_res-38:/drawable-xxhdpi_ic_profile_icon.png.flat",
+        "source": "com.example.chatapp-main-40:/drawable-xxhdpi/ic_profile_icon.png"
     },
     {
-        "merged": "/home/omer/.gradle/daemon/8.0/com.example.chatapp-merged_res-38:/drawable-hdpi_ic_pass.png.flat",
-        "source": "/home/omer/.gradle/daemon/8.0/com.example.chatapp-main-40:/drawable-hdpi/ic_pass.png"
+        "merged": "com.example.chatapp-merged_res-38:/drawable-mdpi_ic_pass.png.flat",
+        "source": "com.example.chatapp-main-40:/drawable-mdpi/ic_pass.png"
     },
     {
-        "merged": "/home/omer/.gradle/daemon/8.0/com.example.chatapp-merged_res-38:/xml_data_extraction_rules.xml.flat",
-        "source": "/home/omer/.gradle/daemon/8.0/com.example.chatapp-main-40:/xml/data_extraction_rules.xml"
+        "merged": "com.example.chatapp-merged_res-38:/drawable_w3.png.flat",
+        "source": "com.example.chatapp-main-40:/drawable/w3.png"
     },
     {
-        "merged": "/home/omer/.gradle/daemon/8.0/com.example.chatapp-merged_res-38:/drawable-mdpi_ic_pass.png.flat",
-        "source": "/home/omer/.gradle/daemon/8.0/com.example.chatapp-main-40:/drawable-mdpi/ic_pass.png"
+        "merged": "com.example.chatapp-merged_res-38:/drawable-anydpi_ic_profile_icon.xml.flat",
+        "source": "com.example.chatapp-main-40:/drawable-anydpi/ic_profile_icon.xml"
     },
     {
-        "merged": "/home/omer/.gradle/daemon/8.0/com.example.chatapp-merged_res-38:/drawable_w4.png.flat",
-        "source": "/home/omer/.gradle/daemon/8.0/com.example.chatapp-main-40:/drawable/w4.png"
+        "merged": "com.example.chatapp-merged_res-38:/drawable_notification.png.flat",
+        "source": "com.example.chatapp-main-40:/drawable/notification.png"
     },
     {
-        "merged": "/home/omer/.gradle/daemon/8.0/com.example.chatapp-merged_res-38:/drawable_ic_launcher_background.xml.flat",
-        "source": "/home/omer/.gradle/daemon/8.0/com.example.chatapp-main-40:/drawable/ic_launcher_background.xml"
+        "merged": "com.example.chatapp-merged_res-38:/drawable_invite.png.flat",
+        "source": "com.example.chatapp-main-40:/drawable/invite.png"
     },
     {
-        "merged": "/home/omer/.gradle/daemon/8.0/com.example.chatapp-merged_res-38:/drawable_call.png.flat",
-        "source": "/home/omer/.gradle/daemon/8.0/com.example.chatapp-main-40:/drawable/call.png"
+        "merged": "com.example.chatapp-merged_res-38:/drawable-xhdpi_ic_pass.png.flat",
+        "source": "com.example.chatapp-main-40:/drawable-xhdpi/ic_pass.png"
     },
     {
-        "merged": "/home/omer/.gradle/daemon/8.0/com.example.chatapp-merged_res-38:/drawable-xxhdpi_ic_lock.png.flat",
-        "source": "/home/omer/.gradle/daemon/8.0/com.example.chatapp-main-40:/drawable-xxhdpi/ic_lock.png"
+        "merged": "com.example.chatapp-merged_res-38:/drawable_call.png.flat",
+        "source": "com.example.chatapp-main-40:/drawable/call.png"
     },
     {
-        "merged": "/home/omer/.gradle/daemon/8.0/com.example.chatapp-merged_res-38:/drawable_menu.png.flat",
-        "source": "/home/omer/.gradle/daemon/8.0/com.example.chatapp-main-40:/drawable/menu.png"
+        "merged": "com.example.chatapp-merged_res-38:/mipmap-xhdpi_ic_launcher.webp.flat",
+        "source": "com.example.chatapp-main-40:/mipmap-xhdpi/ic_launcher.webp"
     },
     {
-        "merged": "/home/omer/.gradle/daemon/8.0/com.example.chatapp-merged_res-38:/drawable-xxhdpi_ic_profile_icon.png.flat",
-        "source": "/home/omer/.gradle/daemon/8.0/com.example.chatapp-main-40:/drawable-xxhdpi/ic_profile_icon.png"
+        "merged": "com.example.chatapp-merged_res-38:/drawable-hdpi_ic_pass.png.flat",
+        "source": "com.example.chatapp-main-40:/drawable-hdpi/ic_pass.png"
     },
     {
-        "merged": "/home/omer/.gradle/daemon/8.0/com.example.chatapp-merged_res-38:/drawable-hdpi_ic_profile_icon.png.flat",
-        "source": "/home/omer/.gradle/daemon/8.0/com.example.chatapp-main-40:/drawable-hdpi/ic_profile_icon.png"
+        "merged": "com.example.chatapp-merged_res-38:/drawable_videocall.png.flat",
+        "source": "com.example.chatapp-main-40:/drawable/videocall.png"
     },
     {
-        "merged": "/home/omer/.gradle/daemon/8.0/com.example.chatapp-merged_res-38:/drawable_avatar.png.flat",
-        "source": "/home/omer/.gradle/daemon/8.0/com.example.chatapp-main-40:/drawable/avatar.png"
+        "merged": "com.example.chatapp-merged_res-38:/drawable-xhdpi_ic_profile_icon.png.flat",
+        "source": "com.example.chatapp-main-40:/drawable-xhdpi/ic_profile_icon.png"
     },
     {
-        "merged": "/home/omer/.gradle/daemon/8.0/com.example.chatapp-merged_res-38:/mipmap-xxhdpi_ic_launcher.webp.flat",
-        "source": "/home/omer/.gradle/daemon/8.0/com.example.chatapp-main-40:/mipmap-xxhdpi/ic_launcher.webp"
+        "merged": "com.example.chatapp-merged_res-38:/mipmap-hdpi_ic_launcher.webp.flat",
+        "source": "com.example.chatapp-main-40:/mipmap-hdpi/ic_launcher.webp"
     },
     {
-        "merged": "/home/omer/.gradle/daemon/8.0/com.example.chatapp-merged_res-38:/drawable_w1.jpg.flat",
-        "source": "/home/omer/.gradle/daemon/8.0/com.example.chatapp-main-40:/drawable/w1.jpg"
+        "merged": "com.example.chatapp-merged_res-38:/drawable-xxhdpi_ic_pass.png.flat",
+        "source": "com.example.chatapp-main-40:/drawable-xxhdpi/ic_pass.png"
     },
     {
-        "merged": "/home/omer/.gradle/daemon/8.0/com.example.chatapp-merged_res-38:/drawable_privacy.png.flat",
-        "source": "/home/omer/.gradle/daemon/8.0/com.example.chatapp-main-40:/drawable/privacy.png"
+        "merged": "com.example.chatapp-merged_res-38:/mipmap-xxxhdpi_ic_launcher_round.webp.flat",
+        "source": "com.example.chatapp-main-40:/mipmap-xxxhdpi/ic_launcher_round.webp"
     },
     {
-        "merged": "/home/omer/.gradle/daemon/8.0/com.example.chatapp-merged_res-38:/drawable-xhdpi_ic_pass.png.flat",
-        "source": "/home/omer/.gradle/daemon/8.0/com.example.chatapp-main-40:/drawable-xhdpi/ic_pass.png"
+        "merged": "com.example.chatapp-merged_res-38:/drawable-xhdpi_ic_settings.png.flat",
+        "source": "com.example.chatapp-main-40:/drawable-xhdpi/ic_settings.png"
     },
     {
-        "merged": "/home/omer/.gradle/daemon/8.0/com.example.chatapp-merged_res-38:/drawable-xhdpi_ic_profile_icon.png.flat",
-        "source": "/home/omer/.gradle/daemon/8.0/com.example.chatapp-main-40:/drawable-xhdpi/ic_profile_icon.png"
+        "merged": "com.example.chatapp-merged_res-38:/mipmap-hdpi_ic_launcher_round.webp.flat",
+        "source": "com.example.chatapp-main-40:/mipmap-hdpi/ic_launcher_round.webp"
     },
     {
-        "merged": "/home/omer/.gradle/daemon/8.0/com.example.chatapp-merged_res-38:/drawable-anydpi_ic_profile_icon.xml.flat",
-        "source": "/home/omer/.gradle/daemon/8.0/com.example.chatapp-main-40:/drawable-anydpi/ic_profile_icon.xml"
+        "merged": "com.example.chatapp-merged_res-38:/drawable-hdpi_ic_name.png.flat",
+        "source": "com.example.chatapp-main-40:/drawable-hdpi/ic_name.png"
     },
     {
-        "merged": "/home/omer/.gradle/daemon/8.0/com.example.chatapp-merged_res-38:/drawable_notification.png.flat",
-        "source": "/home/omer/.gradle/daemon/8.0/com.example.chatapp-main-40:/drawable/notification.png"
+        "merged": "com.example.chatapp-merged_res-38:/drawable_avatar3.png.flat",
+        "source": "com.example.chatapp-main-40:/drawable/avatar3.png"
     },
     {
-        "merged": "/home/omer/.gradle/daemon/8.0/com.example.chatapp-merged_res-38:/mipmap-xxxhdpi_ic_launcher_round.webp.flat",
-        "source": "/home/omer/.gradle/daemon/8.0/com.example.chatapp-main-40:/mipmap-xxxhdpi/ic_launcher_round.webp"
+        "merged": "com.example.chatapp-merged_res-38:/drawable-hdpi_ic_lock.png.flat",
+        "source": "com.example.chatapp-main-40:/drawable-hdpi/ic_lock.png"
     },
     {
-        "merged": "/home/omer/.gradle/daemon/8.0/com.example.chatapp-merged_res-38:/drawable-hdpi_ic_settings.png.flat",
-        "source": "/home/omer/.gradle/daemon/8.0/com.example.chatapp-main-40:/drawable-hdpi/ic_settings.png"
+        "merged": "com.example.chatapp-merged_res-38:/drawable_w1.jpg.flat",
+        "source": "com.example.chatapp-main-40:/drawable/w1.jpg"
     },
     {
-        "merged": "/home/omer/.gradle/daemon/8.0/com.example.chatapp-merged_res-38:/layout_activity_settings.xml.flat",
-        "source": "/home/omer/.gradle/daemon/8.0/com.example.chatapp-main-40:/layout/activity_settings.xml"
+        "merged": "com.example.chatapp-merged_res-38:/drawable-v24_ic_launcher_foreground.xml.flat",
+        "source": "com.example.chatapp-main-40:/drawable-v24/ic_launcher_foreground.xml"
     },
     {
-        "merged": "/home/omer/.gradle/daemon/8.0/com.example.chatapp-merged_res-38:/drawable_w3.png.flat",
-        "source": "/home/omer/.gradle/daemon/8.0/com.example.chatapp-main-40:/drawable/w3.png"
+        "merged": "com.example.chatapp-merged_res-38:/drawable_w4.png.flat",
+        "source": "com.example.chatapp-main-40:/drawable/w4.png"
     },
     {
-        "merged": "/home/omer/.gradle/daemon/8.0/com.example.chatapp-merged_res-38:/drawable_circle_background.xml.flat",
-        "source": "/home/omer/.gradle/daemon/8.0/com.example.chatapp-main-40:/drawable/circle_background.xml"
+        "merged": "com.example.chatapp-merged_res-38:/mipmap-xxhdpi_ic_launcher_round.webp.flat",
+        "source": "com.example.chatapp-main-40:/mipmap-xxhdpi/ic_launcher_round.webp"
     },
     {
-        "merged": "/home/omer/.gradle/daemon/8.0/com.example.chatapp-merged_res-38:/mipmap-xhdpi_ic_launcher.webp.flat",
-        "source": "/home/omer/.gradle/daemon/8.0/com.example.chatapp-main-40:/mipmap-xhdpi/ic_launcher.webp"
+        "merged": "com.example.chatapp-merged_res-38:/drawable-mdpi_ic_profile_icon.png.flat",
+        "source": "com.example.chatapp-main-40:/drawable-mdpi/ic_profile_icon.png"
     },
     {
-        "merged": "/home/omer/.gradle/daemon/8.0/com.example.chatapp-merged_res-38:/drawable-mdpi_ic_name.png.flat",
-        "source": "/home/omer/.gradle/daemon/8.0/com.example.chatapp-main-40:/drawable-mdpi/ic_name.png"
+        "merged": "com.example.chatapp-merged_res-38:/drawable_help.png.flat",
+        "source": "com.example.chatapp-main-40:/drawable/help.png"
     },
     {
-        "merged": "/home/omer/.gradle/daemon/8.0/com.example.chatapp-merged_res-38:/xml_backup_rules.xml.flat",
-        "source": "/home/omer/.gradle/daemon/8.0/com.example.chatapp-main-40:/xml/backup_rules.xml"
+        "merged": "com.example.chatapp-merged_res-38:/drawable-hdpi_ic_profile_icon.png.flat",
+        "source": "com.example.chatapp-main-40:/drawable-hdpi/ic_profile_icon.png"
     },
     {
-        "merged": "/home/omer/.gradle/daemon/8.0/com.example.chatapp-merged_res-38:/layout_fragment_chat.xml.flat",
-        "source": "/home/omer/.gradle/daemon/8.0/com.example.chatapp-main-40:/layout/fragment_chat.xml"
+        "merged": "com.example.chatapp-merged_res-38:/drawable-anydpi_ic_name.xml.flat",
+        "source": "com.example.chatapp-main-40:/drawable-anydpi/ic_name.xml"
     },
     {
-        "merged": "/home/omer/.gradle/daemon/8.0/com.example.chatapp-merged_res-38:/menu_popup_menu.xml.flat",
-        "source": "/home/omer/.gradle/daemon/8.0/com.example.chatapp-main-40:/menu/popup_menu.xml"
+        "merged": "com.example.chatapp-merged_res-38:/drawable_leftarrowwhite.png.flat",
+        "source": "com.example.chatapp-main-40:/drawable/leftarrowwhite.png"
     },
     {
-        "merged": "/home/omer/.gradle/daemon/8.0/com.example.chatapp-merged_res-38:/layout_activity_sign_up.xml.flat",
-        "source": "/home/omer/.gradle/daemon/8.0/com.example.chatapp-main-40:/layout/activity_sign_up.xml"
+        "merged": "com.example.chatapp-merged_res-38:/mipmap-xxxhdpi_ic_launcher.webp.flat",
+        "source": "com.example.chatapp-main-40:/mipmap-xxxhdpi/ic_launcher.webp"
     },
     {
-        "merged": "/home/omer/.gradle/daemon/8.0/com.example.chatapp-merged_res-38:/mipmap-mdpi_ic_launcher.webp.flat",
-        "source": "/home/omer/.gradle/daemon/8.0/com.example.chatapp-main-40:/mipmap-mdpi/ic_launcher.webp"
+        "merged": "com.example.chatapp-merged_res-38:/drawable_plus.png.flat",
+        "source": "com.example.chatapp-main-40:/drawable/plus.png"
     },
     {
-        "merged": "/home/omer/.gradle/daemon/8.0/com.example.chatapp-merged_res-38:/layout_sample_reciver.xml.flat",
-        "source": "/home/omer/.gradle/daemon/8.0/com.example.chatapp-main-40:/layout/sample_reciver.xml"
+        "merged": "com.example.chatapp-merged_res-38:/drawable_bg_sender.xml.flat",
+        "source": "com.example.chatapp-main-40:/drawable/bg_sender.xml"
     },
     {
-        "merged": "/home/omer/.gradle/daemon/8.0/com.example.chatapp-merged_res-38:/drawable_send.png.flat",
-        "source": "/home/omer/.gradle/daemon/8.0/com.example.chatapp-main-40:/drawable/send.png"
+        "merged": "com.example.chatapp-merged_res-38:/drawable-anydpi_ic_lock.xml.flat",
+        "source": "com.example.chatapp-main-40:/drawable-anydpi/ic_lock.xml"
     },
     {
-        "merged": "/home/omer/.gradle/daemon/8.0/com.example.chatapp-merged_res-38:/drawable_bg_reciver.xml.flat",
-        "source": "/home/omer/.gradle/daemon/8.0/com.example.chatapp-main-40:/drawable/bg_reciver.xml"
+        "merged": "com.example.chatapp-merged_res-38:/menu_popup_menu.xml.flat",
+        "source": "com.example.chatapp-main-40:/menu/popup_menu.xml"
     }
 ]

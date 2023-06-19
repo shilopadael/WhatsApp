@@ -31,6 +31,7 @@ import com.example.chatapp.Models.UserEntity.User;
 import com.example.chatapp.Models.UserEntity.UserDao;
 import com.example.chatapp.Schemes.Chats.AddContactResponeScheme;
 import com.example.chatapp.databinding.FragmentAddContactBinding;
+import com.example.chatapp.viewmodels.UserViewModel;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -42,25 +43,19 @@ import java.util.List;
  */
 public class AddContactFragment extends Fragment {
 
-    public OnContactAddedListener contactAddedListener;
+//    public OnContactAddedListener contactAddedListener;
+    private UserViewModel userViewModel;
     private FragmentAddContactBinding binding;
-    private UsersAdapter adapter;
-
-    private AppDB appDB;
     private SharedPreferences sharedPreferences;
-
-    private ChatAPI chatAPI;
-
-    private ContactDao contactDao;
 
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         binding = FragmentAddContactBinding.inflate(inflater, container, false);
         return binding.getRoot();
     }
-    public void setOnContactAddedListener(OnContactAddedListener listener) {
-        this.contactAddedListener = listener;
-    }
+//    public void setOnContactAddedListener(OnContactAddedListener listener) {
+//        this.contactAddedListener = listener;
+//    }
 
     @Override
     public void onViewCreated(@NonNull View view, Bundle savedInstanceState) {
@@ -78,12 +73,6 @@ public class AddContactFragment extends Fragment {
             return;
         }
         //creating the DataBase
-        appDB = Room.databaseBuilder(requireContext(), AppDB.class, currentUserName)
-                .fallbackToDestructiveMigration()
-                .allowMainThreadQueries().build();
-        contactDao = appDB.contactsDao();
-
-        chatAPI = new ChatAPI(ip, token);
 
         EditText editTextName = binding.editTextName;
         Button buttonAddContact = binding.buttonAddContact;
@@ -92,20 +81,10 @@ public class AddContactFragment extends Fragment {
             @Override
             public void onClick(View v) {
 
-                chatAPI.addNewContact(editTextName.getText().toString(), new TaskAPI<AddContactResponeScheme>() {
+                String username = editTextName.getText().toString();
+                userViewModel.addNewContact(username, new TaskAPI<Boolean>() {
                     @Override
-                    public void onSuccess(AddContactResponeScheme addContactResponeScheme) {
-                        // updating the contact list
-                        String username = addContactResponeScheme.getUser().getUsername();
-                        String displayName = addContactResponeScheme.getUser().getDisplayName();
-                        String profilePic = addContactResponeScheme.getUser().getProfilePic();
-                        int id = addContactResponeScheme.getId();
-
-                        Contact newContact = new Contact(username, "", "No Message Yet", profilePic, displayName, id);
-                        contactDao.insert(newContact);
-                        List<Contact> contacts = contactDao.index();
-                        ArrayList<Contact> temp = new ArrayList<>(contacts);
-                        adapter.setList(temp);
+                    public void onSuccess(Boolean aBoolean) {
                         FragmentManager fragmentManager = requireActivity().getSupportFragmentManager();
                         fragmentManager.beginTransaction().remove(AddContactFragment.this).commit();
                     }
@@ -117,9 +96,6 @@ public class AddContactFragment extends Fragment {
                 });
             }
         });
-
-
-
     }
 
     @Override
@@ -128,7 +104,7 @@ public class AddContactFragment extends Fragment {
         binding = null;
     }
 
-    public void setAdapter(UsersAdapter adapter) {
-        this.adapter = adapter;
+    public void setUserViewModel(UserViewModel viewModel) {
+        this.userViewModel = viewModel;
     }
 }

@@ -58,7 +58,7 @@ public class UsersAdapter extends RecyclerView.Adapter<UsersAdapter.ViewHolder>{
 
         if (list != null) {
             Contact current = list.get(position);
-            holder.userName.setText(current.getUsername());
+            holder.userName.setText(current.getDisplayName());
             holder.lastMessage.setText(current.getLastMessage());
             String img = current.getProfilePicBase64();
             String base64ImageData = img.substring(img.indexOf(",") + 1);
@@ -83,8 +83,6 @@ public class UsersAdapter extends RecyclerView.Adapter<UsersAdapter.ViewHolder>{
 
                 context.startActivity(intent);
             });
-
-
         }
 
     }

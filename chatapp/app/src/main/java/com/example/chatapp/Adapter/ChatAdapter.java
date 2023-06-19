@@ -29,15 +29,13 @@ public class ChatAdapter extends  RecyclerView.Adapter{
     List<Message> messages;
     String chatId;
     Context context;
-    AppDB appDB;
-//    TokenDao tokenDao;
     SharedPreferences sharedPreferences;
 
     int SENDER_VIEW_TYPE = 1;
     int RECEIVER_VIEW_TYPE = 2;
 
-    public ChatAdapter(List<Message> messages, Context context, String chatId) {
-        this.messages = messages;
+    public ChatAdapter(Context context, String chatId) {
+        this.messages = null;
         this.context = context;
         this.chatId = chatId;
         this.sharedPreferences = context.getSharedPreferences("chatSystem", Context.MODE_PRIVATE);
@@ -59,8 +57,6 @@ public class ChatAdapter extends  RecyclerView.Adapter{
 
     @Override
     public int getItemViewType(int position) {
-        appDB = Room.databaseBuilder(context, AppDB.class,this.chatId).
-                allowMainThreadQueries().build();
         String username = sharedPreferences.getString("username", "#");
         if (messages.get(position).getSender().equals(username)){
             return SENDER_VIEW_TYPE;
@@ -73,7 +69,6 @@ public class ChatAdapter extends  RecyclerView.Adapter{
 
     @Override
     public void onBindViewHolder(@NonNull RecyclerView.ViewHolder holder, int position) {
-        MessageDao messageDao = appDB.messageDao();
         Message message = messages.get(position);
 
         if (holder.getClass() == SenderViewHolder.class) {

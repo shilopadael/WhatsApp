@@ -16,6 +16,7 @@ import com.example.chatapp.Schemes.UserPassName;
 
 import java.util.List;
 
+import okhttp3.ResponseBody;
 import retrofit2.Call;
 import retrofit2.http.Body;
 import retrofit2.http.DELETE;
@@ -39,8 +40,8 @@ public interface WebServiceAPI {
     @POST("api/Chats")
     Call<AddContactResponeScheme> createChat(@Body AddContactScheme chat, @Header("Authorization") String auth);
 
-    @DELETE("Chats/{id}")
-    Call<Chat> deleteChat(@Path("id") int id, @Header("Authorization") String auth);
+    @DELETE("api/Chats/{id}")
+    Call<ResponseBody> deleteChat(@Path("id") int id, @Header("Authorization") String auth);
 
     @POST("api/Chats/{id}/Messages")
     Call<Message> createMessage(@Path("id") int id, @Body MessageToSend message, @Header("Authorization") String auth);
