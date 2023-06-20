@@ -6,23 +6,35 @@ import android.util.Log;
 import androidx.annotation.NonNull;
 
 import com.example.chatapp.Adapter.UsersAdapter;
+import com.example.chatapp.viewmodels.MessageViewModel;
+import com.example.chatapp.viewmodels.UserViewModel;
 import com.google.firebase.messaging.FirebaseMessagingService;
 import com.google.firebase.messaging.RemoteMessage;
 
 public class FireBaseMessageService extends FirebaseMessagingService {
     private static final String TAG = "FIRE_BASE";
-    private UsersAdapter adapter;
+
+    private MessageViewModel messageViewModel;
+    private UserViewModel userViewModel;
     private Intent currentIntent;
     private String locationScreen;
     private int currentChatId;
     private String currentUsername;
 
-    public UsersAdapter getAdapter() {
-        return adapter;
+    public MessageViewModel getMessageViewModel() {
+        return messageViewModel;
     }
 
-    public void setAdapter(UsersAdapter adapter) {
-        this.adapter = adapter;
+    public void setMessageViewModel(MessageViewModel messageViewModel) {
+        this.messageViewModel = messageViewModel;
+    }
+
+    public UserViewModel getUserViewModel() {
+        return userViewModel;
+    }
+
+    public void setUserViewModel(UserViewModel userViewModel) {
+        this.userViewModel = userViewModel;
     }
 
     public Intent getCurrentIntent() {

@@ -19,12 +19,15 @@ import com.bumptech.glide.Glide;
 import com.bumptech.glide.request.RequestOptions;
 import com.example.chatapp.ChatDetailActivity;
 //import com.example.chatapp.Models.AllChatsEntity.AllChatsDao;
+import com.example.chatapp.Firebase.FireBaseMessageService;
 import com.example.chatapp.Models.AppDB;
 import com.example.chatapp.Models.ContactEntity.Contact;
 import com.example.chatapp.Models.ContactEntity.ContactDao;
 import com.example.chatapp.R;
 import com.example.chatapp.Schemes.Chat;
 import com.example.chatapp.SignInActivity;
+import com.google.firebase.messaging.FirebaseMessaging;
+import com.google.firebase.messaging.FirebaseMessagingService;
 
 import java.util.ArrayList;
 import android.util.Base64;
@@ -35,10 +38,16 @@ public class UsersAdapter extends RecyclerView.Adapter<UsersAdapter.ViewHolder>{
     String username;
     Context context;
 
+    FireBaseMessageService firebaseMessagingService;
+
 
     public UsersAdapter(Context context, String username) {
         this.context = context;
         this.username = username;
+    }
+
+    public void setFirebaseMessagingService(FireBaseMessageService firebaseMessagingService) {
+        this.firebaseMessagingService = firebaseMessagingService;
     }
 
     @NonNull
@@ -78,9 +87,11 @@ public class UsersAdapter extends RecyclerView.Adapter<UsersAdapter.ViewHolder>{
                 intent.putExtra("username", current.getUsername()); // Pass the username to the ChatDetailActivity
                 intent.putExtra("chatId", chatId);
                 intent.putExtra("profilePic", current.getProfilePicBase64());
-
+                firebaseMessagingService.setCurrentIntent(intent);
+                firebaseMessagingService.setCurrentChatId(chatId);
+                firebaseMessagingService.setCurrentUsername(username);
+                firebaseMessagingService.setLocationScreen("ChatScreen");
                 //check if there a chat open already if not create new one for that user
-
                 context.startActivity(intent);
             });
         }

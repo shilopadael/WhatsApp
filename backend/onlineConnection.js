@@ -18,7 +18,6 @@ class onlineConnection {
     }
 
     getOnlineUser(username) {
-        console.log("online user  ", this.onlineUsers);
         return this.onlineUsers.find(u => u.username === username);
     }
 

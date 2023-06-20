@@ -27,7 +27,6 @@ const getChats = async (req, res) => {
       for (const chat of allChats.chats) {
         //find the specific chat
         const NOJchat = await Chats.findOne({ _id: chat });
-        console.log("NOJchat ", NOJchat);
 
         let otherUser;
 
@@ -38,8 +37,6 @@ const getChats = async (req, res) => {
             break; // Found the other user, no need to continue the loop
           }
         }
-
-        console.log("other user " , otherUser);
 
         if (otherUser) {
           const otherUserDetails = await User.findOne({ username: otherUser.username });
@@ -58,14 +55,11 @@ const getChats = async (req, res) => {
             },
             lastMessage: populate
           };
-          console.log("chatToAdd ",  chatToAdd);
 
           listOfChats.push(chatToAdd);
         }
 
       }
-
-      console.log("all chat to add " , listOfChats);
 
       return listOfChats;
     }
@@ -107,7 +101,6 @@ const addChat = async (req, res) => {
 
     //check if that user already have an open chat with the user he want to chat with
     const alreadyWithChat = await AllChats.findOne({ username: req.body.username });
-    console.log(alreadyWithChat);
 
     if (alreadyWithChat) {
       for (const chat of alreadyWithChat.chats) {
@@ -133,9 +126,6 @@ const addChat = async (req, res) => {
     }
     const newChat = new Chats(data);
 
-    console.log(data)
-    console.log('userToAdd ', userToAdd);
-    console.log('userPassName2 ', userPassName2);
     await newChat.save();
 
 
@@ -217,7 +207,6 @@ const getMessages = async (req, res) => {
         content: message.content
       }
     });
-    console.log(newMessages);
     return newMessages;
   } else {
     return { error: 'Chat does not exist' };
@@ -241,7 +230,7 @@ const addMessage = async (req, res) => {
     const Number = generateNewId(allMessages);
 
     const mess = new Message({
-      id: generateNewId(allMessages),
+      id: Number,
       created: Date.now(),
       sender: user,
       content: msgGot
@@ -261,16 +250,21 @@ const addMessage = async (req, res) => {
       let userToSend = onlineUsers.getOnlineUser(sendUserScheme[0].username);
       if(userToSend !== undefined && userToSend.id != null) {
         // sending the message to the other user
+        // casting the mesggesId to number
+        let number = parseInt(mesggesId);
         let data = {
-          created: mess.created,
-          sender: user,
-          content: msgGot,
-          receiverUsername: sendUserScheme.username
+          data: {
+            created: mess.created,
+            sender: user,
+            content: msgGot,
+            id: Number
+          },
+          receiverUsername: sendUserScheme[0].username,
+          id: number
         }
         userToSend.io.to(userToSend.id).emit('receive-message', data);
       }
     }
-
     return mess;
   } catch (error) {
     return { error: 'An error occurred while sending message. go away.' };

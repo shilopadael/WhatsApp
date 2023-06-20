@@ -41,7 +41,7 @@ function MessageNav(props) {
 
     socket.on("receive-message", (data) => {
         // checking if the message is for the current chat
-        // console.log(data);
+        console.log(data);
         if (data.id === currentChatId) {
             setUserMessages([...userMessages, data.data]);
             setLastMessage(data.data);

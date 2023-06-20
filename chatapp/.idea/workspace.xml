@@ -21,12 +21,13 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="d9a6fba6-9805-42a4-aa0a-f1a233bc2b0c" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/../backend/controllers/Chats.js" beforeDir="false" afterPath="$PROJECT_DIR$/../backend/controllers/Chats.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../backend/services/ChatService.js" beforeDir="false" afterPath="$PROJECT_DIR$/../backend/services/ChatService.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/8.0/executionHistory/executionHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.0/executionHistory/executionHistory.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/8.0/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.0/fileHashes/fileHashes.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/file-system.probe" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/file-system.probe" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/chatapp/Adapter/UsersAdapter.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/chatapp/Adapter/UsersAdapter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/chatapp/ChatActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/chatapp/ChatActivity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/chatapp/Firebase/FireBaseMessageService.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/chatapp/Firebase/FireBaseMessageService.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -222,7 +223,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/com/example/chatapp/ChatActivity.java</url>
-          <line>233</line>
+          <line>235</line>
           <option name="timeStamp" value="100" />
         </line-breakpoint>
       </breakpoints>

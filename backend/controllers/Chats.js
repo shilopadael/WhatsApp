@@ -35,8 +35,6 @@ const getChat = async (req, res) => {
 
 const addChat = async (req, res) => {
     const chat = await chatService.addChat(req);
-    console.log(req.body);
-    console.log(chat);
     if (chat.error) {
         res.status(400).json(chat.error);
     }

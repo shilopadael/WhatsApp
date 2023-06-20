@@ -120,6 +120,8 @@ public class ChatActivity extends AppCompatActivity {
         userViewModel = new UserViewModel(ip, token);
 
         ChatAPI api = new ChatAPI(ip, token);
+        fireBaseMessageService.setUserViewModel(userViewModel);
+        adapter.setFirebaseMessagingService(fireBaseMessageService);
 
         api.getUserInformation(username, new TaskAPI<com.example.chatapp.Schemes.User>() {
             @Override
