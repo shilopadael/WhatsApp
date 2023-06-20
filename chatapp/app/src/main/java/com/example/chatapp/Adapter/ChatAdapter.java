@@ -16,8 +16,6 @@ import com.example.chatapp.Models.AppDB;
 import com.example.chatapp.Models.ContactEntity.Contact;
 import com.example.chatapp.Models.MessageEntity.Message;
 import com.example.chatapp.Models.MessageEntity.MessageDao;
-import com.example.chatapp.Models.TokenEntity.Token;
-import com.example.chatapp.Models.TokenEntity.TokenDao;
 import com.example.chatapp.Models.UserEntity.UserDao;
 import com.example.chatapp.R;
 

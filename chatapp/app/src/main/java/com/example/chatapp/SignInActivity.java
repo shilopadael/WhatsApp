@@ -66,10 +66,6 @@ public class SignInActivity extends AppCompatActivity {
         sharedPreferences = getSharedPreferences("chatSystem", MODE_PRIVATE);
         String ip = sharedPreferences.getString("ip", "http://10.0.2.2:5000/");
 
-
-//        appDB = Room.databaseBuilder(getApplicationContext(), AppDB.class,"Users2").
-//                allowMainThreadQueries().build();
-//        userDao = appDB.userDao();
         FirebaseMessaging.getInstance().getToken()
                 .addOnCompleteListener(new OnCompleteListener<String>() {
                     @Override
@@ -119,6 +115,7 @@ public class SignInActivity extends AppCompatActivity {
                     SharedPreferences.Editor editor = sharedPreferences.edit();
                     editor.putString("token", token);
                     editor.putString("username", username);
+                    editor.putString("password", password);
                     editor.apply();
 
                     // go to the main activity

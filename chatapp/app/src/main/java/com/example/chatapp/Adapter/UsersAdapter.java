@@ -2,6 +2,7 @@ package com.example.chatapp.Adapter;
 
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.net.Uri;
@@ -38,16 +39,9 @@ public class UsersAdapter extends RecyclerView.Adapter<UsersAdapter.ViewHolder>{
     String username;
     Context context;
 
-    FireBaseMessageService firebaseMessagingService;
-
-
     public UsersAdapter(Context context, String username) {
         this.context = context;
         this.username = username;
-    }
-
-    public void setFirebaseMessagingService(FireBaseMessageService firebaseMessagingService) {
-        this.firebaseMessagingService = firebaseMessagingService;
     }
 
     @NonNull
@@ -87,10 +81,8 @@ public class UsersAdapter extends RecyclerView.Adapter<UsersAdapter.ViewHolder>{
                 intent.putExtra("username", current.getUsername()); // Pass the username to the ChatDetailActivity
                 intent.putExtra("chatId", chatId);
                 intent.putExtra("profilePic", current.getProfilePicBase64());
-                firebaseMessagingService.setCurrentIntent(intent);
-                firebaseMessagingService.setCurrentChatId(chatId);
-                firebaseMessagingService.setCurrentUsername(username);
-                firebaseMessagingService.setLocationScreen("ChatScreen");
+                SharedPreferences sharedPreferences = context.getSharedPreferences("chatSystem", Context.MODE_PRIVATE);
+                sharedPreferences.edit().putString("currentScreen", "ChatScreen").apply();
                 //check if there a chat open already if not create new one for that user
                 context.startActivity(intent);
             });

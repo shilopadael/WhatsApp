@@ -19,7 +19,7 @@ import com.example.chatapp.Models.MessageEntity.MessageDao;
 import com.example.chatapp.Models.UserEntity.User;
 import com.example.chatapp.Models.UserEntity.UserDao;
 
-@Database(entities = {Contact.class, User.class, Message.class}, version = 9)
+@Database(entities = {Contact.class, User.class, Message.class}, version = 10)
 @TypeConverters(Converters.class)
 public abstract class AppDB extends RoomDatabase {
 

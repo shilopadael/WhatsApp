@@ -57,22 +57,27 @@ io.on('connection', (socket) => {
         // users = users.filter(user => user.id !== socket.id);
     }
     );
-    socket.on('send-message', (data) => {
-        console.log(data);
-        let currentUserName = data.receiverUsername;
-        // const user = users.find(user => user.username === currentUserName);
+    socket.on('send-message', (recData) => {
+        console.log(recData);
+        let currentUserName = recData.receiverUsername;
         const user = onlineUsers.getOnlineUser(currentUserName);
         if (user && user.id !== null) {
             // this is message to web
             console.log("sending message to " + user.username)
-            io.to(user.id).emit('receive-message', data);
+            io.to(user.id).emit('receive-message', recData);
         } else if(user && user.id === null) {
             // message to android
             // construction the new message
+            console.log("sending message to " + user.username + " from firebase");
             const message = {
+                data: {
+                    // Add your custom data fields here
+                    chatId: `${recData.id}`,
+                    sender: currentUserName
+                  },
                 notification: {
                   title: currentUserName,
-                  body: data.message
+                  body: recData.content
                 },
                 token: user.firebaseToken // Replace with the FCM device token of the recipient
               };

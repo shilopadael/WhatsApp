@@ -1,6 +1,9 @@
 package com.example.chatapp.Api;
 
+import android.content.SharedPreferences;
+
 import com.example.chatapp.Adapter.CustomDateAdapter;
+import com.example.chatapp.MainActivity;
 import com.example.chatapp.Schemes.Chats.AddContactResponeScheme;
 import com.example.chatapp.Schemes.Chats.AddContactScheme;
 import com.example.chatapp.Schemes.Chats.GetChatsScheme;
@@ -63,7 +66,7 @@ public class ChatAPI {
             // failed to get all chat
             return;
         }
-
+        updateToken();
         // sending get request
         service.getChats(this.bearerToken, "Android").enqueue(new Callback<List<GetChatsScheme>>() {
             @Override
@@ -113,7 +116,7 @@ public class ChatAPI {
             // failed to get all chat
             return;
         }
-
+        updateToken();
         service.getMessages(id, this.bearerToken).enqueue(new Callback<List<GetMessagesScheme>>() {
             @Override
             public void onResponse(Call<List<GetMessagesScheme>> call, Response<List<GetMessagesScheme>> response) {
@@ -147,6 +150,7 @@ public class ChatAPI {
             // failed to get all chat
             return;
         }
+        updateToken();
         MessageToSend msg = new MessageToSend(message);
         service.createMessage(chatId, msg, this.bearerToken).enqueue(new Callback<Message>() {
             @Override
@@ -174,6 +178,7 @@ public class ChatAPI {
             // failed to get all chat
             return;
         }
+        updateToken();
         AddContactScheme contact = new AddContactScheme(username);
         service.createChat(contact, this.bearerToken).enqueue(new Callback<AddContactResponeScheme>() {
             @Override
@@ -201,7 +206,7 @@ public class ChatAPI {
             // failed to get all chat
             return;
         }
-
+        updateToken();
         service.deleteChat(id, this.bearerToken).enqueue(new Callback<ResponseBody>() {
             @Override
             public void onResponse(Call<ResponseBody> call, Response<ResponseBody> response) {
@@ -226,6 +231,7 @@ public class ChatAPI {
             taskAPI.onFailure("Cannot fetch from the given IP, please check your settings.");
             return;
         }
+        updateToken();
 
         service.getUser(username, this.bearerToken).enqueue(new Callback<User>() {
             @Override
@@ -251,5 +257,15 @@ public class ChatAPI {
     public void setBearer(String token) {
         this.token = token;
         this.bearerToken = "Bearer" + token;
+    }
+
+    public void updateToken() {
+//        SharedPreferences sharedPreferences = MainActivity.context.getSharedPreferences("chatSystem", MainActivity.context.MODE_PRIVATE);
+//        String token = sharedPreferences.getString("token", null);
+//        if (token != null) {
+//            this.setBearer(token);
+//        } else {
+//            this.setBearer("");
+//        }
     }
 }

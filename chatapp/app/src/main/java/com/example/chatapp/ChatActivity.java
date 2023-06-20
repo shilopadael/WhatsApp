@@ -90,13 +90,16 @@ public class ChatActivity extends AppCompatActivity {
         List<User> lst = users.getAllUsers();
         if (lst == null || lst.isEmpty()) {
             // setting the current user
+            String password = sharedPreferences.getString("password", "#");
             users.deleteAll();
             User currentUser = new User(username, token);
             currentUser.setOnline(true);
+            currentUser.setPassword(password);
             users.insert(currentUser);
         } else {
             User onlyUser = lst.get(0);
             if (!onlyUser.getUsername().equals(username)) {
+                String password = sharedPreferences.getString("password", "#");
                 // changing the only username and deleting all the contact and room database
                 AppDB app = LocalDatabase.getDB();
                 // deleting old user messages
@@ -106,6 +109,7 @@ public class ChatActivity extends AppCompatActivity {
                 users.deleteAll();
                 User currentUser = new User(username, token);
                 currentUser.setOnline(true);
+                currentUser.setPassword(password);
                 users.insert(currentUser);
             } else {
                 onlyUser.setOnline(true);
@@ -120,9 +124,6 @@ public class ChatActivity extends AppCompatActivity {
         userViewModel = new UserViewModel(ip, token);
 
         ChatAPI api = new ChatAPI(ip, token);
-        fireBaseMessageService.setUserViewModel(userViewModel);
-        adapter.setFirebaseMessagingService(fireBaseMessageService);
-
         api.getUserInformation(username, new TaskAPI<com.example.chatapp.Schemes.User>() {
             @Override
             public void onSuccess(com.example.chatapp.Schemes.User user) {
@@ -234,6 +235,8 @@ public class ChatActivity extends AppCompatActivity {
         // reloading the contact
         // updating the ip
         this.ip = sharedPreferences.getString("ip", "http://10.0.2.2:5000/");
+        @SuppressLint("CommitPrefEdits") SharedPreferences.Editor editor = sharedPreferences.edit();
+        editor.putString("currentScreen", "ContactScreen");
         userViewModel.setIp(this.ip);
         userViewModel.reload();
     }

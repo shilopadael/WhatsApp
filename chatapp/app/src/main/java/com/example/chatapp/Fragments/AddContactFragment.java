@@ -26,7 +26,6 @@ import com.example.chatapp.Listeners.OnContactAddedListener;
 import com.example.chatapp.Models.AppDB;
 import com.example.chatapp.Models.ContactEntity.Contact;
 import com.example.chatapp.Models.ContactEntity.ContactDao;
-import com.example.chatapp.Models.TokenEntity.TokenDao;
 import com.example.chatapp.Models.UserEntity.User;
 import com.example.chatapp.Models.UserEntity.UserDao;
 import com.example.chatapp.Schemes.Chats.AddContactResponeScheme;

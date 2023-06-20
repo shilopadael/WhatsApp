@@ -149,17 +149,10 @@ public class ChatDetailActivity extends AppCompatActivity {
         this.ip = sharedPreferences.getString("ip", "http://10.0.2.2:5000/");
         this.messageViewModel.setIp(ip);
         this.messageViewModel.reload();
+        @SuppressLint("CommitPrefEdits") SharedPreferences.Editor editor = sharedPreferences.edit();
+        editor.putString("currentChatId", Integer.toString(this.currentChatId));
+        editor.putString("currentScreen", "ChatScreen");
+
     }
 
-//    private void fromMessageSchemeToMessage(GetMessagesScheme getMessagesScheme) {
-//        // date format
-//        @SuppressLint("SimpleDateFormat") SimpleDateFormat formatter = new SimpleDateFormat("hh:mm");
-//        Date date = getMessagesScheme.getCreated();
-//        String dateStr = formatter.format(date);
-//        Message message = new Message(getMessagesScheme.getId(),
-//                dateStr,
-//                getMessagesScheme.getSender().getUsername(),
-//                getMessagesScheme.getContent());
-//
-//    }
 }

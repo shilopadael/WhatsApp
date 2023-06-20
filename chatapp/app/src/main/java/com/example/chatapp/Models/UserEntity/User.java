@@ -10,6 +10,7 @@ public class User {
     @PrimaryKey(autoGenerate = true)
     int id;
     String username;
+    String password;
     String token;
     boolean isOnline;
 
@@ -48,5 +49,13 @@ public class User {
 
     public void setOnline(boolean online) {
         isOnline = online;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
     }
 }

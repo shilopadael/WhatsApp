@@ -14,34 +14,34 @@
 11-->/home/omer/Desktop/Programming/WhatApp Project/Advance-Programing-Project-2/chatapp/app/src/main/AndroidManifest.xml:5:5-67
 11-->/home/omer/Desktop/Programming/WhatApp Project/Advance-Programing-Project-2/chatapp/app/src/main/AndroidManifest.xml:5:22-64
 12    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
-12-->[com.google.firebase:firebase-messaging:23.1.2] /home/omer/.gradle/caches/transforms-3/ea328b610bd19482974625d0fd226c25/transformed/firebase-messaging-23.1.2/AndroidManifest.xml:24:5-79
-12-->[com.google.firebase:firebase-messaging:23.1.2] /home/omer/.gradle/caches/transforms-3/ea328b610bd19482974625d0fd226c25/transformed/firebase-messaging-23.1.2/AndroidManifest.xml:24:22-76
+12-->[com.google.firebase:firebase-messaging:23.1.2] /home/omer/.gradle/caches/transforms-3/5f1272a3e73f88ffd97771e6d9bb79b6/transformed/firebase-messaging-23.1.2/AndroidManifest.xml:24:5-79
+12-->[com.google.firebase:firebase-messaging:23.1.2] /home/omer/.gradle/caches/transforms-3/5f1272a3e73f88ffd97771e6d9bb79b6/transformed/firebase-messaging-23.1.2/AndroidManifest.xml:24:22-76
 13    <uses-permission android:name="android.permission.POST_NOTIFICATIONS" />
-13-->[com.google.firebase:firebase-messaging:23.1.2] /home/omer/.gradle/caches/transforms-3/ea328b610bd19482974625d0fd226c25/transformed/firebase-messaging-23.1.2/AndroidManifest.xml:25:5-77
-13-->[com.google.firebase:firebase-messaging:23.1.2] /home/omer/.gradle/caches/transforms-3/ea328b610bd19482974625d0fd226c25/transformed/firebase-messaging-23.1.2/AndroidManifest.xml:25:22-74
+13-->[com.google.firebase:firebase-messaging:23.1.2] /home/omer/.gradle/caches/transforms-3/5f1272a3e73f88ffd97771e6d9bb79b6/transformed/firebase-messaging-23.1.2/AndroidManifest.xml:25:5-77
+13-->[com.google.firebase:firebase-messaging:23.1.2] /home/omer/.gradle/caches/transforms-3/5f1272a3e73f88ffd97771e6d9bb79b6/transformed/firebase-messaging-23.1.2/AndroidManifest.xml:25:22-74
 14    <uses-permission android:name="android.permission.WAKE_LOCK" /> <!-- Required by older versions of Google Play services to create IID tokens -->
-14-->[com.google.firebase:firebase-messaging:23.1.2] /home/omer/.gradle/caches/transforms-3/ea328b610bd19482974625d0fd226c25/transformed/firebase-messaging-23.1.2/AndroidManifest.xml:26:5-68
-14-->[com.google.firebase:firebase-messaging:23.1.2] /home/omer/.gradle/caches/transforms-3/ea328b610bd19482974625d0fd226c25/transformed/firebase-messaging-23.1.2/AndroidManifest.xml:26:22-65
+14-->[com.google.firebase:firebase-messaging:23.1.2] /home/omer/.gradle/caches/transforms-3/5f1272a3e73f88ffd97771e6d9bb79b6/transformed/firebase-messaging-23.1.2/AndroidManifest.xml:26:5-68
+14-->[com.google.firebase:firebase-messaging:23.1.2] /home/omer/.gradle/caches/transforms-3/5f1272a3e73f88ffd97771e6d9bb79b6/transformed/firebase-messaging-23.1.2/AndroidManifest.xml:26:22-65
 15    <uses-permission android:name="com.google.android.c2dm.permission.RECEIVE" />
-15-->[com.google.firebase:firebase-messaging:23.1.2] /home/omer/.gradle/caches/transforms-3/ea328b610bd19482974625d0fd226c25/transformed/firebase-messaging-23.1.2/AndroidManifest.xml:28:5-82
-15-->[com.google.firebase:firebase-messaging:23.1.2] /home/omer/.gradle/caches/transforms-3/ea328b610bd19482974625d0fd226c25/transformed/firebase-messaging-23.1.2/AndroidManifest.xml:28:22-79
+15-->[com.google.firebase:firebase-messaging:23.1.2] /home/omer/.gradle/caches/transforms-3/5f1272a3e73f88ffd97771e6d9bb79b6/transformed/firebase-messaging-23.1.2/AndroidManifest.xml:28:5-82
+15-->[com.google.firebase:firebase-messaging:23.1.2] /home/omer/.gradle/caches/transforms-3/5f1272a3e73f88ffd97771e6d9bb79b6/transformed/firebase-messaging-23.1.2/AndroidManifest.xml:28:22-79
 16    <uses-permission android:name="com.google.android.gms.permission.AD_ID" />
-16-->[com.google.android.gms:play-services-measurement-api:21.1.1] /home/omer/.gradle/caches/transforms-3/d820cb6dc98575ea708fbed7ac34445e/transformed/play-services-measurement-api-21.1.1/AndroidManifest.xml:25:5-79
-16-->[com.google.android.gms:play-services-measurement-api:21.1.1] /home/omer/.gradle/caches/transforms-3/d820cb6dc98575ea708fbed7ac34445e/transformed/play-services-measurement-api-21.1.1/AndroidManifest.xml:25:22-76
+16-->[com.google.android.gms:play-services-measurement-api:21.1.1] /home/omer/.gradle/caches/transforms-3/5279b87ec8e2e974dab93e2692e602a6/transformed/play-services-measurement-api-21.1.1/AndroidManifest.xml:25:5-79
+16-->[com.google.android.gms:play-services-measurement-api:21.1.1] /home/omer/.gradle/caches/transforms-3/5279b87ec8e2e974dab93e2692e602a6/transformed/play-services-measurement-api-21.1.1/AndroidManifest.xml:25:22-76
 17    <uses-permission android:name="com.google.android.finsky.permission.BIND_GET_INSTALL_REFERRER_SERVICE" />
-17-->[com.google.android.gms:play-services-measurement:21.1.1] /home/omer/.gradle/caches/transforms-3/dad3cf0efaac1f8b7636269e8510a882/transformed/play-services-measurement-21.1.1/AndroidManifest.xml:26:5-110
-17-->[com.google.android.gms:play-services-measurement:21.1.1] /home/omer/.gradle/caches/transforms-3/dad3cf0efaac1f8b7636269e8510a882/transformed/play-services-measurement-21.1.1/AndroidManifest.xml:26:22-107
+17-->[com.google.android.gms:play-services-measurement:21.1.1] /home/omer/.gradle/caches/transforms-3/98e0c3f8226cccb3ce2822fb0bf1bb3e/transformed/play-services-measurement-21.1.1/AndroidManifest.xml:26:5-110
+17-->[com.google.android.gms:play-services-measurement:21.1.1] /home/omer/.gradle/caches/transforms-3/98e0c3f8226cccb3ce2822fb0bf1bb3e/transformed/play-services-measurement-21.1.1/AndroidManifest.xml:26:22-107
 18
 19    <permission
-19-->[androidx.core:core:1.9.0] /home/omer/.gradle/caches/transforms-3/57c95f7bce2a4c36ea305cb3932f8371/transformed/core-1.9.0/AndroidManifest.xml:22:5-24:47
+19-->[androidx.core:core:1.9.0] /home/omer/.gradle/caches/transforms-3/2ed30a9306a58db86b4daf039e5adc0b/transformed/core-1.9.0/AndroidManifest.xml:22:5-24:47
 20        android:name="com.example.chatapp.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION"
-20-->[androidx.core:core:1.9.0] /home/omer/.gradle/caches/transforms-3/57c95f7bce2a4c36ea305cb3932f8371/transformed/core-1.9.0/AndroidManifest.xml:23:9-81
+20-->[androidx.core:core:1.9.0] /home/omer/.gradle/caches/transforms-3/2ed30a9306a58db86b4daf039e5adc0b/transformed/core-1.9.0/AndroidManifest.xml:23:9-81
 21        android:protectionLevel="signature" />
-21-->[androidx.core:core:1.9.0] /home/omer/.gradle/caches/transforms-3/57c95f7bce2a4c36ea305cb3932f8371/transformed/core-1.9.0/AndroidManifest.xml:24:9-44
+21-->[androidx.core:core:1.9.0] /home/omer/.gradle/caches/transforms-3/2ed30a9306a58db86b4daf039e5adc0b/transformed/core-1.9.0/AndroidManifest.xml:24:9-44
 22
 23    <uses-permission android:name="com.example.chatapp.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION" />
-23-->[androidx.core:core:1.9.0] /home/omer/.gradle/caches/transforms-3/57c95f7bce2a4c36ea305cb3932f8371/transformed/core-1.9.0/AndroidManifest.xml:26:5-97
-23-->[androidx.core:core:1.9.0] /home/omer/.gradle/caches/transforms-3/57c95f7bce2a4c36ea305cb3932f8371/transformed/core-1.9.0/AndroidManifest.xml:26:22-94
+23-->[androidx.core:core:1.9.0] /home/omer/.gradle/caches/transforms-3/2ed30a9306a58db86b4daf039e5adc0b/transformed/core-1.9.0/AndroidManifest.xml:26:5-97
+23-->[androidx.core:core:1.9.0] /home/omer/.gradle/caches/transforms-3/2ed30a9306a58db86b4daf039e5adc0b/transformed/core-1.9.0/AndroidManifest.xml:26:22-94
 24
 25    <application
 25-->/home/omer/Desktop/Programming/WhatApp Project/Advance-Programing-Project-2/chatapp/app/src/main/AndroidManifest.xml:7:5-56:19
@@ -50,7 +50,7 @@
 27        android:allowBackup="true"
 27-->/home/omer/Desktop/Programming/WhatApp Project/Advance-Programing-Project-2/chatapp/app/src/main/AndroidManifest.xml:9:9-35
 28        android:appComponentFactory="androidx.core.app.CoreComponentFactory"
-28-->[androidx.core:core:1.9.0] /home/omer/.gradle/caches/transforms-3/57c95f7bce2a4c36ea305cb3932f8371/transformed/core-1.9.0/AndroidManifest.xml:28:18-86
+28-->[androidx.core:core:1.9.0] /home/omer/.gradle/caches/transforms-3/2ed30a9306a58db86b4daf039e5adc0b/transformed/core-1.9.0/AndroidManifest.xml:28:18-86
 29        android:dataExtractionRules="@xml/data_extraction_rules"
 29-->/home/omer/Desktop/Programming/WhatApp Project/Advance-Programing-Project-2/chatapp/app/src/main/AndroidManifest.xml:10:9-65
 30        android:debuggable="true"
@@ -133,27 +133,27 @@
 73        <!-- android:name=".MainActivity" -->
 74        <!-- android:exported="true" /> -->
 75        <service
-75-->[androidx.room:room-runtime:2.4.1] /home/omer/.gradle/caches/transforms-3/d5bb28b3767fa133b59d7ea8be7188d5/transformed/room-runtime-2.4.1/AndroidManifest.xml:25:9-28:40
+75-->[androidx.room:room-runtime:2.4.1] /home/omer/.gradle/caches/transforms-3/0e58da5691a2b721009a33ef9b2d7dea/transformed/room-runtime-2.4.1/AndroidManifest.xml:25:9-28:40
 76            android:name="androidx.room.MultiInstanceInvalidationService"
-76-->[androidx.room:room-runtime:2.4.1] /home/omer/.gradle/caches/transforms-3/d5bb28b3767fa133b59d7ea8be7188d5/transformed/room-runtime-2.4.1/AndroidManifest.xml:26:13-74
+76-->[androidx.room:room-runtime:2.4.1] /home/omer/.gradle/caches/transforms-3/0e58da5691a2b721009a33ef9b2d7dea/transformed/room-runtime-2.4.1/AndroidManifest.xml:26:13-74
 77            android:directBootAware="true"
-77-->[androidx.room:room-runtime:2.4.1] /home/omer/.gradle/caches/transforms-3/d5bb28b3767fa133b59d7ea8be7188d5/transformed/room-runtime-2.4.1/AndroidManifest.xml:27:13-43
+77-->[androidx.room:room-runtime:2.4.1] /home/omer/.gradle/caches/transforms-3/0e58da5691a2b721009a33ef9b2d7dea/transformed/room-runtime-2.4.1/AndroidManifest.xml:27:13-43
 78            android:exported="false" />
-78-->[androidx.room:room-runtime:2.4.1] /home/omer/.gradle/caches/transforms-3/d5bb28b3767fa133b59d7ea8be7188d5/transformed/room-runtime-2.4.1/AndroidManifest.xml:28:13-37
+78-->[androidx.room:room-runtime:2.4.1] /home/omer/.gradle/caches/transforms-3/0e58da5691a2b721009a33ef9b2d7dea/transformed/room-runtime-2.4.1/AndroidManifest.xml:28:13-37
 79
 80        <receiver
-80-->[com.google.firebase:firebase-messaging:23.1.2] /home/omer/.gradle/caches/transforms-3/ea328b610bd19482974625d0fd226c25/transformed/firebase-messaging-23.1.2/AndroidManifest.xml:31:9-38:20
+80-->[com.google.firebase:firebase-messaging:23.1.2] /home/omer/.gradle/caches/transforms-3/5f1272a3e73f88ffd97771e6d9bb79b6/transformed/firebase-messaging-23.1.2/AndroidManifest.xml:31:9-38:20
 81            android:name="com.google.firebase.iid.FirebaseInstanceIdReceiver"
-81-->[com.google.firebase:firebase-messaging:23.1.2] /home/omer/.gradle/caches/transforms-3/ea328b610bd19482974625d0fd226c25/transformed/firebase-messaging-23.1.2/AndroidManifest.xml:32:13-78
+81-->[com.google.firebase:firebase-messaging:23.1.2] /home/omer/.gradle/caches/transforms-3/5f1272a3e73f88ffd97771e6d9bb79b6/transformed/firebase-messaging-23.1.2/AndroidManifest.xml:32:13-78
 82            android:exported="true"
-82-->[com.google.firebase:firebase-messaging:23.1.2] /home/omer/.gradle/caches/transforms-3/ea328b610bd19482974625d0fd226c25/transformed/firebase-messaging-23.1.2/AndroidManifest.xml:33:13-36
+82-->[com.google.firebase:firebase-messaging:23.1.2] /home/omer/.gradle/caches/transforms-3/5f1272a3e73f88ffd97771e6d9bb79b6/transformed/firebase-messaging-23.1.2/AndroidManifest.xml:33:13-36
 83            android:permission="com.google.android.c2dm.permission.SEND" >
-83-->[com.google.firebase:firebase-messaging:23.1.2] /home/omer/.gradle/caches/transforms-3/ea328b610bd19482974625d0fd226c25/transformed/firebase-messaging-23.1.2/AndroidManifest.xml:34:13-73
+83-->[com.google.firebase:firebase-messaging:23.1.2] /home/omer/.gradle/caches/transforms-3/5f1272a3e73f88ffd97771e6d9bb79b6/transformed/firebase-messaging-23.1.2/AndroidManifest.xml:34:13-73
 84            <intent-filter>
-84-->[com.google.firebase:firebase-messaging:23.1.2] /home/omer/.gradle/caches/transforms-3/ea328b610bd19482974625d0fd226c25/transformed/firebase-messaging-23.1.2/AndroidManifest.xml:35:13-37:29
+84-->[com.google.firebase:firebase-messaging:23.1.2] /home/omer/.gradle/caches/transforms-3/5f1272a3e73f88ffd97771e6d9bb79b6/transformed/firebase-messaging-23.1.2/AndroidManifest.xml:35:13-37:29
 85                <action android:name="com.google.android.c2dm.intent.RECEIVE" />
-85-->[com.google.firebase:firebase-messaging:23.1.2] /home/omer/.gradle/caches/transforms-3/ea328b610bd19482974625d0fd226c25/transformed/firebase-messaging-23.1.2/AndroidManifest.xml:36:17-81
-85-->[com.google.firebase:firebase-messaging:23.1.2] /home/omer/.gradle/caches/transforms-3/ea328b610bd19482974625d0fd226c25/transformed/firebase-messaging-23.1.2/AndroidManifest.xml:36:25-78
+85-->[com.google.firebase:firebase-messaging:23.1.2] /home/omer/.gradle/caches/transforms-3/5f1272a3e73f88ffd97771e6d9bb79b6/transformed/firebase-messaging-23.1.2/AndroidManifest.xml:36:17-81
+85-->[com.google.firebase:firebase-messaging:23.1.2] /home/omer/.gradle/caches/transforms-3/5f1272a3e73f88ffd97771e6d9bb79b6/transformed/firebase-messaging-23.1.2/AndroidManifest.xml:36:25-78
 86            </intent-filter>
 87        </receiver>
 88        <!--
@@ -161,13 +161,13 @@
 90             but set to not exported to explicitly avoid allowing another app to call it.
 91        -->
 92        <service
-92-->[com.google.firebase:firebase-messaging:23.1.2] /home/omer/.gradle/caches/transforms-3/ea328b610bd19482974625d0fd226c25/transformed/firebase-messaging-23.1.2/AndroidManifest.xml:44:9-51:19
+92-->[com.google.firebase:firebase-messaging:23.1.2] /home/omer/.gradle/caches/transforms-3/5f1272a3e73f88ffd97771e6d9bb79b6/transformed/firebase-messaging-23.1.2/AndroidManifest.xml:44:9-51:19
 93            android:name="com.google.firebase.messaging.FirebaseMessagingService"
-93-->[com.google.firebase:firebase-messaging:23.1.2] /home/omer/.gradle/caches/transforms-3/ea328b610bd19482974625d0fd226c25/transformed/firebase-messaging-23.1.2/AndroidManifest.xml:45:13-82
+93-->[com.google.firebase:firebase-messaging:23.1.2] /home/omer/.gradle/caches/transforms-3/5f1272a3e73f88ffd97771e6d9bb79b6/transformed/firebase-messaging-23.1.2/AndroidManifest.xml:45:13-82
 94            android:directBootAware="true"
-94-->[com.google.firebase:firebase-messaging:23.1.2] /home/omer/.gradle/caches/transforms-3/ea328b610bd19482974625d0fd226c25/transformed/firebase-messaging-23.1.2/AndroidManifest.xml:46:13-43
+94-->[com.google.firebase:firebase-messaging:23.1.2] /home/omer/.gradle/caches/transforms-3/5f1272a3e73f88ffd97771e6d9bb79b6/transformed/firebase-messaging-23.1.2/AndroidManifest.xml:46:13-43
 95            android:exported="false" >
-95-->[com.google.firebase:firebase-messaging:23.1.2] /home/omer/.gradle/caches/transforms-3/ea328b610bd19482974625d0fd226c25/transformed/firebase-messaging-23.1.2/AndroidManifest.xml:47:13-37
+95-->[com.google.firebase:firebase-messaging:23.1.2] /home/omer/.gradle/caches/transforms-3/5f1272a3e73f88ffd97771e6d9bb79b6/transformed/firebase-messaging-23.1.2/AndroidManifest.xml:47:13-37
 96            <intent-filter android:priority="-500" >
 96-->/home/omer/Desktop/Programming/WhatApp Project/Advance-Programing-Project-2/chatapp/app/src/main/AndroidManifest.xml:22:13-24:29
 97                <action android:name="com.google.firebase.MESSAGING_EVENT" />
@@ -176,148 +176,148 @@
 98            </intent-filter>
 99        </service>
 100        <service
-100-->[com.google.firebase:firebase-messaging:23.1.2] /home/omer/.gradle/caches/transforms-3/ea328b610bd19482974625d0fd226c25/transformed/firebase-messaging-23.1.2/AndroidManifest.xml:52:9-58:19
+100-->[com.google.firebase:firebase-messaging:23.1.2] /home/omer/.gradle/caches/transforms-3/5f1272a3e73f88ffd97771e6d9bb79b6/transformed/firebase-messaging-23.1.2/AndroidManifest.xml:52:9-58:19
 101            android:name="com.google.firebase.components.ComponentDiscoveryService"
-101-->[com.google.firebase:firebase-messaging:23.1.2] /home/omer/.gradle/caches/transforms-3/ea328b610bd19482974625d0fd226c25/transformed/firebase-messaging-23.1.2/AndroidManifest.xml:53:13-84
+101-->[com.google.firebase:firebase-messaging:23.1.2] /home/omer/.gradle/caches/transforms-3/5f1272a3e73f88ffd97771e6d9bb79b6/transformed/firebase-messaging-23.1.2/AndroidManifest.xml:53:13-84
 102            android:directBootAware="true"
-102-->[com.google.firebase:firebase-common:20.3.1] /home/omer/.gradle/caches/transforms-3/3389240c9017013d95e28b01a8d4f2d9/transformed/firebase-common-20.3.1/AndroidManifest.xml:34:13-43
+102-->[com.google.firebase:firebase-common:20.3.1] /home/omer/.gradle/caches/transforms-3/3ac5c58a6002b3da0b72e983837eae0d/transformed/firebase-common-20.3.1/AndroidManifest.xml:34:13-43
 103            android:exported="false" >
-103-->[com.google.firebase:firebase-messaging:23.1.2] /home/omer/.gradle/caches/transforms-3/ea328b610bd19482974625d0fd226c25/transformed/firebase-messaging-23.1.2/AndroidManifest.xml:54:13-37
+103-->[com.google.firebase:firebase-messaging:23.1.2] /home/omer/.gradle/caches/transforms-3/5f1272a3e73f88ffd97771e6d9bb79b6/transformed/firebase-messaging-23.1.2/AndroidManifest.xml:54:13-37
 104            <meta-data
-104-->[com.google.firebase:firebase-messaging:23.1.2] /home/omer/.gradle/caches/transforms-3/ea328b610bd19482974625d0fd226c25/transformed/firebase-messaging-23.1.2/AndroidManifest.xml:55:13-57:85
+104-->[com.google.firebase:firebase-messaging:23.1.2] /home/omer/.gradle/caches/transforms-3/5f1272a3e73f88ffd97771e6d9bb79b6/transformed/firebase-messaging-23.1.2/AndroidManifest.xml:55:13-57:85
 105                android:name="com.google.firebase.components:com.google.firebase.messaging.FirebaseMessagingRegistrar"
-105-->[com.google.firebase:firebase-messaging:23.1.2] /home/omer/.gradle/caches/transforms-3/ea328b610bd19482974625d0fd226c25/transformed/firebase-messaging-23.1.2/AndroidManifest.xml:56:17-119
+105-->[com.google.firebase:firebase-messaging:23.1.2] /home/omer/.gradle/caches/transforms-3/5f1272a3e73f88ffd97771e6d9bb79b6/transformed/firebase-messaging-23.1.2/AndroidManifest.xml:56:17-119
 106                android:value="com.google.firebase.components.ComponentRegistrar" />
-106-->[com.google.firebase:firebase-messaging:23.1.2] /home/omer/.gradle/caches/transforms-3/ea328b610bd19482974625d0fd226c25/transformed/firebase-messaging-23.1.2/AndroidManifest.xml:57:17-82
+106-->[com.google.firebase:firebase-messaging:23.1.2] /home/omer/.gradle/caches/transforms-3/5f1272a3e73f88ffd97771e6d9bb79b6/transformed/firebase-messaging-23.1.2/AndroidManifest.xml:57:17-82
 107            <meta-data
-107-->[com.google.firebase:firebase-datatransport:18.1.7] /home/omer/.gradle/caches/transforms-3/a64eecf68d569ba021e6d6fb2773bc77/transformed/firebase-datatransport-18.1.7/AndroidManifest.xml:27:13-29:85
+107-->[com.google.firebase:firebase-datatransport:18.1.7] /home/omer/.gradle/caches/transforms-3/d96ed7fda22e9417301b19b4745187aa/transformed/firebase-datatransport-18.1.7/AndroidManifest.xml:27:13-29:85
 108                android:name="com.google.firebase.components:com.google.firebase.datatransport.TransportRegistrar"
-108-->[com.google.firebase:firebase-datatransport:18.1.7] /home/omer/.gradle/caches/transforms-3/a64eecf68d569ba021e6d6fb2773bc77/transformed/firebase-datatransport-18.1.7/AndroidManifest.xml:28:17-115
+108-->[com.google.firebase:firebase-datatransport:18.1.7] /home/omer/.gradle/caches/transforms-3/d96ed7fda22e9417301b19b4745187aa/transformed/firebase-datatransport-18.1.7/AndroidManifest.xml:28:17-115
 109                android:value="com.google.firebase.components.ComponentRegistrar" />
-109-->[com.google.firebase:firebase-datatransport:18.1.7] /home/omer/.gradle/caches/transforms-3/a64eecf68d569ba021e6d6fb2773bc77/transformed/firebase-datatransport-18.1.7/AndroidManifest.xml:29:17-82
+109-->[com.google.firebase:firebase-datatransport:18.1.7] /home/omer/.gradle/caches/transforms-3/d96ed7fda22e9417301b19b4745187aa/transformed/firebase-datatransport-18.1.7/AndroidManifest.xml:29:17-82
 110            <meta-data
-110-->[com.google.android.gms:play-services-measurement-api:21.1.1] /home/omer/.gradle/caches/transforms-3/d820cb6dc98575ea708fbed7ac34445e/transformed/play-services-measurement-api-21.1.1/AndroidManifest.xml:31:13-33:85
+110-->[com.google.android.gms:play-services-measurement-api:21.1.1] /home/omer/.gradle/caches/transforms-3/5279b87ec8e2e974dab93e2692e602a6/transformed/play-services-measurement-api-21.1.1/AndroidManifest.xml:31:13-33:85
 111                android:name="com.google.firebase.components:com.google.firebase.analytics.connector.internal.AnalyticsConnectorRegistrar"
-111-->[com.google.android.gms:play-services-measurement-api:21.1.1] /home/omer/.gradle/caches/transforms-3/d820cb6dc98575ea708fbed7ac34445e/transformed/play-services-measurement-api-21.1.1/AndroidManifest.xml:32:17-139
+111-->[com.google.android.gms:play-services-measurement-api:21.1.1] /home/omer/.gradle/caches/transforms-3/5279b87ec8e2e974dab93e2692e602a6/transformed/play-services-measurement-api-21.1.1/AndroidManifest.xml:32:17-139
 112                android:value="com.google.firebase.components.ComponentRegistrar" />
-112-->[com.google.android.gms:play-services-measurement-api:21.1.1] /home/omer/.gradle/caches/transforms-3/d820cb6dc98575ea708fbed7ac34445e/transformed/play-services-measurement-api-21.1.1/AndroidManifest.xml:33:17-82
+112-->[com.google.android.gms:play-services-measurement-api:21.1.1] /home/omer/.gradle/caches/transforms-3/5279b87ec8e2e974dab93e2692e602a6/transformed/play-services-measurement-api-21.1.1/AndroidManifest.xml:33:17-82
 113            <meta-data
-113-->[com.google.firebase:firebase-installations:17.1.3] /home/omer/.gradle/caches/transforms-3/a53558f05796ac340eeb8bc2a992993e/transformed/firebase-installations-17.1.3/AndroidManifest.xml:17:13-19:85
+113-->[com.google.firebase:firebase-installations:17.1.3] /home/omer/.gradle/caches/transforms-3/db1cbb4cac437172ad1079e45f9ea1c0/transformed/firebase-installations-17.1.3/AndroidManifest.xml:17:13-19:85
 114                android:name="com.google.firebase.components:com.google.firebase.installations.FirebaseInstallationsRegistrar"
-114-->[com.google.firebase:firebase-installations:17.1.3] /home/omer/.gradle/caches/transforms-3/a53558f05796ac340eeb8bc2a992993e/transformed/firebase-installations-17.1.3/AndroidManifest.xml:18:17-127
+114-->[com.google.firebase:firebase-installations:17.1.3] /home/omer/.gradle/caches/transforms-3/db1cbb4cac437172ad1079e45f9ea1c0/transformed/firebase-installations-17.1.3/AndroidManifest.xml:18:17-127
 115                android:value="com.google.firebase.components.ComponentRegistrar" />
-115-->[com.google.firebase:firebase-installations:17.1.3] /home/omer/.gradle/caches/transforms-3/a53558f05796ac340eeb8bc2a992993e/transformed/firebase-installations-17.1.3/AndroidManifest.xml:19:17-82
+115-->[com.google.firebase:firebase-installations:17.1.3] /home/omer/.gradle/caches/transforms-3/db1cbb4cac437172ad1079e45f9ea1c0/transformed/firebase-installations-17.1.3/AndroidManifest.xml:19:17-82
 116        </service>
 117
 118        <provider
-118-->[com.google.firebase:firebase-common:20.3.1] /home/omer/.gradle/caches/transforms-3/3389240c9017013d95e28b01a8d4f2d9/transformed/firebase-common-20.3.1/AndroidManifest.xml:25:9-30:39
+118-->[com.google.firebase:firebase-common:20.3.1] /home/omer/.gradle/caches/transforms-3/3ac5c58a6002b3da0b72e983837eae0d/transformed/firebase-common-20.3.1/AndroidManifest.xml:25:9-30:39
 119            android:name="com.google.firebase.provider.FirebaseInitProvider"
-119-->[com.google.firebase:firebase-common:20.3.1] /home/omer/.gradle/caches/transforms-3/3389240c9017013d95e28b01a8d4f2d9/transformed/firebase-common-20.3.1/AndroidManifest.xml:26:13-77
+119-->[com.google.firebase:firebase-common:20.3.1] /home/omer/.gradle/caches/transforms-3/3ac5c58a6002b3da0b72e983837eae0d/transformed/firebase-common-20.3.1/AndroidManifest.xml:26:13-77
 120            android:authorities="com.example.chatapp.firebaseinitprovider"
-120-->[com.google.firebase:firebase-common:20.3.1] /home/omer/.gradle/caches/transforms-3/3389240c9017013d95e28b01a8d4f2d9/transformed/firebase-common-20.3.1/AndroidManifest.xml:27:13-72
+120-->[com.google.firebase:firebase-common:20.3.1] /home/omer/.gradle/caches/transforms-3/3ac5c58a6002b3da0b72e983837eae0d/transformed/firebase-common-20.3.1/AndroidManifest.xml:27:13-72
 121            android:directBootAware="true"
-121-->[com.google.firebase:firebase-common:20.3.1] /home/omer/.gradle/caches/transforms-3/3389240c9017013d95e28b01a8d4f2d9/transformed/firebase-common-20.3.1/AndroidManifest.xml:28:13-43
+121-->[com.google.firebase:firebase-common:20.3.1] /home/omer/.gradle/caches/transforms-3/3ac5c58a6002b3da0b72e983837eae0d/transformed/firebase-common-20.3.1/AndroidManifest.xml:28:13-43
 122            android:exported="false"
-122-->[com.google.firebase:firebase-common:20.3.1] /home/omer/.gradle/caches/transforms-3/3389240c9017013d95e28b01a8d4f2d9/transformed/firebase-common-20.3.1/AndroidManifest.xml:29:13-37
+122-->[com.google.firebase:firebase-common:20.3.1] /home/omer/.gradle/caches/transforms-3/3ac5c58a6002b3da0b72e983837eae0d/transformed/firebase-common-20.3.1/AndroidManifest.xml:29:13-37
 123            android:initOrder="100" />
-123-->[com.google.firebase:firebase-common:20.3.1] /home/omer/.gradle/caches/transforms-3/3389240c9017013d95e28b01a8d4f2d9/transformed/firebase-common-20.3.1/AndroidManifest.xml:30:13-36
+123-->[com.google.firebase:firebase-common:20.3.1] /home/omer/.gradle/caches/transforms-3/3ac5c58a6002b3da0b72e983837eae0d/transformed/firebase-common-20.3.1/AndroidManifest.xml:30:13-36
 124
 125        <activity
-125-->[com.google.android.gms:play-services-base:18.0.1] /home/omer/.gradle/caches/transforms-3/7fa3c6045f0b287b53c04bc4f22591af/transformed/play-services-base-18.0.1/AndroidManifest.xml:20:9-22:45
+125-->[com.google.android.gms:play-services-base:18.0.1] /home/omer/.gradle/caches/transforms-3/8900b1c55069265b502dc602b3420b59/transformed/play-services-base-18.0.1/AndroidManifest.xml:20:9-22:45
 126            android:name="com.google.android.gms.common.api.GoogleApiActivity"
-126-->[com.google.android.gms:play-services-base:18.0.1] /home/omer/.gradle/caches/transforms-3/7fa3c6045f0b287b53c04bc4f22591af/transformed/play-services-base-18.0.1/AndroidManifest.xml:20:19-85
+126-->[com.google.android.gms:play-services-base:18.0.1] /home/omer/.gradle/caches/transforms-3/8900b1c55069265b502dc602b3420b59/transformed/play-services-base-18.0.1/AndroidManifest.xml:20:19-85
 127            android:exported="false"
-127-->[com.google.android.gms:play-services-base:18.0.1] /home/omer/.gradle/caches/transforms-3/7fa3c6045f0b287b53c04bc4f22591af/transformed/play-services-base-18.0.1/AndroidManifest.xml:22:19-43
+127-->[com.google.android.gms:play-services-base:18.0.1] /home/omer/.gradle/caches/transforms-3/8900b1c55069265b502dc602b3420b59/transformed/play-services-base-18.0.1/AndroidManifest.xml:22:19-43
 128            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
-128-->[com.google.android.gms:play-services-base:18.0.1] /home/omer/.gradle/caches/transforms-3/7fa3c6045f0b287b53c04bc4f22591af/transformed/play-services-base-18.0.1/AndroidManifest.xml:21:19-78
+128-->[com.google.android.gms:play-services-base:18.0.1] /home/omer/.gradle/caches/transforms-3/8900b1c55069265b502dc602b3420b59/transformed/play-services-base-18.0.1/AndroidManifest.xml:21:19-78
 129
 130        <receiver
-130-->[com.google.android.gms:play-services-measurement:21.1.1] /home/omer/.gradle/caches/transforms-3/dad3cf0efaac1f8b7636269e8510a882/transformed/play-services-measurement-21.1.1/AndroidManifest.xml:29:9-33:20
+130-->[com.google.android.gms:play-services-measurement:21.1.1] /home/omer/.gradle/caches/transforms-3/98e0c3f8226cccb3ce2822fb0bf1bb3e/transformed/play-services-measurement-21.1.1/AndroidManifest.xml:29:9-33:20
 131            android:name="com.google.android.gms.measurement.AppMeasurementReceiver"
-131-->[com.google.android.gms:play-services-measurement:21.1.1] /home/omer/.gradle/caches/transforms-3/dad3cf0efaac1f8b7636269e8510a882/transformed/play-services-measurement-21.1.1/AndroidManifest.xml:30:13-85
+131-->[com.google.android.gms:play-services-measurement:21.1.1] /home/omer/.gradle/caches/transforms-3/98e0c3f8226cccb3ce2822fb0bf1bb3e/transformed/play-services-measurement-21.1.1/AndroidManifest.xml:30:13-85
 132            android:enabled="true"
-132-->[com.google.android.gms:play-services-measurement:21.1.1] /home/omer/.gradle/caches/transforms-3/dad3cf0efaac1f8b7636269e8510a882/transformed/play-services-measurement-21.1.1/AndroidManifest.xml:31:13-35
+132-->[com.google.android.gms:play-services-measurement:21.1.1] /home/omer/.gradle/caches/transforms-3/98e0c3f8226cccb3ce2822fb0bf1bb3e/transformed/play-services-measurement-21.1.1/AndroidManifest.xml:31:13-35
 133            android:exported="false" >
-133-->[com.google.android.gms:play-services-measurement:21.1.1] /home/omer/.gradle/caches/transforms-3/dad3cf0efaac1f8b7636269e8510a882/transformed/play-services-measurement-21.1.1/AndroidManifest.xml:32:13-37
+133-->[com.google.android.gms:play-services-measurement:21.1.1] /home/omer/.gradle/caches/transforms-3/98e0c3f8226cccb3ce2822fb0bf1bb3e/transformed/play-services-measurement-21.1.1/AndroidManifest.xml:32:13-37
 134        </receiver>
 135
 136        <service
-136-->[com.google.android.gms:play-services-measurement:21.1.1] /home/omer/.gradle/caches/transforms-3/dad3cf0efaac1f8b7636269e8510a882/transformed/play-services-measurement-21.1.1/AndroidManifest.xml:35:9-38:40
+136-->[com.google.android.gms:play-services-measurement:21.1.1] /home/omer/.gradle/caches/transforms-3/98e0c3f8226cccb3ce2822fb0bf1bb3e/transformed/play-services-measurement-21.1.1/AndroidManifest.xml:35:9-38:40
 137            android:name="com.google.android.gms.measurement.AppMeasurementService"
-137-->[com.google.android.gms:play-services-measurement:21.1.1] /home/omer/.gradle/caches/transforms-3/dad3cf0efaac1f8b7636269e8510a882/transformed/play-services-measurement-21.1.1/AndroidManifest.xml:36:13-84
+137-->[com.google.android.gms:play-services-measurement:21.1.1] /home/omer/.gradle/caches/transforms-3/98e0c3f8226cccb3ce2822fb0bf1bb3e/transformed/play-services-measurement-21.1.1/AndroidManifest.xml:36:13-84
 138            android:enabled="true"
-138-->[com.google.android.gms:play-services-measurement:21.1.1] /home/omer/.gradle/caches/transforms-3/dad3cf0efaac1f8b7636269e8510a882/transformed/play-services-measurement-21.1.1/AndroidManifest.xml:37:13-35
+138-->[com.google.android.gms:play-services-measurement:21.1.1] /home/omer/.gradle/caches/transforms-3/98e0c3f8226cccb3ce2822fb0bf1bb3e/transformed/play-services-measurement-21.1.1/AndroidManifest.xml:37:13-35
 139            android:exported="false" />
-139-->[com.google.android.gms:play-services-measurement:21.1.1] /home/omer/.gradle/caches/transforms-3/dad3cf0efaac1f8b7636269e8510a882/transformed/play-services-measurement-21.1.1/AndroidManifest.xml:38:13-37
+139-->[com.google.android.gms:play-services-measurement:21.1.1] /home/omer/.gradle/caches/transforms-3/98e0c3f8226cccb3ce2822fb0bf1bb3e/transformed/play-services-measurement-21.1.1/AndroidManifest.xml:38:13-37
 140        <service
-140-->[com.google.android.gms:play-services-measurement:21.1.1] /home/omer/.gradle/caches/transforms-3/dad3cf0efaac1f8b7636269e8510a882/transformed/play-services-measurement-21.1.1/AndroidManifest.xml:39:9-43:72
+140-->[com.google.android.gms:play-services-measurement:21.1.1] /home/omer/.gradle/caches/transforms-3/98e0c3f8226cccb3ce2822fb0bf1bb3e/transformed/play-services-measurement-21.1.1/AndroidManifest.xml:39:9-43:72
 141            android:name="com.google.android.gms.measurement.AppMeasurementJobService"
-141-->[com.google.android.gms:play-services-measurement:21.1.1] /home/omer/.gradle/caches/transforms-3/dad3cf0efaac1f8b7636269e8510a882/transformed/play-services-measurement-21.1.1/AndroidManifest.xml:40:13-87
+141-->[com.google.android.gms:play-services-measurement:21.1.1] /home/omer/.gradle/caches/transforms-3/98e0c3f8226cccb3ce2822fb0bf1bb3e/transformed/play-services-measurement-21.1.1/AndroidManifest.xml:40:13-87
 142            android:enabled="true"
-142-->[com.google.android.gms:play-services-measurement:21.1.1] /home/omer/.gradle/caches/transforms-3/dad3cf0efaac1f8b7636269e8510a882/transformed/play-services-measurement-21.1.1/AndroidManifest.xml:41:13-35
+142-->[com.google.android.gms:play-services-measurement:21.1.1] /home/omer/.gradle/caches/transforms-3/98e0c3f8226cccb3ce2822fb0bf1bb3e/transformed/play-services-measurement-21.1.1/AndroidManifest.xml:41:13-35
 143            android:exported="false"
-143-->[com.google.android.gms:play-services-measurement:21.1.1] /home/omer/.gradle/caches/transforms-3/dad3cf0efaac1f8b7636269e8510a882/transformed/play-services-measurement-21.1.1/AndroidManifest.xml:42:13-37
+143-->[com.google.android.gms:play-services-measurement:21.1.1] /home/omer/.gradle/caches/transforms-3/98e0c3f8226cccb3ce2822fb0bf1bb3e/transformed/play-services-measurement-21.1.1/AndroidManifest.xml:42:13-37
 144            android:permission="android.permission.BIND_JOB_SERVICE" />
-144-->[com.google.android.gms:play-services-measurement:21.1.1] /home/omer/.gradle/caches/transforms-3/dad3cf0efaac1f8b7636269e8510a882/transformed/play-services-measurement-21.1.1/AndroidManifest.xml:43:13-69
+144-->[com.google.android.gms:play-services-measurement:21.1.1] /home/omer/.gradle/caches/transforms-3/98e0c3f8226cccb3ce2822fb0bf1bb3e/transformed/play-services-measurement-21.1.1/AndroidManifest.xml:43:13-69
 145
 146        <meta-data
-146-->[com.google.android.gms:play-services-basement:18.1.0] /home/omer/.gradle/caches/transforms-3/49ce6122932f5285b401f570e61a56b9/transformed/play-services-basement-18.1.0/AndroidManifest.xml:21:9-23:69
+146-->[com.google.android.gms:play-services-basement:18.1.0] /home/omer/.gradle/caches/transforms-3/fd99a989e0496d4995536a20d74e6077/transformed/play-services-basement-18.1.0/AndroidManifest.xml:21:9-23:69
 147            android:name="com.google.android.gms.version"
-147-->[com.google.android.gms:play-services-basement:18.1.0] /home/omer/.gradle/caches/transforms-3/49ce6122932f5285b401f570e61a56b9/transformed/play-services-basement-18.1.0/AndroidManifest.xml:22:13-58
+147-->[com.google.android.gms:play-services-basement:18.1.0] /home/omer/.gradle/caches/transforms-3/fd99a989e0496d4995536a20d74e6077/transformed/play-services-basement-18.1.0/AndroidManifest.xml:22:13-58
 148            android:value="@integer/google_play_services_version" />
-148-->[com.google.android.gms:play-services-basement:18.1.0] /home/omer/.gradle/caches/transforms-3/49ce6122932f5285b401f570e61a56b9/transformed/play-services-basement-18.1.0/AndroidManifest.xml:23:13-66
+148-->[com.google.android.gms:play-services-basement:18.1.0] /home/omer/.gradle/caches/transforms-3/fd99a989e0496d4995536a20d74e6077/transformed/play-services-basement-18.1.0/AndroidManifest.xml:23:13-66
 149
 150        <provider
-150-->[androidx.emoji2:emoji2:1.2.0] /home/omer/.gradle/caches/transforms-3/eb88012741a64135b462a95b61c1572e/transformed/emoji2-1.2.0/AndroidManifest.xml:24:9-32:20
+150-->[androidx.emoji2:emoji2:1.2.0] /home/omer/.gradle/caches/transforms-3/ec78a3e19b521281526537e697beec14/transformed/emoji2-1.2.0/AndroidManifest.xml:24:9-32:20
 151            android:name="androidx.startup.InitializationProvider"
-151-->[androidx.emoji2:emoji2:1.2.0] /home/omer/.gradle/caches/transforms-3/eb88012741a64135b462a95b61c1572e/transformed/emoji2-1.2.0/AndroidManifest.xml:25:13-67
+151-->[androidx.emoji2:emoji2:1.2.0] /home/omer/.gradle/caches/transforms-3/ec78a3e19b521281526537e697beec14/transformed/emoji2-1.2.0/AndroidManifest.xml:25:13-67
 152            android:authorities="com.example.chatapp.androidx-startup"
-152-->[androidx.emoji2:emoji2:1.2.0] /home/omer/.gradle/caches/transforms-3/eb88012741a64135b462a95b61c1572e/transformed/emoji2-1.2.0/AndroidManifest.xml:26:13-68
+152-->[androidx.emoji2:emoji2:1.2.0] /home/omer/.gradle/caches/transforms-3/ec78a3e19b521281526537e697beec14/transformed/emoji2-1.2.0/AndroidManifest.xml:26:13-68
 153            android:exported="false" >
-153-->[androidx.emoji2:emoji2:1.2.0] /home/omer/.gradle/caches/transforms-3/eb88012741a64135b462a95b61c1572e/transformed/emoji2-1.2.0/AndroidManifest.xml:27:13-37
+153-->[androidx.emoji2:emoji2:1.2.0] /home/omer/.gradle/caches/transforms-3/ec78a3e19b521281526537e697beec14/transformed/emoji2-1.2.0/AndroidManifest.xml:27:13-37
 154            <meta-data
-154-->[androidx.emoji2:emoji2:1.2.0] /home/omer/.gradle/caches/transforms-3/eb88012741a64135b462a95b61c1572e/transformed/emoji2-1.2.0/AndroidManifest.xml:29:13-31:52
+154-->[androidx.emoji2:emoji2:1.2.0] /home/omer/.gradle/caches/transforms-3/ec78a3e19b521281526537e697beec14/transformed/emoji2-1.2.0/AndroidManifest.xml:29:13-31:52
 155                android:name="androidx.emoji2.text.EmojiCompatInitializer"
-155-->[androidx.emoji2:emoji2:1.2.0] /home/omer/.gradle/caches/transforms-3/eb88012741a64135b462a95b61c1572e/transformed/emoji2-1.2.0/AndroidManifest.xml:30:17-75
+155-->[androidx.emoji2:emoji2:1.2.0] /home/omer/.gradle/caches/transforms-3/ec78a3e19b521281526537e697beec14/transformed/emoji2-1.2.0/AndroidManifest.xml:30:17-75
 156                android:value="androidx.startup" />
-156-->[androidx.emoji2:emoji2:1.2.0] /home/omer/.gradle/caches/transforms-3/eb88012741a64135b462a95b61c1572e/transformed/emoji2-1.2.0/AndroidManifest.xml:31:17-49
+156-->[androidx.emoji2:emoji2:1.2.0] /home/omer/.gradle/caches/transforms-3/ec78a3e19b521281526537e697beec14/transformed/emoji2-1.2.0/AndroidManifest.xml:31:17-49
 157            <meta-data
-157-->[androidx.lifecycle:lifecycle-process:2.4.1] /home/omer/.gradle/caches/transforms-3/c7a191cd82385db201399497594f5497/transformed/lifecycle-process-2.4.1/AndroidManifest.xml:31:13-33:52
+157-->[androidx.lifecycle:lifecycle-process:2.4.1] /home/omer/.gradle/caches/transforms-3/93fbe7503deee8a7eaea5566f25a649c/transformed/lifecycle-process-2.4.1/AndroidManifest.xml:31:13-33:52
 158                android:name="androidx.lifecycle.ProcessLifecycleInitializer"
-158-->[androidx.lifecycle:lifecycle-process:2.4.1] /home/omer/.gradle/caches/transforms-3/c7a191cd82385db201399497594f5497/transformed/lifecycle-process-2.4.1/AndroidManifest.xml:32:17-78
+158-->[androidx.lifecycle:lifecycle-process:2.4.1] /home/omer/.gradle/caches/transforms-3/93fbe7503deee8a7eaea5566f25a649c/transformed/lifecycle-process-2.4.1/AndroidManifest.xml:32:17-78
 159                android:value="androidx.startup" />
-159-->[androidx.lifecycle:lifecycle-process:2.4.1] /home/omer/.gradle/caches/transforms-3/c7a191cd82385db201399497594f5497/transformed/lifecycle-process-2.4.1/AndroidManifest.xml:33:17-49
+159-->[androidx.lifecycle:lifecycle-process:2.4.1] /home/omer/.gradle/caches/transforms-3/93fbe7503deee8a7eaea5566f25a649c/transformed/lifecycle-process-2.4.1/AndroidManifest.xml:33:17-49
 160        </provider>
 161
 162        <service
-162-->[com.google.android.datatransport:transport-backend-cct:3.1.8] /home/omer/.gradle/caches/transforms-3/aa4f33441654ddaf4216f4f490de6946/transformed/transport-backend-cct-3.1.8/AndroidManifest.xml:28:9-34:19
+162-->[com.google.android.datatransport:transport-backend-cct:3.1.8] /home/omer/.gradle/caches/transforms-3/09f0b5f3d92ebde132441b8d30df2578/transformed/transport-backend-cct-3.1.8/AndroidManifest.xml:28:9-34:19
 163            android:name="com.google.android.datatransport.runtime.backends.TransportBackendDiscovery"
-163-->[com.google.android.datatransport:transport-backend-cct:3.1.8] /home/omer/.gradle/caches/transforms-3/aa4f33441654ddaf4216f4f490de6946/transformed/transport-backend-cct-3.1.8/AndroidManifest.xml:29:13-103
+163-->[com.google.android.datatransport:transport-backend-cct:3.1.8] /home/omer/.gradle/caches/transforms-3/09f0b5f3d92ebde132441b8d30df2578/transformed/transport-backend-cct-3.1.8/AndroidManifest.xml:29:13-103
 164            android:exported="false" >
-164-->[com.google.android.datatransport:transport-backend-cct:3.1.8] /home/omer/.gradle/caches/transforms-3/aa4f33441654ddaf4216f4f490de6946/transformed/transport-backend-cct-3.1.8/AndroidManifest.xml:30:13-37
+164-->[com.google.android.datatransport:transport-backend-cct:3.1.8] /home/omer/.gradle/caches/transforms-3/09f0b5f3d92ebde132441b8d30df2578/transformed/transport-backend-cct-3.1.8/AndroidManifest.xml:30:13-37
 165            <meta-data
-165-->[com.google.android.datatransport:transport-backend-cct:3.1.8] /home/omer/.gradle/caches/transforms-3/aa4f33441654ddaf4216f4f490de6946/transformed/transport-backend-cct-3.1.8/AndroidManifest.xml:31:13-33:39
+165-->[com.google.android.datatransport:transport-backend-cct:3.1.8] /home/omer/.gradle/caches/transforms-3/09f0b5f3d92ebde132441b8d30df2578/transformed/transport-backend-cct-3.1.8/AndroidManifest.xml:31:13-33:39
 166                android:name="backend:com.google.android.datatransport.cct.CctBackendFactory"
-166-->[com.google.android.datatransport:transport-backend-cct:3.1.8] /home/omer/.gradle/caches/transforms-3/aa4f33441654ddaf4216f4f490de6946/transformed/transport-backend-cct-3.1.8/AndroidManifest.xml:32:17-94
+166-->[com.google.android.datatransport:transport-backend-cct:3.1.8] /home/omer/.gradle/caches/transforms-3/09f0b5f3d92ebde132441b8d30df2578/transformed/transport-backend-cct-3.1.8/AndroidManifest.xml:32:17-94
 167                android:value="cct" />
-167-->[com.google.android.datatransport:transport-backend-cct:3.1.8] /home/omer/.gradle/caches/transforms-3/aa4f33441654ddaf4216f4f490de6946/transformed/transport-backend-cct-3.1.8/AndroidManifest.xml:33:17-36
+167-->[com.google.android.datatransport:transport-backend-cct:3.1.8] /home/omer/.gradle/caches/transforms-3/09f0b5f3d92ebde132441b8d30df2578/transformed/transport-backend-cct-3.1.8/AndroidManifest.xml:33:17-36
 168        </service>
 169        <service
-169-->[com.google.android.datatransport:transport-runtime:3.1.8] /home/omer/.gradle/caches/transforms-3/de5290a74f296ca6f0c1bcbaf60f0952/transformed/transport-runtime-3.1.8/AndroidManifest.xml:26:9-30:19
+169-->[com.google.android.datatransport:transport-runtime:3.1.8] /home/omer/.gradle/caches/transforms-3/a8a915ed98e50289f64168a126bb02f7/transformed/transport-runtime-3.1.8/AndroidManifest.xml:26:9-30:19
 170            android:name="com.google.android.datatransport.runtime.scheduling.jobscheduling.JobInfoSchedulerService"
-170-->[com.google.android.datatransport:transport-runtime:3.1.8] /home/omer/.gradle/caches/transforms-3/de5290a74f296ca6f0c1bcbaf60f0952/transformed/transport-runtime-3.1.8/AndroidManifest.xml:27:13-117
+170-->[com.google.android.datatransport:transport-runtime:3.1.8] /home/omer/.gradle/caches/transforms-3/a8a915ed98e50289f64168a126bb02f7/transformed/transport-runtime-3.1.8/AndroidManifest.xml:27:13-117
 171            android:exported="false"
-171-->[com.google.android.datatransport:transport-runtime:3.1.8] /home/omer/.gradle/caches/transforms-3/de5290a74f296ca6f0c1bcbaf60f0952/transformed/transport-runtime-3.1.8/AndroidManifest.xml:28:13-37
+171-->[com.google.android.datatransport:transport-runtime:3.1.8] /home/omer/.gradle/caches/transforms-3/a8a915ed98e50289f64168a126bb02f7/transformed/transport-runtime-3.1.8/AndroidManifest.xml:28:13-37
 172            android:permission="android.permission.BIND_JOB_SERVICE" >
-172-->[com.google.android.datatransport:transport-runtime:3.1.8] /home/omer/.gradle/caches/transforms-3/de5290a74f296ca6f0c1bcbaf60f0952/transformed/transport-runtime-3.1.8/AndroidManifest.xml:29:13-69
+172-->[com.google.android.datatransport:transport-runtime:3.1.8] /home/omer/.gradle/caches/transforms-3/a8a915ed98e50289f64168a126bb02f7/transformed/transport-runtime-3.1.8/AndroidManifest.xml:29:13-69
 173        </service>
 174
 175        <receiver
-175-->[com.google.android.datatransport:transport-runtime:3.1.8] /home/omer/.gradle/caches/transforms-3/de5290a74f296ca6f0c1bcbaf60f0952/transformed/transport-runtime-3.1.8/AndroidManifest.xml:32:9-34:40
+175-->[com.google.android.datatransport:transport-runtime:3.1.8] /home/omer/.gradle/caches/transforms-3/a8a915ed98e50289f64168a126bb02f7/transformed/transport-runtime-3.1.8/AndroidManifest.xml:32:9-34:40
 176            android:name="com.google.android.datatransport.runtime.scheduling.jobscheduling.AlarmManagerSchedulerBroadcastReceiver"
-176-->[com.google.android.datatransport:transport-runtime:3.1.8] /home/omer/.gradle/caches/transforms-3/de5290a74f296ca6f0c1bcbaf60f0952/transformed/transport-runtime-3.1.8/AndroidManifest.xml:33:13-132
+176-->[com.google.android.datatransport:transport-runtime:3.1.8] /home/omer/.gradle/caches/transforms-3/a8a915ed98e50289f64168a126bb02f7/transformed/transport-runtime-3.1.8/AndroidManifest.xml:33:13-132
 177            android:exported="false" />
-177-->[com.google.android.datatransport:transport-runtime:3.1.8] /home/omer/.gradle/caches/transforms-3/de5290a74f296ca6f0c1bcbaf60f0952/transformed/transport-runtime-3.1.8/AndroidManifest.xml:34:13-37
+177-->[com.google.android.datatransport:transport-runtime:3.1.8] /home/omer/.gradle/caches/transforms-3/a8a915ed98e50289f64168a126bb02f7/transformed/transport-runtime-3.1.8/AndroidManifest.xml:34:13-37
 178    </application>
 179
 180</manifest>
