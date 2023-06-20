@@ -43,10 +43,6 @@ public class SignUpActivity extends AppCompatActivity {
     private String base64Image;
     private UserAPI userAPI;
 
-    private AppDB appDB;
-
-    private UserDao userDao;
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -57,12 +53,6 @@ public class SignUpActivity extends AppCompatActivity {
         sharedPreferences = getSharedPreferences("chatSystem", MODE_PRIVATE);
         String ip = sharedPreferences.getString("ip", "http://10.0.2.2:5000/");
         userAPI = new UserAPI(ip);
-
-
-        //creating the DataBase
-//        appDB = Room.databaseBuilder(getApplicationContext(), AppDB.class,"Users2").
-//                allowMainThreadQueries().build();
-//        userDao = appDB.userDao();
 
         // creating the event listeners
         Button signUp = binding.btnSignUp;
@@ -83,15 +73,7 @@ public class SignUpActivity extends AppCompatActivity {
                     Toast.makeText(this, "You must have a display name!", Toast.LENGTH_SHORT).show();
                     return;
                 }
-                // if that user already in the dataBase
-//                if (userDao.getUserByUsername(username.getText().toString()) != null) {
-//                    Toast.makeText(this, "Username already exist", Toast.LENGTH_SHORT).show();
-//                    return;
-//                }
-//
-//                // Create a new User object with the entered username and password
-//                User newUser = new User(username.getText().toString(), password.getText().toString());
-//                userDao.insert(newUser);
+                // creating the intent
                 Intent intent = new Intent(this, SignInActivity.class);
                 userAPI.signUp(username.getText().toString(), password.getText().toString(),
                         displayName.getText().toString(), base64Image, new TaskAPI<User>() {
@@ -168,7 +150,7 @@ public class SignUpActivity extends AppCompatActivity {
         super.onResume();
         sharedPreferences = getSharedPreferences("chatSystem", MODE_PRIVATE);
         String ip = sharedPreferences.getString("ip", "http://10.0.2.2:5000/");
-        userAPI = new UserAPI(ip);
+        userAPI.setIp(ip);
     }
 
     private void openFileChooser() {

@@ -250,6 +250,14 @@ const addMessage = async (req, res) => {
     chat.messages.push(mess._id);
     await chat.save();
 
+    // sending to the other person in the chat, if it is from andorid
+
+    if(req.headers['devicetype'] === 'Android') {
+      console.log("chat" , chat);
+      let users = await User.populate(chat, { path: 'users' });
+      console.log("users" , users);
+    }
+
     return mess;
   } catch (error) {
     return { error: 'An error occurred while sending message. go away.' };

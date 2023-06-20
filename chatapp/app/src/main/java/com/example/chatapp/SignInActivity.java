@@ -18,11 +18,15 @@ import android.widget.Toast;
 import com.example.chatapp.Api.TaskAPI;
 import com.example.chatapp.Api.TokenAPI;
 import com.example.chatapp.Models.AppDB;
+import com.example.chatapp.Models.LocalDatabase;
+import com.example.chatapp.Models.UserEntity.User;
 import com.example.chatapp.Models.UserEntity.UserDao;
 import com.example.chatapp.databinding.ActivitySignInBinding;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.messaging.FirebaseMessaging;
+
+import java.util.List;
 
 public class SignInActivity extends AppCompatActivity {
 
@@ -44,6 +48,20 @@ public class SignInActivity extends AppCompatActivity {
         binding = ActivitySignInBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
         getSupportActionBar().hide();
+
+        // getting localDatabase
+        UserDao userDao = LocalDatabase.getDB().userDao();
+
+        // checking if the user is already logged in
+        List<User> users = userDao.getAllUsers();
+
+        // signing in if the user didn't logged out
+        if (users != null && users.size() > 0 && users.get(0).isOnline()) {
+            Intent intent = new Intent(this, ChatActivity.class);
+            startActivity(intent);
+            finish();
+        }
+
 
         sharedPreferences = getSharedPreferences("chatSystem", MODE_PRIVATE);
         String ip = sharedPreferences.getString("ip", "http://10.0.2.2:5000/");

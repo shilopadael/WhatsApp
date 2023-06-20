@@ -34,7 +34,7 @@ public final class UserDao_Impl implements UserDao {
     this.__insertionAdapterOfUser = new EntityInsertionAdapter<User>(__db) {
       @Override
       public String createQuery() {
-        return "INSERT OR ABORT INTO `User` (`id`,`username`,`token`) VALUES (nullif(?, 0),?,?)";
+        return "INSERT OR ABORT INTO `User` (`id`,`username`,`token`,`isOnline`) VALUES (nullif(?, 0),?,?,?)";
       }
 
       @Override
@@ -50,6 +50,8 @@ public final class UserDao_Impl implements UserDao {
         } else {
           stmt.bindString(3, value.getToken());
         }
+        final int _tmp = value.isOnline() ? 1 : 0;
+        stmt.bindLong(4, _tmp);
       }
     };
     this.__deletionAdapterOfUser = new EntityDeletionOrUpdateAdapter<User>(__db) {
@@ -66,7 +68,7 @@ public final class UserDao_Impl implements UserDao {
     this.__updateAdapterOfUser = new EntityDeletionOrUpdateAdapter<User>(__db) {
       @Override
       public String createQuery() {
-        return "UPDATE OR ABORT `User` SET `id` = ?,`username` = ?,`token` = ? WHERE `id` = ?";
+        return "UPDATE OR ABORT `User` SET `id` = ?,`username` = ?,`token` = ?,`isOnline` = ? WHERE `id` = ?";
       }
 
       @Override
@@ -82,7 +84,9 @@ public final class UserDao_Impl implements UserDao {
         } else {
           stmt.bindString(3, value.getToken());
         }
-        stmt.bindLong(4, value.getId());
+        final int _tmp = value.isOnline() ? 1 : 0;
+        stmt.bindLong(4, _tmp);
+        stmt.bindLong(5, value.getId());
       }
     };
     this.__preparedStmtOfDeleteAll = new SharedSQLiteStatement(__db) {
@@ -154,6 +158,7 @@ public final class UserDao_Impl implements UserDao {
       final int _cursorIndexOfId = CursorUtil.getColumnIndexOrThrow(_cursor, "id");
       final int _cursorIndexOfUsername = CursorUtil.getColumnIndexOrThrow(_cursor, "username");
       final int _cursorIndexOfToken = CursorUtil.getColumnIndexOrThrow(_cursor, "token");
+      final int _cursorIndexOfIsOnline = CursorUtil.getColumnIndexOrThrow(_cursor, "isOnline");
       final List<User> _result = new ArrayList<User>(_cursor.getCount());
       while(_cursor.moveToNext()) {
         final User _item;
@@ -173,6 +178,11 @@ public final class UserDao_Impl implements UserDao {
         final int _tmpId;
         _tmpId = _cursor.getInt(_cursorIndexOfId);
         _item.setId(_tmpId);
+        final boolean _tmpIsOnline;
+        final int _tmp;
+        _tmp = _cursor.getInt(_cursorIndexOfIsOnline);
+        _tmpIsOnline = _tmp != 0;
+        _item.setOnline(_tmpIsOnline);
         _result.add(_item);
       }
       return _result;

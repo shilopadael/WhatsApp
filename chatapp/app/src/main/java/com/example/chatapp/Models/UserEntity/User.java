@@ -11,6 +11,7 @@ public class User {
     int id;
     String username;
     String token;
+    boolean isOnline;
 
     public User(String username, String token) {
         this.username = username;
@@ -39,5 +40,13 @@ public class User {
 
     public void setToken(String token) {
         this.token = token;
+    }
+
+    public boolean isOnline() {
+        return isOnline;
+    }
+
+    public void setOnline(boolean online) {
+        isOnline = online;
     }
 }

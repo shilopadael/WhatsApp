@@ -29,6 +29,9 @@ public final class ActivityChatBinding implements ViewBinding {
   public final AppBarLayout appBarLayout;
 
   @NonNull
+  public final ImageView btnSettings;
+
+  @NonNull
   public final FrameLayout fragmentContainer;
 
   @NonNull
@@ -47,12 +50,13 @@ public final class ActivityChatBinding implements ViewBinding {
   public final Toolbar toolbar;
 
   private ActivityChatBinding(@NonNull ConstraintLayout rootView,
-      @NonNull AppBarLayout appBarLayout, @NonNull FrameLayout fragmentContainer,
-      @NonNull ImageView imageView6, @NonNull RecyclerView lstUsers,
-      @NonNull SwipeRefreshLayout refreshLayout, @NonNull TextView toolBarDisplayName,
-      @NonNull Toolbar toolbar) {
+      @NonNull AppBarLayout appBarLayout, @NonNull ImageView btnSettings,
+      @NonNull FrameLayout fragmentContainer, @NonNull ImageView imageView6,
+      @NonNull RecyclerView lstUsers, @NonNull SwipeRefreshLayout refreshLayout,
+      @NonNull TextView toolBarDisplayName, @NonNull Toolbar toolbar) {
     this.rootView = rootView;
     this.appBarLayout = appBarLayout;
+    this.btnSettings = btnSettings;
     this.fragmentContainer = fragmentContainer;
     this.imageView6 = imageView6;
     this.lstUsers = lstUsers;
@@ -94,6 +98,12 @@ public final class ActivityChatBinding implements ViewBinding {
         break missingId;
       }
 
+      id = R.id.btnSettings;
+      ImageView btnSettings = ViewBindings.findChildViewById(rootView, id);
+      if (btnSettings == null) {
+        break missingId;
+      }
+
       id = R.id.fragment_container;
       FrameLayout fragmentContainer = ViewBindings.findChildViewById(rootView, id);
       if (fragmentContainer == null) {
@@ -130,8 +140,8 @@ public final class ActivityChatBinding implements ViewBinding {
         break missingId;
       }
 
-      return new ActivityChatBinding((ConstraintLayout) rootView, appBarLayout, fragmentContainer,
-          imageView6, lstUsers, refreshLayout, toolBarDisplayName, toolbar);
+      return new ActivityChatBinding((ConstraintLayout) rootView, appBarLayout, btnSettings,
+          fragmentContainer, imageView6, lstUsers, refreshLayout, toolBarDisplayName, toolbar);
     }
     String missingId = rootView.getResources().getResourceName(id);
     throw new NullPointerException("Missing required view with ID: ".concat(missingId));

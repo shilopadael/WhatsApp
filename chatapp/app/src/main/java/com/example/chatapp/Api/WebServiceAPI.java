@@ -2,7 +2,6 @@ package com.example.chatapp.Api;
 
 import android.content.SharedPreferences;
 
-import com.example.chatapp.Models.TokenEntity.Token;
 import com.example.chatapp.Schemes.Chat;
 import com.example.chatapp.Schemes.Chats.AddContactResponeScheme;
 import com.example.chatapp.Schemes.Chats.AddContactScheme;
@@ -27,9 +26,6 @@ import retrofit2.http.POST;
 import retrofit2.http.Path;
 
 public interface WebServiceAPI {
-    static final String IP_SHARED_NAME = "ip";
-    static final String ANDROID_HEADER = "Android";
-
 
     @GET("api/Chats")
     Call<List<GetChatsScheme>> getChats(@Header("Authorization") String auth, @Header("deviceType") String deviceType);
@@ -43,6 +39,9 @@ public interface WebServiceAPI {
     @DELETE("api/Chats/{id}")
     Call<ResponseBody> deleteChat(@Path("id") int id, @Header("Authorization") String auth);
 
+    @Headers({"Accept:application/json",
+            "deviceType:Android",
+            "Content-Type:application/json"})
     @POST("api/Chats/{id}/Messages")
     Call<Message> createMessage(@Path("id") int id, @Body MessageToSend message, @Header("Authorization") String auth);
 
@@ -55,7 +54,7 @@ public interface WebServiceAPI {
     @POST("api/tokens")
     Call<String> createToken(@Body UserPass userPass, @Header("firebaseToken") String token, @Header("username") String username);
 
-    @GET("Users/{username}")
+    @GET("api/Users/{username}")
     Call<User> getUser(@Path("username") String username, @Header("Authorization") String auth);
 
     @POST("api/Users")

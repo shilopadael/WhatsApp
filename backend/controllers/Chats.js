@@ -1,5 +1,6 @@
 const { json } = require('body-parser');
 const chatService = require('../services/ChatService');
+const onlineConnection = require('../onlineConnection');
 
 
 const getChat = async (req, res) => {
@@ -90,7 +91,6 @@ const addMessage = async (req, res) => {
         res.status(400).json(message.error);
     }
     else {
-        // checking if it from android if soo send notification
         // todo
         res.status(200).json(message);
     }

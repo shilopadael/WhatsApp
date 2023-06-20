@@ -14,6 +14,7 @@ import android.content.SharedPreferences;
 import android.graphics.Canvas;
 import android.graphics.Paint;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.EditText;
@@ -85,25 +86,30 @@ public class ChatActivity extends AppCompatActivity {
         }
 
         // checking if the old username is the same username in the localStorage
-        UserDao user = LocalDatabase.getDB().userDao();
-        List<User> lst = user.getAllUsers();
-        if(lst == null || lst.isEmpty()) {
+        UserDao users = LocalDatabase.getDB().userDao();
+        List<User> lst = users.getAllUsers();
+        if (lst == null || lst.isEmpty()) {
             // setting the current user
-            user.deleteAll();
+            users.deleteAll();
             User currentUser = new User(username, token);
-            user.insert(currentUser);
+            currentUser.setOnline(true);
+            users.insert(currentUser);
         } else {
             User onlyUser = lst.get(0);
-            if(!onlyUser.getUsername().equals(username)) {
+            if (!onlyUser.getUsername().equals(username)) {
                 // changing the only username and deleting all the contact and room database
                 AppDB app = LocalDatabase.getDB();
                 // deleting old user messages
                 LocalDatabase.eraseDatabase(app.contactsDao().getChatIdList());
                 // deleting old user contacts
                 app.contactsDao().deleteAll();
-                user.deleteAll();
+                users.deleteAll();
                 User currentUser = new User(username, token);
-                user.insert(currentUser);
+                currentUser.setOnline(true);
+                users.insert(currentUser);
+            } else {
+                onlyUser.setOnline(true);
+                users.update(onlyUser);
             }
         }
 
@@ -113,7 +119,22 @@ public class ChatActivity extends AppCompatActivity {
         // ViewModel for live data for the contact list.
         userViewModel = new UserViewModel(ip, token);
 
-        displayName.setText(username);
+        ChatAPI api = new ChatAPI(ip, token);
+
+        api.getUserInformation(username, new TaskAPI<com.example.chatapp.Schemes.User>() {
+            @Override
+            public void onSuccess(com.example.chatapp.Schemes.User user) {
+                displayName.setText(user.getDisplayName());
+            }
+
+            @Override
+            public void onFailure(String message) {
+                Toast.makeText(ChatActivity.context, "Failed to retrieve the displayName, setting the username.", Toast.LENGTH_SHORT).show();
+                displayName.setText(username);
+            }
+        });
+
+
         lstUsers.setAdapter(adapter);
         lstUsers.setLayoutManager(new LinearLayoutManager(this));
 
@@ -128,6 +149,7 @@ public class ChatActivity extends AppCompatActivity {
                 // Not needed for swipe functionality
                 return false;
             }
+
             @Override
             public void onSwiped(@NonNull RecyclerView.ViewHolder viewHolder, int direction) {
                 // Get the position of the swiped item
@@ -160,6 +182,14 @@ public class ChatActivity extends AppCompatActivity {
         };
         ItemTouchHelper itemTouchHelper = new ItemTouchHelper(swipeCallback);
         itemTouchHelper.attachToRecyclerView(binding.lstUsers);
+
+        binding.btnSettings.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent settingIntent = new Intent(ChatActivity.this, SettingsActivity.class);
+                startActivity(settingIntent);
+            }
+        });
     }
 
     public void showPopupMenu(View view) {
@@ -174,6 +204,11 @@ public class ChatActivity extends AppCompatActivity {
                 int itemId = item.getItemId();
                 if (itemId == R.id.menu_logout) {
                     // Handle logout action
+                    List<User> users = LocalDatabase.getDB().userDao().getAllUsers();
+                    User thisUser = users.get(0);
+                    thisUser.setOnline(false);
+                    LocalDatabase.getDB().userDao().deleteAll();
+                    LocalDatabase.getDB().userDao().insert(thisUser);
                     Intent intent = new Intent(context, SignInActivity.class);
                     startActivity(intent);
                     finish();
@@ -195,14 +230,14 @@ public class ChatActivity extends AppCompatActivity {
     protected void onResume() {
         super.onResume();
         // reloading the contact
+        // updating the ip
+        this.ip = sharedPreferences.getString("ip", "http://10.0.2.2:5000/");
+        userViewModel.setIp(this.ip);
         userViewModel.reload();
     }
 
     @Override
     protected void onDestroy() {
         super.onDestroy();
-        // destroying all the db
-//        LocalDatabase.eraseDatabase(i);
-
     }
 }

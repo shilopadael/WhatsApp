@@ -26,6 +26,9 @@ public final class ActivitySignUpBinding implements ViewBinding {
   public final Button btnAddPicture;
 
   @NonNull
+  public final ImageView btnSettings;
+
+  @NonNull
   public final Button btnSignUp;
 
   @NonNull
@@ -50,13 +53,14 @@ public final class ActivitySignUpBinding implements ViewBinding {
   public final TextView tVAlreadyHaveAccount;
 
   private ActivitySignUpBinding(@NonNull ConstraintLayout rootView, @NonNull Button btnAddPicture,
-      @NonNull Button btnSignUp, @NonNull ImageView imageView,
+      @NonNull ImageView btnSettings, @NonNull Button btnSignUp, @NonNull ImageView imageView,
       @NonNull TextInputEditText signUpConfirmPassword,
       @NonNull TextInputEditText signUpDisplayName, @NonNull ImageView signUpDisplayPicture,
       @NonNull TextInputEditText signUpPassword, @NonNull TextInputEditText signUpUsername,
       @NonNull TextView tVAlreadyHaveAccount) {
     this.rootView = rootView;
     this.btnAddPicture = btnAddPicture;
+    this.btnSettings = btnSettings;
     this.btnSignUp = btnSignUp;
     this.imageView = imageView;
     this.signUpConfirmPassword = signUpConfirmPassword;
@@ -97,6 +101,12 @@ public final class ActivitySignUpBinding implements ViewBinding {
       id = R.id.btnAddPicture;
       Button btnAddPicture = ViewBindings.findChildViewById(rootView, id);
       if (btnAddPicture == null) {
+        break missingId;
+      }
+
+      id = R.id.btnSettings;
+      ImageView btnSettings = ViewBindings.findChildViewById(rootView, id);
+      if (btnSettings == null) {
         break missingId;
       }
 
@@ -148,9 +158,9 @@ public final class ActivitySignUpBinding implements ViewBinding {
         break missingId;
       }
 
-      return new ActivitySignUpBinding((ConstraintLayout) rootView, btnAddPicture, btnSignUp,
-          imageView, signUpConfirmPassword, signUpDisplayName, signUpDisplayPicture, signUpPassword,
-          signUpUsername, tVAlreadyHaveAccount);
+      return new ActivitySignUpBinding((ConstraintLayout) rootView, btnAddPicture, btnSettings,
+          btnSignUp, imageView, signUpConfirmPassword, signUpDisplayName, signUpDisplayPicture,
+          signUpPassword, signUpUsername, tVAlreadyHaveAccount);
     }
     String missingId = rootView.getResources().getResourceName(id);
     throw new NullPointerException("Missing required view with ID: ".concat(missingId));

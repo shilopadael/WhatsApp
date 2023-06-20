@@ -1,16 +1,13 @@
 package com.example.chatapp.Api;
 
-import android.widget.Toast;
-
 import com.example.chatapp.Adapter.CustomDateAdapter;
-import com.example.chatapp.R;
-import com.example.chatapp.Schemes.Chat;
 import com.example.chatapp.Schemes.Chats.AddContactResponeScheme;
 import com.example.chatapp.Schemes.Chats.AddContactScheme;
 import com.example.chatapp.Schemes.Chats.GetChatsScheme;
 import com.example.chatapp.Schemes.Message;
 import com.example.chatapp.Schemes.Messages.GetMessagesScheme;
 import com.example.chatapp.Schemes.Messages.MessageToSend;
+import com.example.chatapp.Schemes.User;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 
@@ -222,5 +219,37 @@ public class ChatAPI {
                 taskAPI.onFailure(t.getMessage());
             }
         });
+    }
+
+    public void getUserInformation(String username, TaskAPI<User> taskAPI) {
+        if(service == null || retrofit == null) {
+            taskAPI.onFailure("Cannot fetch from the given IP, please check your settings.");
+            return;
+        }
+
+        service.getUser(username, this.bearerToken).enqueue(new Callback<User>() {
+            @Override
+            public void onResponse(Call<User> call, Response<User> response) {
+                int status = response.raw().code();
+
+                if(status >= 200 && status < 300) {
+                    User user = response.body();
+                    taskAPI.onSuccess(user);
+                } else {
+                    // failed
+                    taskAPI.onFailure("Failed to get the current user information");
+                }
+            }
+
+            @Override
+            public void onFailure(Call<User> call, Throwable t) {
+                taskAPI.onFailure(t.getMessage());
+            }
+        });
+    }
+
+    public void setBearer(String token) {
+        this.token = token;
+        this.bearerToken = "Bearer" + token;
     }
 }
