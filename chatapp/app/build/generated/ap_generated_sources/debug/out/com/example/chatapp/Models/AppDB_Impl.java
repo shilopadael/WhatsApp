@@ -17,14 +17,10 @@ import androidx.sqlite.db.SupportSQLiteDatabase;
 import androidx.sqlite.db.SupportSQLiteOpenHelper;
 import androidx.sqlite.db.SupportSQLiteOpenHelper.Callback;
 import androidx.sqlite.db.SupportSQLiteOpenHelper.Configuration;
-import com.example.chatapp.Models.ChatEntity.ChatsDao;
-import com.example.chatapp.Models.ChatEntity.ChatsDao_Impl;
 import com.example.chatapp.Models.ContactEntity.ContactDao;
 import com.example.chatapp.Models.ContactEntity.ContactDao_Impl;
 import com.example.chatapp.Models.MessageEntity.MessageDao;
 import com.example.chatapp.Models.MessageEntity.MessageDao_Impl;
-import com.example.chatapp.Models.TokenEntity.TokenDao;
-import com.example.chatapp.Models.TokenEntity.TokenDao_Impl;
 import com.example.chatapp.Models.UserEntity.UserDao;
 import com.example.chatapp.Models.UserEntity.UserDao_Impl;
 import java.lang.Class;
@@ -44,33 +40,25 @@ public final class AppDB_Impl extends AppDB {
 
   private volatile UserDao _userDao;
 
-  private volatile TokenDao _tokenDao;
-
-  private volatile ChatsDao _chatsDao;
-
   private volatile MessageDao _messageDao;
 
   @Override
   protected SupportSQLiteOpenHelper createOpenHelper(DatabaseConfiguration configuration) {
-    final SupportSQLiteOpenHelper.Callback _openCallback = new RoomOpenHelper(configuration, new RoomOpenHelper.Delegate(7) {
+    final SupportSQLiteOpenHelper.Callback _openCallback = new RoomOpenHelper(configuration, new RoomOpenHelper.Delegate(8) {
       @Override
       public void createAllTables(SupportSQLiteDatabase _db) {
         _db.execSQL("CREATE TABLE IF NOT EXISTS `Contact` (`userId` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `username` TEXT, `lastMessage` TEXT, `lastMessageTime` TEXT, `profilePicBase64` TEXT, `displayName` TEXT, `fullDate` TEXT, `timestamp` INTEGER, `profilePic` INTEGER NOT NULL, `databaseId` INTEGER NOT NULL)");
-        _db.execSQL("CREATE TABLE IF NOT EXISTS `Token` (`id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `token` TEXT, `userName` TEXT)");
         _db.execSQL("CREATE TABLE IF NOT EXISTS `User` (`id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `username` TEXT, `token` TEXT)");
         _db.execSQL("CREATE TABLE IF NOT EXISTS `Message` (`id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `created` TEXT, `dbId` INTEGER NOT NULL, `sender` TEXT, `content` TEXT)");
-        _db.execSQL("CREATE TABLE IF NOT EXISTS `Chats` (`id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `users` TEXT, `messages` TEXT)");
         _db.execSQL("CREATE TABLE IF NOT EXISTS room_master_table (id INTEGER PRIMARY KEY,identity_hash TEXT)");
-        _db.execSQL("INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, '57290056876dc19980e69cbd26142fdd')");
+        _db.execSQL("INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, '105db2b3193577b93cf49fe8122cc71d')");
       }
 
       @Override
       public void dropAllTables(SupportSQLiteDatabase _db) {
         _db.execSQL("DROP TABLE IF EXISTS `Contact`");
-        _db.execSQL("DROP TABLE IF EXISTS `Token`");
         _db.execSQL("DROP TABLE IF EXISTS `User`");
         _db.execSQL("DROP TABLE IF EXISTS `Message`");
-        _db.execSQL("DROP TABLE IF EXISTS `Chats`");
         if (mCallbacks != null) {
           for (int _i = 0, _size = mCallbacks.size(); _i < _size; _i++) {
             mCallbacks.get(_i).onDestructiveMigration(_db);
@@ -129,19 +117,6 @@ public final class AppDB_Impl extends AppDB {
                   + " Expected:\n" + _infoContact + "\n"
                   + " Found:\n" + _existingContact);
         }
-        final HashMap<String, TableInfo.Column> _columnsToken = new HashMap<String, TableInfo.Column>(3);
-        _columnsToken.put("id", new TableInfo.Column("id", "INTEGER", true, 1, null, TableInfo.CREATED_FROM_ENTITY));
-        _columnsToken.put("token", new TableInfo.Column("token", "TEXT", false, 0, null, TableInfo.CREATED_FROM_ENTITY));
-        _columnsToken.put("userName", new TableInfo.Column("userName", "TEXT", false, 0, null, TableInfo.CREATED_FROM_ENTITY));
-        final HashSet<TableInfo.ForeignKey> _foreignKeysToken = new HashSet<TableInfo.ForeignKey>(0);
-        final HashSet<TableInfo.Index> _indicesToken = new HashSet<TableInfo.Index>(0);
-        final TableInfo _infoToken = new TableInfo("Token", _columnsToken, _foreignKeysToken, _indicesToken);
-        final TableInfo _existingToken = TableInfo.read(_db, "Token");
-        if (! _infoToken.equals(_existingToken)) {
-          return new RoomOpenHelper.ValidationResult(false, "Token(com.example.chatapp.Models.TokenEntity.Token).\n"
-                  + " Expected:\n" + _infoToken + "\n"
-                  + " Found:\n" + _existingToken);
-        }
         final HashMap<String, TableInfo.Column> _columnsUser = new HashMap<String, TableInfo.Column>(3);
         _columnsUser.put("id", new TableInfo.Column("id", "INTEGER", true, 1, null, TableInfo.CREATED_FROM_ENTITY));
         _columnsUser.put("username", new TableInfo.Column("username", "TEXT", false, 0, null, TableInfo.CREATED_FROM_ENTITY));
@@ -170,22 +145,9 @@ public final class AppDB_Impl extends AppDB {
                   + " Expected:\n" + _infoMessage + "\n"
                   + " Found:\n" + _existingMessage);
         }
-        final HashMap<String, TableInfo.Column> _columnsChats = new HashMap<String, TableInfo.Column>(3);
-        _columnsChats.put("id", new TableInfo.Column("id", "INTEGER", true, 1, null, TableInfo.CREATED_FROM_ENTITY));
-        _columnsChats.put("users", new TableInfo.Column("users", "TEXT", false, 0, null, TableInfo.CREATED_FROM_ENTITY));
-        _columnsChats.put("messages", new TableInfo.Column("messages", "TEXT", false, 0, null, TableInfo.CREATED_FROM_ENTITY));
-        final HashSet<TableInfo.ForeignKey> _foreignKeysChats = new HashSet<TableInfo.ForeignKey>(0);
-        final HashSet<TableInfo.Index> _indicesChats = new HashSet<TableInfo.Index>(0);
-        final TableInfo _infoChats = new TableInfo("Chats", _columnsChats, _foreignKeysChats, _indicesChats);
-        final TableInfo _existingChats = TableInfo.read(_db, "Chats");
-        if (! _infoChats.equals(_existingChats)) {
-          return new RoomOpenHelper.ValidationResult(false, "Chats(com.example.chatapp.Models.ChatEntity.Chats).\n"
-                  + " Expected:\n" + _infoChats + "\n"
-                  + " Found:\n" + _existingChats);
-        }
         return new RoomOpenHelper.ValidationResult(true, null);
       }
-    }, "57290056876dc19980e69cbd26142fdd", "226a0d102e9a42a9689ef4323fb4949e");
+    }, "105db2b3193577b93cf49fe8122cc71d", "4f8a3da11a77d53dbbf2dd7f15eb9494");
     final SupportSQLiteOpenHelper.Configuration _sqliteConfig = SupportSQLiteOpenHelper.Configuration.builder(configuration.context)
         .name(configuration.name)
         .callback(_openCallback)
@@ -198,7 +160,7 @@ public final class AppDB_Impl extends AppDB {
   protected InvalidationTracker createInvalidationTracker() {
     final HashMap<String, String> _shadowTablesMap = new HashMap<String, String>(0);
     HashMap<String, Set<String>> _viewTables = new HashMap<String, Set<String>>(0);
-    return new InvalidationTracker(this, _shadowTablesMap, _viewTables, "Contact","Token","User","Message","Chats");
+    return new InvalidationTracker(this, _shadowTablesMap, _viewTables, "Contact","User","Message");
   }
 
   @Override
@@ -208,10 +170,8 @@ public final class AppDB_Impl extends AppDB {
     try {
       super.beginTransaction();
       _db.execSQL("DELETE FROM `Contact`");
-      _db.execSQL("DELETE FROM `Token`");
       _db.execSQL("DELETE FROM `User`");
       _db.execSQL("DELETE FROM `Message`");
-      _db.execSQL("DELETE FROM `Chats`");
       super.setTransactionSuccessful();
     } finally {
       super.endTransaction();
@@ -227,8 +187,6 @@ public final class AppDB_Impl extends AppDB {
     final HashMap<Class<?>, List<Class<?>>> _typeConvertersMap = new HashMap<Class<?>, List<Class<?>>>();
     _typeConvertersMap.put(ContactDao.class, ContactDao_Impl.getRequiredConverters());
     _typeConvertersMap.put(UserDao.class, UserDao_Impl.getRequiredConverters());
-    _typeConvertersMap.put(TokenDao.class, TokenDao_Impl.getRequiredConverters());
-    _typeConvertersMap.put(ChatsDao.class, ChatsDao_Impl.getRequiredConverters());
     _typeConvertersMap.put(MessageDao.class, MessageDao_Impl.getRequiredConverters());
     return _typeConvertersMap;
   }
@@ -269,34 +227,6 @@ public final class AppDB_Impl extends AppDB {
           _userDao = new UserDao_Impl(this);
         }
         return _userDao;
-      }
-    }
-  }
-
-  @Override
-  public TokenDao tokenDao() {
-    if (_tokenDao != null) {
-      return _tokenDao;
-    } else {
-      synchronized(this) {
-        if(_tokenDao == null) {
-          _tokenDao = new TokenDao_Impl(this);
-        }
-        return _tokenDao;
-      }
-    }
-  }
-
-  @Override
-  public ChatsDao chatsDao() {
-    if (_chatsDao != null) {
-      return _chatsDao;
-    } else {
-      synchronized(this) {
-        if(_chatsDao == null) {
-          _chatsDao = new ChatsDao_Impl(this);
-        }
-        return _chatsDao;
       }
     }
   }

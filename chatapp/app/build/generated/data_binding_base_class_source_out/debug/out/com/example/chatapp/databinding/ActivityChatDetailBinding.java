@@ -34,12 +34,6 @@ public final class ActivityChatDetailBinding implements ViewBinding {
   public final EditText enterMessage;
 
   @NonNull
-  public final ImageView imageView4;
-
-  @NonNull
-  public final ImageView imageView6;
-
-  @NonNull
   public final LinearLayout linear;
 
   @NonNull
@@ -56,15 +50,12 @@ public final class ActivityChatDetailBinding implements ViewBinding {
 
   private ActivityChatDetailBinding(@NonNull RelativeLayout rootView, @NonNull ImageView backArrow,
       @NonNull RecyclerView charRecycleView, @NonNull EditText enterMessage,
-      @NonNull ImageView imageView4, @NonNull ImageView imageView6, @NonNull LinearLayout linear,
-      @NonNull ImageView profilePic, @NonNull ImageView send, @NonNull Toolbar toolbar,
-      @NonNull TextView username) {
+      @NonNull LinearLayout linear, @NonNull ImageView profilePic, @NonNull ImageView send,
+      @NonNull Toolbar toolbar, @NonNull TextView username) {
     this.rootView = rootView;
     this.backArrow = backArrow;
     this.charRecycleView = charRecycleView;
     this.enterMessage = enterMessage;
-    this.imageView4 = imageView4;
-    this.imageView6 = imageView6;
     this.linear = linear;
     this.profilePic = profilePic;
     this.send = send;
@@ -117,18 +108,6 @@ public final class ActivityChatDetailBinding implements ViewBinding {
         break missingId;
       }
 
-      id = R.id.imageView4;
-      ImageView imageView4 = ViewBindings.findChildViewById(rootView, id);
-      if (imageView4 == null) {
-        break missingId;
-      }
-
-      id = R.id.imageView6;
-      ImageView imageView6 = ViewBindings.findChildViewById(rootView, id);
-      if (imageView6 == null) {
-        break missingId;
-      }
-
       id = R.id.linear;
       LinearLayout linear = ViewBindings.findChildViewById(rootView, id);
       if (linear == null) {
@@ -160,7 +139,7 @@ public final class ActivityChatDetailBinding implements ViewBinding {
       }
 
       return new ActivityChatDetailBinding((RelativeLayout) rootView, backArrow, charRecycleView,
-          enterMessage, imageView4, imageView6, linear, profilePic, send, toolbar, username);
+          enterMessage, linear, profilePic, send, toolbar, username);
     }
     String missingId = rootView.getResources().getResourceName(id);
     throw new NullPointerException("Missing required view with ID: ".concat(missingId));

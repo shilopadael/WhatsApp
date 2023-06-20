@@ -64,7 +64,6 @@ id enterMessage
 id fragment_container
 id guideline2
 id imageView
-id imageView4
 id imageView6
 id lastMessage
 id linear
