@@ -6,6 +6,7 @@ const { getUserName } = require('./token');
 const UserPassName = require('../models/UserPassName');
 const Chat = require('../models/Chat');
 const mongoose = require('mongoose');
+const onlineConnections = require('../onlineConnection');
 
 
 // get all chats
@@ -253,9 +254,21 @@ const addMessage = async (req, res) => {
     // sending to the other person in the chat, if it is from andorid
 
     if(req.headers['devicetype'] === 'Android') {
-      console.log("chat" , chat);
       let users = await User.populate(chat, { path: 'users' });
-      console.log("users" , users);
+      users = users.users;
+      const sendUserScheme = users.filter(user => user.username !== username);
+      const onlineUsers = new onlineConnections();
+      let userToSend = onlineUsers.getOnlineUser(sendUserScheme[0].username);
+      if(userToSend !== undefined && userToSend.id != null) {
+        // sending the message to the other user
+        let data = {
+          created: mess.created,
+          sender: user,
+          content: msgGot,
+          receiverUsername: sendUserScheme.username
+        }
+        userToSend.io.to(userToSend.id).emit('receive-message', data);
+      }
     }
 
     return mess;

@@ -49,7 +49,7 @@ const onlineConnection = require('./onlineConnection');
 const onlineUsers = new onlineConnection();
 io.on('connection', (socket) => {
     const username = socket.handshake.query.username;
-    onlineUsers.addOnlineUser({ id: socket.id, username: username });
+    onlineUsers.addOnlineUser({ id: socket.id, username: username , io: io});
     console.log(`${username} connected to the socket ${socket.id}`);
     socket.on('disconnect', () => {
         console.log(`${username} disconnected from the socket`);
@@ -58,6 +58,7 @@ io.on('connection', (socket) => {
     }
     );
     socket.on('send-message', (data) => {
+        console.log(data);
         let currentUserName = data.receiverUsername;
         // const user = users.find(user => user.username === currentUserName);
         const user = onlineUsers.getOnlineUser(currentUserName);
