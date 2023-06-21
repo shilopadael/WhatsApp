@@ -16,5 +16,6 @@
     <string name="display_name">Display Name</string>
     <string name="displayname">DisplayName</string>
     <string name="enter_your_message">Enter your message</string>
+    <string name="dark_mode">Dark Mode</string>
 
 </resources>

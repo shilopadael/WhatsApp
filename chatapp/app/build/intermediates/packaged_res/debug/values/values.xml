@@ -20,6 +20,9 @@
     <color name="sender_text_color">#1E1E1E</color>
     <color name="sender_time_color">#1D2529</color>
     <color name="settingsIconColor">#0E8374</color>
+    <color name="show_contact_color">#EDEDED</color>
+    <color name="show_contact_color_text">#080808</color>
+    <color name="show_contact_color_text_message">#676767</color>
     <color name="status_background">#009688</color>
     <color name="textColorField">#FFFFFFFF</color>
     <color name="welcomeTextColor">#FF000000</color>
@@ -31,6 +34,7 @@
     <string name="app_name">ChatApp</string>
     <string name="click_to_sign_up">Click To Sign Up</string>
     <string name="confirm_password_sign_up">Confirm Password</string>
+    <string name="dark_mode">Dark Mode</string>
     <string name="default_web_client_id" translatable="false">421492860473-pa8ruv0i6qoei356sv1crnqg5cdopa8l.apps.googleusercontent.com</string>
     <string name="display_name">Display Name</string>
     <string name="displayname">DisplayName</string>

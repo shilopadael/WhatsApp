@@ -2,7 +2,7 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:background="@color/lightGrey"
+    android:background="@color/show_contact_color"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:orientation="horizontal">
@@ -41,6 +41,7 @@
         android:paddingTop="2dp"
         android:paddingBottom="2dp"
         android:text="last message"
+        android:textColor="@color/show_contact_color_text_message"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toEndOf="@+id/profile_image"
@@ -56,7 +57,7 @@
         android:paddingTop="5dp"
         android:paddingBottom="5dp"
         android:text="Username"
-        android:textColor="@color/black"
+        android:textColor="@color/show_contact_color_text"
         android:textStyle="bold"
         app:layout_constraintStart_toEndOf="@+id/profile_image"
         app:layout_constraintTop_toTopOf="parent" />

@@ -20,6 +20,9 @@ color sender_box_color
 color sender_text_color
 color sender_time_color
 color settingsIconColor
+color show_contact_color
+color show_contact_color_text
+color show_contact_color_text_message
 color status_background
 color textColorField
 color welcomeTextColor
@@ -133,6 +136,7 @@ string already_have_an_account
 string app_name
 string click_to_sign_up
 string confirm_password_sign_up
+string dark_mode
 string default_web_client_id
 string display_name
 string displayname

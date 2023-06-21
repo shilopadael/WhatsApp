@@ -25,4 +25,10 @@
     <color name="sender_box_color">#5CD673</color>
     <color name="sender_text_color">#1E1E1E</color>
     <color name="sender_time_color">#1D2529</color>
+    <color name="show_contact_color">#EDEDED</color>
+    <color name="show_contact_color_text">#080808</color>
+    <color name="show_contact_color_text_message">#676767</color>
+
+
+
 </resources>

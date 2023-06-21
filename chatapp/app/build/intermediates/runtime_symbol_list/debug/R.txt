@@ -1792,6 +1792,9 @@ int color sender_box_color 0x7f05026d
 int color sender_text_color 0x7f05026e
 int color sender_time_color 0x7f05026f
 int color settingsIconColor 0x7f050259
+int color show_contact_color 0x7f050270
+int color show_contact_color_text 0x7f050271
+int color show_contact_color_text_message 0x7f050272
 int color status_background 0x7f05025a
 int color switch_thumb_disabled_material_dark 0x7f05025b
 int color switch_thumb_disabled_material_light 0x7f05025c
@@ -3376,6 +3379,7 @@ int string common_open_on_phone 0x7f100038
 int string common_signin_button_text 0x7f100039
 int string common_signin_button_text_long 0x7f10003a
 int string confirm_password_sign_up 0x7f10003b
+int string dark_mode 0x7f1000ad
 int string default_web_client_id 0x7f10003c
 int string display_name 0x7f10003d
 int string displayname 0x7f10003e

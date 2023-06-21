@@ -100,6 +100,11 @@ public class SignUpActivity extends AppCompatActivity {
             openFileChooser();
         });
 
+        binding.btnSettings.setOnClickListener(v -> {
+            Intent intent = new Intent(this, SettingsActivity.class);
+            startActivity(intent);
+        });
+
         alreadyHaveAccount.setOnClickListener(v -> {
             Intent intent = new Intent(this, SignInActivity.class);
             startActivity(intent);

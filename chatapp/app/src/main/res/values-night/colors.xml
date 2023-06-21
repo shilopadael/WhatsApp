@@ -24,5 +24,9 @@
     <color name="sender_box_color">#A1BAFF</color>
     <color name="sender_text_color">#1E1E1E</color>
     <color name="sender_time_color">#1D2529</color>
+    <color name="show_contact_color">#748AB8</color>
+    <color name="show_contact_color_text">#FFFFFF</color>
+    <color name="show_contact_color_text_message">#BABABA</color>
+
 
 </resources>

@@ -11,7 +11,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="15dp"
         android:ems="10"
-        android:hint="Enter person username to add"
+        android:hint="Enter person username"
         android:inputType="textPersonName"
         android:textColor="@color/textColorField"
         android:textColorHint="@color/grayBackground"

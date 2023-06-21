@@ -1793,6 +1793,9 @@ color sender_box_color
 color sender_text_color
 color sender_time_color
 color settingsIconColor
+color show_contact_color
+color show_contact_color_text
+color show_contact_color_text_message
 color status_background
 color switch_thumb_disabled_material_dark
 color switch_thumb_disabled_material_light
@@ -3377,6 +3380,7 @@ string common_open_on_phone
 string common_signin_button_text
 string common_signin_button_text_long
 string confirm_password_sign_up
+string dark_mode
 string default_web_client_id
 string display_name
 string displayname

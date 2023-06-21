@@ -4,6 +4,7 @@ import static android.content.ContentValues.TAG;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.app.AppCompatDelegate;
 
 import android.annotation.SuppressLint;
 import android.content.Intent;
@@ -49,11 +50,21 @@ public class SignInActivity extends AppCompatActivity {
         setContentView(binding.getRoot());
         getSupportActionBar().hide();
 
+        sharedPreferences = getSharedPreferences("chatSystem", MODE_PRIVATE);
+        String ip = sharedPreferences.getString("ip", "http://10.0.2.2:5000/");
+
         // getting localDatabase
         UserDao userDao = LocalDatabase.getDB().userDao();
 
         // checking if the user is already logged in
         List<User> users = userDao.getAllUsers();
+
+        boolean isChecked = sharedPreferences.getBoolean("isDarkMode", false);
+        if(isChecked) {
+            AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES);
+        } else {
+            AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
+        }
 
         // signing in if the user didn't logged out
         if (users != null && users.size() > 0 && users.get(0).isOnline()) {
@@ -62,9 +73,9 @@ public class SignInActivity extends AppCompatActivity {
             finish();
         }
 
+        // to load the change
+        recreate();
 
-        sharedPreferences = getSharedPreferences("chatSystem", MODE_PRIVATE);
-        String ip = sharedPreferences.getString("ip", "http://10.0.2.2:5000/");
 
         if(sharedPreferences.getString("firebaseToken", "none").equals("none")) {
             FirebaseMessaging.getInstance().getToken()
@@ -87,6 +98,8 @@ public class SignInActivity extends AppCompatActivity {
             firebaseToken = sharedPreferences.getString("firebaseToken", "none");
             tokenAPI = new TokenAPI(ip, firebaseToken);
         }
+
+
 
 
 
