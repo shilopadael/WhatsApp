@@ -6,6 +6,7 @@ import androidx.recyclerview.widget.ItemTouchHelper;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.room.Room;
+import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
@@ -193,6 +194,14 @@ public class ChatActivity extends AppCompatActivity {
             public void onClick(View v) {
                 Intent settingIntent = new Intent(ChatActivity.this, SettingsActivity.class);
                 startActivity(settingIntent);
+            }
+        });
+
+        binding.refreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
+            @Override
+            public void onRefresh() {
+                userViewModel.reload();
+                binding.refreshLayout.setRefreshing(false);
             }
         });
     }

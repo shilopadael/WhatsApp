@@ -73,9 +73,6 @@ public class SignInActivity extends AppCompatActivity {
             finish();
         }
 
-        // to load the change
-        recreate();
-
 
         if(sharedPreferences.getString("firebaseToken", "none").equals("none")) {
             FirebaseMessaging.getInstance().getToken()

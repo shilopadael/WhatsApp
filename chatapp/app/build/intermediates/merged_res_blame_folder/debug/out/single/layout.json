@@ -4,16 +4,16 @@
         "source": "/home/omer/.gradle/daemon/8.0/com.example.chatapp-main-40:/layout/activity_chat.xml"
     },
     {
-        "merged": "com.example.chatapp-mergeDebugResources-37:/layout/fragment_add_contact.xml",
-        "source": "com.example.chatapp-main-40:/layout/fragment_add_contact.xml"
-    },
-    {
         "merged": "/home/omer/.gradle/daemon/8.0/com.example.chatapp-mergeDebugResources-37:/layout/fragment_add_contact.xml",
         "source": "/home/omer/.gradle/daemon/8.0/com.example.chatapp-main-40:/layout/fragment_add_contact.xml"
     },
     {
         "merged": "/home/omer/.gradle/daemon/8.0/com.example.chatapp-mergeDebugResources-37:/layout/activity_settings.xml",
         "source": "/home/omer/.gradle/daemon/8.0/com.example.chatapp-main-40:/layout/activity_settings.xml"
+    },
+    {
+        "merged": "com.example.chatapp-mergeDebugResources-37:/layout/activity_settings.xml",
+        "source": "com.example.chatapp-main-40:/layout/activity_settings.xml"
     },
     {
         "merged": "/home/omer/.gradle/daemon/8.0/com.example.chatapp-mergeDebugResources-37:/layout/fragment_chat.xml",

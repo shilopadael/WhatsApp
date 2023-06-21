@@ -27,7 +27,6 @@
             android:layout_width="100dp"
             android:layout_height="100dp"
             android:src="@drawable/ic_whatsapp" />
-
         <com.google.android.material.textfield.TextInputLayout
             style="@style/ThemeOverlay.Material3.AutoCompleteTextView.FilledBox"
             android:layout_width="match_parent"
@@ -40,21 +39,21 @@
             app:boxCornerRadiusBottomStart="12dp"
             app:boxCornerRadiusTopEnd="12dp"
             app:boxCornerRadiusTopStart="12dp"
-            android:textColor="@color/black"
+            android:textColor="@color/textColorField"
             android:textColorHint="@color/grayBackground"
-            app:boxBackgroundColor="@color/white"
+            app:boxBackgroundColor="@color/BoxInputColor"
             app:boxStrokeColor="@color/black"
             app:counterEnabled="true"
             app:counterMaxLength="12"
             app:endIconMode="clear_text"
             app:helperTextTextColor="@color/red"
-            app:startIconDrawable="@drawable/ic_ip">
+            app:startIconDrawable="@drawable/ic_profile_icon">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/eTSetServerIp"
                 android:layout_width="350dp"
                 android:layout_height="wrap_content"
-                android:textColor="@color/lightGrey"
+                android:textColor="@color/white"
                 android:textColorHint="@color/grayBackground" />
 
 
