@@ -55,7 +55,6 @@ io.on('connection', (socket) => {
     }
     );
     socket.on('send-message', (recData) => {
-        console.log(recData);
         let currentUserName = recData.receiverUsername;
         const user = onlineUsers.getOnlineUser(currentUserName);
         if (user && user.id !== null) {
@@ -73,19 +72,12 @@ io.on('connection', (socket) => {
                     sender: currentUserName
                 },
                 notification: {
-                    title: currentUserName,
-                    body: recData.content
+                    title: recData.data.sender.username,
+                    body: recData.data.content
                 },
                 token: user.firebaseToken // Replace with the FCM device token of the recipient
             };
             firebase.sendNotificationToUser(message);
-            //   admin.messaging().send(message).then((response) => {
-            //     // Response is a message ID string.
-            //     console.log('Successfully sent message from firebase!');
-            //   })
-            //   .catch((error) => {
-            //     console.log('Error sending message:', error);
-            //   });
         }
     });
 
@@ -98,7 +90,6 @@ io.on('connection', (socket) => {
 
     socket.on('adding-contact', (data) => {
         const user = onlineUsers.getOnlineUser(data.username);
-        // console.log("sending update-contact-list to ");
         if (user && user.id !== null) {
             io.to(user.id).emit('update-contact-list', data);
         }

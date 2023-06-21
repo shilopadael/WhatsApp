@@ -80,6 +80,10 @@
         "source": "/home/omer/.gradle/daemon/8.0/com.example.chatapp-main-40:/mipmap-xxxhdpi/ic_launcher.webp"
     },
     {
+        "merged": "com.example.chatapp-merged_res-38:/raw_remove_contact.mp3.flat",
+        "source": "com.example.chatapp-main-40:/raw/remove_contact.mp3"
+    },
+    {
         "merged": "/home/omer/.gradle/daemon/8.0/com.example.chatapp-merged_res-38:/drawable-anydpi_ic_name.xml.flat",
         "source": "/home/omer/.gradle/daemon/8.0/com.example.chatapp-main-40:/drawable-anydpi/ic_name.xml"
     },
@@ -98,6 +102,10 @@
     {
         "merged": "/home/omer/.gradle/daemon/8.0/com.example.chatapp-merged_res-38:/drawable-v24_ic_launcher_foreground.xml.flat",
         "source": "/home/omer/.gradle/daemon/8.0/com.example.chatapp-main-40:/drawable-v24/ic_launcher_foreground.xml"
+    },
+    {
+        "merged": "/home/omer/.gradle/daemon/8.0/com.example.chatapp-merged_res-38:/raw_new_contact.mp3.flat",
+        "source": "/home/omer/.gradle/daemon/8.0/com.example.chatapp-main-40:/raw/new_contact.mp3"
     },
     {
         "merged": "/home/omer/.gradle/daemon/8.0/com.example.chatapp-merged_res-38:/mipmap-anydpi-v26_ic_launcher.xml.flat",
@@ -266,10 +274,6 @@
     {
         "merged": "/home/omer/.gradle/daemon/8.0/com.example.chatapp-merged_res-38:/drawable_ic_whatsapp.png.flat",
         "source": "/home/omer/.gradle/daemon/8.0/com.example.chatapp-main-40:/drawable/ic_whatsapp.png"
-    },
-    {
-        "merged": "com.example.chatapp-merged_res-38:/layout_activity_settings.xml.flat",
-        "source": "com.example.chatapp-main-40:/layout/activity_settings.xml"
     },
     {
         "merged": "/home/omer/.gradle/daemon/8.0/com.example.chatapp-merged_res-38:/drawable-xhdpi_ic_lock.png.flat",

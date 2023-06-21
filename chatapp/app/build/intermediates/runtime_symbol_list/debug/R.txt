@@ -3318,7 +3318,9 @@ int mipmap ic_launcher_round 0x7f0d0001
 int plurals mtrl_badge_content_description 0x7f0e0000
 int raw firebase_common_keep 0x7f0f0000
 int raw knock_knock 0x7f0f0001
+int raw new_contact 0x7f0f0003
 int raw notification 0x7f0f0002
+int raw remove_contact 0x7f0f0004
 int string BaseUrl 0x7f100000
 int string abc_action_bar_home_description 0x7f100001
 int string abc_action_bar_up_description 0x7f100002

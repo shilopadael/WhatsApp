@@ -147,6 +147,33 @@ const addChat = async (req, res) => {
       }
     };
 
+    const onlineUsers = new onlineConnections();
+
+    // checking if the other user is online
+    let userToSend = onlineUsers.getOnlineUser(userToAdd.username);
+    if(userToSend !== undefined && userToSend.id != null) {
+      // from react
+      let newData = {
+        username: thisUser
+      }
+      userToSend.io.to(userToSend.id).emit('update-contact-list', newData);
+    } else if(userToSend !== undefined) {
+      // from android
+      const firebase = new FireBaseManager();
+      firebase.sendNotificationToUser({
+        data: {
+          // Add your custom data fields here
+          extra: "new-contact",
+          username: `${thisUser}`
+        },
+        notification: {
+          title: 'New Chat',
+          body: `You have a new chat with ${thisUser}`
+        },
+        token: userToSend.firebaseToken // Replace with the FCM device token of the recipient
+      });
+
+    }
 
     return toSend;
   } catch (error) {
@@ -351,11 +378,42 @@ const deleteChatById = async (req) => {
       await allChats.save();
     }
 
+    console.log(lst);      
+    const otherUsername = lst.filter(user => user !== username)[0];
+
     // deleting the chat messages from the database
     for (const message of chatToDelete.messages) {
       await Message.deleteOne({ _id: message });
     }
     await Chat.deleteOne({ _id: chatToDelete._id });
+
+    const onlineUsers = new onlineConnections();
+
+    let userToSend = onlineUsers.getOnlineUser(otherUsername);
+    if(userToSend !== undefined && userToSend.id != null) {
+      // from react
+      let newData = {
+        username: username
+      }
+      userToSend.io.to(userToSend.id).emit('update-contact-list', newData);
+    } else if(userToSend !== undefined) {
+      // from android
+      const firebase = new FireBaseManager();
+      firebase.sendNotificationToUser({
+        data: {
+          // Add your custom data fields here
+          extra: "remove-contact",
+          username: `${username}`
+        },
+        notification: {
+          title: `${username}`,
+          body: `Removed a chat with you`
+        },
+        token: userToSend.firebaseToken // Replace with the FCM device token of the recipient
+      });
+
+    }
+
     return { success: true };
   }
   return { success: false, error: 'The user is not allowed to delete this chat' };

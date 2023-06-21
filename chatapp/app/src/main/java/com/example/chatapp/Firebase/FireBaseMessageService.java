@@ -38,9 +38,8 @@ public class FireBaseMessageService extends FirebaseMessagingService {
         String currentScreen = sharedPreferences.getString("currentScreen", "none");
         ip = sharedPreferences.getString("ip", "http://10.0.2.2:5000/");
         token = sharedPreferences.getString("token", "none");
-
+        Map<String, String> data = message.getData();
         if(currentScreen.equals("ChatScreen")) {
-            Map<String, String> data = message.getData();
             String chatId = data.get("chatId");
             String sender = data.get("sender");
             String currentChatId = sharedPreferences.getString("currentChatId", "-1");
@@ -61,8 +60,21 @@ public class FireBaseMessageService extends FirebaseMessagingService {
 
         else if(currentScreen.equals("ContactScreen")) {
             // creating notification sound
-            MediaPlayer mediaPlayer = MediaPlayer.create(this, R.raw.notification);
-            mediaPlayer.start();
+            String l = data.get("extra");
+            if(l == null) {
+                // new message arrived
+                MediaPlayer mediaPlayer = MediaPlayer.create(this, R.raw.notification);
+                mediaPlayer.start();
+            } else if(l.equals("new-contact")){
+                // adding new contact
+                MediaPlayer mediaPlayer = MediaPlayer.create(this, R.raw.new_contact);
+                mediaPlayer.start();
+            } else if(l.equals("remove-contact")){
+                // adding new group
+                MediaPlayer mediaPlayer = MediaPlayer.create(this, R.raw.remove_contact);
+                mediaPlayer.start();
+            }
+
             // refresh contacts
             UserViewModel userViewModel = UserViewModel.getInstance(ip, token);
             userViewModel.reload();

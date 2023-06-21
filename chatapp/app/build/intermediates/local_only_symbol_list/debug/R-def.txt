@@ -129,7 +129,9 @@ menu popup_menu
 mipmap ic_launcher
 mipmap ic_launcher_round
 raw knock_knock
+raw new_contact
 raw notification
+raw remove_contact
 string BaseUrl
 string add_picture
 string already_have_an_account

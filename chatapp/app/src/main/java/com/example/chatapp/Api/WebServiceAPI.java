@@ -33,6 +33,9 @@ public interface WebServiceAPI {
     @GET("api/Chats/{id}")
     Call<Chat> getChat(@Path("id") int id, @Header("Authorization") String auth);
 
+    @Headers({"Accept:application/json",
+            "deviceType:Android",
+            "Content-Type:application/json"})
     @POST("api/Chats")
     Call<AddContactResponeScheme> createChat(@Body AddContactScheme chat, @Header("Authorization") String auth);
 

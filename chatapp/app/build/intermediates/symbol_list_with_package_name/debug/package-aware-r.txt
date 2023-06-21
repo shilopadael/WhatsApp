@@ -3319,7 +3319,9 @@ mipmap ic_launcher_round
 plurals mtrl_badge_content_description
 raw firebase_common_keep
 raw knock_knock
+raw new_contact
 raw notification
+raw remove_contact
 string BaseUrl
 string abc_action_bar_home_description
 string abc_action_bar_up_description
