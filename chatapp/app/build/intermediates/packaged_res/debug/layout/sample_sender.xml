@@ -38,6 +38,7 @@
             android:maxWidth="270dp"
             android:minWidth="50dp"
             android:text="Hello World"
+            android:textColor="@color/sender_text_color"
             app:layout_constraintBottom_toTopOf="@+id/senderTime"
             app:layout_constraintEnd_toStartOf="@+id/guideline2"
             app:layout_constraintStart_toStartOf="parent"
@@ -53,6 +54,7 @@
             android:gravity="start"
             android:text="12:45 pm"
             android:textSize="10sp"
+            android:textColor="@color/sender_time_color"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent" />
 

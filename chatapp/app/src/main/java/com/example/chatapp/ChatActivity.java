@@ -13,6 +13,7 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.Canvas;
 import android.graphics.Paint;
+import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.MenuItem;
@@ -47,6 +48,7 @@ import java.util.List;
 public class ChatActivity extends AppCompatActivity {
 
     ActivityChatBinding binding;
+    public static Context context;
     private UserViewModel userViewModel;
     private FireBaseMessageService fireBaseMessageService;
     private SharedPreferences sharedPreferences;
@@ -55,8 +57,6 @@ public class ChatActivity extends AppCompatActivity {
     private String username;
     UsersAdapter adapter;
 
-    private static Context context;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -64,6 +64,7 @@ public class ChatActivity extends AppCompatActivity {
         binding = ActivityChatBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
         getSupportActionBar().hide();
+        context = getApplicationContext();
 
         // binding
         TextView displayName = binding.toolBarDisplayName;
@@ -71,6 +72,7 @@ public class ChatActivity extends AppCompatActivity {
 
         // initializing the variables
         fireBaseMessageService = new FireBaseMessageService();
+        fireBaseMessageService.setActivity(this);
 
         // getting the ip and token from shared preferences
         sharedPreferences = getSharedPreferences("chatSystem", MODE_PRIVATE);

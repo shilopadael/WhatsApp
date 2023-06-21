@@ -32,19 +32,20 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textColor="@color/black"
+                android:textColor="@color/welcomeTextColor"
                 android:textSize="16sp"
                 android:textStyle="bold"
-                android:text="Welcome back "
+                android:text="Welcome back! "
                 />
 
             <TextView
                 android:id="@+id/toolBarDisplayName"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:textColor="@color/welcomeTextColor"
                 android:textSize="16sp"
                 android:textStyle="bold"
-                android:text="DisplayName"
+                android:text="@string/displayname"
                 />
 
             <androidx.constraintlayout.widget.ConstraintLayout
@@ -96,8 +97,9 @@
             android:id="@+id/lstUsers"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:background="@drawable/w2" />
+            style="@style/CONTACT_BACKGROUND"/>
 
     </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

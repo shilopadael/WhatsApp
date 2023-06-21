@@ -1,5 +1,7 @@
 package com.example.chatapp.viewmodels;
 
+import androidx.lifecycle.LifecycleObserver;
+import androidx.lifecycle.LifecycleOwner;
 import androidx.lifecycle.LiveData;
 
 import com.example.chatapp.Api.TaskAPI;
@@ -68,5 +70,9 @@ public class MessageViewModel {
 
     public void setToken(String token) {
         this.token = token;
+    }
+
+    public void clearObserver(LifecycleOwner observer) {
+        messages.removeObservers(observer);
     }
 }

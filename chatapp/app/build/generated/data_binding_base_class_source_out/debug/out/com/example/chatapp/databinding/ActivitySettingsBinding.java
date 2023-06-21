@@ -5,14 +5,15 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
-import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.Switch;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.viewbinding.ViewBinding;
 import androidx.viewbinding.ViewBindings;
 import com.example.chatapp.R;
+import com.google.android.material.textfield.TextInputEditText;
 import java.lang.NullPointerException;
 import java.lang.Override;
 import java.lang.String;
@@ -25,18 +26,22 @@ public final class ActivitySettingsBinding implements ViewBinding {
   public final Button btnSaveServerIp;
 
   @NonNull
-  public final EditText eTSetServerIp;
+  public final TextInputEditText eTSetServerIp;
 
   @NonNull
   public final ImageView signInChatLogo;
 
+  @NonNull
+  public final Switch switchDarkMode;
+
   private ActivitySettingsBinding(@NonNull ConstraintLayout rootView,
-      @NonNull Button btnSaveServerIp, @NonNull EditText eTSetServerIp,
-      @NonNull ImageView signInChatLogo) {
+      @NonNull Button btnSaveServerIp, @NonNull TextInputEditText eTSetServerIp,
+      @NonNull ImageView signInChatLogo, @NonNull Switch switchDarkMode) {
     this.rootView = rootView;
     this.btnSaveServerIp = btnSaveServerIp;
     this.eTSetServerIp = eTSetServerIp;
     this.signInChatLogo = signInChatLogo;
+    this.switchDarkMode = switchDarkMode;
   }
 
   @Override
@@ -73,7 +78,7 @@ public final class ActivitySettingsBinding implements ViewBinding {
       }
 
       id = R.id.eTSetServerIp;
-      EditText eTSetServerIp = ViewBindings.findChildViewById(rootView, id);
+      TextInputEditText eTSetServerIp = ViewBindings.findChildViewById(rootView, id);
       if (eTSetServerIp == null) {
         break missingId;
       }
@@ -84,8 +89,14 @@ public final class ActivitySettingsBinding implements ViewBinding {
         break missingId;
       }
 
+      id = R.id.switchDarkMode;
+      Switch switchDarkMode = ViewBindings.findChildViewById(rootView, id);
+      if (switchDarkMode == null) {
+        break missingId;
+      }
+
       return new ActivitySettingsBinding((ConstraintLayout) rootView, btnSaveServerIp,
-          eTSetServerIp, signInChatLogo);
+          eTSetServerIp, signInChatLogo, switchDarkMode);
     }
     String missingId = rootView.getResources().getResourceName(id);
     throw new NullPointerException("Missing required view with ID: ".concat(missingId));

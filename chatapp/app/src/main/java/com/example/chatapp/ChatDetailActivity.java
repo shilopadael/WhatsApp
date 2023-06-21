@@ -6,6 +6,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import androidx.room.Room;
 
 import android.annotation.SuppressLint;
+import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.Bitmap;
@@ -43,6 +44,8 @@ import java.util.List;
 public class ChatDetailActivity extends AppCompatActivity {
 
     ActivityChatDetailBinding binding;
+
+    public static Context context;
     private String ip;
     private String token;
     private ChatAdapter adapter;
@@ -65,6 +68,7 @@ public class ChatDetailActivity extends AppCompatActivity {
         this.ip = sharedPreferences.getString("ip", "http://10.0.2.2:5000/");
         this.token = sharedPreferences.getString("token", "#");
 
+        context = getApplicationContext();
         Intent intent = getIntent();
         this.OtherPersonUsername = intent.getStringExtra("username");
         this.me = sharedPreferences.getString("username", "#");
@@ -105,6 +109,7 @@ public class ChatDetailActivity extends AppCompatActivity {
         binding.backArrow.setOnClickListener(v -> {
             Intent intent1 = new Intent(ChatDetailActivity.this, ChatActivity.class);
             startActivity(intent1);
+            messageViewModel.clearObserver(this);
             finish();
         });
 
@@ -152,7 +157,12 @@ public class ChatDetailActivity extends AppCompatActivity {
         @SuppressLint("CommitPrefEdits") SharedPreferences.Editor editor = sharedPreferences.edit();
         editor.putString("currentChatId", Integer.toString(this.currentChatId));
         editor.putString("currentScreen", "ChatScreen");
-
+        editor.apply();
     }
 
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        this.messageViewModel.clearObserver(this);
+    }
 }

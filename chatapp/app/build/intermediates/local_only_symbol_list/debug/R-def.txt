@@ -1,6 +1,8 @@
 R_DEF: Internal format may change without notice
 local
+color BoxInputColor
 color black
+color btnTextColor
 color chat_background
 color chatbackground
 color colorAccent
@@ -10,9 +12,17 @@ color fb_color
 color grayBackground
 color lightGrey
 color lightgreen
+color reciver_box_color
+color reciver_text_color
+color reciver_time_color
 color red
+color sender_box_color
+color sender_text_color
+color sender_time_color
 color settingsIconColor
 color status_background
+color textColorField
+color welcomeTextColor
 color whatsAppColor
 color white
 drawable about
@@ -27,12 +37,15 @@ drawable circle_background
 drawable help
 drawable ic_facebook
 drawable ic_google
+drawable ic_ip
 drawable ic_launcher_background
 drawable ic_launcher_foreground
 drawable ic_lock
 drawable ic_name
 drawable ic_pass
 drawable ic_profile_icon
+drawable ic_send
+drawable ic_send_blue
 drawable ic_settings
 drawable ic_whatsapp
 drawable invite
@@ -87,6 +100,7 @@ id signUpDisplayName
 id signUpDisplayPicture
 id signUpPassword
 id signUpUsername
+id switchDarkMode
 id tVAlreadyHaveAccount
 id tVClickSignUp
 id tabLayout
@@ -111,6 +125,8 @@ layout sample_show_user
 menu popup_menu
 mipmap ic_launcher
 mipmap ic_launcher_round
+raw knock_knock
+raw notification
 string BaseUrl
 string add_picture
 string already_have_an_account
@@ -119,7 +135,9 @@ string click_to_sign_up
 string confirm_password_sign_up
 string default_web_client_id
 string display_name
+string displayname
 string enter_server_ip
+string enter_your_message
 string gcm_defaultSenderId
 string google_api_key
 string google_app_id
@@ -133,6 +151,12 @@ string sign_in_button
 string sign_up_btn
 string username_sign_in
 style Base.Theme.ChatApp
+style CHAT_BACKGROUND
+style CONTACT_BACKGROUND
+style FRONT_BACKGROUND
+style SEND_BACKGROUND
+style TEXT
+style TEXT_BOX
 style Theme.ChatApp
 xml backup_rules
 xml data_extraction_rules

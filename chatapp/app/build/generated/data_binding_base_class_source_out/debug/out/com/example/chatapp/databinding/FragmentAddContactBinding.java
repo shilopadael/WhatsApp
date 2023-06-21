@@ -5,13 +5,13 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
-import android.widget.EditText;
 import android.widget.LinearLayout;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.viewbinding.ViewBinding;
 import androidx.viewbinding.ViewBindings;
 import com.example.chatapp.R;
+import com.google.android.material.textfield.TextInputEditText;
 import java.lang.NullPointerException;
 import java.lang.Override;
 import java.lang.String;
@@ -24,10 +24,10 @@ public final class FragmentAddContactBinding implements ViewBinding {
   public final Button buttonAddContact;
 
   @NonNull
-  public final EditText editTextName;
+  public final TextInputEditText editTextName;
 
   private FragmentAddContactBinding(@NonNull LinearLayout rootView,
-      @NonNull Button buttonAddContact, @NonNull EditText editTextName) {
+      @NonNull Button buttonAddContact, @NonNull TextInputEditText editTextName) {
     this.rootView = rootView;
     this.buttonAddContact = buttonAddContact;
     this.editTextName = editTextName;
@@ -67,7 +67,7 @@ public final class FragmentAddContactBinding implements ViewBinding {
       }
 
       id = R.id.editTextName;
-      EditText editTextName = ViewBindings.findChildViewById(rootView, id);
+      TextInputEditText editTextName = ViewBindings.findChildViewById(rootView, id);
       if (editTextName == null) {
         break missingId;
       }

@@ -1,21 +1,22 @@
 package com.example.chatapp.Firebase;
 
 import android.annotation.SuppressLint;
-import android.content.Intent;
+import android.app.Activity;
+import android.content.Context;
 import android.content.SharedPreferences;
+import android.media.MediaPlayer;
 import android.util.Log;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 
-import com.example.chatapp.Adapter.UsersAdapter;
 import com.example.chatapp.Api.TaskAPI;
 import com.example.chatapp.Api.TokenAPI;
-import com.example.chatapp.Api.UserAPI;
 import com.example.chatapp.MainActivity;
 import com.example.chatapp.Models.LocalDatabase;
 import com.example.chatapp.Models.UserEntity.User;
 import com.example.chatapp.Models.UserEntity.UserDao;
+import com.example.chatapp.R;
 import com.example.chatapp.viewmodels.MessageViewModel;
 import com.example.chatapp.viewmodels.UserViewModel;
 import com.google.firebase.messaging.FirebaseMessagingService;
@@ -29,26 +30,39 @@ public class FireBaseMessageService extends FirebaseMessagingService {
     private String ip;
     private String token;
     private SharedPreferences sharedPreferences;
+    private Activity activity;
     @Override
     public void onMessageReceived(@NonNull RemoteMessage message) {
         super.onMessageReceived(message);
         sharedPreferences = MainActivity.context.getSharedPreferences("chatSystem", MODE_PRIVATE);
-        String currentScreen = sharedPreferences.getString("currentScreen", "http://10.0.2.2:5000/");
-        ip = sharedPreferences.getString("ip", "none");
+        String currentScreen = sharedPreferences.getString("currentScreen", "none");
+        ip = sharedPreferences.getString("ip", "http://10.0.2.2:5000/");
         token = sharedPreferences.getString("token", "none");
 
         if(currentScreen.equals("ChatScreen")) {
             Map<String, String> data = message.getData();
             String chatId = data.get("chatId");
             String sender = data.get("sender");
-
+            String currentChatId = sharedPreferences.getString("currentChatId", "-1");
+            if(currentChatId.equals(chatId)) {
+                // creating notification sound inside the chat and reloading the chat
+                MediaPlayer mediaPlayer = MediaPlayer.create(this, R.raw.knock_knock);
+                mediaPlayer.start();
+                MessageViewModel messageViewModel = MessageViewModel.getInstance(ip, token, Integer.parseInt(chatId));
+                messageViewModel.reload();
+            }
+            else {
+                // creating notification sound
+                MediaPlayer mediaPlayer = MediaPlayer.create(this, R.raw.notification);
+                mediaPlayer.start();
+            }
             // refresh chat
-            assert chatId != null;
-            MessageViewModel messageViewModel = MessageViewModel.getInstance(ip, token, Integer.parseInt(chatId));
-            messageViewModel.reload();
         }
 
         else if(currentScreen.equals("ContactScreen")) {
+            // creating notification sound
+            MediaPlayer mediaPlayer = MediaPlayer.create(this, R.raw.notification);
+            mediaPlayer.start();
             // refresh contacts
             UserViewModel userViewModel = UserViewModel.getInstance(ip, token);
             userViewModel.reload();
@@ -95,5 +109,21 @@ public class FireBaseMessageService extends FirebaseMessagingService {
             Log.d("token", "onNewToken: no user found");
         }
 
+    }
+
+
+    private void showNotificationToast(final Context context, final String message) {
+        if (activity != null) {
+            activity.runOnUiThread(new Runnable() {
+                @Override
+                public void run() {
+                    Toast.makeText(context, message, Toast.LENGTH_SHORT).show();
+                }
+            });
+        }
+    }
+
+    public void setActivity(Activity activity) {
+        this.activity = activity;
     }
 }

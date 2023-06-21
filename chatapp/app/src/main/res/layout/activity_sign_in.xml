@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     tools:context=".SignUpActivity"
     android:orientation="vertical"
-    android:background="@drawable/w1"
+    style="@style/FRONT_BACKGROUND"
     android:layout_gravity="center">
 
     <ImageView
@@ -51,9 +51,9 @@
             app:boxCornerRadiusBottomStart="12dp"
             app:boxCornerRadiusTopEnd="12dp"
             app:boxCornerRadiusTopStart="12dp"
-            android:textColor="@color/black"
+            android:textColor="@color/textColorField"
             android:textColorHint="@color/grayBackground"
-            app:boxBackgroundColor="@color/white"
+            app:boxBackgroundColor="@color/BoxInputColor"
             app:boxStrokeColor="@color/black"
             app:counterEnabled="true"
             app:counterMaxLength="12"
@@ -84,9 +84,9 @@
             app:boxCornerRadiusBottomStart="12dp"
             app:boxCornerRadiusTopEnd="12dp"
             app:boxCornerRadiusTopStart="12dp"
-            android:textColor="@color/black"
+            android:textColor="@color/textColorField"
             android:textColorHint="@color/grayBackground"
-            app:boxBackgroundColor="@color/white"
+            app:boxBackgroundColor="@color/BoxInputColor"
             app:boxStrokeColor="@color/black"
             app:counterEnabled="true"
             app:counterMaxLength="20"
@@ -124,7 +124,8 @@
             android:padding="15dp"
             android:text="@string/sign_in_button"
             android:textAllCaps="false"
-            app:backgroundTint="@color/design_default_color_secondary_variant"
+            android:textColor="@color/btnTextColor"
+            app:backgroundTint="@color/colorPrimary"
             app:cornerRadius="10dp" />
 
 
