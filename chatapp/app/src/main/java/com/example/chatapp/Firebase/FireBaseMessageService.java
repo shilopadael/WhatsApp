@@ -12,6 +12,7 @@ import com.example.chatapp.Adapter.UsersAdapter;
 import com.example.chatapp.Api.TaskAPI;
 import com.example.chatapp.Api.TokenAPI;
 import com.example.chatapp.Api.UserAPI;
+import com.example.chatapp.MainActivity;
 import com.example.chatapp.Models.LocalDatabase;
 import com.example.chatapp.Models.UserEntity.User;
 import com.example.chatapp.Models.UserEntity.UserDao;
@@ -31,7 +32,7 @@ public class FireBaseMessageService extends FirebaseMessagingService {
     @Override
     public void onMessageReceived(@NonNull RemoteMessage message) {
         super.onMessageReceived(message);
-        sharedPreferences = getApplicationContext().getSharedPreferences("chatSystem", MODE_PRIVATE);
+        sharedPreferences = MainActivity.context.getSharedPreferences("chatSystem", MODE_PRIVATE);
         String currentScreen = sharedPreferences.getString("currentScreen", "http://10.0.2.2:5000/");
         ip = sharedPreferences.getString("ip", "none");
         token = sharedPreferences.getString("token", "none");
@@ -43,13 +44,13 @@ public class FireBaseMessageService extends FirebaseMessagingService {
 
             // refresh chat
             assert chatId != null;
-            MessageViewModel messageViewModel = new MessageViewModel(ip, token, Integer.parseInt(chatId));
+            MessageViewModel messageViewModel = MessageViewModel.getInstance(ip, token, Integer.parseInt(chatId));
             messageViewModel.reload();
         }
 
         else if(currentScreen.equals("ContactScreen")) {
             // refresh contacts
-            UserViewModel userViewModel = new UserViewModel(ip, token);
+            UserViewModel userViewModel = UserViewModel.getInstance(ip, token);
             userViewModel.reload();
         }
 
@@ -90,6 +91,7 @@ public class FireBaseMessageService extends FirebaseMessagingService {
             }).start();
         }
         else {
+            editor.putString("firebaseToken", firebaseToken).apply();
             Log.d("token", "onNewToken: no user found");
         }
 

@@ -86,7 +86,7 @@ public class ChatDetailActivity extends AppCompatActivity {
             finish();
         }
 
-        this.messageViewModel = new MessageViewModel(this.ip, this.token, this.currentChatId);
+        this.messageViewModel = MessageViewModel.getInstance(this.ip, this.token, this.currentChatId);
 
         // updating tool bar username.
         binding.username.setText(OtherPersonDisplayName);

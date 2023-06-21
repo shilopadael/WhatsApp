@@ -13,18 +13,35 @@ import com.example.chatapp.Repository.UsersRepository;
 import java.util.List;
 
 public class MessageViewModel {
-    private MessagesRepository mRepository;
 
+    private static MessageViewModel instance;
+    private MessagesRepository mRepository;
     private LiveData<List<Message>> messages;
     private int size;
+    private String token;
+    private int id;
 
-    public MessageViewModel(String ip, String token, int id) {
+    private MessageViewModel(String ip, String token, int id) {
         super();
+        this.token = token;
+        this.id = id;
         MessageDao messageDao = LocalDatabase.getMessageDao(id);
         mRepository = new MessagesRepository(ip, token, messageDao, id);
         messages = mRepository.getAll();
     }
 
+    public static MessageViewModel getInstance(String ip, String token, int id) {
+        if(instance == null) {
+            instance = new MessageViewModel(ip, token, id);
+        } else if(instance.id != id) {
+            instance = new MessageViewModel(ip, token, id);
+        } else {
+            instance.setToken(token);
+            instance.setIp(ip);
+            instance.mRepository.setToken(token);
+        }
+        return instance;
+    }
     public LiveData<List<Message>> getMessages() {
         return messages;
     }
@@ -47,5 +64,9 @@ public class MessageViewModel {
 
     public int getSize() {
         return size;
+    }
+
+    public void setToken(String token) {
+        this.token = token;
     }
 }

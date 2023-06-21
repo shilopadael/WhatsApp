@@ -12,14 +12,24 @@ import com.example.chatapp.Repository.UsersRepository;
 import java.util.List;
 
 public class UserViewModel extends ViewModel {
+    private static UserViewModel instance;
     private UsersRepository mRepository;
 
     private LiveData<List<Contact>> users;
 
-    public UserViewModel(String ip, String token){
+    private UserViewModel(String ip, String token){
         super();
         mRepository =  new UsersRepository(ip, token);
         users = mRepository.getAll();
+    }
+
+    public static UserViewModel getInstance(String ip, String token) {
+        if(instance == null) {
+            instance = new UserViewModel(ip, token);
+        }
+        instance.setIp(ip);
+        instance.mRepository.setToken(token);
+        return instance;
     }
 
     public LiveData<List<Contact>> getUsers() {

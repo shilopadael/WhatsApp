@@ -66,22 +66,27 @@ public class SignInActivity extends AppCompatActivity {
         sharedPreferences = getSharedPreferences("chatSystem", MODE_PRIVATE);
         String ip = sharedPreferences.getString("ip", "http://10.0.2.2:5000/");
 
-        FirebaseMessaging.getInstance().getToken()
-                .addOnCompleteListener(new OnCompleteListener<String>() {
-                    @Override
-                    public void onComplete(@NonNull Task<String> task) {
-                        if (!task.isSuccessful()) {
-                            Log.w(TAG, "Fetching FCM registration token failed", task.getException());
-                            return;
+        if(sharedPreferences.getString("firebaseToken", "none").equals("none")) {
+            FirebaseMessaging.getInstance().getToken()
+                    .addOnCompleteListener(new OnCompleteListener<String>() {
+                        @Override
+                        public void onComplete(@NonNull Task<String> task) {
+                            if (!task.isSuccessful()) {
+                                Log.w(TAG, "Fetching FCM registration token failed", task.getException());
+                                return;
+                            }
+                            // Get new FCM registration token
+                            firebaseToken = task.getResult();
+                            sharedPreferences = getSharedPreferences("chatSystem", MODE_PRIVATE);
+                            @SuppressLint("CommitPrefEdits") SharedPreferences.Editor editor = sharedPreferences.edit();
+                            editor.putString("firebaseToken", firebaseToken);
+                            tokenAPI = new TokenAPI(ip, firebaseToken);
                         }
-                        // Get new FCM registration token
-                        firebaseToken = task.getResult();
-                        sharedPreferences = getSharedPreferences("chatSystem", MODE_PRIVATE);
-                        @SuppressLint("CommitPrefEdits") SharedPreferences.Editor editor = sharedPreferences.edit();
-                        editor.putString("firebaseToken", firebaseToken);
-                        tokenAPI = new TokenAPI(ip, firebaseToken);
-                    }
-                });
+                    });
+        } else {
+            firebaseToken = sharedPreferences.getString("firebaseToken", "none");
+            tokenAPI = new TokenAPI(ip, firebaseToken);
+        }
 
 
 

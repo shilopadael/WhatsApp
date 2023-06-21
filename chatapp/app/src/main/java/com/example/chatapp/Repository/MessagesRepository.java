@@ -28,16 +28,24 @@ public class MessagesRepository {
     private int chatId;
     private ChatAPI chatAPI;
     private MessagesLiveData messageList;
+    private String token;
 
     public MessagesRepository(String ip, String token, MessageDao messageDao, int id) {
         this.messageDao = messageDao;
         this.messageList = new MessagesLiveData();
         this.chatAPI = new ChatAPI(ip, token);
         this.chatId = id;
+        this.token = token;
     }
 
     public void setIp(String ip) {
         chatAPI.setIp(ip);
+    }
+
+
+    public void setToken(String token) {
+        this.token = token;
+        chatAPI.setBearer(token);
     }
 
 

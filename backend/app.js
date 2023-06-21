@@ -1,12 +1,7 @@
 
 
 const express = require('express');
-const admin = require('firebase-admin');
-
-const serviceAccount = require('./firebaseKey.json');
-admin.initializeApp({
-    credential: admin.credential.cert(serviceAccount)
-});
+const FireBaseManager = require('./services/firebaseAdmin');
 
 
 const app = express();
@@ -30,7 +25,7 @@ mongoose.connect(process.env.CONNECTION_STRING, {
 
 const http = require('http');
 const server = http.createServer(app);
-const  socketIo = require('socket.io');
+const socketIo = require('socket.io');
 const io = socketIo(server, {
     cors: {
         origin: '*',
@@ -44,12 +39,14 @@ server.listen(socketPort, () => {
     console.log(`Server-io running on port ${socketPort}`);
 });
 
-// let users = [];
+const firebase = new FireBaseManager();
+
+
 const onlineConnection = require('./onlineConnection');
 const onlineUsers = new onlineConnection();
 io.on('connection', (socket) => {
     const username = socket.handshake.query.username;
-    onlineUsers.addOnlineUser({ id: socket.id, username: username , io: io});
+    onlineUsers.addOnlineUser({ id: socket.id, username: username, io: io });
     console.log(`${username} connected to the socket ${socket.id}`);
     socket.on('disconnect', () => {
         console.log(`${username} disconnected from the socket`);
@@ -65,7 +62,7 @@ io.on('connection', (socket) => {
             // this is message to web
             console.log("sending message to " + user.username)
             io.to(user.id).emit('receive-message', recData);
-        } else if(user && user.id === null) {
+        } else if (user && user.id === null) {
             // message to android
             // construction the new message
             console.log("sending message to " + user.username + " from firebase");
@@ -74,20 +71,21 @@ io.on('connection', (socket) => {
                     // Add your custom data fields here
                     chatId: `${recData.id}`,
                     sender: currentUserName
-                  },
+                },
                 notification: {
-                  title: currentUserName,
-                  body: recData.content
+                    title: currentUserName,
+                    body: recData.content
                 },
                 token: user.firebaseToken // Replace with the FCM device token of the recipient
-              };
-              admin.messaging().send(message).then((response) => {
-                // Response is a message ID string.
-                console.log('Successfully sent message from firebase!');
-              })
-              .catch((error) => {
-                console.log('Error sending message:', error);
-              });
+            };
+            firebase.sendNotificationToUser(message);
+            //   admin.messaging().send(message).then((response) => {
+            //     // Response is a message ID string.
+            //     console.log('Successfully sent message from firebase!');
+            //   })
+            //   .catch((error) => {
+            //     console.log('Error sending message:', error);
+            //   });
         }
     });
 
@@ -124,7 +122,7 @@ const Chats = require('./routes/Chats');
 
 
 
-app.use('/api/Chats',Chats);
+app.use('/api/Chats', Chats);
 
 app.use('/api/Users', Users);
 

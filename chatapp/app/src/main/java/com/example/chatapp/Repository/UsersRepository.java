@@ -32,8 +32,10 @@ public class UsersRepository {
     private ContactDao contactDao;
     private ChatAPI chatAPI;
     private ContactLiveData contactList;
+    private String token;
 
     public UsersRepository(String ip, String token) {
+        this.token = token;
         contactDao = LocalDatabase.getDB().contactsDao();
         contactList = new ContactLiveData();
         chatAPI = new ChatAPI(ip, token);
@@ -66,6 +68,15 @@ public class UsersRepository {
                 }
             });
         }).start();
+    }
+
+    public String getToken() {
+        return token;
+    }
+
+    public void setToken(String token) {
+        this.token = token;
+        chatAPI.setBearer(token);
     }
 
     class ContactLiveData extends MutableLiveData<List<Contact>> {

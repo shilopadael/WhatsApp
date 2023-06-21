@@ -121,7 +121,7 @@ public class ChatActivity extends AppCompatActivity {
         adapter = new UsersAdapter(this, username);
 
         // ViewModel for live data for the contact list.
-        userViewModel = new UserViewModel(ip, token);
+        userViewModel = UserViewModel.getInstance(ip, token);
 
         ChatAPI api = new ChatAPI(ip, token);
         api.getUserInformation(username, new TaskAPI<com.example.chatapp.Schemes.User>() {
@@ -236,7 +236,7 @@ public class ChatActivity extends AppCompatActivity {
         // updating the ip
         this.ip = sharedPreferences.getString("ip", "http://10.0.2.2:5000/");
         @SuppressLint("CommitPrefEdits") SharedPreferences.Editor editor = sharedPreferences.edit();
-        editor.putString("currentScreen", "ContactScreen");
+        editor.putString("currentScreen", "ContactScreen").apply();
         userViewModel.setIp(this.ip);
         userViewModel.reload();
     }

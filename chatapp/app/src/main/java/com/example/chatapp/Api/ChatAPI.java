@@ -256,7 +256,7 @@ public class ChatAPI {
 
     public void setBearer(String token) {
         this.token = token;
-        this.bearerToken = "Bearer" + token;
+        this.bearerToken = "Bearer " + token;
     }
 
     public void updateToken() {
