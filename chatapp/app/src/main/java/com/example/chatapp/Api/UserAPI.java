@@ -66,8 +66,7 @@ public class UserAPI {
 
             @Override
             public void onFailure(Call<User> call, Throwable t) {
-                Log.i(TAG, "onFailure signUp: " + t.getMessage());
-                taskAPI.onFailure(t.getMessage());
+                taskAPI.onFailure("Failed to sign up, maybe user already exists.");
             }
         });
     }

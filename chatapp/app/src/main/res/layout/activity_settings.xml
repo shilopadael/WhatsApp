@@ -43,8 +43,6 @@
             android:textColorHint="@color/grayBackground"
             app:boxBackgroundColor="@color/BoxInputColor"
             app:boxStrokeColor="@color/black"
-            app:counterEnabled="true"
-            app:counterMaxLength="12"
             app:endIconMode="clear_text"
             app:helperTextTextColor="@color/red"
             app:startIconDrawable="@drawable/ic_profile_icon">
@@ -53,7 +51,6 @@
                 android:id="@+id/eTSetServerIp"
                 android:layout_width="350dp"
                 android:layout_height="wrap_content"
-                android:textColor="@color/white"
                 android:textColorHint="@color/grayBackground" />
 
 

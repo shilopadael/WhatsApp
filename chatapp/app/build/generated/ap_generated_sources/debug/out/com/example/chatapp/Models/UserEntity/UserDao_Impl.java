@@ -34,7 +34,7 @@ public final class UserDao_Impl implements UserDao {
     this.__insertionAdapterOfUser = new EntityInsertionAdapter<User>(__db) {
       @Override
       public String createQuery() {
-        return "INSERT OR ABORT INTO `User` (`id`,`username`,`password`,`token`,`isOnline`) VALUES (nullif(?, 0),?,?,?,?)";
+        return "INSERT OR ABORT INTO `User` (`id`,`username`,`password`,`token`,`displayName`,`isOnline`) VALUES (nullif(?, 0),?,?,?,?,?)";
       }
 
       @Override
@@ -55,8 +55,13 @@ public final class UserDao_Impl implements UserDao {
         } else {
           stmt.bindString(4, value.getToken());
         }
+        if (value.getDisplayName() == null) {
+          stmt.bindNull(5);
+        } else {
+          stmt.bindString(5, value.getDisplayName());
+        }
         final int _tmp = value.isOnline() ? 1 : 0;
-        stmt.bindLong(5, _tmp);
+        stmt.bindLong(6, _tmp);
       }
     };
     this.__deletionAdapterOfUser = new EntityDeletionOrUpdateAdapter<User>(__db) {
@@ -73,7 +78,7 @@ public final class UserDao_Impl implements UserDao {
     this.__updateAdapterOfUser = new EntityDeletionOrUpdateAdapter<User>(__db) {
       @Override
       public String createQuery() {
-        return "UPDATE OR ABORT `User` SET `id` = ?,`username` = ?,`password` = ?,`token` = ?,`isOnline` = ? WHERE `id` = ?";
+        return "UPDATE OR ABORT `User` SET `id` = ?,`username` = ?,`password` = ?,`token` = ?,`displayName` = ?,`isOnline` = ? WHERE `id` = ?";
       }
 
       @Override
@@ -94,9 +99,14 @@ public final class UserDao_Impl implements UserDao {
         } else {
           stmt.bindString(4, value.getToken());
         }
+        if (value.getDisplayName() == null) {
+          stmt.bindNull(5);
+        } else {
+          stmt.bindString(5, value.getDisplayName());
+        }
         final int _tmp = value.isOnline() ? 1 : 0;
-        stmt.bindLong(5, _tmp);
-        stmt.bindLong(6, value.getId());
+        stmt.bindLong(6, _tmp);
+        stmt.bindLong(7, value.getId());
       }
     };
     this.__preparedStmtOfDeleteAll = new SharedSQLiteStatement(__db) {
@@ -169,6 +179,7 @@ public final class UserDao_Impl implements UserDao {
       final int _cursorIndexOfUsername = CursorUtil.getColumnIndexOrThrow(_cursor, "username");
       final int _cursorIndexOfPassword = CursorUtil.getColumnIndexOrThrow(_cursor, "password");
       final int _cursorIndexOfToken = CursorUtil.getColumnIndexOrThrow(_cursor, "token");
+      final int _cursorIndexOfDisplayName = CursorUtil.getColumnIndexOrThrow(_cursor, "displayName");
       final int _cursorIndexOfIsOnline = CursorUtil.getColumnIndexOrThrow(_cursor, "isOnline");
       final List<User> _result = new ArrayList<User>(_cursor.getCount());
       while(_cursor.moveToNext()) {
@@ -196,6 +207,13 @@ public final class UserDao_Impl implements UserDao {
           _tmpPassword = _cursor.getString(_cursorIndexOfPassword);
         }
         _item.setPassword(_tmpPassword);
+        final String _tmpDisplayName;
+        if (_cursor.isNull(_cursorIndexOfDisplayName)) {
+          _tmpDisplayName = null;
+        } else {
+          _tmpDisplayName = _cursor.getString(_cursorIndexOfDisplayName);
+        }
+        _item.setDisplayName(_tmpDisplayName);
         final boolean _tmpIsOnline;
         final int _tmp;
         _tmp = _cursor.getInt(_cursorIndexOfIsOnline);

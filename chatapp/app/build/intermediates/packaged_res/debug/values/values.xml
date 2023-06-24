@@ -24,7 +24,7 @@
     <color name="show_contact_color_text">#080808</color>
     <color name="show_contact_color_text_message">#676767</color>
     <color name="status_background">#009688</color>
-    <color name="textColorField">#FFFFFFFF</color>
+    <color name="textColorField">#000000</color>
     <color name="welcomeTextColor">#FF000000</color>
     <color name="whatsAppColor">#0b6156</color>
     <color name="white">#FFFFFFFF</color>

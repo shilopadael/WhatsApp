@@ -24,12 +24,12 @@
         "source": "/home/omer/.gradle/daemon/8.0/com.example.chatapp-main-40:/drawable/invite.png"
     },
     {
-        "merged": "/home/omer/.gradle/daemon/8.0/com.example.chatapp-merged_res-38:/drawable_ic_facebook.xml.flat",
-        "source": "/home/omer/.gradle/daemon/8.0/com.example.chatapp-main-40:/drawable/ic_facebook.xml"
-    },
-    {
         "merged": "/home/omer/.gradle/daemon/8.0/com.example.chatapp-merged_res-38:/drawable_plus.png.flat",
         "source": "/home/omer/.gradle/daemon/8.0/com.example.chatapp-main-40:/drawable/plus.png"
+    },
+    {
+        "merged": "/home/omer/.gradle/daemon/8.0/com.example.chatapp-merged_res-38:/drawable_ic_facebook.xml.flat",
+        "source": "/home/omer/.gradle/daemon/8.0/com.example.chatapp-main-40:/drawable/ic_facebook.xml"
     },
     {
         "merged": "/home/omer/.gradle/daemon/8.0/com.example.chatapp-merged_res-38:/mipmap-anydpi-v26_ic_launcher_round.xml.flat",
@@ -40,8 +40,16 @@
         "source": "/home/omer/.gradle/daemon/8.0/com.example.chatapp-main-40:/layout/sample_show_user.xml"
     },
     {
+        "merged": "com.example.chatapp-merged_res-38:/mipmap-xxhdpi_ic_launcher.png.flat",
+        "source": "com.example.chatapp-main-40:/mipmap-xxhdpi/ic_launcher.png"
+    },
+    {
         "merged": "/home/omer/.gradle/daemon/8.0/com.example.chatapp-merged_res-38:/drawable-xxhdpi_ic_send_blue.png.flat",
         "source": "/home/omer/.gradle/daemon/8.0/com.example.chatapp-main-40:/drawable-xxhdpi/ic_send_blue.png"
+    },
+    {
+        "merged": "com.example.chatapp-merged_res-38:/mipmap-xxxhdpi_ic_launcher_round.png.flat",
+        "source": "com.example.chatapp-main-40:/mipmap-xxxhdpi/ic_launcher_round.png"
     },
     {
         "merged": "/home/omer/.gradle/daemon/8.0/com.example.chatapp-merged_res-38:/drawable-xhdpi_ic_ip.png.flat",
@@ -72,6 +80,10 @@
         "source": "/home/omer/.gradle/daemon/8.0/com.example.chatapp-main-40:/drawable-hdpi/ic_name.png"
     },
     {
+        "merged": "com.example.chatapp-merged_res-38:/mipmap-xxhdpi_ic_launcher_foreground.png.flat",
+        "source": "com.example.chatapp-main-40:/mipmap-xxhdpi/ic_launcher_foreground.png"
+    },
+    {
         "merged": "/home/omer/.gradle/daemon/8.0/com.example.chatapp-merged_res-38:/mipmap-hdpi_ic_launcher.webp.flat",
         "source": "/home/omer/.gradle/daemon/8.0/com.example.chatapp-main-40:/mipmap-hdpi/ic_launcher.webp"
     },
@@ -80,16 +92,20 @@
         "source": "/home/omer/.gradle/daemon/8.0/com.example.chatapp-main-40:/mipmap-xxxhdpi/ic_launcher.webp"
     },
     {
-        "merged": "com.example.chatapp-merged_res-38:/raw_remove_contact.mp3.flat",
-        "source": "com.example.chatapp-main-40:/raw/remove_contact.mp3"
-    },
-    {
         "merged": "/home/omer/.gradle/daemon/8.0/com.example.chatapp-merged_res-38:/drawable-anydpi_ic_name.xml.flat",
         "source": "/home/omer/.gradle/daemon/8.0/com.example.chatapp-main-40:/drawable-anydpi/ic_name.xml"
     },
     {
         "merged": "/home/omer/.gradle/daemon/8.0/com.example.chatapp-merged_res-38:/drawable-hdpi_ic_lock.png.flat",
         "source": "/home/omer/.gradle/daemon/8.0/com.example.chatapp-main-40:/drawable-hdpi/ic_lock.png"
+    },
+    {
+        "merged": "com.example.chatapp-merged_res-38:/mipmap-hdpi_ic_launcher_foreground.png.flat",
+        "source": "com.example.chatapp-main-40:/mipmap-hdpi/ic_launcher_foreground.png"
+    },
+    {
+        "merged": "com.example.chatapp-merged_res-38:/mipmap-xhdpi_ic_launcher.png.flat",
+        "source": "com.example.chatapp-main-40:/mipmap-xhdpi/ic_launcher.png"
     },
     {
         "merged": "/home/omer/.gradle/daemon/8.0/com.example.chatapp-merged_res-38:/drawable_w2.jpg.flat",
@@ -104,6 +120,10 @@
         "source": "/home/omer/.gradle/daemon/8.0/com.example.chatapp-main-40:/drawable-v24/ic_launcher_foreground.xml"
     },
     {
+        "merged": "com.example.chatapp-merged_res-38:/mipmap-mdpi_ic_launcher.png.flat",
+        "source": "com.example.chatapp-main-40:/mipmap-mdpi/ic_launcher.png"
+    },
+    {
         "merged": "/home/omer/.gradle/daemon/8.0/com.example.chatapp-merged_res-38:/raw_new_contact.mp3.flat",
         "source": "/home/omer/.gradle/daemon/8.0/com.example.chatapp-main-40:/raw/new_contact.mp3"
     },
@@ -116,12 +136,20 @@
         "source": "/home/omer/.gradle/daemon/8.0/com.example.chatapp-main-40:/drawable-xhdpi/ic_settings.png"
     },
     {
+        "merged": "com.example.chatapp-merged_res-38:/mipmap-hdpi_ic_launcher_round.png.flat",
+        "source": "com.example.chatapp-main-40:/mipmap-hdpi/ic_launcher_round.png"
+    },
+    {
         "merged": "/home/omer/.gradle/daemon/8.0/com.example.chatapp-merged_res-38:/drawable-hdpi_ic_pass.png.flat",
         "source": "/home/omer/.gradle/daemon/8.0/com.example.chatapp-main-40:/drawable-hdpi/ic_pass.png"
     },
     {
         "merged": "/home/omer/.gradle/daemon/8.0/com.example.chatapp-merged_res-38:/drawable-mdpi_ic_pass.png.flat",
         "source": "/home/omer/.gradle/daemon/8.0/com.example.chatapp-main-40:/drawable-mdpi/ic_pass.png"
+    },
+    {
+        "merged": "com.example.chatapp-merged_res-38:/drawable_ic_launcher_background.xml.flat",
+        "source": "com.example.chatapp-main-40:/drawable/ic_launcher_background.xml"
     },
     {
         "merged": "/home/omer/.gradle/daemon/8.0/com.example.chatapp-merged_res-38:/drawable-mdpi_ic_ip.png.flat",
@@ -164,6 +192,10 @@
         "source": "/home/omer/.gradle/daemon/8.0/com.example.chatapp-main-40:/mipmap-xxhdpi/ic_launcher.webp"
     },
     {
+        "merged": "com.example.chatapp-merged_res-38:/mipmap-xhdpi_ic_launcher_foreground.png.flat",
+        "source": "com.example.chatapp-main-40:/mipmap-xhdpi/ic_launcher_foreground.png"
+    },
+    {
         "merged": "/home/omer/.gradle/daemon/8.0/com.example.chatapp-merged_res-38:/drawable_privacy.png.flat",
         "source": "/home/omer/.gradle/daemon/8.0/com.example.chatapp-main-40:/drawable/privacy.png"
     },
@@ -172,12 +204,12 @@
         "source": "/home/omer/.gradle/daemon/8.0/com.example.chatapp-main-40:/drawable-xhdpi/ic_pass.png"
     },
     {
-        "merged": "/home/omer/.gradle/daemon/8.0/com.example.chatapp-merged_res-38:/mipmap-xxxhdpi_ic_launcher_round.webp.flat",
-        "source": "/home/omer/.gradle/daemon/8.0/com.example.chatapp-main-40:/mipmap-xxxhdpi/ic_launcher_round.webp"
-    },
-    {
         "merged": "/home/omer/.gradle/daemon/8.0/com.example.chatapp-merged_res-38:/drawable_notification.png.flat",
         "source": "/home/omer/.gradle/daemon/8.0/com.example.chatapp-main-40:/drawable/notification.png"
+    },
+    {
+        "merged": "/home/omer/.gradle/daemon/8.0/com.example.chatapp-merged_res-38:/mipmap-xxxhdpi_ic_launcher_round.webp.flat",
+        "source": "/home/omer/.gradle/daemon/8.0/com.example.chatapp-main-40:/mipmap-xxxhdpi/ic_launcher_round.webp"
     },
     {
         "merged": "/home/omer/.gradle/daemon/8.0/com.example.chatapp-merged_res-38:/layout_activity_settings.xml.flat",
@@ -200,6 +232,10 @@
         "source": "/home/omer/.gradle/daemon/8.0/com.example.chatapp-main-40:/menu/popup_menu.xml"
     },
     {
+        "merged": "com.example.chatapp-merged_res-38:/mipmap-hdpi_ic_launcher.png.flat",
+        "source": "com.example.chatapp-main-40:/mipmap-hdpi/ic_launcher.png"
+    },
+    {
         "merged": "/home/omer/.gradle/daemon/8.0/com.example.chatapp-merged_res-38:/layout_activity_sign_up.xml.flat",
         "source": "/home/omer/.gradle/daemon/8.0/com.example.chatapp-main-40:/layout/activity_sign_up.xml"
     },
@@ -210,6 +246,10 @@
     {
         "merged": "/home/omer/.gradle/daemon/8.0/com.example.chatapp-merged_res-38:/drawable_send.png.flat",
         "source": "/home/omer/.gradle/daemon/8.0/com.example.chatapp-main-40:/drawable/send.png"
+    },
+    {
+        "merged": "com.example.chatapp-merged_res-38:/mipmap-xxxhdpi_ic_launcher.png.flat",
+        "source": "com.example.chatapp-main-40:/mipmap-xxxhdpi/ic_launcher.png"
     },
     {
         "merged": "/home/omer/.gradle/daemon/8.0/com.example.chatapp-merged_res-38:/drawable_bg_reciver.xml.flat",
@@ -224,8 +264,16 @@
         "source": "/home/omer/.gradle/daemon/8.0/com.example.chatapp-main-40:/mipmap-xhdpi/ic_launcher_round.webp"
     },
     {
+        "merged": "com.example.chatapp-merged_res-38:/mipmap-anydpi-v26_ic_launcher.xml.flat",
+        "source": "com.example.chatapp-main-40:/mipmap-anydpi-v26/ic_launcher.xml"
+    },
+    {
         "merged": "/home/omer/.gradle/daemon/8.0/com.example.chatapp-merged_res-38:/mipmap-xxhdpi_ic_launcher_round.webp.flat",
         "source": "/home/omer/.gradle/daemon/8.0/com.example.chatapp-main-40:/mipmap-xxhdpi/ic_launcher_round.webp"
+    },
+    {
+        "merged": "com.example.chatapp-merged_res-38:/mipmap-xxxhdpi_ic_launcher_foreground.png.flat",
+        "source": "com.example.chatapp-main-40:/mipmap-xxxhdpi/ic_launcher_foreground.png"
     },
     {
         "merged": "/home/omer/.gradle/daemon/8.0/com.example.chatapp-merged_res-38:/drawable_ic_google.xml.flat",
@@ -236,8 +284,16 @@
         "source": "/home/omer/.gradle/daemon/8.0/com.example.chatapp-main-40:/raw/notification.mp3"
     },
     {
+        "merged": "com.example.chatapp-merged_res-38:/mipmap-anydpi-v26_ic_launcher_round.xml.flat",
+        "source": "com.example.chatapp-main-40:/mipmap-anydpi-v26/ic_launcher_round.xml"
+    },
+    {
         "merged": "/home/omer/.gradle/daemon/8.0/com.example.chatapp-merged_res-38:/layout_activity_sign_in.xml.flat",
         "source": "/home/omer/.gradle/daemon/8.0/com.example.chatapp-main-40:/layout/activity_sign_in.xml"
+    },
+    {
+        "merged": "com.example.chatapp-merged_res-38:/mipmap-xhdpi_ic_launcher_round.png.flat",
+        "source": "com.example.chatapp-main-40:/mipmap-xhdpi/ic_launcher_round.png"
     },
     {
         "merged": "/home/omer/.gradle/daemon/8.0/com.example.chatapp-merged_res-38:/drawable-mdpi_ic_lock.png.flat",
@@ -256,12 +312,20 @@
         "source": "/home/omer/.gradle/daemon/8.0/com.example.chatapp-main-40:/layout/fragment_add_contact.xml"
     },
     {
+        "merged": "com.example.chatapp-merged_res-38:/mipmap-mdpi_ic_launcher_foreground.png.flat",
+        "source": "com.example.chatapp-main-40:/mipmap-mdpi/ic_launcher_foreground.png"
+    },
+    {
         "merged": "/home/omer/.gradle/daemon/8.0/com.example.chatapp-merged_res-38:/drawable-anydpi_ic_lock.xml.flat",
         "source": "/home/omer/.gradle/daemon/8.0/com.example.chatapp-main-40:/drawable-anydpi/ic_lock.xml"
     },
     {
         "merged": "/home/omer/.gradle/daemon/8.0/com.example.chatapp-merged_res-38:/drawable-anydpi_ic_send.xml.flat",
         "source": "/home/omer/.gradle/daemon/8.0/com.example.chatapp-main-40:/drawable-anydpi/ic_send.xml"
+    },
+    {
+        "merged": "com.example.chatapp-merged_res-38:/mipmap-xxhdpi_ic_launcher_round.png.flat",
+        "source": "com.example.chatapp-main-40:/mipmap-xxhdpi/ic_launcher_round.png"
     },
     {
         "merged": "/home/omer/.gradle/daemon/8.0/com.example.chatapp-merged_res-38:/drawable_help.png.flat",
@@ -376,12 +440,20 @@
         "source": "/home/omer/.gradle/daemon/8.0/com.example.chatapp-main-40:/drawable/circle_background.xml"
     },
     {
+        "merged": "/home/omer/.gradle/daemon/8.0/com.example.chatapp-merged_res-38:/raw_remove_contact.mp3.flat",
+        "source": "/home/omer/.gradle/daemon/8.0/com.example.chatapp-main-40:/raw/remove_contact.mp3"
+    },
+    {
         "merged": "/home/omer/.gradle/daemon/8.0/com.example.chatapp-merged_res-38:/mipmap-xhdpi_ic_launcher.webp.flat",
         "source": "/home/omer/.gradle/daemon/8.0/com.example.chatapp-main-40:/mipmap-xhdpi/ic_launcher.webp"
     },
     {
         "merged": "/home/omer/.gradle/daemon/8.0/com.example.chatapp-merged_res-38:/drawable-mdpi_ic_name.png.flat",
         "source": "/home/omer/.gradle/daemon/8.0/com.example.chatapp-main-40:/drawable-mdpi/ic_name.png"
+    },
+    {
+        "merged": "com.example.chatapp-merged_res-38:/mipmap-mdpi_ic_launcher_round.png.flat",
+        "source": "com.example.chatapp-main-40:/mipmap-mdpi/ic_launcher_round.png"
     },
     {
         "merged": "/home/omer/.gradle/daemon/8.0/com.example.chatapp-merged_res-38:/drawable-xxhdpi_ic_ip.png.flat",

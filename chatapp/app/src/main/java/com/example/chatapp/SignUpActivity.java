@@ -67,6 +67,7 @@ public class SignUpActivity extends AppCompatActivity {
 
         // adding event listeners
         signUp.setOnClickListener(v -> {
+
             if (isUsernameValid && isPasswordValid && isConfirmPasswordValid && isImageUploaded) {
                 // checking if the display name is empty
                 if (displayName.getText().toString().isEmpty()) {
@@ -91,7 +92,14 @@ public class SignUpActivity extends AppCompatActivity {
                         });
                 // Navigate to the login activity
             } else {
-                Toast.makeText(this, "Please fill in all the fields", Toast.LENGTH_SHORT).show();
+                if(!isImageUploaded)
+                    Toast.makeText(this, "Please upload a profile picture", Toast.LENGTH_SHORT).show();
+                if(!isUsernameValid)
+                    Toast.makeText(this, "Please enter a valid username", Toast.LENGTH_SHORT).show();
+                if(!isPasswordValid)
+                    Toast.makeText(this, "Please enter a valid password", Toast.LENGTH_SHORT).show();
+                if(!isConfirmPasswordValid)
+                    Toast.makeText(this, "Please confirm your password", Toast.LENGTH_SHORT).show();
             }
         });
 

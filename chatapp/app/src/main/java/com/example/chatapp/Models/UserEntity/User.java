@@ -12,11 +12,13 @@ public class User {
     String username;
     String password;
     String token;
+    String displayName;
     boolean isOnline;
 
     public User(String username, String token) {
         this.username = username;
         this.token = token;
+        this.displayName = null;
     }
 
     public String getUsername() {
@@ -57,5 +59,13 @@ public class User {
 
     public void setPassword(String password) {
         this.password = password;
+    }
+
+    public String getDisplayName() {
+        return displayName;
+    }
+
+    public void setDisplayName(String displayName) {
+        this.displayName = displayName;
     }
 }

@@ -48,12 +48,19 @@ public class FireBaseMessageService extends FirebaseMessagingService {
                 MediaPlayer mediaPlayer = MediaPlayer.create(this, R.raw.knock_knock);
                 mediaPlayer.start();
                 MessageViewModel messageViewModel = MessageViewModel.getInstance(ip, token, Integer.parseInt(chatId));
-                messageViewModel.reload();
+                Thread thread = new Thread(new Runnable() {
+                    @Override
+                    public void run() {
+                        messageViewModel.reload();
+                    }
+                });
+                thread.start();
             }
             else {
                 // creating notification sound
                 MediaPlayer mediaPlayer = MediaPlayer.create(this, R.raw.notification);
                 mediaPlayer.start();
+
             }
             // refresh chat
         }
@@ -77,7 +84,14 @@ public class FireBaseMessageService extends FirebaseMessagingService {
 
             // refresh contacts
             UserViewModel userViewModel = UserViewModel.getInstance(ip, token);
-            userViewModel.reload();
+
+            Thread thread = new Thread(new Runnable() {
+                @Override
+                public void run() {
+                    userViewModel.reload();
+                }
+            });
+            thread.start();
         }
 
     }

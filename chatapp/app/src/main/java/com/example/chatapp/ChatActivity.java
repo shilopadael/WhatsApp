@@ -130,13 +130,21 @@ public class ChatActivity extends AppCompatActivity {
         api.getUserInformation(username, new TaskAPI<com.example.chatapp.Schemes.User>() {
             @Override
             public void onSuccess(com.example.chatapp.Schemes.User user) {
+                List<User> lst = users.getAllUsers();
+                User currUser = lst.get(0);
+                currUser.setDisplayName(user.getDisplayName());
                 displayName.setText(user.getDisplayName());
+                users.update(currUser);
             }
 
             @Override
             public void onFailure(String message) {
-                Toast.makeText(ChatActivity.context, "Failed to retrieve the displayName, setting the username.", Toast.LENGTH_SHORT).show();
-                displayName.setText(username);
+                Toast.makeText(ChatActivity.context, "Failed to retrieve the displayName.", Toast.LENGTH_SHORT).show();
+                List<User> lst = users.getAllUsers();
+                User currUser = lst.get(0);
+                if(currUser.getDisplayName() == null || currUser.getDisplayName().isEmpty())
+                    currUser.setDisplayName(currUser.getUsername());
+                displayName.setText(currUser.getDisplayName());
             }
         });
 
@@ -249,7 +257,13 @@ public class ChatActivity extends AppCompatActivity {
         @SuppressLint("CommitPrefEdits") SharedPreferences.Editor editor = sharedPreferences.edit();
         editor.putString("currentScreen", "ContactScreen").apply();
         userViewModel.setIp(this.ip);
-        userViewModel.reload();
+        Thread thread = new Thread(new Runnable() {
+            @Override
+            public void run() {
+                userViewModel.reload();
+            }
+        });
+        thread.start();
     }
 
     @Override

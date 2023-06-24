@@ -127,6 +127,7 @@ layout sample_sender
 layout sample_show_user
 menu popup_menu
 mipmap ic_launcher
+mipmap ic_launcher_foreground
 mipmap ic_launcher_round
 raw knock_knock
 raw new_contact
