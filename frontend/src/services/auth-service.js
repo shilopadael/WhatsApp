@@ -22,7 +22,9 @@ const login = async (username, password) => {
         if (serverReq.ok) {
             // retreiving the token from the server
             let token = await serverReq.text();
-            localStorage.setItem("token", JSON.stringify(token));
+            // saving the token in the cookie
+            document.cookie = `token=${token}`;
+            sessionStorage.setItem("token", JSON.stringify(token));
             localStorage.setItem("username", username);
             return true;
         } else {

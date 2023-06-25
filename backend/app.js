@@ -1,6 +1,9 @@
 
 
 const express = require('express');
+const FireBaseManager = require('./services/firebaseAdmin');
+
+
 const app = express();
 
 const cors = require('cors');
@@ -22,7 +25,7 @@ mongoose.connect(process.env.CONNECTION_STRING, {
 
 const http = require('http');
 const server = http.createServer(app);
-const  socketIo = require('socket.io');
+const socketIo = require('socket.io');
 const io = socketIo(server, {
     cors: {
         origin: '*',
@@ -36,43 +39,65 @@ server.listen(socketPort, () => {
     console.log(`Server-io running on port ${socketPort}`);
 });
 
-let users = [];
+const firebase = new FireBaseManager();
+
+
+const onlineConnection = require('./onlineConnection');
+const onlineUsers = new onlineConnection();
 io.on('connection', (socket) => {
     const username = socket.handshake.query.username;
-    users.push({ id: socket.id, username: username });
+    onlineUsers.addOnlineUser({ id: socket.id, username: username, io: io });
     console.log(`${username} connected to the socket ${socket.id}`);
     socket.on('disconnect', () => {
         console.log(`${username} disconnected from the socket`);
-        users = users.filter(user => user.id !== socket.id);
+        onlineUsers.removeOnlineUser(username);
+        // users = users.filter(user => user.id !== socket.id);
     }
     );
-    socket.on('send-message', (data) => {
-        let currentUserName = data.receiverUsername;
-        const user = users.find(user => user.username === currentUserName);
-        if (user) {
+    socket.on('send-message', (recData) => {
+        let currentUserName = recData.receiverUsername;
+        const user = onlineUsers.getOnlineUser(currentUserName);
+        if (user && user.id !== null) {
+            // this is message to web
             console.log("sending message to " + user.username)
-            io.to(user.id).emit('receive-message', data);
+            io.to(user.id).emit('receive-message', recData);
+        } else if (user && user.id === null) {
+            // message to android
+            // construction the new message
+            console.log("sending message to " + user.username + " from firebase");
+            const message = {
+                data: {
+                    // Add your custom data fields here
+                    chatId: `${recData.id}`,
+                    sender: currentUserName
+                },
+                notification: {
+                    title: recData.data.sender.username,
+                    body: recData.data.content
+                },
+                token: user.firebaseToken // Replace with the FCM device token of the recipient
+            };
+            firebase.sendNotificationToUser(message);
         }
     });
 
     socket.on('alert', (data) => {
-        const user = users.find(user => user.username === data.receiverUsername);
+        const user = onlineUsers.getOnlineUser(data.receiverUsername);
         if (user) {
             io.to(user.id).emit('alert', data);
         }
     });
 
     socket.on('adding-contact', (data) => {
-        const user = users.find(user => user.username === data.username);
-        // console.log("sending update-contact-list to ");
-        if (user) {
+        const user = onlineUsers.getOnlineUser(data.username);
+        if (user && user.id !== null) {
             io.to(user.id).emit('update-contact-list', data);
         }
     })
 
     socket.on('remove-contact', (data) => {
-        const user = users.find(user => user.username === data.username);
-        if (user) {
+        const user = onlineUsers.getOnlineUser(data.username);
+        if (user && user.id !== null) {
             io.to(user.id).emit('update-contact-list', data);
         }
     });
@@ -88,7 +113,7 @@ const Chats = require('./routes/Chats');
 
 
 
-app.use('/api/Chats',Chats);
+app.use('/api/Chats', Chats);
 
 app.use('/api/Users', Users);
 
