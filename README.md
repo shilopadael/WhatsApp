@@ -1,6 +1,4 @@
 
-<h1>creating an MVC server using express, http and websockets!</h1>
-
 <h1>Milestone: "Full-Stack Chat Application with Real-Time Messaging"</h1>
 
 <h2>Features</h2>
