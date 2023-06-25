@@ -319,7 +319,6 @@ const addMessage = async (req, res) => {
           },
           token: userToSend.firebaseToken // Replace with the FCM device token of the recipient
         };
-        console.log(message)
         firebase.sendNotificationToUser(message);
       }
     }
