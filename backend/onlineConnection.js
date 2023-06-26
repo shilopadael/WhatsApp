@@ -3,9 +3,10 @@
 class onlineConnection {
     constructor() {
         if (!onlineConnection.instance) {
+            this.onlineUsers = [];
             onlineConnection.instance = this;
         }
-        this.onlineUsers = [];
+        // this.onlineUsers = [];
         return onlineConnection.instance;
     }
 

@@ -43,12 +43,10 @@ public class TokenAPI {
             @Override
             public void onResponse(Call<String> call, Response<String> response) {
                 int status = response.raw().code();
-                if (status == 401) {
+                if (status == 400) {
                     taskAPI.onFailure("Invalid username or password");
                 } else if(status == 500) {
                     taskAPI.onFailure("Error at server.");
-                } else if(status == 400) {
-                    taskAPI.onFailure("Invalid request.");
                 }
                 else if(status == 404) {
                     taskAPI.onFailure("Not found.");
