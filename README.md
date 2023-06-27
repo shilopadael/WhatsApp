@@ -31,27 +31,27 @@ On the other hand, the Android app takes advantage of Firebase Cloud Messaging t
 Whether you're using the React frontend or the Android app, the Chat App ensures that you are always in the loop. Socket.io and Firebase Cloud Messaging work hand in hand to establish a reliable and efficient communication channel, allowing users to seamlessly send and receive messages across platforms. So, whether you prefer the flexibility of web-based chatting or the mobility of the Android app, the Chat App keeps you connected at all times.
 
 ### React Frontend:
-<h3>Navigation</h3>
+<h5>Navigation</h5>
 <p>
 Implement React Router to handle navigation between different pages: login, registration, and chat.<br>
 Set up routes for each page and configure the necessary components to render.
 </p>
 
-<h3>Login Page</h3>
+<h5>Login Page</h5>
 <p>
 Create a Login component that includes a form for users to enter their login credentials.<br>
 Handle form submission and authentication logic using React’s state management.
 </p>
 <image src=“assets/LoginImage.png” style=“width:60%”>
 
-<h3>Registration Page</h3>
+<h5>Registration Page</h5>
 <p>
 Create a Registration component that includes a form for users to provide their personal information and register a new account.<br>
 Handle form submission and user registration logic using React’s state management.
 </p>
 <image src=“assets/RegisterImage.png” style=“width:60%”>
 
-<h3>Main Chat Interface</h3>
+<h5>Main Chat Interface</h5>
 <p>
 Design and implement the main chat interface using React components.<br>
 Fetch and display user conversations and messages using API calls or mock data.<br>
@@ -60,6 +60,30 @@ Implement features like creating new chats, participating in existing chats, and
 <image src=“assets/ChatImage.png” style=“width:60%”>
 
 ### Android App:
+
+<h5>Login Screen</h5>
+<p>
+ // TODO explain android login screen
+</p>
+<image src=“assets/LoginImage.png” style=“width:60%”>
+
+<h5>Registration Screen</h5>
+<p>
+ // TODO explain android register screen
+</p>
+<image src=“assets/LoginImage.png” style=“width:60%”>
+
+<h5>Contact Chat screen</h5>
+<p>
+ // TODO explain android contact screen
+</p>
+<image src=“assets/LoginImage.png” style=“width:60%”>
+
+<h5>Message screen</h5>
+<p>
+ // TODO explain android message screen
+</p>
+<image src=“assets/LoginImage.png” style=“width:60%”>
 
 
 ### Installation
