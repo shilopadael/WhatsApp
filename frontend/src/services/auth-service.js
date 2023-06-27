@@ -1,4 +1,4 @@
-import SERVER_API from "./api";
+import {SERVER_API} from "./api";
 import authHeader from "./auth-headers";
 
 // all the function in the program that needs authentication
@@ -22,8 +22,8 @@ const login = async (username, password) => {
         if (serverReq.ok) {
             // retreiving the token from the server
             let token = await serverReq.text();
-            localStorage.setItem("token", JSON.stringify(token));
-            localStorage.setItem("username", username);
+            sessionStorage.setItem("token", JSON.stringify(token));
+            sessionStorage.setItem("username", username);
             return true;
         } else {
             let error = await serverReq.text();
@@ -70,12 +70,12 @@ const register = async (username, password, displayName, img) => {
 };
 
 const logout = () => {
-    localStorage.removeItem("token");
-    localStorage.removeItem("username");
+    sessionStorage.removeItem("token");
+    sessionStorage.removeItem("username");
 };
 
 const getCurrentUser = async () => {
-    let username = localStorage.getItem("username");
+    let username = sessionStorage.getItem("username");
     // getting data from the server
     let header = authHeader();
     try {

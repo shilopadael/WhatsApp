@@ -1,4 +1,4 @@
-import SERVER_API from "./api";
+import {SERVER_API} from "./api";
 import authHeader from "./auth-headers";
 
 // all the function in the program for get methods

@@ -1,5 +1,5 @@
 import { calculateNewValue } from "@testing-library/user-event/dist/utils";
-import SERVER_API from "./api";
+import {SERVER_API} from "./api";
 import authHeader from "./auth-headers";
 
 // all the function in the program that user the post service

@@ -3,7 +3,7 @@
 function authHeader() {
     // setting the token in the current user that logged in
 
-    const userToken = JSON.parse(localStorage.getItem("token"));
+    const userToken = JSON.parse(sessionStorage.getItem("token"));
 
     if(userToken) {
         return { Authorization: `bearer ${userToken}` };
