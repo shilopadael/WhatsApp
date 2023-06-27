@@ -23,6 +23,13 @@ Welcome to the Chat App GitHub project! This project aims to provide a seamless 
 
 * **Android App**: In addition to the web version, the Chat App includes an Android application developed using Java. The Android app utilizes **Firebase Cloud Messaging** for push notifications, enabling users to receive chat notifications directly on their mobile devices.
 
+### Feature
+**Live-comminucation** - The Chat App seamlessly bridges the gap between React and Android platforms, enabling live communication between them. Powered by Socket.io, the React frontend establishes a real-time connection with the server, facilitating instant message updates and notifications. This means that users interacting with the web version will experience the thrill of immediate message delivery and synchronization.
+
+On the other hand, the Android app takes advantage of Firebase Cloud Messaging to receive push notifications from the server. Leveraging this technology, users can stay connected even when they are on the move. With Firebase Cloud Messaging, incoming chat notifications are delivered directly to the Android device, ensuring that no important message goes unnoticed.
+
+Whether you're using the React frontend or the Android app, the Chat App ensures that you are always in the loop. Socket.io and Firebase Cloud Messaging work hand in hand to establish a reliable and efficient communication channel, allowing users to seamlessly send and receive messages across platforms. So, whether you prefer the flexibility of web-based chatting or the mobility of the Android app, the Chat App keeps you connected at all times.
+
 ### Installation
 
 * Cloning the project:
