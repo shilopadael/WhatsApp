@@ -78,7 +78,10 @@ npm run server
 ```
 
 * Start the android studio:
-
+```
+open the project using Android Studio, then press re-build (to adjust the build)
+and start the emulator to activate 
+```
 
 
 
