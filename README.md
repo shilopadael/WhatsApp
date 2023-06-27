@@ -1,120 +1,98 @@
 
-<h1>Milestone: "Full-Stack Chat Application with Real-Time Messaging"</h1>
 
-<h2>Features</h2>
-<p>We have created:</p>
-<ul>
-  <li>A server using the MVC architecture that supports a specific API.</li>
-  <li>Frontend development using React, which is integrated with the server.</li>
-  <li>MongoDB as the underlying database module.</li>
-  <li>Real-time messaging using WebSockets:</li>
-  <ul>
-    <li>When user X sends a message to user Y on the same website, user Y will receive an instant message.</li>
-    <li>An alert will appear in the user interface of user Y.</li>
-    <li>The server is capable of pushing messages immediately to user Y, although user Y still needs to request them.</li>
-  </ul>
-  <li>the socket.io connection is updating the client live! when a new client successfuly login to the chat page it holds a socket connection to the server socket.io port (by default is 5001), this connection will update the client when:</li>
-  <ul>
-    <li>new message</li>
-    <li>adding a new chat (the user that you added will update the chat list)</li>
-    <li>upon deleting a contact, it will delete the chat from both contacts</li>
-  </ul>
-</ul>
+<h1 align="center">
+Chat-System
+</h1>
 
-<h2>Technologies Used</h2>
+<h4 align="center">
+Stay Connected, Chat with Ease!
+</h4>
 
-<ul>
-  <li>Node.js</li>
-  <li>Express.js</li>
-  <li>React</li>
-  <li>WebSocket</li>
-  <li>MongoDB</li>
-  <li>HTML</li>
-  <li>CSS</li>
-  <li>JavaScript</li>
-</ul>
+### About
+Welcome to the Chat App GitHub project! This project aims to provide a seamless communication experience through a feature-rich chat application. It utilizes various technologies to deliver real-time messaging across multiple platforms.
 
-<h2>Updated Features and Implementation</h2>
+### Technologies Used
 
-<h3>Navigation</h3>
-<p>
-    Implement React Router to handle navigation between different pages: login, registration, and chat.<br>
-    Set up routes for each page and configure the necessary components to render.
-</p>
+* **Frontend**: The frontend is developed using **React**, a popular JavaScript library for building user interfaces. It ensures a dynamic and user-friendly web interface.
 
-<h3>Login Page</h3>
-<p>
-    Create a Login component that includes a form for users to enter their login credentials.<br>
-    Handle form submission and authentication logic using React's state management.
-</p>
-<image src="frontend/public/ReadmeImages/LoginImage.png" style="width:60%">
+* **Backend**: The backend of the application is powered by Express, a flexible and minimalist web application framework for _Node.js_. **Express** handles server-side operations, enabling efficient request handling and response generation.
 
-<h3>Registration Page</h3>
-<p>
-    Create a Registration component that includes a form for users to provide their personal information and register a new account.<br>
-    Handle form submission and user registration logic using React's state management.
-</p>
-<image src="frontend/public/ReadmeImages/RegisterImage.png" style="width:60%">
+* **Real-time Communication**: The chat app leverages _Socket.io_, a JavaScript library that enables real-time, bidirectional communication between the client and server. It facilitates instant message updates and push notifications across devices.
 
-<h3>Main Chat Interface</h3>
-<p>
-    Design and implement the main chat interface using React components.<br>
-    Fetch and display user conversations and messages using API calls or mock data.<br>
-    Implement features like creating new chats, participating in existing chats, and sending messages.
-</p>
-<image src="frontend/public/ReadmeImages/ChatImage.png" style="width:60%">
+* **Database**: The application relies on **MongoDB**, a scalable and flexible _NoSQL database_. MongoDB efficiently stores and retrieves messages and user data, ensuring a reliable and seamless chatting experience.
 
-<h1>Installation</h1>
-<p>Note: be patience when the server send request, because of the free mongoDB database the reads and writes to the database are slow!</p>
-<ol>
-	<li>Clone the repository to your local machine:
-	<br><code>git clone https://github.com/shilopadael/Advance-Programing-Project-2</code>
-	</li>
-</ol>
-	
-<ol start="2">
-	<li>Navigate to the project directory:<br>
-		<code>cd Advance-Programing-Project-2</code>
-	</li>
-</ol>
-<ol start="3">
-	<li>Install the backend packages:<br>
-		<code>cd backend && npm i</code>
-	</li>
-</ol>
-<ol start="4">
-	<li>Install the frontend packages:<br>
-		<code>cd frontend && npm i</code>
-	</li>
-</ol>
-<ol start="5">
-	<li>Start The Server<br>
-    <p>Here you will need to set up your database connection string at mongoDB. Go to the ./config folder and edit the file .env.local.
-    CONNECTION_STRING should be the mongoDB database connection string url.
-    the PORT should be the port that the server is going to listen to.</p>
-		<code>by default the port of the express is 5000 and the socket.io is 5001</code>
-    <p>save the file and run:</p>
-    <code>npm start</code>
-    <p>at the /backend folder</p>
-	</li>
-</ol>
-<ol start="6">
-	<li>Start The Client<br>
-    <p>There is two ways:</p>
-		<code>1. from static file (served from the server)</code>
-    <p>Just go to the server ip address and port</p>
-    <code>on your computer is http://localhost/5000</code><br>
-    <code>2. from a react app</code>
-    <p>go to the folder /frontend and execute:</p>
-    <code>npm start</code><br>
-    <p>If you changed the port (at the server .env.local) you need to modify the react app! the react app is setup for port 5000 at express and 5001 at socket.io</p>
-    <p>to change the express port go to:</p>
-    <code> /frontend/src/services/api.js</code>
-    <p>and to change the socket.io port go to: </p>
-    <code>/frontend/src/components/ChatPage/Chat.js</code>
-    <p>and change the port from each of them</p>
-	</li>
-</ol>
-	
-<h1>Credits</h1>
-<p>The project was built by Shilo Padael and Omer Bar, with the help of online resources and tutorials.</p>
+* **Android App**: In addition to the web version, the Chat App includes an Android application developed using Java. The Android app utilizes **Firebase Cloud Messaging** for push notifications, enabling users to receive chat notifications directly on their mobile devices.
+
+### Installation
+
+* Cloning the project:
+```
+git clone https://github.com/shilopadael/Advance-Programing-Project-2
+```
+
+
+Inside the project main folder to:
+
+* Starting the server:
+```
+npm run server
+```
+
+* Start the android studio:
+
+
+
+
+
+### Server file configuration
+
+The default server port is 5000 for http reqeust and at 5001 for socket.io.
+To change the the port go to the ./backend/config/.env.local
+
+The default config include our mongodb account online if you don't wish to change it, otherwise you can set new config in the .env.local file
+```
+CONNECTION_STRING="mongodb://localhost:<port>"
+PORT = 5000
+```
+
+* CONNECTION_STRING - is for the mongodb interface
+* PORT - the http port that the sever listen, note that the socket.io is set up to be PORT + 1
+
+### React file configuration
+
+The default config file for the react is inside the ./frontend/src/services/api.js
+
+the default is at port 5000 for http reqeust and at 5001 for socket.io
+```
+const PORT = 5000;
+const PORT_WS = 5001;
+```
+
+* PORT - the server http request port
+* PORT_WS - the server socket.io port
+
+**make sure after you changed the react file you need to rebuild the project and to pass it as public files to the server public folder.**
+
+* For your convince we created a script for that inside the main folder of the repository: **(for Linux shell only)**
+```
+npm run build-server
+```
+
+* For **Windows**:
+
+```
+cd frontend
+npm run build
+
+~~~ copy the content inside frontend/build to backend/public ~~~
+
+```
+
+### Contributors
+
+* Omer Bar (Computer Science Student, Second Year)
+* Shilo Padael (Computer Science Student, Second Year)
+
+We, Omer Bar and Shilo Padael, both second-year computer science students, have collaborated closely on the development of this project. Our combined efforts and expertise have been instrumental in shaping and enhancing the Chat App. With a shared passion for creating innovative solutions, we have dedicated ourselves to delivering a high-quality and user-friendly chat application.
+
+Throughout the development process, we have worked hand in hand, brainstorming ideas, implementing features, and ensuring the smooth integration of various technologies. Our commitment to excellence, attention to detail, and strong problem-solving skills have driven us to overcome challenges and continuously improve the application.
