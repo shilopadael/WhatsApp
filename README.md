@@ -30,6 +30,38 @@ On the other hand, the Android app takes advantage of Firebase Cloud Messaging t
 
 Whether you're using the React frontend or the Android app, the Chat App ensures that you are always in the loop. Socket.io and Firebase Cloud Messaging work hand in hand to establish a reliable and efficient communication channel, allowing users to seamlessly send and receive messages across platforms. So, whether you prefer the flexibility of web-based chatting or the mobility of the Android app, the Chat App keeps you connected at all times.
 
+### React Frontend:
+<h3>Navigation</h3>
+<p>
+Implement React Router to handle navigation between different pages: login, registration, and chat.<br>
+Set up routes for each page and configure the necessary components to render.
+</p>
+
+<h3>Login Page</h3>
+<p>
+Create a Login component that includes a form for users to enter their login credentials.<br>
+Handle form submission and authentication logic using React’s state management.
+</p>
+<image src=“frontend/public/ReadmeImages/LoginImage.png” style=“width:60%”>
+
+<h3>Registration Page</h3>
+<p>
+Create a Registration component that includes a form for users to provide their personal information and register a new account.<br>
+Handle form submission and user registration logic using React’s state management.
+</p>
+<image src=“frontend/public/ReadmeImages/RegisterImage.png” style=“width:60%”>
+
+<h3>Main Chat Interface</h3>
+<p>
+Design and implement the main chat interface using React components.<br>
+Fetch and display user conversations and messages using API calls or mock data.<br>
+Implement features like creating new chats, participating in existing chats, and sending messages.
+</p>
+<image src=“frontend/public/ReadmeImages/ChatImage.png” style=“width:60%”>
+
+### Android App:
+
+
 ### Installation
 
 * Cloning the project:
