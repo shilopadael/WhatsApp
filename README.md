@@ -23,6 +23,45 @@ Welcome to the Chat App GitHub project! This project aims to provide a seamless 
 
 * **Android App**: In addition to the web version, the Chat App includes an Android application developed using Java. The Android app utilizes **Firebase Cloud Messaging** for push notifications, enabling users to receive chat notifications directly on their mobile devices.
 
+### Feature
+**Live-comminucation** - The Chat App seamlessly bridges the gap between React and Android platforms, enabling live communication between them. Powered by Socket.io, the React frontend establishes a real-time connection with the server, facilitating instant message updates and notifications. This means that users interacting with the web version will experience the thrill of immediate message delivery and synchronization.
+
+On the other hand, the Android app takes advantage of Firebase Cloud Messaging to receive push notifications from the server. Leveraging this technology, users can stay connected even when they are on the move. With Firebase Cloud Messaging, incoming chat notifications are delivered directly to the Android device, ensuring that no important message goes unnoticed.
+
+Whether you're using the React frontend or the Android app, the Chat App ensures that you are always in the loop. Socket.io and Firebase Cloud Messaging work hand in hand to establish a reliable and efficient communication channel, allowing users to seamlessly send and receive messages across platforms. So, whether you prefer the flexibility of web-based chatting or the mobility of the Android app, the Chat App keeps you connected at all times.
+
+### React Frontend:
+<h3>Navigation</h3>
+<p>
+Implement React Router to handle navigation between different pages: login, registration, and chat.<br>
+Set up routes for each page and configure the necessary components to render.
+</p>
+
+<h3>Login Page</h3>
+<p>
+Create a Login component that includes a form for users to enter their login credentials.<br>
+Handle form submission and authentication logic using React’s state management.
+</p>
+<image src=“frontend/public/ReadmeImages/LoginImage.png” style=“width:60%”>
+
+<h3>Registration Page</h3>
+<p>
+Create a Registration component that includes a form for users to provide their personal information and register a new account.<br>
+Handle form submission and user registration logic using React’s state management.
+</p>
+<image src=“frontend/public/ReadmeImages/RegisterImage.png” style=“width:60%”>
+
+<h3>Main Chat Interface</h3>
+<p>
+Design and implement the main chat interface using React components.<br>
+Fetch and display user conversations and messages using API calls or mock data.<br>
+Implement features like creating new chats, participating in existing chats, and sending messages.
+</p>
+<image src=“frontend/public/ReadmeImages/ChatImage.png” style=“width:60%”>
+
+### Android App:
+
+
 ### Installation
 
 * Cloning the project:
@@ -39,7 +78,10 @@ npm run server
 ```
 
 * Start the android studio:
-
+```
+open the project using Android Studio, then press re-build (to adjust the build)
+and start the emulator to activate 
+```
 
 
 
