@@ -61,20 +61,27 @@ Implement features like creating new chats, participating in existing chats, and
 
 ### Android App:
 
-#### Login Screen
-![Login Screen](assets/loginScreen.png)
-
-#### Registration Screen
-TODO: Explain Android register screen
-![Registration Screen](assets/registerScreen.png)
-
-#### Contact Chat Screen
-TODO: Explain Android contact screen
-![Contact Chat Screen](assets/contactScreen.png)
-
-#### Message Screen
-TODO: Explain Android message screen
-![Message Screen](assets/messageScreen.png)
+<div style="display: flex; flex-wrap: wrap;">
+  <div style="width: 20%;">
+    <h5>Login Screen</h5>
+    <img src="assets/loginScreen.png" style="width: 100%;">
+  </div>
+  <div style="width: 20%;">
+    <h5>Registration Screen</h5>
+    <p><!-- TODO: Explain Android register screen --></p>
+    <img src="assets/registerScreen.png" style="width: 100%;">
+  </div>
+  <div style="width: 20%;">
+    <h5>Contact Chat Screen</h5>
+    <p><!-- TODO: Explain Android contact screen --></p>
+    <img src="assets/contactScreen.png" style="width: 100%;">
+  </div>
+  <div style="width: 20%;">
+    <h5>Message Screen</h5>
+    <p><!-- TODO: Explain Android message screen --></p>
+    <img src="assets/messageScreen.png" style="width: 100%;">
+  </div>
+</div>
 
 ### Installation
 
