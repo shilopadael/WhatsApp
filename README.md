@@ -58,46 +58,32 @@ Fetch and display user conversations and messages using API calls or mock data.<
 Implement features like creating new chats, participating in existing chats, and sending messages.
 </p>
 <image src="assets/ChatImage.png" style="width:60%">
-
 ### Android App:
-<style>
-  .image-container {
-    width: 50%;
-    display: inline-block;
-    box-sizing: border-box;
-    text-align: center;
-    padding: 10px;
-  }
 
-  .image-container img {
-    max-width: 100%;
-    height: auto;
-  }
-</style>
+<h5>Login Screen</h5>
+<p>
+ // TODO explain android login screen
+</p>
+<image src="assets/loginScreen.png" style="width:20%">
 
-<div class="image-container">
-  <h5>Login Screen</h5>
-  <img src="assets/loginScreen.png">
-</div>
+<h5>Registration Screen</h5>
+<p>
+ // TODO explain android register screen
+</p>
+<image src="assets/registerScreen.png" style="width:20%">
 
-<div class="image-container">
-  <h5>Registration Screen</h5>
-  <p><!-- TODO: Explain Android register screen --></p>
-  <img src="assets/registerScreen.png">
-</div>
+<h5>Contact Chat screen</h5>
+<p>
+ // TODO explain android contact screen
+</p>
+<image src="assets/contactScreen.png" style="width:20%">
 
-<div class="image-container">
-  <h5>Contact Chat Screen</h5>
-  <p><!-- TODO: Explain Android contact screen --></p>
-  <img src="assets/contactScreen.png">
-</div>
+<h5>Message screen</h5>
+<p>
+ // TODO explain android message screen
+</p>
 
-<div class="image-container">
-  <h5>Message Screen</h5>
-  <p><!-- TODO: Explain Android message screen --></p>
-  <img src="assets/messageScreen.png">
-</div>
-
+<image src="assets/messageScreen.png" style="width:20%">
 
 ### Installation
 
