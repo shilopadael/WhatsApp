@@ -76,11 +76,6 @@ Implement features like creating new chats, participating in existing chats, and
   </tr>
 </table>
 
-
-
-
-
-
 ### Installation
 
 * Cloning the project:
