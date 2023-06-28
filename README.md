@@ -73,7 +73,7 @@ Implement features like creating new chats, participating in existing chats, and
 </style>
 
 <table border="1">
-<table>
+<table style="border-collapse:collapse width: 100%">
   <tr>
     <td><img src="assets/loginScreen.png" style="width:20%"></td>
     <td><img src="image2.jpg" alt="Image 2"></td>
@@ -81,12 +81,14 @@ Implement features like creating new chats, participating in existing chats, and
     <td><img src="image4.jpg" alt="Image 4"></td>
   </tr>
   <tr>
-    <td><img src="image5.jpg" alt="Image 5"></td>
-    <td><img src="image6.jpg" alt="Image 6"></td>
-    <td><img src="image7.jpg" alt="Image 7"></td>
-    <td><img src="image8.jpg" alt="Image 8"></td>
+    <td><img src="assets/loginScreen.png" style="width:20%"></td>
+    <td><img src="assets/registerScreen.png" style="width:20%"></td>
+    <td><img src="assets/contactScreen.png" style="width:20%"></td>
+    <td><img src="assets/messageScreen.png" style="width:20%></td>
   </tr>
 </table>
+
+
 
 
 
