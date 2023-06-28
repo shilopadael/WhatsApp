@@ -60,21 +60,23 @@ Implement features like creating new chats, participating in existing chats, and
 <image src="assets/ChatImage.png" style="width:60%">
 ### Android App:
 
+<div>
+  <table style="border-collapse:collapse width: 100%">
+    <tr>
+      <td><h5>Login Screen</h5></td>
+      <td><h5>Registration Screen</h5></td>
+      <td><h5>Contact Chat screen</h5></td>
+      <td><h5>Message screen</h5></td>
+    </tr>
+    <tr>
+      <td><img src="assets/loginScreen.png" style="width:20%"></td>
+      <td><img src="assets/registerScreen.png" style="width:20%"></td>
+      <td><img src="assets/contactScreen.png" style="width:20%"></td>
+      <td><img src="assets/messageScreen.png" style="width:20%></td>
+    </tr>
+  </table>
+</div>
 
-<table style="border-collapse:collapse width: 100%">
-  <tr>
-    <td><h5>Login Screen</h5></td>
-    <td><h5>Registration Screen</h5></td>
-    <td><h5>Contact Chat screen</h5></td>
-    <td><h5>Message screen</h5></td>
-  </tr>
-  <tr>
-    <td><img src="assets/loginScreen.png" style="width:20%"></td>
-    <td><img src="assets/registerScreen.png" style="width:20%"></td>
-    <td><img src="assets/contactScreen.png" style="width:20%"></td>
-    <td><img src="assets/messageScreen.png" style="width:20%></td>
-  </tr>
-</table>
 
 ### Installation
 
