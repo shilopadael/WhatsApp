@@ -58,6 +58,7 @@ Fetch and display user conversations and messages using API calls or mock data.<
 Implement features like creating new chats, participating in existing chats, and sending messages.
 </p>
 <image src="assets/ChatImage.png" style="width:60%">
+  
 ### Android App:
 
 <div>
