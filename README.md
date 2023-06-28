@@ -60,28 +60,44 @@ Implement features like creating new chats, participating in existing chats, and
 <image src="assets/ChatImage.png" style="width:60%">
 
 ### Android App:
+<style>
+  .image-container {
+    width: 50%;
+    display: inline-block;
+    box-sizing: border-box;
+    text-align: center;
+    padding: 10px;
+  }
 
-<div style="display: flex; flex-wrap: wrap;">
-  <div style="width: 50%;">
-    <h5>Login Screen</h5>
-    <img src="assets/loginScreen.png" style="width: 100%;">
-  </div>
-  <div style="width: 50%;">
-    <h5>Registration Screen</h5>
-    <p><!-- TODO: Explain Android register screen --></p>
-    <img src="assets/registerScreen.png" style="width: 100%;">
-  </div>
-  <div style="width: 50%;">
-    <h5>Contact Chat Screen</h5>
-    <p><!-- TODO: Explain Android contact screen --></p>
-    <img src="assets/contactScreen.png" style="width: 100%;">
-  </div>
-  <div style="width: 50%;">
-    <h5>Message Screen</h5>
-    <p><!-- TODO: Explain Android message screen --></p>
-    <img src="assets/messageScreen.png" style="width: 100%;">
-  </div>
+  .image-container img {
+    max-width: 100%;
+    height: auto;
+  }
+</style>
+
+<div class="image-container">
+  <h5>Login Screen</h5>
+  <img src="assets/loginScreen.png">
 </div>
+
+<div class="image-container">
+  <h5>Registration Screen</h5>
+  <p><!-- TODO: Explain Android register screen --></p>
+  <img src="assets/registerScreen.png">
+</div>
+
+<div class="image-container">
+  <h5>Contact Chat Screen</h5>
+  <p><!-- TODO: Explain Android contact screen --></p>
+  <img src="assets/contactScreen.png">
+</div>
+
+<div class="image-container">
+  <h5>Message Screen</h5>
+  <p><!-- TODO: Explain Android message screen --></p>
+  <img src="assets/messageScreen.png">
+</div>
+
 
 ### Installation
 
