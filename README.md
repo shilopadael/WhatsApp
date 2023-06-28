@@ -60,25 +60,13 @@ Implement features like creating new chats, participating in existing chats, and
 <image src="assets/ChatImage.png" style="width:60%">
 ### Android App:
 
-<style>
-  table {
-    border-collapse: collapse;
-    width: 100%;
-  }
 
-  table, th, td {
-    border: 1px solid black;
-    padding: 8px;
-  }
-</style>
-
-<table border="1">
 <table style="border-collapse:collapse width: 100%">
   <tr>
-    <td><img src="assets/loginScreen.png" style="width:20%"></td>
-    <td><img src="image2.jpg" alt="Image 2"></td>
-    <td><img src="image3.jpg" alt="Image 3"></td>
-    <td><img src="image4.jpg" alt="Image 4"></td>
+    <td><h5>Login Screen</h5></td>
+    <td><h5>Registration Screen</h5></td>
+    <td><h5>Contact Chat screen</h5></td>
+    <td><h5>Message screen</h5></td>
   </tr>
   <tr>
     <td><img src="assets/loginScreen.png" style="width:20%"></td>
