@@ -49,7 +49,7 @@ Handle form submission and authentication logic using React’s state management
 Create a Registration component that includes a form for users to provide their personal information and register a new account.<br>
 Handle form submission and user registration logic using React’s state management.
 </p>
-<image src=“assets/RegisterImage.png” style=“width:60%”>
+<image src="assets/RegisterImage.png" style="width:60%">
 
 <h5>Main Chat Interface</h5>
 <p>
@@ -57,7 +57,7 @@ Design and implement the main chat interface using React components.<br>
 Fetch and display user conversations and messages using API calls or mock data.<br>
 Implement features like creating new chats, participating in existing chats, and sending messages.
 </p>
-<image src=“assets/ChatImage.png” style=“width:60%”>
+<image src="assets/ChatImage.png" style="width:60%">
 
 ### Android App:
 
