@@ -69,10 +69,10 @@ Implement features like creating new chats, participating in existing chats, and
       <td><h5>Message screen</h5></td>
     </tr>
     <tr>
-      <td><img src="assets/loginScreen.png" style="width: 40%;"></td>
-      <td><img src="assets/registerScreen.png" style="width: 40%;"></td>
-      <td><img src="assets/contactScreen.png" style="width: 40%;"></td>
-      <td><img src="assets/messageScreen.png" style="width: 40%;"></td>
+      <td><img src="assets/loginScreen.png" style="width: 70%;"></td>
+      <td><img src="assets/registerScreen.png" style="width: 70%;"></td>
+      <td><img src="assets/contactScreen.png" style="width: 70%;"></td>
+      <td><img src="assets/messageScreen.png" style="width: 70%;"></td>
     </tr>
   </table>
 </div>
