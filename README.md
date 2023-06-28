@@ -61,28 +61,16 @@ Implement features like creating new chats, participating in existing chats, and
 ### Android App:
 
 <h5>Login Screen</h5>
-<p>
- // TODO explain android login screen
-</p>
 <image src="assets/loginScreen.png" style="width:20%">
 
 <h5>Registration Screen</h5>
-<p>
- // TODO explain android register screen
-</p>
+
 <image src="assets/registerScreen.png" style="width:20%">
 
 <h5>Contact Chat screen</h5>
-<p>
- // TODO explain android contact screen
-</p>
 <image src="assets/contactScreen.png" style="width:20%">
 
 <h5>Message screen</h5>
-<p>
- // TODO explain android message screen
-</p>
-
 <image src="assets/messageScreen.png" style="width:20%">
 
 ### Installation
