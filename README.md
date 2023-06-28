@@ -42,7 +42,7 @@ Set up routes for each page and configure the necessary components to render.
 Create a Login component that includes a form for users to enter their login credentials.<br>
 Handle form submission and authentication logic using React’s state management.
 </p>
-<image src=“assets/LoginImage.png” style=“width:60%”>
+<image src="assets/LoginImage.png" style="width:60%">
 
 <h5>Registration Page</h5>
 <p>
