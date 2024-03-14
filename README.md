@@ -1,8 +1,7 @@
-
-<h1>creating an MVC server using express, http and websockets!</h1>
+<h1>Creating a WhatsApp Web Application with Real-Time Messaging</h1>
 
 <h1>Milestone: "Full-Stack Chat Application with Real-Time Messaging"</h1>
-<h1>ex1 part 1 is in BRANCH ex1 (HTML,CSS)</h1>
+<h1>ex1 part 1 is in BRANCH ex1 (HTML, CSS)</h1>
 <h1>ex1 part 2 is in BRANCH ex2 (REACT)</h1>
 <h1>ex2 is in BRANCH ex3  (BACKEND SIDE)</h1>
 <h1>ex3 is in BRANCH ex4 (ANDROID APP)</h1>
@@ -19,13 +18,14 @@
     <li>An alert will appear in the user interface of user Y.</li>
     <li>The server is capable of pushing messages immediately to user Y, although user Y still needs to request them.</li>
   </ul>
-  <li>the socket.io connection is updating the client live! when a new client successfuly login to the chat page it holds a socket connection to the server socket.io port (by default is 5001), this connection will update the client when:</li>
+  <li>The socket.io connection is updating the client live! When a new client successfully logs into the chat page, it holds a socket connection to the server's socket.io port (by default is 5001). This connection will update the client when:</li>
   <ul>
-    <li>new message</li>
-    <li>adding a new chat (the user that you added will update the chat list)</li>
-    <li>upon deleting a contact, it will delete the chat from both contacts</li>
+    <li>A new message is received.</li>
+    <li>A new contact is added (the user that you added will update the chat list).</li>
+    <li>Upon deleting a contact, it will delete the chat from both contacts.</li>
   </ul>
 </ul>
+
 
 <h2>Technologies Used</h2>
 
