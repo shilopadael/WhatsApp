@@ -1,0 +1,18 @@
+{
+  "name": "advance-programing-project-2",
+  "version": "1.0.0",
+  "description": "<h1>creating an MVC server using express, http and websockets!</h1>",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "server": "cd backend && npm i && npm run start",
+    "build-react": "cd frontend && npm i && npm run build",
+    "copy-build": "cp -r frontend/build backend/public",
+    "delete-build": "rm -rf backend/public",
+    "delete-build-react": "rm -rf frontend/build",
+    "build-server": "npm run build-react && npm run delete-build && npm run copy-build && npm run delete-build-react"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}

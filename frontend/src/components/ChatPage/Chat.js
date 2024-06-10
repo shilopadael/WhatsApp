@@ -3,6 +3,7 @@ import { useEffect, useState, useMemo } from "react";
 import auth from "../../services/auth-service";
 import defaultImg from '../../assets/registerImgs/profile.png'
 import { io } from "socket.io-client";
+import { SERVER_API_WS } from "../../services/api";
 
 const defaultUser = {
   username: "",
@@ -41,7 +42,7 @@ function Chat(props) {
       // nothing
     }
     else if (user) {
-      const socket = io.connect("http://localhost:5001", { query: { username: user.username } });
+      const socket = io.connect(SERVER_API_WS, { query: { username: user.username } });
       setSocket(socket);
       setOnline(true);
 

@@ -4,7 +4,11 @@ const SERVER_API = `http://localhost:${PORT}`;
 const SERVER_API_WS = `http://localhost:${PORT_WS}`;
 
 // extern the server
-export default SERVER_API;
+module.exports = {
+    SERVER_API,
+    SERVER_API_WS,
+}
+// export default SERVER_API;
 // module.exports = {
 //     SERVER_API_WS,
 // }

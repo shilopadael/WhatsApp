@@ -70,7 +70,7 @@ const getUserByUsername = async (username) => {
 
 
     const userDetils =  await User.findOne({ username: username });
-    if(userDetils.length === 0) {
+    if(userDetils && userDetils.length === 0) {
         return { error: 'Username does not exist' };
     } else{
         const user = {username: userDetils.username, 

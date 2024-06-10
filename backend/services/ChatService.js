@@ -6,6 +6,8 @@ const { getUserName } = require('./token');
 const UserPassName = require('../models/UserPassName');
 const Chat = require('../models/Chat');
 const mongoose = require('mongoose');
+const onlineConnections = require('../onlineConnection');
+const FireBaseManager = require('./firebaseAdmin');
 
 
 // get all chats
@@ -42,7 +44,7 @@ const getChats = async (req, res) => {
 
 
           const content = await findLastMessage(NOJchat);
-          console.log(content);
+          const populate = await Message.populate(content, { path: 'sender' });
           //wait for sure that  content got his data from db
 
           let chatToAdd = {
@@ -52,7 +54,7 @@ const getChats = async (req, res) => {
               profilePic: otherUserDetails.profilePic,
               displayName: otherUserDetails.displayName
             },
-            lastMessage: content
+            lastMessage: populate
           };
 
           listOfChats.push(chatToAdd);
@@ -106,26 +108,24 @@ const addChat = async (req, res) => {
         let reallChat = await Chats.findOne({ _id: chat });
         for (const user of reallChat.users) {
           const userInChat = await User.findOne({ _id: user });
-          if (userInChat.username === userToAdd.username) {
+          if (userInChat.username === thisUser) {
             return { error: 'Chat already exists' };
           }
         }
       }
     }
 
-
-
-
     const userPassName2 = await User.findOne({ username: thisUser });
 
     //all chats in system
     const chat = await Chats.find({});
     const id = generateNewId(chat);
-    const newChat = new Chats({
+    let data = {
       id: id,
       users: [userToAdd._id, userPassName2._id],
       messages: []
-    });
+    }
+    const newChat = new Chats(data);
 
     await newChat.save();
 
@@ -147,6 +147,33 @@ const addChat = async (req, res) => {
       }
     };
 
+    const onlineUsers = new onlineConnections();
+
+    // checking if the other user is online
+    let userToSend = onlineUsers.getOnlineUser(userToAdd.username);
+    if(userToSend !== undefined && userToSend.id != null) {
+      // from react
+      let newData = {
+        username: thisUser
+      }
+      userToSend.io.to(userToSend.id).emit('update-contact-list', newData);
+    } else if(userToSend !== undefined) {
+      // from android
+      const firebase = new FireBaseManager();
+      firebase.sendNotificationToUser({
+        data: {
+          // Add your custom data fields here
+          extra: "new-contact",
+          username: `${thisUser}`
+        },
+        notification: {
+          title: 'New Chat',
+          body: `You have a new chat with ${thisUser}`
+        },
+        token: userToSend.firebaseToken // Replace with the FCM device token of the recipient
+      });
+
+    }
 
     return toSend;
   } catch (error) {
@@ -174,21 +201,44 @@ const getChatById = async (req, res) => {
 
   //fins all the messages that conatin the user
 
-
-
   return newChat;
 
 
 }
 
 const getMessages = async (req, res) => {
+  // [
+  //     {
+  //       "id": 76,
+  //       "created": "2023-06-18T01:12:26.5124551",
+  //       "sender": {
+  //         "username": "omer5"
+  //       },
+  //       "content": "dasdasD"
+  //     }
+  //   ]
   const mesggesId = req.params.id;
   const username = getUserName(req);
 
   //get the chat by the id chat
   const chat = await Chats.findOne({ id: mesggesId });
-
-  return chat.messages;
+  if (chat !== null) {
+    const chatMessages = await Message.populate(chat, { path: 'messages', populate: { path: 'sender' } });
+    const messages = chatMessages.messages;
+    let newMessages = messages.map(message => {
+      return {
+        id: message.id,
+        created: message.created,
+        sender: {
+          username: message.sender.username
+        },
+        content: message.content
+      }
+    });
+    return newMessages;
+  } else {
+    return { error: 'Chat does not exist' };
+  }
 }
 
 const addMessage = async (req, res) => {
@@ -208,7 +258,7 @@ const addMessage = async (req, res) => {
     const Number = generateNewId(allMessages);
 
     const mess = new Message({
-      id: generateNewId(allMessages),
+      id: Number,
       created: Date.now(),
       sender: user,
       content: msgGot
@@ -218,6 +268,60 @@ const addMessage = async (req, res) => {
     chat.messages.push(mess._id);
     await chat.save();
 
+    // sending to the other person in the chat, if it is from andorid
+
+    if (req.headers['devicetype'] === 'Android') {
+      let users = await User.populate(chat, { path: 'users' });
+      users = users.users;
+      const sendUserScheme = users.filter(user => user.username !== username);
+      const onlineUsers = new onlineConnections();
+      let userToSend = onlineUsers.getOnlineUser(sendUserScheme[0].username);
+      if (userToSend !== undefined && userToSend.id != null) {
+        // sending the message to the other user
+        // casting the mesggesId to number
+        let number = parseInt(mesggesId);
+        let data = {
+          data: {
+            created: mess.created,
+            sender: user,
+            content: msgGot,
+            id: Number
+          },
+          receiverUsername: sendUserScheme[0].username,
+          id: number
+        }
+        userToSend.io.to(userToSend.id).emit('receive-message', data);
+      } else if (userToSend !== undefined) {
+        // from android to android
+        // sending the message to the other user
+        let number = parseInt(mesggesId);
+        let data = {
+          data: {
+            created: mess.created,
+            sender: user,
+            content: msgGot,
+            id: Number
+          },
+          receiverUsername: sendUserScheme[0].username,
+          id: number
+        }
+
+        const firebase = new FireBaseManager();
+        const message = {
+          data: {
+            // Add your custom data fields here
+            chatId: `${mesggesId}`,
+            sender: username
+          },
+          notification: {
+            title: username,
+            body: msgGot
+          },
+          token: userToSend.firebaseToken // Replace with the FCM device token of the recipient
+        };
+        firebase.sendNotificationToUser(message);
+      }
+    }
     return mess;
   } catch (error) {
     return { error: 'An error occurred while sending message. go away.' };
@@ -265,19 +369,50 @@ const deleteChatById = async (req) => {
       flag = true;
     }
   }
-  if(flag === true){
-    for(const user of lst){
+  if (flag === true) {
+    for (const user of lst) {
       let allChats = await AllChats.findOne({ username: user });
       let index = allChats.chats.indexOf(chatToDelete._id);
       allChats.chats.splice(index, 1);
       await allChats.save();
     }
 
+    console.log(lst);      
+    const otherUsername = lst.filter(user => user !== username)[0];
+
     // deleting the chat messages from the database
     for (const message of chatToDelete.messages) {
       await Message.deleteOne({ _id: message });
     }
     await Chat.deleteOne({ _id: chatToDelete._id });
+
+    const onlineUsers = new onlineConnections();
+
+    let userToSend = onlineUsers.getOnlineUser(otherUsername);
+    if(userToSend !== undefined && userToSend.id != null) {
+      // from react
+      let newData = {
+        username: username
+      }
+      userToSend.io.to(userToSend.id).emit('update-contact-list', newData);
+    } else if(userToSend !== undefined) {
+      // from android
+      const firebase = new FireBaseManager();
+      firebase.sendNotificationToUser({
+        data: {
+          // Add your custom data fields here
+          extra: "remove-contact",
+          username: `${username}`
+        },
+        notification: {
+          title: `${username}`,
+          body: `Removed a chat with you`
+        },
+        token: userToSend.firebaseToken // Replace with the FCM device token of the recipient
+      });
+
+    }
+
     return { success: true };
   }
   return { success: false, error: 'The user is not allowed to delete this chat' };
